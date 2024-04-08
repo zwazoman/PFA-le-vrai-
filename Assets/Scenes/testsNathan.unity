@@ -1392,7 +1392,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Je chie !
 
-    nique les arabes
+    des briques!
 
     su'
   m_isRightToLeft: 0
@@ -2205,11 +2205,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4827aff852dce8d4ca70c2893924438a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 11400000, guid: 0a99e2c74e87c8d4c8efd716beedb88a, type: 2}
   _dialogueText: {fileID: 1251798717}
   _titleText: {fileID: 1080697393}
   _CharacterImage1: {fileID: 939371149}
   _CharacterImage2: {fileID: 2018469337}
+  Flow:
+    characters: {fileID: 11400000, guid: 544b97e6732fc0b4899b35c1bb5f2ffd, type: 2}
 --- !u!1 &1703024369
 GameObject:
   m_ObjectHideFlags: 0
