@@ -12,18 +12,77 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: new Character 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacters
-  Charon:
-    Name: 
-    Sprite: {fileID: 0}
-  Player:
-    Name: 
-    Sprite: {fileID: 0}
   Narrator:
-    Name: Narrator
+    Name: 
+    Font: {fileID: 0}
     Sprite: {fileID: 0}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 00000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 0}
+      editor_keyInput: 0
+      editor_valueInput: {fileID: 0}
   Noah:
     Name: Noah
+    Font: {fileID: 0}
     Sprite: {fileID: 21300000, guid: 420881cc5a8a1a54b8ae84a0c0bef07c, type: 3}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 00000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 21300000, guid: 420881cc5a8a1a54b8ae84a0c0bef07c, type: 3}
+      editor_keyInput: 0
+      editor_valueInput: {fileID: 0}
   Nestor:
     Name: Nestor
+    Font: {fileID: 0}
     Sprite: {fileID: 21300000, guid: 26140f8b017cc134593ae2406c2b6ef4, type: 3}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 00000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 21300000, guid: 26140f8b017cc134593ae2406c2b6ef4, type: 3}
+      editor_keyInput: 0
+      editor_valueInput: {fileID: 0}
+  Quentin:
+    Name: Quentin
+    Font: {fileID: 0}
+    Sprite: {fileID: 0}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 0000000004000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 21300000, guid: 4c952c2fc5da56049bb1211fa10c0b79, type: 3}
+        - {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5, type: 3}
+      editor_keyInput: 4
+      editor_valueInput: {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5,
+        type: 3}
