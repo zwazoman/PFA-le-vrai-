@@ -15,11 +15,11 @@ namespace CustomInspector.Editor
         int index;
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            if (!isGlobalDisabled)
+           /* if (!isGlobalDisabled)
             {
                 //finds the index of the currently selected item in the list
                 index = 0;
-                foreach(string option in DialogueDirectory.FileNames)
+                for(int i = 0;i< DialogueDirectory.)
                 {
                     
                     if (option == property.stringValue) break;
@@ -32,7 +32,7 @@ namespace CustomInspector.Editor
                 index =EditorGUILayout.Popup("Dialogue ", index, DialogueDirectory.FileNames);
                 property.stringValue = DialogueDirectory.FileNames[index];
                 property.serializedObject.ApplyModifiedProperties();
-            }
+            }*/
         }
         /*public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

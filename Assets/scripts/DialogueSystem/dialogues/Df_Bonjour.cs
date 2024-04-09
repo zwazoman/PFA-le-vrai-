@@ -12,4 +12,6 @@ public class Df_Bonjour : DialogueFlow
         await _characters.Noah.Say("NATHAN LE GOAT");
         await _characters.Nestor.Say("CEST SI BEAU");
     }
+
 }
+

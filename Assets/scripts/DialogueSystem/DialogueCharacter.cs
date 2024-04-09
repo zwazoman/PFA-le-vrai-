@@ -1,17 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static UnityEngine.Rendering.DebugUI;
+
 
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
 {
-    public DialogueCharacter Charon,Player,Narrator,Noah,Nestor;
+    internal DialogueCharacter Charon, Player, Narrator, Noah, Nestor;
 
-    public void initAllCharacters(DialogueFlow flow,DialoguePanel panel)
+    internal void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
         Charon.Init(flow, panel);
         Player.Init(flow, panel);
@@ -24,14 +21,14 @@ public class DialogueCharacters : ScriptableObject
 
 
 [Serializable]
-public class DialogueCharacter 
+public class DialogueCharacter
 {
     [SerializeField] public string Name;
     [SerializeField] public Sprite Sprite;
 
     private DialogueFlow _Flow;
     private DialoguePanel _Panel;
-    public void Init(DialogueFlow flow, DialoguePanel panel)
+    internal void Init(DialogueFlow flow, DialoguePanel panel)
     {
         _Flow = flow;
         _Panel = panel;
@@ -45,8 +42,10 @@ public class DialogueCharacter
 
         await _Panel.Write(text);
 
-        while(!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
 
     }
 
 }
+
+
