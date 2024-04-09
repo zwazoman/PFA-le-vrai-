@@ -12,6 +12,9 @@ public class PlayerMain : MonoBehaviour
     [field: SerializeField]
     public PlayerMovement Movement { get; private set; }
 
+    [field : SerializeField]
+    public PlayerHands Hands { get; private set; }
+
     //init du singleton
     private static PlayerMain instance = null;
     public static PlayerMain Instance => instance;
