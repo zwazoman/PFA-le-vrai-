@@ -11,9 +11,9 @@ public class EventTime : MonoBehaviour
         
     }
 
-    void OnTenHour()
+    public void OnTenHour(int hour)
     {
-        if (_timeManager.hour == 10)
+        if (hour == 10)
         {
             Debug.Log("Il est 10h fdp");
         }

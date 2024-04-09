@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     /// </summary>
    
     int _day;
-    public float hour { get; private set; }
+    static float hour;
     float _minute;
     public UnityEvent _tenHour;
 
@@ -29,18 +29,13 @@ public class TimeManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         hour ++;
         StartCoroutine(DayPass());
+        _tenHour.Invoke();
         if (hour == 24)
         {
             _day ++;
             hour = 0;
             Debug.Log(_day);
-            _tenHour.Invoke();
         }
         Debug.Log(hour);
-    }
-
-    void OnTenHour(int _hour = 10)
-    {
-        Debug.Log("Il est 10h");
     }
 }
