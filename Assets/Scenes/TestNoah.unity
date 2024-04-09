@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63b378a6f3bfd374aa00d624872311c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeManager: {fileID: 338893421}
 --- !u!114 &338893421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,12 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbed9723c13a6a4e92e99be79ed89de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tenHour:
+  _eventHour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 338893420}
         m_TargetAssemblyTypeName: EventTime, Assembly-CSharp
-        m_MethodName: OnTenHour
+        m_MethodName: EventAtHour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -181,6 +180,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _eventDay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 338893420}
+        m_TargetAssemblyTypeName: EventTime, Assembly-CSharp
+        m_MethodName: EventAtDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IrlSecond: 2
 --- !u!4 &338893422
 Transform:
   m_ObjectHideFlags: 0

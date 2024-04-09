@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EventTime : MonoBehaviour
 {
-    [SerializeField] TimeManager _timeManager;
-
-    private void Start()
+    public void EventAtHour()
     {
-        
-    }
-
-    public void OnTenHour(int hour)
-    {
-        if (hour == 10)
+        if (TimeManager.Hour == 10)
         {
             Debug.Log("Il est 10h fdp");
+        }
+    }
+
+    public void EventAtDay()
+    {
+        if (TimeManager.Day == 2)
+        {
+            Debug.Log("on est le Jour 2");
         }
     }
 }

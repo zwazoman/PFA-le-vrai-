@@ -7,35 +7,37 @@ public class TimeManager : MonoBehaviour
     /// <summary>
     /// Gére le temp du jeu
     /// </summary>
-   
-    static int _day;
-    static float hour;
-    float _minute;
-    public UnityEvent _tenHour;
+
+    public static int Day;
+    public static float Hour;
+    //float _minute;
+    [SerializeField] UnityEvent _eventHour;
+    [SerializeField] UnityEvent _eventDay;
+    [SerializeField] float IrlSecond;
 
     private void Awake()
     {
-        _day = 0;
-        _minute = 0;
-        hour = 0;
+        Day = 1;
+        //_minute = 0;
+        Hour = 0;
     }
 
     private void Start()
     {
-        StartCoroutine(DayPass());
+        InvokeRepeating("TimePass", IrlSecond, IrlSecond);
     }
-    IEnumerator DayPass()
+    private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
-        yield return new WaitForSeconds(2);
-        hour ++;
-        StartCoroutine(DayPass());
-        _tenHour.Invoke();
-        if (hour == 24)
+        Hour++;
+        _eventHour.Invoke();
+        Debug.Log(Hour);
+
+        if (Hour == 24)
         {
-            _day ++;
-            hour = 0;
-            Debug.Log(_day);
+            Day++;
+            Hour = 0;
+            _eventDay.Invoke();
+            Debug.Log(Day);
         }
-        Debug.Log(hour);
     }
 }
