@@ -7,8 +7,7 @@ using UnityEngine.Windows;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    // event mouvements du joueur
-    public event Action OnMove;
+    public Vector2 moveInput { get; private set; } //valeur de déplacement
     // event interaction du joueur
     public event Action OnInteract;
     // event début de la course du joueur
@@ -30,7 +29,7 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void Move(InputAction.CallbackContext context)
     {
-        
+        moveInput = context.ReadValue<Vector2>();
     }
 
     /// <summary>
