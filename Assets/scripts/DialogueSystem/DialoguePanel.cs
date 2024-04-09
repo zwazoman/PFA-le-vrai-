@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 /// <summary>
@@ -41,10 +42,16 @@ public class DialoguePanel : MonoBehaviour
     public void InitDialogue(DialogueCharacter character1, DialogueCharacter character2)
     {
         characterDisplays.Add(character1, _CharacterImage1);
-        _CharacterImage1.sprite = character1.Sprite;
-
         characterDisplays.Add(character2, _CharacterImage2);
+
+        _CharacterImage1.sprite = character1.Sprite;
         _CharacterImage2.sprite = character2.Sprite;
+        
+    }
+
+    public void UpdateCharacterSprite(DialogueCharacter character)
+    {
+        characterDisplays[character].sprite = character.Sprite;
     }
 
     public void SetTalkingCharacter(DialogueCharacter character)

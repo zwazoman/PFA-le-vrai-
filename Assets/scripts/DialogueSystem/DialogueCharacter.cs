@@ -1,17 +1,18 @@
+using CustomInspector;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.Assertions;
 
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
 {
-    public DialogueCharacter Charon, Player, Narrator, Noah, Nestor;
-
+    public DialogueCharacter  Narrator, Noah, Nestor,Quentin; //penser à init les persos juste en dessous
     internal void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
-        Charon.Init(flow, panel);
-        Player.Init(flow, panel);
+        Quentin.Init(flow, panel);
         Narrator.Init(flow, panel);
         Nestor.Init(flow, panel);
         Noah.Init(flow, panel);
@@ -22,8 +23,23 @@ public class DialogueCharacters : ScriptableObject
 [Serializable]
 public class DialogueCharacter
 {
-    [SerializeField] public string Name;
-    [SerializeField] public Sprite Sprite;
+    public string Name;
+    public TMP_FontAsset Font;
+
+    [HideInInspector]
+    public Sprite Sprite;
+
+    [Dictionary]
+    public SerializableDictionary<Emotions, Sprite> EmotionSprites = new SerializableDictionary<Emotions, Sprite>();
+    
+    public enum Emotions
+    {
+        Normal,
+        angry,
+        hungry,
+        blush,
+        horny,
+    }
 
     private DialogueFlow _Flow;
     private DialoguePanel _Panel;
@@ -31,6 +47,7 @@ public class DialogueCharacter
     {
         _Flow = flow;
         _Panel = panel;
+        SetEmotion(Emotions.Normal);
     }
 
     public async Task Say(string text)
@@ -43,6 +60,13 @@ public class DialogueCharacter
 
         while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
 
+    }
+
+    public void SetEmotion(Emotions newEmotion)
+    {
+        Assert.IsTrue(EmotionSprites.ContainsKey(newEmotion),Name+ " n'a pas encore débloqué cette émotion.il ne peut pas être "+newEmotion.ToString() +". Connard. Va dessiner tes putains de sprites");
+        Sprite = EmotionSprites[newEmotion];
+        _Panel.UpdateCharacterSprite(this);
     }
 
 }
