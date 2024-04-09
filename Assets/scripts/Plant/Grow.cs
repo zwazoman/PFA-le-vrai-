@@ -1,11 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Grow : MonoBehaviour
 {
-    void IsGrowing()
+    /// <summary>
+    /// Fais poussez les plantes
+    /// </summary>
+    public void IsGrowing() //Pousse quand on passe a jour suivant (surement a modifier plus tard)
     {
-
+        transform.position += new Vector3(0,0.5f,0); 
+        Debug.Log("ça pousse");
+        if (TimeManager.Day == 4)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("TimePass", IrlSecond, IrlSecond);
+        InvokeRepeating(nameof(TimePass), IrlSecond, IrlSecond); //repete la fonction TimePass
     }
     private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
