@@ -8,7 +8,7 @@ public class TimeManager : MonoBehaviour
     /// Gére le temp du jeu
     /// </summary>
    
-    int _day;
+    static int _day;
     static float hour;
     float _minute;
     public UnityEvent _tenHour;
