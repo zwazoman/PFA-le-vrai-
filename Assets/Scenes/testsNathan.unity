@@ -1392,7 +1392,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Je chie !
 
-    nique les arabes
+    des briques!
 
     su'
   m_isRightToLeft: 0
@@ -2126,6 +2126,7 @@ GameObject:
   - component: {fileID: 1687375605}
   - component: {fileID: 1687375607}
   - component: {fileID: 1687375606}
+  - component: {fileID: 1687375608}
   m_Layer: 5
   m_Name: Panel_dialogues
   m_TagString: Untagged
@@ -2192,6 +2193,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687375604}
   m_CullTransparentMesh: 1
+--- !u!114 &1687375608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687375604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4827aff852dce8d4ca70c2893924438a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueText: {fileID: 1251798717}
+  _titleText: {fileID: 1080697393}
+  _CharacterImage1: {fileID: 939371149}
+  _CharacterImage2: {fileID: 2018469337}
+  characters: {fileID: 11400000, guid: e04f310854da86940bcca1e636fab7bb, type: 2}
+  DialogueName: Df_Bonjour
+  dialogue: {fileID: 0}
 --- !u!1 &1703024369
 GameObject:
   m_ObjectHideFlags: 0
