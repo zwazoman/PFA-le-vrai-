@@ -10,6 +10,7 @@ public class Df_Bonjour : DialogueFlow
 
         await _characters.Nestor.Say("OH PUTAIN CA MARCHE");
         await _characters.Noah.Say("NATHAN LE GOAT");
+        await _characters.Narrator.Say("Bonjour c'est moi, gégé le narrateur");
         await _characters.Nestor.Say("CEST SI BEAU");
     }
 

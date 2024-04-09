@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
 {
-    internal DialogueCharacter Charon, Player, Narrator, Noah, Nestor;
+    public DialogueCharacter Charon, Player, Narrator, Noah, Nestor;
 
     internal void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
@@ -15,7 +15,6 @@ public class DialogueCharacters : ScriptableObject
         Narrator.Init(flow, panel);
         Nestor.Init(flow, panel);
         Noah.Init(flow, panel);
-        Debug.Log("tyvfguhb");
     }
 }
 
@@ -28,7 +27,7 @@ public class DialogueCharacter
 
     private DialogueFlow _Flow;
     private DialoguePanel _Panel;
-    internal void Init(DialogueFlow flow, DialoguePanel panel)
+    public void Init(DialogueFlow flow, DialoguePanel panel)
     {
         _Flow = flow;
         _Panel = panel;
