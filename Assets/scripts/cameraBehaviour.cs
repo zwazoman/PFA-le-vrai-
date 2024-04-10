@@ -10,7 +10,7 @@ public class cameraBehaviour : MonoBehaviour
     [SerializeField] float smoothTime;
     // Start is called before the first frame update
     void Start()
-    {
+    {  
         target=FindObjectOfType<PlayerMain>().gameObject; //t'inquiete
         Offset = -target.transform.position + transform.position;
     }
