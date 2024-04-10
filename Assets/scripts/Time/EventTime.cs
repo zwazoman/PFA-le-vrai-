@@ -1,10 +1,10 @@
 using UnityEngine;
-
-public class EventTime : MonoBehaviour
-{
-    /// <summary>
+   /// <summary>
     /// Declenches des actions en fonction d'une certaine heure ou d'une certaine date
     /// </summary>
+public class EventTime : MonoBehaviour
+{
+ 
     public void EventAtHour()
     {
         if (TimeManager.Hour == 10)

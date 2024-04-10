@@ -6,9 +6,9 @@ public class PlayerMovement : DynamicObject
 {
     PlayerInputManager _inputManager;
     //vitesse de marche du joueur
-    [SerializeField] float _playerWalkSpeed;
+    [SerializeField] float _playerMoveSpeed;
     //vitesse de course du joueur
-    [SerializeField] float _playerRunSpeed;
+    [SerializeField] float _playerRunFactor;
     //vitesse a laquelle le joueur tourne
     [SerializeField] float _turnSpeed;
     //acceleration du joueur lors de ses déplacements
@@ -29,18 +29,19 @@ public class PlayerMovement : DynamicObject
     {
         _inputManager = PlayerMain.Instance.InputManager;
         _inputManager.OnSprintStart += StartRunning; // début course
-        _inputManager.OnSprintEnd -= StopRunning; // fin course
+        _inputManager.OnSprintEnd += StopRunning; // fin course
     }
 
     private void Update()
     {
         Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, 0, _inputManager.moveInput.y);
-        print("Move Direction : " + direction.ToString());
-        Move(direction.normalized,_playerWalkSpeed,_acceleration);
+        //print("Move Direction : " + direction.ToString());
+        Move(direction.normalized,_playerMoveSpeed,_acceleration);
         if(Velocity.magnitude > 1f)
         {
             transform.rotation = Quaternion.Euler(Vector3.up * Mathf.Atan2(Velocity.x, Velocity.z) * Mathf.Rad2Deg); // rotaton jolie
         }
+        //print(_playerMoveSpeed);
     }
 
     /// <summary>
@@ -52,7 +53,7 @@ public class PlayerMovement : DynamicObject
 
     public void Move(Vector3 direction, float maxSpeed, float acceleration)
     {
-        print($"Direction : {direction} , Max speed : {maxSpeed} , acceleration : {acceleration}");
+        //print($"Direction : {direction} , Max speed : {maxSpeed} , acceleration : {acceleration}");
         float currentSpeed = getFlatVelocity().magnitude;
         float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
         AddImpulse(AddSpeed * direction);
@@ -63,7 +64,9 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StartRunning()
     {
-
+        print("augment speed");
+        _playerMoveSpeed *= _playerRunFactor;
+        print(_playerMoveSpeed);
     }
 
     /// <summary>
@@ -71,6 +74,8 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StopRunning()
     {
-
+        print("reduce speed");
+        _playerMoveSpeed /= _playerRunFactor;
+        print(_playerMoveSpeed);
     }
 }
