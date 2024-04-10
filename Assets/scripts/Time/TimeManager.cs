@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Gére le temp du jeu
+/// </summary>
 public class TimeManager : MonoBehaviour
 {
-    /// <summary>
-    /// Gére le temp du jeu
-    /// </summary>
-
     public static int Day;
     public static float Hour;
     //float _minute;
-    [SerializeField] UnityEvent _eventHour;
-    [SerializeField] UnityEvent _eventDay;
+    public UnityEvent _eventHour;
+    public UnityEvent _eventDay;
     [SerializeField] float IrlSecond;
 
     private void Awake()
@@ -39,4 +38,16 @@ public class TimeManager : MonoBehaviour
             Debug.Log(Day);
         }
     }
+
+    public void SkipTime(float timeToSkip)
+    {
+        //for (int i = 0; i > timeToSkip; i++, CancelInvoke(nameof(TimePass)), Start()) ;
+       // while ()
+    }
+
+    public void SkipTo()
+    {
+
+    }
+
 }

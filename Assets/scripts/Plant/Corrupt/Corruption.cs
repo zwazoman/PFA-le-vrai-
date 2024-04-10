@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Corruption : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class Corruption : MonoBehaviour
     /// Gere la corruption de la plante
     /// </summary>
   
-    public float corruptionValue { get;  set; }
+    public float corruptionValue {get; set;}
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
