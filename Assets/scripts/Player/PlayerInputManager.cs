@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
 
+/// <summary>
+/// gère les inputs du joueur
+/// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
     public Vector2 moveInput { get; private set; } //valeur de déplacement
