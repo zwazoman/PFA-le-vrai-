@@ -1,36 +1,41 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Corruption : MonoBehaviour
 {
     /// <summary>
     /// Gere la corruption de la plante
     /// </summary>
-    float _corruptionValue;
+  
+    public float corruptionValue { get;  set; }
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
     [SerializeField] float _addCorruption;
+
+
     private void Awake()
     {
-        _corruptionValue = 0;
+        corruptionValue = 0;
+
     }
 
     public void CorruptionStart()
     {
         if (TimeManager.Hour % 2 == 0)
         {
-            SetCorruptionValue(_corruptionValue + _addCorruption); //Augmente la corruption toute les 2h
+            SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption toute les 2h
 
             //Gestion du nuages de corruption
-            if (_corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
+            if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
             {
-                _corruptionZone = Instantiate(_corruptionZonePrefab, gameObject.transform);
+                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation); ;
             }
-            else if (_corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
+            else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
             }
-            Debug.Log(_corruptionValue);
+            Debug.Log(corruptionValue);
         }       
     }
 
@@ -38,6 +43,6 @@ public class Corruption : MonoBehaviour
     public void SetCorruptionValue(float newValue) 
     {
         newValue = Mathf.Clamp01(newValue);
-        _corruptionValue = newValue;
+        corruptionValue = newValue;
     }
 }
