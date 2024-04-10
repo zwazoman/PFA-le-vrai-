@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// component "Main" du joueur référençant toutes ses autres classes utilmisées comme components
+/// </summary>
 public class PlayerMain : MonoBehaviour
 {
+    [field: SerializeField]
+    public PlayerInputManager InputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
 
     [field: SerializeField]
-    public PlayerInputManager InputManager { get; private set; }
+    public PlayerMovement Movement { get; private set; }// référence au component "PlayerMovement" attaché au joueur
 
-    [field: SerializeField]
-    public PlayerMovement Movement { get; private set; }
+    [field : SerializeField]
+    public PlayerInteraction Interaction { get; private set; }// référence au component "PlayerInteraction" attaché au joueur
 
-    //init du singleton
+    [field : SerializeField]
+    public PlayerHands Hands { get; private set; }// référence au component "PlayerHands" attaché au joueur
+
+    //singleton
     private static PlayerMain instance = null;
     public static PlayerMain Instance => instance;
     private void Awake()
@@ -26,6 +34,5 @@ public class PlayerMain : MonoBehaviour
         {
             instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 }
