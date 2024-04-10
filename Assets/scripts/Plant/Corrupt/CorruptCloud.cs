@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CorruptCloud : MonoBehaviour
 {
-    void UpdateSize()
+    //[SerializeField] Corruption _corrupt;
+    private void UpdateSize()
     {
-        
+    
     }
 
-    void CorruptAround()
-    {
 
-    }
 }
