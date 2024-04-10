@@ -6,12 +6,14 @@ public class Df_Bonjour : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Nestor, _characters.Noah);
+        _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
-        await _characters.Nestor.Say("OH PUTAIN CA MARCHE");
+        await _characters.Quentin.Say("OH PUTAIN CA MARCHE");
         await _characters.Noah.Say("NATHAN LE GOAT");
         await _characters.Narrator.Say("Bonjour c'est moi, gégé le narrateur");
-        await _characters.Nestor.Say("CEST SI BEAU");
+
+        _characters.Quentin.SetEmotion(DialogueCharacter.Emotions.horny);
+        await _characters.Quentin.Say("je suis si horny");
     }
 
 }
