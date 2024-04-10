@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EventTime : MonoBehaviour
 {
+    /// <summary>
+    /// Declenches des actions en fonction d'une certaine heure ou d'une certaine date
+    /// </summary>
     public void EventAtHour()
     {
         if (TimeManager.Hour == 10)
