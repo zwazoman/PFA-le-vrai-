@@ -100,13 +100,13 @@ public class DynamicObject : MonoBehaviour
         
         if (Physics.SphereCast(transform.position, col.radius*0.5f, Vector3.down, out hit,GroundCheckDistance + col.radius * 0.5f /*- Mathf.Min(0, velocity.y * Time.deltaTime)*/, collisionLayer))
         {
-            transform.parent = hit.collider.gameObject.transform;
+            //transform.parent = hit.collider.gameObject.transform;
             currentSlopeAngle = Vector3.Angle(Vector3.up, hit.normal);
             isGrounded = currentSlopeAngle <= MaxSlopeAngle;
         }
         else
         {
-            transform.parent = null;
+            //transform.parent = null;
             isGrounded = false;
         }
 
