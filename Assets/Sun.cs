@@ -20,7 +20,7 @@ public class Sun : MonoBehaviour
 
     IEnumerator MoveLight()
     {
-        float TimeAlpha = (float)TimeManager.Hour / 24f;
+        float TimeAlpha = (float)TimeManager.Instance.Hour / 24f;
         float endTime = Time.time + AnimationDuration;
 
         Quaternion targetRotation = Quaternion.Euler(60, transform.eulerAngles.y + 360f/24f,0);
@@ -32,7 +32,7 @@ public class Sun : MonoBehaviour
             alpha = Mathf.SmoothStep(0,1,alpha);
             transform.rotation = Quaternion.Lerp  (BaseRotation, targetRotation,alpha);
 
-            _Light.color = Gradient.Evaluate(alpha/24f + ((float)TimeManager.Hour/24f)%1f);
+            _Light.color = Gradient.Evaluate(alpha/24f + ((float)TimeManager.Instance.Hour/24f)%1f);
             yield return 0;
         }
         transform.rotation = targetRotation;
