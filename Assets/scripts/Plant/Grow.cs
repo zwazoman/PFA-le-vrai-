@@ -1,15 +1,15 @@
 using UnityEngine;
-
-public class Grow : MonoBehaviour
-{
     /// <summary>
     /// Fais poussez les plantes
     /// </summary>
+public class Grow : MonoBehaviour
+{
+   
     public void IsGrowing() //Pousse quand on passe a jour suivant (surement a modifier plus tard)
     {
         transform.position += new Vector3(0,0.5f,0); 
         Debug.Log("ça pousse");
-        if (TimeManager.Day == 4)
+        if (TimeManager.Instance.Day == 4)
         {
             Destroy(gameObject);
         }
