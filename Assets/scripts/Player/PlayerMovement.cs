@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : DynamicObject
 {
     PlayerInputManager _inputManager;
-    Rigidbody rb;
     //vitesse de marche du joueur
     [SerializeField] float _playerWalkSpeed;
     //vitesse de course du joueur
@@ -17,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        initPhysics();
+    }
+
+    private void LateUpdate()
+    {
+        UpdatePhysics();
     }
 
     private void Start()
@@ -29,11 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, rb.velocity.y, _inputManager.moveInput.y);
-        Move(direction,_playerWalkSpeed,_acceleration);
-        if(rb.velocity.magnitude > 1f)
+        Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, 0, _inputManager.moveInput.y);
+        print("Move Direction : " + direction.ToString());
+        Move(direction.normalized,_playerWalkSpeed,_acceleration);
+        if(Velocity.magnitude > 1f)
         {
-            transform.rotation = Quaternion.Euler(Vector3.up * Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg); // rotaton jolie
+            transform.rotation = Quaternion.Euler(Vector3.up * Mathf.Atan2(Velocity.x, Velocity.z) * Mathf.Rad2Deg); // rotaton jolie
         }
     }
 
@@ -43,11 +49,13 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="direction"></param>
     /// <param name="maxSpeed"></param>
     /// <param name="acceleration"></param>
+
     public void Move(Vector3 direction, float maxSpeed, float acceleration)
     {
-        float currentSpeed = rb.velocity.magnitude;
+        print($"Direction : {direction} , Max speed : {maxSpeed} , acceleration : {acceleration}");
+        float currentSpeed = getFlatVelocity().magnitude;
         float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
-        rb.velocity += (AddSpeed * direction);
+        AddImpulse(AddSpeed * direction);
     }
 
     /// <summary>
