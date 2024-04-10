@@ -1,11 +1,9 @@
 using UnityEngine;
-
-public class Corruption : MonoBehaviour
-{
     /// <summary>
     /// Gere la corruption de la plante
     /// </summary>
-  
+public class Corruption : MonoBehaviour
+{
     public float corruptionValue {get; set;}
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
@@ -21,7 +19,7 @@ public class Corruption : MonoBehaviour
 
     public void CorruptionStart()
     {
-        if (TimeManager.Hour % 2 == 0)
+        if (TimeManager.Instance.Hour % 2 == 0)
         {
             SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption toute les 2h
 

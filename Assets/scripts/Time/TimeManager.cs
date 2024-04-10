@@ -6,19 +6,34 @@ using UnityEngine.Events;
 /// </summary>
 public class TimeManager : MonoBehaviour
 {
-    public static int Day;
-    public static float Hour;
+    public int Day {  get; private set; }
+    public float Hour { get; private set; }
     //float _minute;
     public UnityEvent _eventHour;
     public UnityEvent _eventDay;
     [SerializeField] float IrlSecond;
+
+    //singleton
+    private static TimeManager instance = null;
+    public static TimeManager Instance => instance;
 
     private void Awake()
     {
         Day = 1;
         //_minute = 0;
         Hour = 0;
+
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
     }
+
 
     private void Start()
     {
@@ -39,15 +54,16 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void SkipTime(float timeToSkip)
+    public void SkipTime(float timeToSkip, int i)
     {
         //for (int i = 0; i > timeToSkip; i++, CancelInvoke(nameof(TimePass)), Start()) ;
-       // while ()
+        while (i < timeToSkip)
+        {
+            CancelInvoke(nameof(TimePass));
+            Start();
+            i++;
+        }
     }
 
-    public void SkipTo()
-    {
-
-    }
 
 }
