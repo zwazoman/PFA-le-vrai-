@@ -29,6 +29,7 @@ public class Storage : MonoBehaviour
     {
         storageContent.Add(item);
         item.gameObject.SetActive(false);
+        print(item.gameObject.name + " store");
     }
 
 
