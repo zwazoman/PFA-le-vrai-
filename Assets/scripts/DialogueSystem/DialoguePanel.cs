@@ -51,6 +51,7 @@ public class DialoguePanel : MonoBehaviour
 
     public void UpdateCharacterSprite(DialogueCharacter character)
     {
+        if(characterDisplays.ContainsKey(character))
         characterDisplays[character].sprite = character.Sprite;
     }
 
