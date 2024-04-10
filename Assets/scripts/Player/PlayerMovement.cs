@@ -16,7 +16,6 @@ public class PlayerMovement : DynamicObject
 
     private void Awake()
     {
-        //rb = GetComponent<Rigidbody>();
         initPhysics();
     }
 
@@ -35,7 +34,6 @@ public class PlayerMovement : DynamicObject
     private void Update()
     {
         Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, 0, _inputManager.moveInput.y);
-        //print("Move Direction : " + direction.ToString());
         Move(direction.normalized,_playerMoveSpeed,_acceleration);
         if(Velocity.magnitude > 1f)
         {
@@ -50,10 +48,8 @@ public class PlayerMovement : DynamicObject
     /// <param name="direction"></param>
     /// <param name="maxSpeed"></param>
     /// <param name="acceleration"></param>
-
     public void Move(Vector3 direction, float maxSpeed, float acceleration)
     {
-        //print($"Direction : {direction} , Max speed : {maxSpeed} , acceleration : {acceleration}");
         float currentSpeed = getFlatVelocity().magnitude;
         float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
         AddImpulse(AddSpeed * direction);
@@ -64,9 +60,7 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StartRunning()
     {
-        print("augment speed");
-        _playerMoveSpeed *= _playerRunFactor;
-        print(_playerMoveSpeed);
+        _playerMoveSpeed *= _playerRunFactor; // multiplie la vitesse par le "runFactor"
     }
 
     /// <summary>
@@ -74,8 +68,6 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StopRunning()
     {
-        print("reduce speed");
-        _playerMoveSpeed /= _playerRunFactor;
-        print(_playerMoveSpeed);
+        _playerMoveSpeed /= _playerRunFactor; // rétablie la vitesse
     }
 }

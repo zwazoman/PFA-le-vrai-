@@ -13,8 +13,6 @@ public class PlayerInputManager : MonoBehaviour
     public Vector2 moveInput { get; private set; } //valeur de déplacement
     // event interaction du joueur
     public event Action OnInteract;
-    // event de drop de l'objet dasn les mains
-    public event Action OnDrop;
     // event début de la course du joueur
     public event Action OnSprintStart;
     // event fin de la course du joueur

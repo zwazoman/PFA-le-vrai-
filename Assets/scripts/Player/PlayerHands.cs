@@ -40,7 +40,7 @@ public class PlayerHands : MonoBehaviour
         ItemInHands.transform.rotation = gameObject.transform.rotation; // change la rotation de l'objet par celle du joueur (temporaire ?)
         _grabZone.SetActive(false); // désactive la grabzone
         _interaction.enabled = false;
-        _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet
+        _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet en utilisant la touche d'intéraction
     }
 
     /// <summary>
@@ -48,13 +48,12 @@ public class PlayerHands : MonoBehaviour
     /// </summary>
     private void Drop()
     {
-        //if (ItemInHands == null) return; // ne drop pas si il n'y a rien dans les mains
         _iteminHandsColl.enabled = true; // réactive le collider
         _itemInHandsRb.constraints = RigidbodyConstraints.None; // unfreeze l'objet
         ItemInHands.transform.parent = null;
         ItemInHands = null;
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;
-        _inputManager.OnInteract -= Drop; // retire la possibilité de lacher l'obejt quand le joueur a les mains vide
+        _inputManager.OnInteract -= Drop; // retire la possibilité de lacher un objet lorsqu'il vient d'en lacher un (car il a les mains vides)
     }
 }
