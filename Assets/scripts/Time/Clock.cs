@@ -1,6 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Gere l'horloge
+/// </summary>
+
 public class Clock : MonoBehaviour
 {
     float AnimationDuration = 1.0f;
@@ -9,6 +13,7 @@ public class Clock : MonoBehaviour
     {
         TimeManager.Instance._eventHour.AddListener(UpdateVisuals); 
     }
+
     IEnumerator MoveNeedle()
     {
         float TimeAlpha = (float)TimeManager.Instance.Hour / 12f;
@@ -26,6 +31,5 @@ public class Clock : MonoBehaviour
             yield return 0;
         }
         transform.rotation = targetRotation;
-
     }
 }
