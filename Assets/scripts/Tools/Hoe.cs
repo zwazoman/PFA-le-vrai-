@@ -6,6 +6,19 @@ public class Hoe : Tool
 {
     public override void Use()
     {
-        throw new System.NotImplementedException();
+        base.Use();
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.TryGetComponent<Field>(out Field field))
+            {
+                //field.Plow()
+            }
+            /*
+             * if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable))
+            {
+                breakable.Break()
+            }
+            */
+        }
     }
 }

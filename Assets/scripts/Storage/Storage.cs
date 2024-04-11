@@ -3,9 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class Storage : MonoBehaviour
 {
     protected List<GameObject> storageContent = new List<GameObject>();
+
+    private void Awake()
+    {
+        gameObject.GetComponent<Collider>().isTrigger = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     { 

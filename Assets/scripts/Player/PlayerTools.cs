@@ -21,18 +21,22 @@ public class PlayerTools : MonoBehaviour
 
     private void Hoe()
     {
-        _hoe.Use();
+        // lancer l'animation de l'outil
+        _hoe.Use(); // pas nécessaire si appelé dan sl'event de l'animation
     }
     private void WateringCan()
     {
-        _wateringCan.Use();
+        // lancer l'animation de l'outil
+        _wateringCan.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
     private void Scythe()
     {
-        _scythe.Use();
+        // lancer l'animation de l'outil
+        _scythe.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
     private void Shovel()
     {
-        _shovel.Use();
+        // lancer l'animation de l'outil
+        _shovel.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
 }
