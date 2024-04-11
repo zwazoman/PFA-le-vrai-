@@ -23,12 +23,13 @@ public class Storage : MonoBehaviour
         return true;
     }
 
-    protected virtual void OnAbsorb() { }
+    protected virtual void OnAbsorb(GameObject item) { }
 
     private void Absorb(GameObject item)
     {
         storageContent.Add(item);
         item.gameObject.SetActive(false);
+        OnAbsorb(item);
         print(item.gameObject.name + " store");
     }
 
