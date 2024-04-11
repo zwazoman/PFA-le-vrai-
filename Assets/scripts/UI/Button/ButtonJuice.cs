@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class ButtonJuice : MonoBehaviour
 {
+
     public void ButtonScale()
     {
-        StartCoroutine(ScaleModifier());
+        StartCoroutine(UpdateScale());
     }
 
-    IEnumerator ScaleModifier()
+    IEnumerator UpdateScale()
     {
         transform.localScale *= 1.3f;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.08f);
         transform.localScale /= 1.3f;
     }
 }
