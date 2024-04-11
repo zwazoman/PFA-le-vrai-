@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldStorage : Storage
+public class MillStorage : Storage
 {
+    public int MillMoney { get; private set; }
     protected override bool CanAbsorb(Item item)
     {
         return item.GetType() == typeof(Orb);
@@ -11,8 +12,8 @@ public class FieldStorage : Storage
 
     protected override void OnAbsorb(GameObject item)
     {
-        // faire pousser la plante dans le champs
-        //détruire l'orbe
-        Destroy(this);
+        MillMoney += item.GetComponent<Orb>().OrbValue;
+        Destroy(item);
+        print(MillMoney);
     }
 }
