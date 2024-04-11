@@ -10,7 +10,7 @@ public class WheelBarrowStorage : Storage
     {
         return storageContent.Count <= _maxStorageWheelBarrow;
     }
-    protected override void OnAbsorb()
+    protected override void OnAbsorb(GameObject item)
     {
         //changer la bar de progression
     }
