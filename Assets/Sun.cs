@@ -13,11 +13,15 @@ public class Sun : MonoBehaviour
     [SelfFill][SerializeField] Light _Light ;
     private void Awake()
     {
-        FindObjectOfType<TimeManager>()._eventHour.AddListener(UpdateVisuals);
+        TimeManager.Instance._eventHour.AddListener(UpdateVisuals);
     }
 
     private void UpdateVisuals() => StartCoroutine(MoveLight());
 
+    /// <summary>
+    /// Fait tourner la light `AnimationDuration` secondes de 1/24 degrés
+    /// </summary>
+    /// <returns></returns>
     IEnumerator MoveLight()
     {
         float TimeAlpha = (float)TimeManager.Instance.Hour / 24f;

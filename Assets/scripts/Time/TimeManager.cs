@@ -6,17 +6,21 @@ using UnityEngine.Events;
 /// </summary>
 public class TimeManager : MonoBehaviour
 {
-    public static int Day;
-    public static float Hour;
+    public int Day;
+    public float Hour;
     //float _minute;
     public UnityEvent _eventHour;
     public UnityEvent _eventDay;
     [SerializeField] float IrlSecond;
 
+    public static TimeManager Instance { get;private set; }
     private void Awake()
     {
+        if(Instance != null) Destroy(gameObject); //le singleton du bled
+        Instance = this;
+
+
         Day = 1;
-        //_minute = 0;
         Hour = 0;
     }
 

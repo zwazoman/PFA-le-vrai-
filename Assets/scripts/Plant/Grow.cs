@@ -9,7 +9,7 @@ public class Grow : MonoBehaviour
     {
         transform.position += new Vector3(0,0.5f,0); 
         Debug.Log("ça pousse");
-        if (TimeManager.Day == 4)
+        if (TimeManager.Instance.Day == 4)
         {
             Destroy(gameObject);
         }
