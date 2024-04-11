@@ -16,6 +16,5 @@ public class FieldStorage : Storage
     protected override void OnAbsorb(GameObject item)
     {
         _field.Sow();
-        this.enabled = false;
     }
 }
