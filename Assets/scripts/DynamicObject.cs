@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Pas touche aux lignes commentées Nestor; c'est des features désactivées mais qu'on pourra récupérer plus tard si ça bug
+/// </summary>
 public class DynamicObject : MonoBehaviour
 {
     Rigidbody rb;
@@ -44,13 +47,11 @@ public class DynamicObject : MonoBehaviour
         LastFrameInfo = new FrameInfo(transform.position, velocity, isGrounded);
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         initPhysics();
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
         for(int i = 0;i< speedMultiplier; i++)
@@ -59,22 +60,37 @@ public class DynamicObject : MonoBehaviour
         }   
     }
 
+    /// <summary>
+    /// Addforce est fait pour être appelé chaque frame
+    /// </summary>
+    /// <param name="Force"></param>
     public void AddForce(Vector3 Force)
     {
         TotalForce += Force*Time.deltaTime;
     }
 
+    /// <summary>
+    /// AddImpulse est fait pour être appelé ponctuellement
+    /// </summary>
+    /// <param name="Impulse"></param>
     public void AddImpulse(Vector3 Impulse)
     {
         TotalForce += Impulse;
     }
 
+    /// <summary>
+    /// Doit etre appelé dans Awake sinon ça explose
+    /// </summary>
     protected void initPhysics()
     {
         TryGetComponent<SphereCollider>(out col);
         TryGetComponent<Rigidbody>(out rb);
     }
 
+
+    /// <summary>
+    /// Doit etre appelé dans LateUpdate sinon ça explose
+    /// </summary>
     protected void UpdatePhysics()
     {
         AddForce(Vector3.down * Gravity);
@@ -88,10 +104,8 @@ public class DynamicObject : MonoBehaviour
         checkForGround();
         CheckForCollision();
         
-        //rb.MovePosition(rb.position+Velocity*Time.deltaTime);
         transform.position += velocity * Time.deltaTime;
 
-        
     }
 
     void checkForGround()
@@ -117,7 +131,6 @@ public class DynamicObject : MonoBehaviour
     private void CheckForCollision(int n = 0)
     {
         RaycastHit hit;
-        //Vector3 vel = velocity;
         //if(isGrounded) vel.y = Mathf.Max(vel.y, 0);
         if(Physics.SphereCast(transform.position, col.radius, velocity, out hit, velocity.magnitude * Time.deltaTime, collisionLayer))
         {
@@ -137,12 +150,10 @@ public class DynamicObject : MonoBehaviour
 
             print("raycastCollision!");
             if (n > 0) print($"{n} collisions this frame");
-            //if (n <= MaxCollisionTests) CheckForCollision(n + 1);
         }
 
     }
     
-
     private void ApplyHorizontalFriction()
     {
         float y = velocity.y;
@@ -153,11 +164,19 @@ public class DynamicObject : MonoBehaviour
         velocity.y = y;
     }
 
+    /// <summary>
+    /// remet la velocité à 0
+    /// </summary>
     public void ResetVelocity()
     {
         velocity=Vector3.zero;
         TotalForce = Vector3.zero;
     }
+
+    /// <summary>
+    /// retourne la velocité avec 0 en Y
+    /// </summary>
+    /// <returns></returns>
     public Vector3 getFlatVelocity()
     {
         return new Vector3(velocity.x, 0, velocity.z);
