@@ -17,7 +17,7 @@ public class Field : MonoBehaviour
     {
         if (_sowable && _isEmpty)
         {
-            Debug.Log("Absorber");
+            Destroy(GetComponent<FieldStorage>());
             Instantiate(_plant, transform.position, Quaternion.identity);
             _isEmpty = false;
         }        

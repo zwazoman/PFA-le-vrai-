@@ -15,7 +15,7 @@ public class WateringCan : Tool
             {
                 _waterStorage -= 1;
                 // spawn particules d'eau ?
-                // _corruption.Purify();
+                // event baisser la corruption
             }
             if(hitCollider.gameObject.TryGetComponent<Well>(out Well well))
             {
