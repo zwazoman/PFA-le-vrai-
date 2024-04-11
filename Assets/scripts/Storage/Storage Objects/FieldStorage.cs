@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Envoie un event au champ
+/// </summary>
 public class FieldStorage : Storage
 {
+    [SerializeField] Field _field;
     protected override bool CanAbsorb(Item item)
     {
-        return item.GetType() == typeof(Orb);
+        return item.GetType() == typeof(Seed);
     }
 
     protected override void OnAbsorb(GameObject item)
     {
-        // faire pousser la plante dans le champs
-        //détruire l'orbe
-        Destroy(this);
+        _field.Sow();
+        this.enabled = false;
     }
 }
