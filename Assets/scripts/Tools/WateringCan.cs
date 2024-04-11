@@ -4,8 +4,23 @@ using UnityEngine;
 
 public class WateringCan : Tool
 {
+    private int _waterStorage;
+    public int _maxWaterStorage { get; set; }
     public override void Use()
     {
-        throw new System.NotImplementedException();
+        base.Use();
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.gameObject.TryGetComponent<Corruption>(out Corruption corruption))
+            {
+                _waterStorage -= 1;
+                // spawn particules d'eau ?
+                // _corruption.Purify();
+            }
+            if(hitCollider.gameObject.TryGetComponent<Well>(out Well well))
+            {
+                _waterStorage = _maxWaterStorage;
+            }
+        }
     }
 }
