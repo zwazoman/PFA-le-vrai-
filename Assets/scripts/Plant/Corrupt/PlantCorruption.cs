@@ -37,6 +37,7 @@ public class PlantCorruption : MonoBehaviour
             else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
+                _plantMain.Harvest.isHarvesteable = false;
             }
             Debug.Log(corruptionValue);
         }       
