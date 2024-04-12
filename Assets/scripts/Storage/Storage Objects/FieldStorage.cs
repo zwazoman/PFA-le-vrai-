@@ -7,7 +7,8 @@ using UnityEngine;
 /// </summary>
 public class FieldStorage : Storage
 {
-    [SerializeField] Field _field;
+    [field : SerializeField]  
+    public Field Field { get; set; }
     protected override bool CanAbsorb(Item item)
     {
         return item.GetType() == typeof(Seed);
@@ -15,6 +16,6 @@ public class FieldStorage : Storage
 
     protected override void OnAbsorb(GameObject seed)
     {
-        _field.Sow(seed);
+        Field.Sow(seed);
     }
 }

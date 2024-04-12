@@ -11,7 +11,8 @@ public class Hoe : Tool
         {
             if (hitCollider.gameObject.TryGetComponent<Field>(out Field field))
             {
-                //field.Plow()
+                if (field.Sowable) return;
+                field.Plow();
             }
             /*
              * if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable))
