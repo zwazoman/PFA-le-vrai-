@@ -10,10 +10,10 @@ public class MillStorage : Storage
         return item.GetType() == typeof(Orb);
     }
 
-    protected override void OnAbsorb(GameObject item)
+    protected override void OnAbsorb(GameObject orb)
     {
-        MillMoney += item.GetComponent<Orb>().OrbValue;
-        Destroy(item);
+        MillMoney += orb.GetComponent<Orb>().OrbValue;
+        Destroy(orb);
         print(MillMoney);
     }
 }

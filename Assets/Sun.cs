@@ -16,7 +16,7 @@ public class Sun : MonoBehaviour
     [SelfFill][SerializeField] Light _Light ;
     private void Awake()
     {
-        TimeManager.Instance._eventHour.AddListener(UpdateVisuals);
+        TimeManager.Instance.OnHour += UpdateVisuals;
         OnValidate();
     }
 
