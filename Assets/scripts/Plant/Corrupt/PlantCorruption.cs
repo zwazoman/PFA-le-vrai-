@@ -40,13 +40,10 @@ public class PlantCorruption : MonoBehaviour
                 _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation);
                 _plantMain.Harvest.isHarvesteable = false;              
             }
+
             else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
-            }
-            if (corruptionValue <= _corruptionSpawnValue)
-            {
-                _plantMain.Harvest.isHarvesteable = true;
             }
             Debug.Log(corruptionValue);
             MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;                
@@ -61,6 +58,7 @@ public class PlantCorruption : MonoBehaviour
             _plantMain.Harvest.isHarvesteable = true;
         }
     }
+
 
     //Gere la corruption (Setter)
     public void SetCorruptionValue(float newValue) 
