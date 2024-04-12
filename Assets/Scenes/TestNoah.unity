@@ -872,6 +872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Plant>k__BackingField: {fileID: 2285719506262521259, guid: 6aa8b9b8dae92824baf13e2b6077cf2b,
+    type: 3}
 --- !u!54 &150396400
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2327,6 +2329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Plant>k__BackingField: {fileID: 0}
 --- !u!65 &1149795304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3522,6 +3525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Plant>k__BackingField: {fileID: 0}
 --- !u!65 &1695049790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3668,6 +3672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Plant>k__BackingField: {fileID: 0}
 --- !u!65 &1745071159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3886,7 +3891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3392074a6d018334eb50dd821bc92005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _plant: {fileID: 2285719506262521259, guid: 6aa8b9b8dae92824baf13e2b6077cf2b, type: 3}
 --- !u!1 &1958436484
 GameObject:
   m_ObjectHideFlags: 0
