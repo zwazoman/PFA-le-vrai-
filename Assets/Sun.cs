@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
+/// <summary>
+/// cette classe gère la directional light de la scene: elle la fait tourner et en change la couleur en fonction du temps
+/// </summary>
 public class Sun : MonoBehaviour
 {
     [SerializeField] float AnimationDuration = 1.0f;
@@ -14,8 +17,13 @@ public class Sun : MonoBehaviour
     private void Awake()
     {
         TimeManager.Instance._eventHour.AddListener(UpdateVisuals);
+        OnValidate();
     }
 
+    private void OnValidate()
+    {
+        _Light.color = Gradient.Evaluate(0f);
+    }
     private void UpdateVisuals() => StartCoroutine(MoveLight());
 
     /// <summary>
