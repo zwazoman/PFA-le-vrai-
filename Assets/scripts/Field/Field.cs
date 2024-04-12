@@ -38,8 +38,10 @@ public class Field : MonoBehaviour
     }
     public void Sow(GameObject seed)
     {
+        print("try Sow");
         if (Sowable && IsEmpty)
         {
+            print("sow");
             _plant = seed.GetComponent<Seed>().Plant;
             Destroy(GetComponent<FieldStorage>());
             GameObject plant = Instantiate(_plant, transform.position, Quaternion.identity);
