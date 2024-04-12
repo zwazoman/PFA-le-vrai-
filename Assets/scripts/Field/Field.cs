@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    bool _sowable = true;
-    bool _isEmpty = true;
-    [SerializeField] GameObject _plant;
+    bool _sowable;
+    public bool IsEmpty {get;set;}
+    private GameObject _plant;
+
+    private void Awake()
+    {
+        IsEmpty = true;
+        _sowable = true;
+    }
 
     public void Plow()
     {
         _sowable = !_sowable;
         // changer le material en champ bèché
     }
-    public void Sow()
+    public void Sow(GameObject seed)
     {
-        if (_sowable && _isEmpty)
+        if (_sowable && IsEmpty)
         {
-            Debug.Log("Absorber");
-            Instantiate(_plant, transform.position, Quaternion.identity);
-            _isEmpty = false;
-        }        
+            _plant = seed.GetComponent<Seed>().Plant;
+            GetComponent<FieldStorage>().enabled = false;
+            GameObject plant = Instantiate(_plant, transform.position, Quaternion.identity);
+            plant.GetComponent<PlantMain>().PlantField = this;
+            IsEmpty = false;
+        }
     }
 }

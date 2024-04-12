@@ -13,8 +13,8 @@ public class FieldStorage : Storage
         return item.GetType() == typeof(Seed);
     }
 
-    protected override void OnAbsorb(GameObject item)
+    protected override void OnAbsorb(GameObject seed)
     {
-        _field.Sow();
+        _field.Sow(seed);
     }
 }
