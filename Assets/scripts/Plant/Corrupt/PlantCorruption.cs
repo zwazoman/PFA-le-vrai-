@@ -1,7 +1,7 @@
 using UnityEngine;
-    /// <summary>
-    /// Gere la corruption de la plante
-    /// </summary>
+/// <summary>
+/// Gere la corruption de la plante
+/// </summary>
 public class PlantCorruption : MonoBehaviour
 {
     public float corruptionValue {get; set;}
@@ -10,16 +10,22 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] float _corruptionSpawnValue;
     [SerializeField] float _addCorruption;
     [SerializeField] PlantMain _plantMain;
+    [SerializeField] Material _plantReady;
+    [SerializeField] Material _plantNotReady;
+    MeshRenderer MR;
 
 
     private void Awake()
     {
         corruptionValue = 0;
+        MR = GetComponent<MeshRenderer>();
+        _plantNotReady = MR.sharedMaterial;
     }
 
     private void Start()
     {
         TimeManager.Instance.OnHour += CorruptionStart;
+        
     }
 
     public void CorruptionStart()
@@ -40,6 +46,7 @@ public class PlantCorruption : MonoBehaviour
                 _plantMain.Harvest.isHarvesteable = false;
             }
             Debug.Log(corruptionValue);
+            MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;
         }       
     }
 
