@@ -142,6 +142,11 @@ GameObject:
   - component: {fileID: 17451190}
   - component: {fileID: 17451189}
   - component: {fileID: 17451188}
+  - component: {fileID: 17451203}
+  - component: {fileID: 17451202}
+  - component: {fileID: 17451201}
+  - component: {fileID: 17451200}
+  - component: {fileID: 17451199}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -544,6 +549,78 @@ Transform:
   - {fileID: 1685398062}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &17451199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17451187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4ddecca78deaf49aad3078b7add7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ToolLength>k__BackingField: 1
+  <ToolRange>k__BackingField: 5
+--- !u!114 &17451200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17451187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42b70a3595af9f4f952d5fdcbda29f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ToolLength>k__BackingField: 1
+  <ToolRange>k__BackingField: 5
+--- !u!114 &17451201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17451187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637755d2ce0c6134189afcfeb6dd5ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ToolLength>k__BackingField: 1
+  <ToolRange>k__BackingField: 5
+--- !u!114 &17451202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17451187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f0397fc34b5ec48a7290915610fde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ToolLength>k__BackingField: 1
+  <ToolRange>k__BackingField: 5
+--- !u!114 &17451203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17451187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3b5db508201e0f48b38dcdc942a92ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoe: {fileID: 17451202}
+  _wateringCan: {fileID: 17451200}
+  _scythe: {fileID: 17451199}
+  _shovel: {fileID: 17451201}
 --- !u!1 &51661198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,7 +2406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Plant>k__BackingField: {fileID: 0}
+  <Plant>k__BackingField: {fileID: 2285719506262521259, guid: 6aa8b9b8dae92824baf13e2b6077cf2b,
+    type: 3}
 --- !u!65 &1149795304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3525,7 +3603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Plant>k__BackingField: {fileID: 0}
+  <Plant>k__BackingField: {fileID: 2285719506262521259, guid: 6aa8b9b8dae92824baf13e2b6077cf2b,
+    type: 3}
 --- !u!65 &1695049790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3672,7 +3751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8e56f71670d9241815b4061cc59610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Plant>k__BackingField: {fileID: 0}
+  <Plant>k__BackingField: {fileID: 2285719506262521259, guid: 6aa8b9b8dae92824baf13e2b6077cf2b,
+    type: 3}
 --- !u!65 &1745071159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3772,7 +3852,6 @@ GameObject:
   - component: {fileID: 1750932559}
   - component: {fileID: 1750932558}
   - component: {fileID: 1750932563}
-  - component: {fileID: 1750932562}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -3866,19 +3945,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1750932562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750932557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2abb6bd710bcb24dbf9a87dbcae5bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _field: {fileID: 1750932563}
 --- !u!114 &1750932563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3891,6 +3957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3392074a6d018334eb50dd821bc92005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sowableMaterial: {fileID: 2100000, guid: 8ad904b4dee2a8f4cadce1ffb24f8efc, type: 2}
+  _notSowableMaterial: {fileID: 2100000, guid: fe9190b25c15d0a428f976ec4334b347, type: 2}
 --- !u!1 &1958436484
 GameObject:
   m_ObjectHideFlags: 0

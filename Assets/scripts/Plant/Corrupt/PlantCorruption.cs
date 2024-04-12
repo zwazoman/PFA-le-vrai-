@@ -10,7 +10,6 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] float _corruptionSpawnValue;
     [SerializeField] float _addCorruption;
     [SerializeField] PlantMain _plantMain;
-    [SerializeField] float _reduceCorruption;
 
 
     private void Awake()
@@ -43,10 +42,10 @@ public class PlantCorruption : MonoBehaviour
         }       
     }
 
-    public void ReduceCorruption()
+    public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
-        corruptionValue -= _reduceCorruption;
-        if (corruptionValue < 0.2f)
+        corruptionValue -= reduce;
+        if (corruptionValue < 0.2f) //si le seuil de corruption est en dessous de 0.20 alors on peut ramassé la plante
         {
             _plantMain.Harvest.isHarvesteable = true;
         }
