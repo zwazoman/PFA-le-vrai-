@@ -14,7 +14,6 @@ public class Corruption : MonoBehaviour
     private void Awake()
     {
         corruptionValue = 0;
-
     }
 
     public void CorruptionStart()
