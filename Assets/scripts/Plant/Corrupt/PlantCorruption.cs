@@ -9,11 +9,18 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
     [SerializeField] float _addCorruption;
+    [SerializeField] PlantMain _plantMain;
+    [SerializeField] float _reduceCorruption;
 
 
     private void Awake()
     {
         corruptionValue = 0;
+    }
+
+    private void Start()
+    {
+        TimeManager.Instance.OnHour += CorruptionStart;
     }
 
     public void CorruptionStart()
@@ -25,7 +32,8 @@ public class PlantCorruption : MonoBehaviour
             //Gestion du nuages de corruption
             if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
             {
-                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation); ;
+                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation);
+                _plantMain.Harvest.isHarvesteable = false;
             }
             else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
@@ -33,6 +41,15 @@ public class PlantCorruption : MonoBehaviour
             }
             Debug.Log(corruptionValue);
         }       
+    }
+
+    public void ReduceCorruption()
+    {
+        corruptionValue -= _reduceCorruption;
+        if (corruptionValue < 0.2f)
+        {
+            _plantMain.Harvest.isHarvesteable = true;
+        }
     }
 
     //Gere la corruption (Setter)
