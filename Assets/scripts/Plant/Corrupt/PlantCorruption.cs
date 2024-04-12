@@ -37,16 +37,15 @@ public class PlantCorruption : MonoBehaviour
             //Gestion du nuages de corruption
             if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
             {
-                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation);
+                print("Zizi");
+                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
+                print("Nathan");
                 _plantMain.Harvest.isHarvesteable = false;              
             }
+
             else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
-            }
-            if (corruptionValue <= _corruptionSpawnValue)
-            {
-                _plantMain.Harvest.isHarvesteable = true;
             }
             Debug.Log(corruptionValue);
             MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;                
@@ -62,10 +61,16 @@ public class PlantCorruption : MonoBehaviour
         }
     }
 
+
     //Gere la corruption (Setter)
     public void SetCorruptionValue(float newValue) 
     {
         newValue = Mathf.Clamp01(newValue);
         corruptionValue = newValue;
+    }
+
+    private void OnDestroy()
+    {
+        TimeManager.Instance.OnHour -= CorruptionStart;
     }
 }
