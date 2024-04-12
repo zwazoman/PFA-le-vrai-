@@ -44,13 +44,12 @@ public class PlantCorruption : MonoBehaviour
             {
                 Destroy(_corruptionZone);
             }
-            Debug.Log(corruptionValue);
-            MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;
-
             if (corruptionValue <= _corruptionSpawnValue)
             {
                 _plantMain.Harvest.isHarvesteable = true;
             }
+            Debug.Log(corruptionValue);
+            MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;                
         }       
     }
 
