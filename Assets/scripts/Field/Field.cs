@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// gère le champ et la plante de graines
+/// </summary>
 public class Field : MonoBehaviour
 {
     public bool Sowable { get; set; }
@@ -20,6 +23,9 @@ public class Field : MonoBehaviour
         _notSowableMaterial = MR.sharedMaterial;
     }
 
+    /// <summary>
+    /// change le mesh du champ, le rend apte a la plantation lors d'un coup de bêche
+    /// </summary>
     public void Plow()
     {
         if(!IsEmpty) return;
@@ -36,6 +42,11 @@ public class Field : MonoBehaviour
         }
         MR.sharedMaterial = Sowable ? _sowableMaterial: _notSowableMaterial;
     }
+
+    /// <summary>
+    /// fait apparaitre une plante et détruit le stockage du champ si le champe st ^pte a la plantation.
+    /// </summary>
+    /// <param name="seed"></param>
     public void Sow(GameObject seed)
     {
         print("try Sow");

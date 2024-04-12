@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
-/// Envoie un event au champ
+/// gère la récupération de graines dans le champ et indique au champ qu'il a reçu une graine
 /// </summary>
 public class FieldStorage : Storage
 {

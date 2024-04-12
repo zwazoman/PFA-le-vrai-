@@ -21,6 +21,6 @@ public class Orb : Item
     private void Start()
     {
         Vector3 direction = new Vector3(Random.Range(-0.2f,0.2f),0.5f, Random.Range(-0.2f, 0.2f));
-        _rb.AddForce(direction * _jumpForce, ForceMode.Impulse); // fais sauter l'orbe lors de la récolte
+        _rb.AddForce(direction * _jumpForce, ForceMode.Impulse); // fait sauter l'orbe lors de la récolte
     }
 }
