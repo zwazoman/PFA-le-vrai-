@@ -5,7 +5,16 @@ using UnityEngine;
 public class WateringCan : Tool
 {
     private int _waterStorage;
-    public int _maxWaterStorage { get; set; }
+
+    [SerializeField] float waterToGive;
+    [field : SerializeField]
+    public int MaxWaterStorage { get; set; }
+
+    private void Awake()
+    {
+        _waterStorage = MaxWaterStorage;
+    }
+
     public override void Use()
     {
         base.Use();
@@ -13,14 +22,22 @@ public class WateringCan : Tool
         {
             if (hitCollider.gameObject.TryGetComponent<PlantCorruption>(out PlantCorruption corruption))
             {
+                if (_waterStorage <= 0)
+                {
+                    print("plus d'eau");
+                    return;
+                }
                 _waterStorage -= 1;
+                print("water");
+                corruption.ReduceCorruption(waterToGive);
                 // spawn particules d'eau ?
-                // event baisser la corruption
             }
             if(hitCollider.gameObject.TryGetComponent<Well>(out Well well))
             {
-                _waterStorage = _maxWaterStorage;
+                print("replenish water");
+                _waterStorage = MaxWaterStorage;
             }
         }
+
     }
 }
