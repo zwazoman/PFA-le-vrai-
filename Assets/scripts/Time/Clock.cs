@@ -11,7 +11,7 @@ public class Clock : MonoBehaviour
     private void UpdateVisuals() => StartCoroutine(MoveNeedle());
     private void Start()
     {
-        TimeManager.Instance._eventHour.AddListener(UpdateVisuals); 
+        TimeManager.Instance.OnHour += UpdateVisuals; 
     }
 
     IEnumerator MoveNeedle()

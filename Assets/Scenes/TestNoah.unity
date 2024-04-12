@@ -535,7 +535,7 @@ Transform:
   m_GameObject: {fileID: 17451187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.81, z: -10.9}
+  m_LocalPosition: {x: 90.51, y: 215.3, z: -10.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -854,7 +854,7 @@ Transform:
   m_GameObject: {fileID: 150396394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99, y: 215, z: -9.83}
+  m_LocalPosition: {x: 86.68, y: 215, z: -9.83}
   m_LocalScale: {x: 0.65529, y: 0.65529, z: 0.65529}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1223,60 +1223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbed9723c13a6a4e92e99be79ed89de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventHour:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 338893420}
-        m_TargetAssemblyTypeName: EventTime, Assembly-CSharp
-        m_MethodName: EventAtHour
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Corruption, Assembly-CSharp
-        m_MethodName: CorruptionStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _eventDay:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 338893420}
-        m_TargetAssemblyTypeName: EventTime, Assembly-CSharp
-        m_MethodName: EventAtDay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Grow, Assembly-CSharp
-        m_MethodName: IsGrowing
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   IrlSecond: 2
 --- !u!4 &338893422
 Transform:
@@ -2461,7 +2407,7 @@ Transform:
   m_GameObject: {fileID: 1149795301}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 99, y: 215, z: -7.95}
+  m_LocalPosition: {x: 86.68, y: 215, z: -7.95}
   m_LocalScale: {x: 0.65529, y: 0.65529, z: 0.65529}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3656,7 +3602,7 @@ Transform:
   m_GameObject: {fileID: 1695049787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.53, y: 215, z: -7.95}
+  m_LocalPosition: {x: 88.21, y: 215, z: -7.95}
   m_LocalScale: {x: 0.65529, y: 0.65529, z: 0.65529}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3802,7 +3748,7 @@ Transform:
   m_GameObject: {fileID: 1745071156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.53, y: 215, z: -9.74}
+  m_LocalPosition: {x: 88.21, y: 215, z: -9.74}
   m_LocalScale: {x: 0.65529, y: 0.65529, z: 0.65529}
   m_ConstrainProportionsScale: 0
   m_Children: []

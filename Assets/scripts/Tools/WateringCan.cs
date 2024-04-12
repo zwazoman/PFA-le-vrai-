@@ -11,7 +11,7 @@ public class WateringCan : Tool
         base.Use();
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.TryGetComponent<Corruption>(out Corruption corruption))
+            if (hitCollider.gameObject.TryGetComponent<PlantCorruption>(out PlantCorruption corruption))
             {
                 _waterStorage -= 1;
                 // spawn particules d'eau ?

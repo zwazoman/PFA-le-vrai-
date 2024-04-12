@@ -2,7 +2,7 @@ using UnityEngine;
     /// <summary>
     /// Gere la corruption de la plante
     /// </summary>
-public class Corruption : MonoBehaviour
+public class PlantCorruption : MonoBehaviour
 {
     public float corruptionValue {get; set;}
     GameObject _corruptionZone;

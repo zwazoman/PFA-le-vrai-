@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,8 +10,8 @@ public class TimeManager : MonoBehaviour
     public int Day {  get; private set; }
     public float Hour { get; private set; }
     //float _minute;
-    public UnityEvent _eventHour;
-    public UnityEvent _eventDay;
+    public event Action OnHour;
+    public event Action OnDay;
     [SerializeField] float IrlSecond;
 
     //singleton
@@ -42,14 +43,14 @@ public class TimeManager : MonoBehaviour
     private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
         Hour++;
-        _eventHour.Invoke();
+        OnHour?.Invoke();
         Debug.Log(Hour);
 
         if (Hour == 24)
         {
             Day++;
             Hour = 0;
-            _eventDay.Invoke();
+            OnDay?.Invoke();
             Debug.Log(Day);
         }
     }
