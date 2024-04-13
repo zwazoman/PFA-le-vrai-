@@ -34,7 +34,6 @@ public class Storage : MonoBehaviour
     private void Absorb(GameObject item)
     {
         storageContent.Add(item);
-        item.gameObject.SetActive(false);
         OnAbsorb(item);
         print(item.gameObject.name + " store");
     }
