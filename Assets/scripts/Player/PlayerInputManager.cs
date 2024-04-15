@@ -25,6 +25,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnScythe;
     // event utilisation de la pelle
     public event Action OnShovel;
+    //event vidage de brouette
+    public event Action OnEmptyWheelBarrow;
 
     /// <summary>
     /// gère les inputs de mouvements du joueur
@@ -91,5 +93,10 @@ public class PlayerInputManager : MonoBehaviour
     public void UseShovel(InputAction.CallbackContext context)
     {
         if (context.performed) OnShovel?.Invoke();
+    }
+
+    public void EmptyWheelBarrow(InputAction.CallbackContext context)
+    {
+        if (context.performed && PlayerMain.Instance.HasWheelBarrow) print("suuu");//OnEmptyWheelBarrow?.Invoke(); 
     }
 }
