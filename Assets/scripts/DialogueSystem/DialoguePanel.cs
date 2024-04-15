@@ -39,6 +39,27 @@ public class DialoguePanel : MonoBehaviour
         await Task.Yield();
     }
 
+    public async Task EasyWriteString(string toWrite)
+    {
+        //InitDialogue(characters.Narrator, characters.Narrator);*
+        HideCharacterSprites();
+        await Write(toWrite);
+        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+    }
+
+    void HideCharacterSprites()
+    {
+        _titleText.transform.parent.gameObject.SetActive(false);
+        _CharacterImage1.enabled=false;
+        _CharacterImage2.enabled=false;
+    }
+    void showCharacterSprites()
+    {
+        _titleText.transform.parent.gameObject.SetActive(true);
+        _CharacterImage1.enabled = true;
+        _CharacterImage2.enabled = true;
+    }
+
     public void InitDialogue(DialogueCharacter character1, DialogueCharacter character2)
     {
         characterDisplays.Add(character1, _CharacterImage1);
@@ -46,7 +67,7 @@ public class DialoguePanel : MonoBehaviour
 
         _CharacterImage1.sprite = character1.Sprite;
         _CharacterImage2.sprite = character2.Sprite;
-        
+        showCharacterSprites();
     }
 
     public void UpdateCharacterSprite(DialogueCharacter character)
@@ -65,6 +86,7 @@ public class DialoguePanel : MonoBehaviour
 
     public void SendCharacterToBackground(DialogueCharacter character)
     {
+        if (!characterDisplays.ContainsKey(character) ) return;
         characterDisplays[character].transform.localScale = Vector3.one * 0.8f;
         characterDisplays[character].color = Color.white * 0.8f;
     }
@@ -82,15 +104,15 @@ public class DialoguePanel : MonoBehaviour
     /// Le parametre dialogueName correspond au nom du fichier de dialogueflow dans le dossier : Assets/scripts/DialogueSystem/dialogues
     /// </summary>
     /// <param name="DialogueName"></param>
-    public void StartDialogue(string DialogueName)
+    public async Task StartDialogue(string DialogueName)
     {
         DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters);
-        Flo.StartDialogue();
+        await Flo.StartDialogue();
     }
 
     private void Start()
     {
-        StartDialogue("Df_Bonjour");
+        //StartDialogue("Df_Bonjour");
     }
 }
 

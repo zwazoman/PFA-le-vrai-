@@ -6,6 +6,6 @@ public class Sign : Interactable
 {
     public override void InteractWith()
     {
-        
+        UiManager.Instance.PopupSimpleString("je suis un panneau");
     }
 }
