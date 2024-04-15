@@ -19,7 +19,7 @@ public class WateringCan : Tool
     }
 
     /// <summary>
-    /// gère les différentes possibilités lors de l'utilisation
+    /// gère les différentes possibilités lors de l'utilisation de l'arrosoir
     /// </summary>
     public override void Use()
     {

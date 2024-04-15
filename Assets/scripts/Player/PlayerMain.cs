@@ -20,6 +20,9 @@ public class PlayerMain : MonoBehaviour
     [field : SerializeField]
     public PlayerHands Hands { get; private set; }// référence au component "PlayerHands" attaché au joueur
 
+    [field : SerializeField]
+    public PlayerTools Tools { get; private set; }
+
     //singleton
     private static PlayerMain instance = null;
     public static PlayerMain Instance => instance;

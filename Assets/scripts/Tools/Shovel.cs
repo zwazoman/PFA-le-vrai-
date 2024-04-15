@@ -7,6 +7,10 @@ public class Shovel : Tool
 {
 
     [SerializeField] float _plantJumpForce;
+
+    /// <summary>
+    /// gère les différentes possibilités lors de l'utilisation de l'arrosoir
+    /// </summary>
     public override void Use()
     {
         base.Use();

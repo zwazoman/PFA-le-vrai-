@@ -17,11 +17,13 @@ public class PlayerHands : MonoBehaviour
     Collider _iteminHandsColl;
     PlayerInputManager _inputManager;
     PlayerInteraction _interaction;
+    PlayerTools _tools;
 
     private void Start()
     {
         _inputManager = PlayerMain.Instance.InputManager;
         _interaction = PlayerMain.Instance.Interaction;
+        _tools = PlayerMain.Instance.Tools;
     }
 
     /// <summary>
@@ -40,6 +42,7 @@ public class PlayerHands : MonoBehaviour
         ItemInHands.transform.rotation = gameObject.transform.rotation; // change la rotation de l'objet par celle du joueur (temporaire ?)
         _grabZone.SetActive(false); // désactive la grabzone
         _interaction.enabled = false;
+        _tools.canUse = false;
         _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet en utilisant la touche d'intéraction
     }
 
@@ -54,6 +57,7 @@ public class PlayerHands : MonoBehaviour
         ItemInHands = null;
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;
+        _tools.canUse = true;
         _inputManager.OnInteract -= Drop; // retire la possibilité de lacher un objet lorsqu'il vient d'en lacher un (car il a les mains vides)
     }
 }
