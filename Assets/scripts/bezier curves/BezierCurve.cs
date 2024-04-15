@@ -5,8 +5,10 @@ using UnityEngine;
 [ExecuteAlways]
 public class BezierCurve : MonoBehaviour
 {
-    public int SegmentpointCount = 20;
+    public int SegmentpointCount = 50;
     public List<BezierCurveControlPoint> points = new List<BezierCurveControlPoint>();
+
+    public Vector3[]sampledPoints ;
     // Start is called before the first frame update
     public Vector3 sampleCurveSegment(int A,int B,float alpha)
     {
@@ -21,14 +23,32 @@ public class BezierCurve : MonoBehaviour
 
     }
 
-    void drawSegment(int A,int B)
+
+    void SampleCurve()
     {
-        Vector3[] sampledPoints = new Vector3[SegmentpointCount+1];
+        sampledPoints = new Vector3[SegmentpointCount + 1];
         for (int i = 0; i <= SegmentpointCount; i++)
         {
-            sampledPoints[i] = sampleCurveSegment(A, B, (float)i / (float)SegmentpointCount);
+            sampledPoints[i] = sampleCurveSegment(i, i+1, (float)i / (float)SegmentpointCount);
             Debug.Log((float)i / (float)SegmentpointCount);
         }
+    }
+
+    /*private void SampleCurve_Linear()
+    {
+        
+        SampleCurve();
+        float totalLength = 0;
+        for (int i = 0; i <= SegmentpointCount; i++)
+        {
+            totalLength += Vector3.Distance(sampledPoints[i], sampledPoints[i+1]);
+        }
+
+        
+    }*/
+
+    void drawSegment(int A,int B)
+    {   
         for (int j = 0; j < SegmentpointCount ; j++)
         {
             Debug.DrawLine(sampledPoints[j], sampledPoints[j + 1], Color.red);
