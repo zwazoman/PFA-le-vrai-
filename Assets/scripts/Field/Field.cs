@@ -11,16 +11,16 @@ public class Field : MonoBehaviour
     public bool Sowable { get; set; }
     public bool IsEmpty {get;set;}
     private GameObject _plant;
-    MeshRenderer MR;
-    [SerializeField] Material _sowableMaterial;
-    [SerializeField] Material _notSowableMaterial;
+    MeshFilter _mF;
+    [SerializeField] Mesh _sowableMesh;
+    [SerializeField] Mesh _notSowableMesh;
 
     private void Awake()
     {
         IsEmpty = true;
         Sowable = false;
-        MR = GetComponent<MeshRenderer>();
-        _notSowableMaterial = MR.sharedMaterial;
+        _mF = GetComponent<MeshFilter>();
+        _notSowableMesh = _mF.mesh;
     }
 
     /// <summary>
@@ -28,6 +28,7 @@ public class Field : MonoBehaviour
     /// </summary>
     public void Plow()
     {
+        print("try plow");
         if(!IsEmpty) return;
         print("Plow");
         Sowable = !Sowable;
@@ -40,7 +41,7 @@ public class Field : MonoBehaviour
         {
             Destroy(GetComponent<FieldStorage>());
         }
-        MR.sharedMaterial = Sowable ? _sowableMaterial: _notSowableMaterial;
+        _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;
     }
 
     /// <summary>
