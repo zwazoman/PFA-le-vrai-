@@ -74,6 +74,7 @@ public class Field : MonoBehaviour
             Destroy(plant.GetComponent<Rigidbody>()); // retire le rigidbody
             Destroy(plant.GetComponent<Plant>()); // retire Plant de type item
             plant.GetComponent<PlantMain>().PlantField = this; // définit ce champ comme étant le champ de la plante
+            plant.GetComponent<PlantMain>().Corruption.UnFreezeCorruption();
             IsEmpty = false;
         }
     }

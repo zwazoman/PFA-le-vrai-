@@ -80,10 +80,12 @@ public class PlantCorruption : MonoBehaviour
     public void FreezeCorruption()
     {
         TimeManager.Instance.OnHour -= CorruptionStart;
+        print("freeze corruption");
     }
 
     public void UnFreezeCorruption()
     {
         TimeManager.Instance.OnHour += CorruptionStart;
+        print("unfreeze corruption");
     }
 }
