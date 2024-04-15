@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerMain : MonoBehaviour
 {
+    public bool HasWheelBarrow { get; set; }
+
     [field: SerializeField]
     public PlayerInputManager InputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
 
@@ -37,5 +39,7 @@ public class PlayerMain : MonoBehaviour
         {
             instance = this;
         }
+
+        HasWheelBarrow = false;
     }
 }
