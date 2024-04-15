@@ -11,16 +11,16 @@ public class Field : MonoBehaviour
     public bool Sowable { get; set; }
     public bool IsEmpty {get;set;}
     private GameObject _plant;
-    MeshRenderer MR;
-    [SerializeField] Material _sowableMaterial;
-    [SerializeField] Material _notSowableMaterial;
+    MeshFilter _mF;
+    [SerializeField] Mesh _sowableMesh;
+    [SerializeField] Mesh _notSowableMesh;
 
     private void Awake()
     {
         IsEmpty = true;
         Sowable = false;
-        MR = GetComponent<MeshRenderer>();
-        _notSowableMaterial = MR.sharedMaterial;
+        _mF = GetComponent<MeshFilter>();
+        _notSowableMesh = _mF.mesh;
     }
 
     /// <summary>
@@ -28,6 +28,7 @@ public class Field : MonoBehaviour
     /// </summary>
     public void Plow()
     {
+        print("try plow");
         if(!IsEmpty) return;
         print("Plow");
         Sowable = !Sowable;
@@ -40,7 +41,7 @@ public class Field : MonoBehaviour
         {
             Destroy(GetComponent<FieldStorage>());
         }
-        MR.sharedMaterial = Sowable ? _sowableMaterial: _notSowableMaterial;
+        _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;
     }
 
     /// <summary>
@@ -55,8 +56,26 @@ public class Field : MonoBehaviour
             print("sow");
             _plant = seed.GetComponent<Seed>().Plant;
             Destroy(GetComponent<FieldStorage>());
-            GameObject plant = Instantiate(_plant, transform.position, Quaternion.identity);
+            GameObject plant = Instantiate(_plant, transform.position + Vector3.up, Quaternion.identity);
             plant.GetComponent<PlantMain>().PlantField = this;
+            IsEmpty = false;
+        }
+    }
+    /// <summary>
+    /// remet une plant retirée d'un champs via la pelle dans ce champ
+    /// </summary>
+    /// <param name="plant"></param>
+    public void RePlant(GameObject plant)
+    {
+        if (Sowable && IsEmpty)
+        {
+            Destroy(GetComponent<FieldStorage>()); // detruit le storage
+            plant.transform.position = transform.position + Vector3.up;
+            //plant.transform.rotation = Quaternion.identity; // place la plante
+            Destroy(plant.GetComponent<Rigidbody>()); // retire le rigidbody
+            Destroy(plant.GetComponent<Plant>()); // retire Plant de type item
+            plant.GetComponent<PlantMain>().PlantField = this; // définit ce champ comme étant le champ de la plante
+            plant.GetComponent<PlantMain>().Corruption.UnFreezeCorruption();
             IsEmpty = false;
         }
     }

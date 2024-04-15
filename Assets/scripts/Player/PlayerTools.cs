@@ -12,6 +12,12 @@ public class PlayerTools : MonoBehaviour
     [SerializeField] WateringCan _wateringCan;
     [SerializeField] Scythe _scythe;
     [SerializeField] Shovel _shovel;
+    public bool canUse { get; set; }
+
+    private void Awake()
+    {
+        canUse = true;
+    }
 
     private void Start()
     {
@@ -27,6 +33,7 @@ public class PlayerTools : MonoBehaviour
     /// </summary>
     private void Hoe()
     {
+        if (!canUse) return;
         print("Hoe");
         // lancer l'animation de l'outil
         _hoe.Use(); // pas nécessaire si appelé dan sl'event de l'animation
@@ -37,6 +44,7 @@ public class PlayerTools : MonoBehaviour
     /// </summary>
     private void WateringCan()
     {
+        if (!canUse) return;
         print("WateringCan");
         // lancer l'animation de l'outil
         _wateringCan.Use();// pas nécessaire si appelé dan sl'event de l'animation
@@ -47,6 +55,7 @@ public class PlayerTools : MonoBehaviour
     /// </summary>
     private void Scythe()
     {
+        if (!canUse) return;
         print("Scythe");
         // lancer l'animation de l'outil
         _scythe.Use();// pas nécessaire si appelé dan sl'event de l'animation
@@ -57,6 +66,7 @@ public class PlayerTools : MonoBehaviour
     /// </summary>
     private void Shovel()
     {
+        if (!canUse) return;
         print("Shovel");
         // lancer l'animation de l'outil
         _shovel.Use();// pas nécessaire si appelé dan sl'event de l'animation

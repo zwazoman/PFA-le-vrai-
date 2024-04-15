@@ -17,12 +17,11 @@ public class Hoe : Tool
                 if (field.Sowable) return; // si le champ est déjà retourné on stoppe
                 field.Plow(); // retourne le champ
             }
-            /*
-             * if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable)) // si c'est un objet cassable
+
+            if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable)) // si c'est un objet cassable
             {
-                breakable.Break() // casse l'objet
+                breakable.Break(); // casse l'objet
             }
-            */
         }
     }
 }
