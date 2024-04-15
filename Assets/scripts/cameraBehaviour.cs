@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraBehaviour : MonoBehaviour
+public class CameraBehaviour : MonoBehaviour
 {
     GameObject target;
     Vector3 vel;
