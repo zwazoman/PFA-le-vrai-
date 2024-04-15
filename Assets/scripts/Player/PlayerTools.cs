@@ -14,6 +14,11 @@ public class PlayerTools : MonoBehaviour
     [SerializeField] Shovel _shovel;
     public bool canUse { get; set; }
 
+    private void Awake()
+    {
+        canUse = true;
+    }
+
     private void Start()
     {
         _inputManager = PlayerMain.Instance.InputManager;
