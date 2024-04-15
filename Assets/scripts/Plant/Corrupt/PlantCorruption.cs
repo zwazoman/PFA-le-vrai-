@@ -19,13 +19,17 @@ public class PlantCorruption : MonoBehaviour
     {
         corruptionValue = 0;
         MR = GetComponent<MeshRenderer>();
-        _plantNotReady = MR.sharedMaterial;
+        _plantReady = MR.sharedMaterial;
+        MR.sharedMaterial = _plantReady;
     }
 
     private void Start()
     {
         TimeManager.Instance.OnHour += CorruptionStart;
-        
+        if (corruptionValue < 0)
+        {
+            _plantMain.Harvest.isHarvesteable = true;
+        }
     }
 
     public void CorruptionStart()
@@ -40,15 +44,15 @@ public class PlantCorruption : MonoBehaviour
                 print("Zizi");
                 _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
                 print("Nathan");
-                _plantMain.Harvest.isHarvesteable = false;              
+                _plantMain.Harvest.isHarvesteable = false;
+                MR.sharedMaterial = _plantNotReady;
             }
 
             else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
             }
-            Debug.Log(corruptionValue);
-            MR.sharedMaterial = _plantMain.Harvest.isHarvesteable ? _plantReady : _plantNotReady;                
+            Debug.Log(corruptionValue);                          
         }       
     }
 
@@ -58,6 +62,7 @@ public class PlantCorruption : MonoBehaviour
         if (corruptionValue < 0.2f) //si le seuil de corruption est en dessous de 0.20 alors on peut ramassé la plante
         {
             _plantMain.Harvest.isHarvesteable = true;
+            MR.sharedMaterial = _plantReady;
         }
     }
 
