@@ -3,12 +3,49 @@ using TMPro;
 
 public class UiManager : MonoBehaviour
 {
-    public TMP_Text TextMoney;
-    [SerializeField] PlayerStats _pStats;
+    private static UiManager instance = null;
+    public static UiManager Instance => instance;
 
+    [SerializeField] DialoguePanel Dialogue_Panel;
+    //[SerializeField] DialoguePanel Dialogue_Panel;
 
-    public void Update()
+    private void Awake()
     {
-        TextMoney.text = _pStats.Money.ToString();
+        //Singleton
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
     }
+
+    //Gameplay
+    public void ActivateGameplayPanel()
+    {
+
+    }
+
+    //Dialogue
+    void ActivateDialoguePanel()
+    {
+
+    }
+
+    public void PopupDialogue(string DialogueScript)
+    {
+        ActivateDialoguePanel();
+
+    }
+
+    //Shop
+    public void ActivateShopPanel()
+    {
+
+    }
+
+    
 }
