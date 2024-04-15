@@ -16,10 +16,9 @@ public class Clock : MonoBehaviour
 
     IEnumerator MoveNeedle()
     {
-        float TimeAlpha = (float)TimeManager.Instance.Hour / 12f;
         float endTime = Time.time + AnimationDuration;
 
-        Quaternion targetRotation = Quaternion.Euler(0,0, transform.eulerAngles.z + -360f / 12f);
+        Quaternion targetRotation = Quaternion.Euler(0,0,- (TimeManager.Instance.Hour%12)/12f * 360f+90f);
         Quaternion BaseRotation = transform.rotation;
         while (Time.time < endTime)
         {
