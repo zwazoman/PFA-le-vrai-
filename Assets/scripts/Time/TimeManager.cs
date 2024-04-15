@@ -43,9 +43,9 @@ public class TimeManager : MonoBehaviour
     {
         Hour++;
         OnHour?.Invoke();
-        Debug.Log(Hour);
+        //Debug.Log(Hour);
 
-        if (Hour == 24)
+        if (Hour >= 24)
         {
             Day++;
             Hour = 0;
@@ -54,14 +54,24 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void SkipTime(float timeToSkip, int i)
+    public void SkipTime(float timeToSkip)
     {
+        CancelInvoke(nameof(TimePass));
+
+        int i = 0;
         //for (int i = 0; i > timeToSkip; i++, CancelInvoke(nameof(TimePass)), Start()) ;
         while (i < timeToSkip)
-        {
-            CancelInvoke(nameof(TimePass));
-            Start();
+        {            
+            TimePass();
             i++;
+            print(i);
         }
+
+        InvokeRepeating(nameof(TimePass), IrlSecond, IrlSecond); 
+    }
+
+    public void SkipTo(int hourToGo)
+    {
+        SkipTime(24 - Hour + hourToGo);
     }
 }
