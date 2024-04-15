@@ -76,4 +76,14 @@ public class PlantCorruption : MonoBehaviour
     {
         TimeManager.Instance.OnHour -= CorruptionStart;
     }
+
+    public void FreezeCorruption()
+    {
+        TimeManager.Instance.OnHour -= CorruptionStart;
+    }
+
+    public void UnFreezeCorruption()
+    {
+        TimeManager.Instance.OnHour += CorruptionStart;
+    }
 }
