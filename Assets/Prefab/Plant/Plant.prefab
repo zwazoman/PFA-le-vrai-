@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 195215160965412397}
   - component: {fileID: -7605233672586355946}
   - component: {fileID: -4899262846464620559}
+  - component: {fileID: 7709540834803914455}
+  - component: {fileID: 5609020720694215343}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -144,6 +146,9 @@ MonoBehaviour:
   <orb>k__BackingField: {fileID: 5823781622217448801, guid: 3affe6e88d500614b98d166a66e03011,
     type: 3}
   <Harvest>k__BackingField: {fileID: -4899262846464620559}
+  <Corruption>k__BackingField: {fileID: 195215160965412397}
+  <Unplant>k__BackingField: {fileID: 7709540834803914455}
+  <Jump>k__BackingField: {fileID: 5609020720694215343}
 --- !u!114 &-4899262846464620559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,3 +162,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _main: {fileID: -7605233672586355946}
+--- !u!114 &7709540834803914455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285719506262521259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6438f2a3a4d9d4c895654a62cff841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _main: {fileID: -7605233672586355946}
+--- !u!114 &5609020720694215343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285719506262521259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5fb6e4b86d1dd4bbe553ee8e7eec01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 10

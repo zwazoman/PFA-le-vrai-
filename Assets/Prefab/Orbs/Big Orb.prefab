@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8720016496791163229}
   - component: {fileID: 6680063885473820439}
   - component: {fileID: 9129985395313614250}
+  - component: {fileID: 6832354867805928778}
   m_Layer: 0
   m_Name: Big Orb
   m_TagString: Untagged
@@ -146,5 +147,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00bd8dfaa12e1841b49ac1735e6e266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 10
+  _itemJump: {fileID: 6832354867805928778}
   <OrbValue>k__BackingField: 50
+--- !u!114 &6832354867805928778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823781622217448801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c5fb6e4b86d1dd4bbe553ee8e7eec01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpForce: 10

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MillStorage : Storage
 {
-    public int MillMoney { get; private set; }
+    public int MillMoney { get;  set; }
     protected override bool CanAbsorb(Item item)
     {
         return item.GetType() == typeof(Orb);
