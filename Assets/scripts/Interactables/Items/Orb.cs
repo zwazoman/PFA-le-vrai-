@@ -8,13 +8,11 @@ using UnityEngine;
 /// </summary>
 public class Orb : Item
 {
-    [SerializeField] ItemJump _itemJump;
-
     [field : SerializeField]
     public int OrbValue { get; private set; }
 
     private void Start()
     {
-        _itemJump.Jump();
+        Jump();
     }
 }

@@ -16,6 +16,11 @@ public class Item : Interactable
         PlayerMain.Instance.Hands.Pickup(gameObject);
     }
 
+    public virtual void Jump()
+    {
+        GetComponent<ItemJump>().Jump();
+    }
+
     private void OnDestroy()
     {
         if (PlayerMain.Instance.Interaction.Interactables.Contains(this)) PlayerMain.Instance.Interaction.Interactables.Remove(this);
