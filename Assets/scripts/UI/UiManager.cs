@@ -36,7 +36,7 @@ public class UiManager : MonoBehaviour
     public void ActivateGameplayPanel()
     {
         HideEverything();
-        Gameplay_Panel.gameObject.SetActive(true );
+        //Gameplay_Panel.gameObject.SetActive(true );
     }
 
     //Dialogue
