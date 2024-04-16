@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_main
+  m_Name: mat_grid
   m_Shader: {fileID: -6465566751694194690, guid: a9c8a51dc1397b74c8cf831460a1de40,
     type: 3}
   m_Parent: {fileID: 0}
@@ -62,14 +62,14 @@ Material:
     - _SrcBlend: 1
     - _Surface: 1
     - _Tiling: 0.2
-    - _UseGrid: 0
+    - _UseGrid: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
     - _ZWriteControl: 1
     - _radius: -0.7
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
     - _PlayerPosition: {r: -10.75, g: 3.01, b: 2.84, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4033771682853658798

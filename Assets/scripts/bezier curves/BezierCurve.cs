@@ -57,6 +57,8 @@ public class BezierCurve : MonoBehaviour
 
     void drawCurve()
     {
+        return;
+
         for (int j = 0; j < points.Count - 1; j++)
         {
             drawSegment(j, j + 1);

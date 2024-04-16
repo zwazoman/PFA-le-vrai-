@@ -10,7 +10,7 @@ using UnityEngine.Assertions;
 public class DialogueCharacters : ScriptableObject
 {
     public DialogueCharacter  Narrator, Noah, Nestor,Quentin; //penser à init les persos juste en dessous
-    internal void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
+    public void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
         Quentin.Init(flow, panel);
         Narrator.Init(flow, panel);
