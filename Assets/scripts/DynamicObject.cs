@@ -145,7 +145,7 @@ public class DynamicObject : MonoBehaviour
         }
         else if (Physics.Raycast(transform.position, velocity, out hit, col.radius, collisionLayer)) //si il a déjà clippé à l'intérieur d'un objet,j'éssaie de l'en sortir.
         {
-            //transform.position = hit.point - Velocity.normalized * col.radius;
+            transform.position = hit.point - Velocity.normalized * (col.radius+0.05f);
             velocity = Vector3.ProjectOnPlane(velocity, hit.normal);
 
             print("raycastCollision!");
