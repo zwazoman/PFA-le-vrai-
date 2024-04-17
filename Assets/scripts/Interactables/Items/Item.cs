@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(ItemJump))]
 /// <summary>
 /// permet au joueur de rammasser l'objet dans ses mains
 /// hérite de la classe "Interactable"
