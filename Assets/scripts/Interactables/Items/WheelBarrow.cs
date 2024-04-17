@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class WheelBarrow : Interactable
 {
-    //[SerializeField] float _distanceToLink;
+    [SerializeField] float _distanceToLink;
+    [SerializeField] float _hightToLink;
     public override void InteractWith()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
-        /*transform.position = PlayerMain.Instance.gameObject.transform.position + transform.forward * _distanceToLink;
-        transform.rotation = PlayerMain.Instance.gameObject.transform.rotation;*/
+        PlayerMain.Instance.WheelBarrow.WB = this;
+        transform.parent = PlayerMain.Instance.transform;
+        transform.position = PlayerMain.Instance.transform.position + PlayerMain.Instance.transform.forward * _distanceToLink + Vector3.up * _hightToLink;
+        transform.rotation = Quaternion.Euler(PlayerMain.Instance.transform.eulerAngles + Vector3.right * 180 + Vector3.forward * 180);
+    }
+
+    public void UnEquip()
+    {
+        transform.parent = null;
     }
 }

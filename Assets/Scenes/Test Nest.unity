@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 1850159176}
   - component: {fileID: 1850159175}
   m_Layer: 0
-  m_Name: ConstructZone
+  m_Name: Construct Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1015,7 +1015,7 @@ GameObject:
   - component: {fileID: 1997059393}
   - component: {fileID: 1997059392}
   m_Layer: 0
-  m_Name: SeedSpawner
+  m_Name: Seed Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 3413089143986822125}
   - component: {fileID: 3413089143986822124}
   m_Layer: 0
-  m_Name: asset_brouette
+  m_Name: WheelBarrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,6 +1278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4692790faee934aa80b3fbeeac6390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _distanceToLink: 2
+  _hightToLink: -0.4
 --- !u!114 &3413089143986822125
 MonoBehaviour:
   m_ObjectHideFlags: 0

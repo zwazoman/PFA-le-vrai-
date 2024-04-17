@@ -34,6 +34,7 @@ public class WheelBarrowStorage : Storage
             storageContent[i].transform.position = transform.position + transform.forward * _distanceToEmpty + Vector3.up * _hightToEmpty;
             storageContent[i].transform.parent = null;
             storageContent[i].SetActive(true);
+            storageContent.Remove(storageContent[i]);
             yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
         }
     }

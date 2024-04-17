@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class WheelBarrowMain : MonoBehaviour
 {
+    public WheelBarrow WB { get; set; }
+
     [field: SerializeField]
     public WheelBarrowInputManager InputManager { get; private set; }
 
@@ -26,5 +28,6 @@ public class WheelBarrowMain : MonoBehaviour
     public void UnEquip()
     {
         Input.SwitchCurrentActionMap("Player");
+        WB.UnEquip();
     }
 }
