@@ -182,4 +182,16 @@ public class DynamicObject : MonoBehaviour
         return new Vector3(velocity.x, 0, velocity.z);
     }
 
+    /// <summary>
+    /// gère les mouvements du joueur en utilisant la physique des rigidbodies
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="maxSpeed"></param>
+    /// <param name="acceleration"></param>
+    public void Move(Vector3 direction, float maxSpeed, float acceleration)
+    {
+        float currentSpeed = /*Vector3.Dot(direction, Velocity);*/getFlatVelocity().magnitude;
+        float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
+        AddImpulse(AddSpeed * direction);
+    }
 }

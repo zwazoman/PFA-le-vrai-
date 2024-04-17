@@ -92,9 +92,4 @@ public class PlayerInputManager : MonoBehaviour
     {
         if (context.performed) OnShovel?.Invoke();
     }
-
-    public void EmptyWheelBarrow(InputAction.CallbackContext context)
-    {
-        if (context.performed && PlayerMain.Instance.HasWheelBarrow) print("suuu");//OnEmptyWheelBarrow?.Invoke(); 
-    }
 }

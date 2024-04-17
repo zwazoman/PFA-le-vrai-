@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
+
+/// <summary>
+/// stockage de la brouette
+/// </summary>
 public class WheelBarrowStorage : Storage
 {
     [field : SerializeField] 
@@ -20,6 +24,11 @@ public class WheelBarrowStorage : Storage
     {
         return storageContent.Count <= _maxStorageWheelBarrow;
     }
+
+    /// <summary>
+    /// désactive un objet et le téléporte au dessus de la brouette quand l'objet tombe dans la brouette
+    /// </summary>
+    /// <param name="item"></param>
     protected override void OnAbsorb(GameObject item)
     {
         item.SetActive(false);
@@ -27,6 +36,10 @@ public class WheelBarrowStorage : Storage
         item.transform.position = transform.position + Vector3.up;
     }
 
+    /// <summary>
+    /// dépile la liste du contenu de la brouette en faisant apparître et en plaçant les objets 1 par 1
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Empty()
     {
         for (int i = storageContent.Count - 1; i >= 0; i--)

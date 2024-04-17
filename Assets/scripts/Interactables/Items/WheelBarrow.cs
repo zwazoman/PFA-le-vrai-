@@ -2,21 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// interaction du joueur avec la brouette
+/// </summary>
 public class WheelBarrow : Interactable
 {
     [SerializeField] float _distanceToLink;
     [SerializeField] float _hightToLink;
+    [SerializeField] WheelBarrowStorage _storage;
+
+    /// <summary>
+    /// appelé quand le joueur intéragit avec la brouette. la snap au joueur recevant sa rotation au passage
+    /// </summary>
     public override void InteractWith()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
+        _storage.enabled = false;
+        //visuels
         PlayerMain.Instance.WheelBarrow.WB = this;
         transform.parent = PlayerMain.Instance.transform;
         transform.position = PlayerMain.Instance.transform.position + PlayerMain.Instance.transform.forward * _distanceToLink + Vector3.up * _hightToLink;
         transform.rotation = Quaternion.Euler(PlayerMain.Instance.transform.eulerAngles + Vector3.right * 180 + Vector3.forward * 180);
+        //changement de collider pour la brouette (gros bordel)
+        /*PlayerMain.Instance.PlayerCollider.enabled = false;
+        PlayerMain.Instance.WheelBarrowCollider.enabled = true;*/
     }
 
     public void UnEquip()
     {
         transform.parent = null;
+        _storage.enabled = true;
+        /*PlayerMain.Instance.WheelBarrowCollider.enabled = false;
+        PlayerMain.Instance.PlayerCollider.enabled = true;*/
     }
 }
