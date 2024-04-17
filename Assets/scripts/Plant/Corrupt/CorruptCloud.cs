@@ -9,9 +9,9 @@ public class CorruptCloud : MonoBehaviour
     {
         if (other.tag == "Plant")
         {
-           PlantCorruption corrupt = other.GetComponent<PlantCorruption>();
+           PlantCorruption corrupt = other.GetComponent<PlantCorruption>(); //recupere le component d'un gameobject avec le tag plant
 
-            corrupt._addCorruption *= 2;
+            corrupt._addCorruption *= 2;//multiplie la corruption par 2 
         }
     }
 }
