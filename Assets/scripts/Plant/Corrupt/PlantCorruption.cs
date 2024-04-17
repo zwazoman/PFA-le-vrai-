@@ -8,7 +8,7 @@ public class PlantCorruption : MonoBehaviour
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
-    [SerializeField] float _addCorruption;
+    public float _addCorruption { get; set;}
     [SerializeField] PlantMain _plantMain;
     [SerializeField] Material _plantReady;
     [SerializeField] Material _plantNotReady;
@@ -25,23 +25,23 @@ public class PlantCorruption : MonoBehaviour
 
     private void Start()
     {
-        TimeManager.Instance.OnHour += CorruptionStart;
-        if (corruptionValue <= 0)
+        TimeManager.Instance.OnDay += CorruptionStart;
+        corruptionValue = Random.Range(0.20f, 1f);
+        Debug.Log(corruptionValue);
+        if (corruptionValue >= _corruptionSpawnValue)
         {
-            _plantMain.Harvest.isHarvesteable = true;
+            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position + Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
         }
     }
 
     public void CorruptionStart()
-    {
-        if (TimeManager.Instance.Hour % 2 == 0)
-        {
-            SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption toute les 2h
+    {       
+            SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption tous les jours 
 
             //Gestion du nuages de corruption
             if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
             {
-                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);                
+                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation/*, gameObject.transform*/);                
                 _plantMain.Harvest.isHarvesteable = false;
                 MR.sharedMaterial = _plantNotReady;
             }
@@ -50,8 +50,7 @@ public class PlantCorruption : MonoBehaviour
             {
                 Destroy(_corruptionZone);
             }
-            Debug.Log(corruptionValue);                          
-        }       
+            Debug.Log(corruptionValue);                                        
     }
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
@@ -62,6 +61,11 @@ public class PlantCorruption : MonoBehaviour
             _plantMain.Harvest.isHarvesteable = true;
             MR.sharedMaterial = _plantReady;
         }
+        if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
+            {
+                Destroy(_corruptionZone);
+                _addCorruption /= 2;
+            }
     }
 
 
@@ -74,18 +78,18 @@ public class PlantCorruption : MonoBehaviour
 
     private void OnDestroy()
     {
-        TimeManager.Instance.OnHour -= CorruptionStart;
+        TimeManager.Instance.OnDay -= CorruptionStart;
     }
 
     public void FreezeCorruption()
     {
-        TimeManager.Instance.OnHour -= CorruptionStart;
+        TimeManager.Instance.OnDay -= CorruptionStart;
         print("freeze corruption");
     }
 
     public void UnFreezeCorruption()
     {
-        TimeManager.Instance.OnHour += CorruptionStart;
+        TimeManager.Instance.OnDay += CorruptionStart;
         print("unfreeze corruption");
     }
 }

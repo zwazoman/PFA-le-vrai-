@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// Ce script gere la description le nom et le prix d'un item du shop
+/// </summary>
 public class Shop : Interactable
 {
     [SerializeField] GameObject _panelItem;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,11 +5,13 @@ using UnityEngine;
 /// </summary>
 public class CorruptCloud : MonoBehaviour
 {
-    //[SerializeField] Corruption _corrupt;
-    private void UpdateSize()
+    private void OnTriggerStay(Collider other) //si une graine est dans le collider du nuages alors sa corruption augmente x2
     {
-    
+        if (other.tag == "Plant")
+        {
+           PlantCorruption corrupt = other.GetComponent<PlantCorruption>();
+
+            corrupt._addCorruption *= 2;
+        }
     }
-
-
 }
