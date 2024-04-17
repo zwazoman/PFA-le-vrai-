@@ -8,11 +8,12 @@ public class PlantCorruption : MonoBehaviour
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
-    public float _addCorruption { get; set;}
+    [field:SerializeField] public float _addCorruption { get; set;}
     [SerializeField] PlantMain _plantMain;
     [SerializeField] Material _plantReady;
     [SerializeField] Material _plantNotReady;
     MeshRenderer MR;
+    public bool CanWater { get; set; }
 
 
     private void Awake()
@@ -37,11 +38,11 @@ public class PlantCorruption : MonoBehaviour
     public void CorruptionStart()
     {       
             SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption tous les jours 
-
+            CanWater = true;
             //Gestion du nuages de corruption
             if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null) 
             {
-                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation/*, gameObject.transform*/);                
+                _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position+Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);                
                 _plantMain.Harvest.isHarvesteable = false;
                 MR.sharedMaterial = _plantNotReady;
             }
