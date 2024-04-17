@@ -9,8 +9,6 @@ public class PlayerMovement : DynamicObject
     [SerializeField] float _playerMoveSpeed;
     //vitesse de course du joueur
     [SerializeField] float _playerRunFactor;
-    //vitesse a laquelle le joueur tourne
-    [SerializeField] float _turnSpeed;
     //acceleration du joueur lors de ses déplacements
     [SerializeField] float _acceleration;
 

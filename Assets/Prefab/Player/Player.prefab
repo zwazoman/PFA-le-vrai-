@@ -132,16 +132,20 @@ GameObject:
   - component: {fileID: 4416392060899640613}
   - component: {fileID: 637350290374608245}
   - component: {fileID: 4254267697014289863}
+  - component: {fileID: 8577543130640639059}
   - component: {fileID: 8543143193072082659}
+  - component: {fileID: 579326058760354247}
   - component: {fileID: 7021991349392015451}
-  - component: {fileID: 121151280416837700}
   - component: {fileID: 1579884416940165209}
   - component: {fileID: 4858216239149246388}
   - component: {fileID: 728590062080348119}
   - component: {fileID: 5868292390827359}
   - component: {fileID: 2510606083231798804}
   - component: {fileID: 8578276114159150430}
+  - component: {fileID: 121151280416837700}
+  - component: {fileID: 8759161627018368913}
   - component: {fileID: 24137043705160043}
+  - component: {fileID: 7483418212233676595}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -282,6 +286,22 @@ MonoBehaviour:
   <Interaction>k__BackingField: {fileID: 1579884416940165209}
   <Hands>k__BackingField: {fileID: 7021991349392015451}
   <Tools>k__BackingField: {fileID: 4858216239149246388}
+  <WheelBarrow>k__BackingField: {fileID: 8577543130640639059}
+--- !u!114 &8577543130640639059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411243086529900602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f54b958abc7d040adad7a74047e645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <InputManager>k__BackingField: {fileID: 8759161627018368913}
+  <Movement>k__BackingField: {fileID: 579326058760354247}
+  <Input>k__BackingField: {fileID: 24137043705160043}
 --- !u!114 &8543143193072082659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +328,31 @@ MonoBehaviour:
   speedMultiplier: 1
   _playerMoveSpeed: 10
   _playerRunFactor: 1.5
-  _turnSpeed: 0
   _acceleration: 120
+--- !u!114 &579326058760354247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411243086529900602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc173b0398a06444be24156338c5904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  MaxCollisionTests: 5
+  velocity: {x: 0, y: 0, z: 0}
+  bounciness: 0.5
+  GroundFriction: 0
+  Airfriction: 0
+  Gravity: 0
+  MaxSlopeAngle: 30
+  GroundCheckDistance: 0.01
+  speedMultiplier: 1
 --- !u!114 &7021991349392015451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,18 +368,6 @@ MonoBehaviour:
   ItemInHands: {fileID: 0}
   _grabZone: {fileID: 4380278599760779961}
   _itemDistanceToPlayer: 1
---- !u!114 &121151280416837700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5411243086529900602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18f1f2cab04d314dac17860c3710829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1579884416940165209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +456,30 @@ MonoBehaviour:
   <ToolLength>k__BackingField: 1.5
   <ToolRange>k__BackingField: 1
   _plantJumpForce: 10
+--- !u!114 &121151280416837700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411243086529900602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18f1f2cab04d314dac17860c3710829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8759161627018368913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411243086529900602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72e3efdd46a82f488fed709ec884e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &24137043705160043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,9 +672,9 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 121151280416837700}
-        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
-        m_MethodName: EmptyWheelBarrow
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Move
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -629,13 +684,90 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: e9f6cd65-d56b-46a6-a12b-630d26335398
-    m_ActionName: Player/EmptyWheelBarrow[/Keyboard/q]
+    m_ActionId: 274861fd-3863-4b99-9ac0-5b338d8d0996
+    m_ActionName: WheelBarrow/Move[/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Turn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a224f03f-9728-4a7b-b9fd-47f28dcc4b30
+    m_ActionName: WheelBarrow/Turn[/Keyboard/d,/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3eb3acd9-bd68-48ac-8da6-07198b3a952f
+    m_ActionName: WheelBarrow/Drop[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Empty
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2fcc3340-28b0-47fc-aad8-ee76d6a4b458
+    m_ActionName: WheelBarrow/Empty[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1b9ba59b-8e65-46c6-9605-f54a4eb46bd5
+    m_ActionName: WheelBarrow/Sprint[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7483418212233676595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411243086529900602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7628c0ce70dca5a47a76fb8dc733524b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Money>k__BackingField: 0
 --- !u!1 &7227544587763195676
 GameObject:
   m_ObjectHideFlags: 0

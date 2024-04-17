@@ -11,7 +11,7 @@ public class Field : MonoBehaviour
     public bool Sowable { get; set; }
     public bool IsEmpty {get;set;}
     private GameObject _plant;
-    MeshFilter _mF;
+    [SerializeField] MeshFilter _mF;
     [SerializeField] Mesh _sowableMesh;
     [SerializeField] Mesh _notSowableMesh;
 
@@ -19,7 +19,6 @@ public class Field : MonoBehaviour
     {
         IsEmpty = true;
         Sowable = false;
-        _mF = GetComponent<MeshFilter>();
         _notSowableMesh = _mF.mesh;
     }
 

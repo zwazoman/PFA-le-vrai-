@@ -25,6 +25,9 @@ public class PlayerMain : MonoBehaviour
     [field : SerializeField]
     public PlayerTools Tools { get; private set; }
 
+    [field : SerializeField]
+    public WheelBarrowMain WheelBarrow { get; private set; }
+
     //singleton
     private static PlayerMain instance = null;
     public static PlayerMain Instance => instance;
