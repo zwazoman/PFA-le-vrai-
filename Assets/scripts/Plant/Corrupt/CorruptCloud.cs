@@ -12,6 +12,7 @@ public class CorruptCloud : MonoBehaviour
            PlantCorruption corrupt = other.GetComponent<PlantCorruption>(); //recupere le component d'un gameobject avec le tag plant
 
             corrupt._addCorruption *= 2;//multiplie la corruption par 2 
+            Debug.Log("Ta mere la pute");
         }
     }
 }
