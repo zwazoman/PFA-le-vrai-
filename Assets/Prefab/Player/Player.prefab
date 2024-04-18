@@ -281,6 +281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4125db50b7d677498aedb16fe30cc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <WheelBarrowCollider>k__BackingField: {fileID: 0}
+  <PlayerCollider>k__BackingField: {fileID: 0}
   <InputManager>k__BackingField: {fileID: 121151280416837700}
   <Movement>k__BackingField: {fileID: 8543143193072082659}
   <Interaction>k__BackingField: {fileID: 1579884416940165209}
@@ -343,16 +345,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   MaxCollisionTests: 5
-  velocity: {x: 0, y: 0, z: 0}
-  bounciness: 0.5
-  GroundFriction: 0
+  velocity: {x: 0.0000013652859, y: 0, z: 0.00000068264296}
+  bounciness: 0
+  GroundFriction: 13.69
   Airfriction: 0
-  Gravity: 0
+  Gravity: 30
   MaxSlopeAngle: 30
-  GroundCheckDistance: 0.01
+  GroundCheckDistance: 0.05
   speedMultiplier: 1
+  _playerMoveSpeed: 6.13
+  _acceleration: 70.5
+  _turnSpeed: 446.5
+  decelerationY: 7.75
 --- !u!114 &7021991349392015451
 MonoBehaviour:
   m_ObjectHideFlags: 0

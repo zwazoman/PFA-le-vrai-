@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// gère l'arrosoir, son stockage en eau et sa limite ainsi que l'arrosage des plantes
+/// gï¿½re l'arrosoir, son stockage en eau et sa limite ainsi que l'arrosage des plantes
 /// </summary>
 public class WateringCan : Tool
 {
@@ -17,14 +17,14 @@ public class WateringCan : Tool
     }
 
     /// <summary>
-    /// gère les différentes possibilités lors de l'utilisation de l'arrosoir
+    /// gï¿½re les diffï¿½rentes possibilitï¿½s lors de l'utilisation de l'arrosoir
     /// </summary>
     public override void Use()
     {
         base.Use();
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.TryGetComponent<PlantCorruption>(out PlantCorruption corruption) && corruption.CanWater) // si c'est une plante et qu'elle peut etre arrosée
+            if (hitCollider.gameObject.TryGetComponent<PlantCorruption>(out PlantCorruption corruption) && corruption.CanWater) // si c'est une plante et qu'elle peut etre arrosï¿½e
             {
                 if (_waterStorage <= 0) // si l'arrosoir est vide
                 {
@@ -32,14 +32,15 @@ public class WateringCan : Tool
                     return;
                 }
 
-                if (corruption.CanWater == false) // si la plante a deja été arrosée
+                if (corruption.CanWater == false) // si la plante a deja ï¿½tï¿½ arrosï¿½e
                 {
-                    print("déja arrosée");
+                    print("dï¿½ja arrosï¿½e");
                     return;
                 }
                 _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
                 print("water");
-                corruption.ReduceCorruption(waterToGive); // réduit la corruption de la plante ciblée
+                if (plantMain.PlantField == null) return;
+                plantMain.Corruption.ReduceCorruption(waterToGive); // rï¿½duit la corruption de la plante ciblï¿½e
                 corruption.CanWater = false;
                 // spawn particules d'eau ?
             }

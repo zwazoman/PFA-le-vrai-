@@ -41,19 +41,6 @@ public class PlayerMovement : DynamicObject
     }
 
     /// <summary>
-    /// gère les mouvements du joueur en utilisant la physique des rigidbodies
-    /// </summary>
-    /// <param name="direction"></param>
-    /// <param name="maxSpeed"></param>
-    /// <param name="acceleration"></param>
-    public void Move(Vector3 direction, float maxSpeed, float acceleration)
-    {
-        float currentSpeed = getFlatVelocity().magnitude;
-        float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
-        AddImpulse(AddSpeed * direction);
-    }
-
-    /// <summary>
     /// gère le début de la course du joueur a la réception de l'event "onSprintStart"
     /// </summary>
     private void StartRunning()

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// inputs quand le joueur porte la brouette
+/// </summary>
 public class WheelBarrowInputManager : MonoBehaviour
 {
     public float MoveInput { get; private set; }

@@ -18,6 +18,7 @@ public class Shovel : Tool
         {
             if(hitCollider.TryGetComponent<PlantMain>(out PlantMain plantMain)) // si c'est une plante
             {
+                if (plantMain.PlantField == null) return;
                 plantMain.Unplant.Unplant();
             }
         }
