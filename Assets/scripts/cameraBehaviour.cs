@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,11 +25,11 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Zoom()
     {
-        //gameObject.GetComponent<Camera>().fieldOfView =
+
     }
 
     private void Dezoom()
     {
-        //gameObject.GetComponent<Camera>().fieldOfView = 
+
     }
 }
