@@ -14,25 +14,25 @@ public class CorruptCloud : MonoBehaviour
     {
         TimeManager.Instance.OnHour += CloudCorrupt;
     }
+
     /// <summary>
     /// Gere le nuage de corruption 
     /// </summary>
 
     public virtual void CloudCorrupt()
     {
-        if (TimeManager.Instance.Hour == 1)
+        if (TimeManager.Instance.Hour == 1) //tous les jours a 1h 
         {
             hitColliders = Physics.OverlapSphere(transform.position + transform.forward * CorruptLength, CorruptRange);
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) 
+                if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) //si c'est une plante
                 {
                     Debug.Log("SUUUU");
-                    plantCorrupt.corruptionValue += 0.2f;
+                    plantCorrupt.corruptionValue += 0.2f; //ajoute 0.2 a la corruption actuelle
                 }
             }
-        }
-        
+        }        
     }
     private void OnDestroy()
     {
