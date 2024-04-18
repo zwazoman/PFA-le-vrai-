@@ -21,6 +21,12 @@ public class PlantMain : MonoBehaviour
     [field : SerializeField]
     public ItemJump Jump { get; private set; }
 
+    public bool CanWater { get; set; }
+
+    private void Start()
+    {
+        TimeManager.Instance.OnDay += () => CanWater = true;
+    }
     private void Update()
     {
         print(PlantField);
