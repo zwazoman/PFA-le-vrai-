@@ -12,7 +12,7 @@ public class CorruptCloud : MonoBehaviour
     public Collider[] hitColliders { get; private set; }
     private void Start()
     {
-        TimeManager.Instance.OnDay += CloudCorrupt;
+        TimeManager.Instance.OnHour += CloudCorrupt;
     }
     /// <summary>
     /// Gere le nuage de corruption 
@@ -20,15 +20,19 @@ public class CorruptCloud : MonoBehaviour
 
     public virtual void CloudCorrupt()
     {
-        hitColliders = Physics.OverlapSphere(transform.position + transform.forward * CorruptLength, CorruptRange);
-        foreach (var hitCollider in hitColliders)
+        if (TimeManager.Instance.Hour == 1)
         {
-            if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) 
+            hitColliders = Physics.OverlapSphere(transform.position + transform.forward * CorruptLength, CorruptRange);
+            foreach (var hitCollider in hitColliders)
             {
-                Debug.Log("SUUUU");
-                plantCorrupt.corruptionValue += 0.2f;
+                if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) 
+                {
+                    Debug.Log("SUUUU");
+                    plantCorrupt.corruptionValue += 0.2f;
+                }
             }
         }
+        
     }
     private void OnDestroy()
     {
