@@ -12,9 +12,10 @@ public class Scythe : Tool
         base.Use();
         foreach (var hitCollider in hitColliders)
         {
-            if(hitCollider.gameObject.TryGetComponent<PlantHarvest>(out PlantHarvest harvest)) // si c'ets une plante
+            if(hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)) // si c'ets une plante
             {
-                harvest.Harvest(); // récolte la plante
+                if (plantMain.PlantField == null) return;
+                plantMain.Harvest.Harvest(); // récolte la plante
             }
         }
     }
