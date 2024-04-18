@@ -5,7 +5,7 @@ using UnityEngine;
 public class WheelBarrow : Interactable
 {
     //[SerializeField] float _distanceToLink;
-    public override void InteractWith()
+    protected override void Interaction()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
         /*transform.position = PlayerMain.Instance.gameObject.transform.position + transform.forward * _distanceToLink;
