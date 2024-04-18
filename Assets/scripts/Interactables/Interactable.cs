@@ -47,4 +47,8 @@ public abstract class Interactable : MonoBehaviour
         outlineMeshes.Clear();
     }
 
+    public void OnDestroy()
+    {
+        PlayerMain.Instance.GrabBox.ClearHands();
+    }
 }
