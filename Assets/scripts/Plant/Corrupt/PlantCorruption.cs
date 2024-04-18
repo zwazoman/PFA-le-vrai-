@@ -27,12 +27,8 @@ public class PlantCorruption : MonoBehaviour
     private void Start()
     {
         TimeManager.Instance.OnDay += CorruptionStart;
-        corruptionValue = Random.Range(0.20f, 1f);
+        corruptionValue = Random.Range(0.20f, 0.8f);
         Debug.Log(corruptionValue);
-        if (corruptionValue >= _corruptionSpawnValue)
-        {
-            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position + Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
-        }
     }
 
     public void CorruptionStart()
