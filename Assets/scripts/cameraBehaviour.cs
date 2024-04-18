@@ -21,11 +21,11 @@ public class CameraBehaviour : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.Velocity*PlayerAnticipation, ref vel, smoothTime);
+        //GetComponent<Camera>().fieldOfView = 19 + PlayerMain.Instance.Movement.Velocity.magnitude;
     }
 
     private void Zoom()
     {
-
     }
 
     private void Dezoom()
