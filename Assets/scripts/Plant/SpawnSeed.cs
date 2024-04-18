@@ -14,7 +14,9 @@ public class SpawnSeed : MonoBehaviour
 
     private IEnumerator ThrowSeed()
     {
-        if (TimeManager.Instance.Hour != 10) yield break;
+        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) yield break;
+
+            if (TimeManager.Instance.Hour != 10) yield break;
         for(int i = 0; i <= seedAmount; i++)
         {
             Instantiate(seedPrefab, transform.position, Quaternion.identity);

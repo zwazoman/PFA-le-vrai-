@@ -13,6 +13,8 @@ public class Item : Interactable
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
+    
+    Rigidbody rb;
     protected override void Interaction()
     {
         PlayerMain.Instance.Hands.Pickup(gameObject);
@@ -23,6 +25,11 @@ public class Item : Interactable
         GetComponent<ItemJump>().Jump();
     }
 
+    private void Update()
+    {
+        if(rb==null) rb=GetComponent<Rigidbody>();
+        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) rb.Sleep(); else rb.WakeUp();
+    }
     /*private void OnDestroy()
     {
         if (PlayerMain.Instance.Interaction.Interactables==this) PlayerMain.Instance.Interaction.Interactables.Remove(this);

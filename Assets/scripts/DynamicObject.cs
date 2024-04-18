@@ -1,34 +1,50 @@
+using CustomInspector;
 using UnityEngine;
 
 /// <summary>
 /// Pas touche aux lignes commentées Nestor; c'est des features désactivées mais qu'on pourra récupérer plus tard si ça bug
 /// </summary>
+/// 
+
+
 public class DynamicObject : MonoBehaviour
 {
+
+
     Rigidbody rb;
     SphereCollider col;
     Vector3 TotalForce;
 
+    [Header("Collisions")]
     [SerializeField] private LayerMask collisionLayer;
     [SerializeField] private int MaxCollisionTests = 5;
+    public float GroundCheckDistance = 0.01f;
+    public float MaxSlopeAngle = 30;
+
+    [Header("Physics")]
     [SerializeField] private Vector3 velocity;
     [SerializeField] [Range(0,1)] private float bounciness=0.5f;
-    
+
+    [HideInInspector]
     public float currentSlopeAngle { get; private set; }
     public Vector3 Velocity => velocity;
 
-
+    public float Gravity;
     public float GroundFriction;
     public float Airfriction;
-    public float Gravity;
-    public float MaxSlopeAngle = 30;
-    public float GroundCheckDistance = 0.01f;
-    public bool isGrounded { get ;private set; }
+    
+    
+
+
+    public bool isGrounded{ get ;private set; }
 
     public FrameInfo LastFrameInfo { get; private set; } = new();
 
     [Range(1,5)]
     public int speedMultiplier = 1;
+
+    [SerializeField] bool UseCharacterController = false;
+    CharacterController CharacterController;
     public struct FrameInfo
     {     
         public FrameInfo(Vector3 Position,Vector3 Velocity,bool isGrounded)
@@ -83,6 +99,7 @@ public class DynamicObject : MonoBehaviour
     /// </summary>
     protected void initPhysics()
     {
+        TryGetComponent<CharacterController>(out CharacterController);
         TryGetComponent<SphereCollider>(out col);
         TryGetComponent<Rigidbody>(out rb);
     }
@@ -103,8 +120,10 @@ public class DynamicObject : MonoBehaviour
 
         checkForGround();
         CheckForCollision();
-        
-        transform.position += velocity * Time.deltaTime;
+
+        if (!UseCharacterController)
+            transform.position += velocity * Time.deltaTime;
+        else CharacterController.Move(velocity * Time.deltaTime);
 
     }
 
@@ -190,7 +209,7 @@ public class DynamicObject : MonoBehaviour
     /// <param name="acceleration"></param>
     public void Move(Vector3 direction, float maxSpeed, float acceleration)
     {
-        float currentSpeed = /*Vector3.Dot(direction, Velocity);*/getFlatVelocity().magnitude;
+        float currentSpeed = Vector3.Dot(direction, getFlatVelocity());//*/getFlatVelocity().magnitude;
         float AddSpeed = Mathf.Clamp(maxSpeed - currentSpeed, 0, acceleration * Time.deltaTime);
         AddImpulse(AddSpeed * direction);
     }
