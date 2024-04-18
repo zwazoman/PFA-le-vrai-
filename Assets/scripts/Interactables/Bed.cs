@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bed : Interactable
 {
-    public override void InteractWith()
+    protected override void Interaction()
     {
         TimeManager.Instance.SkipTo(6);
         Debug.Log($"Hour: {TimeManager.Instance.Hour}");

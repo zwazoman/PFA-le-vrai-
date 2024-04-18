@@ -29,6 +29,7 @@ public class PlantCorruption : MonoBehaviour
         TimeManager.Instance.OnDay += CorruptionStart;
         corruptionValue = Random.Range(0.20f, 0.8f);
         Debug.Log(corruptionValue);
+        MR.sharedMaterial = _plantNotReady;
     }
 
     public void CorruptionStart()

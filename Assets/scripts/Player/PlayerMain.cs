@@ -8,12 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerMain : MonoBehaviour
 {
-    [field : SerializeField]
-    public Collider WheelBarrowCollider { get; private set; }
-
-    [field : SerializeField]
-    public Collider PlayerCollider { get; private set; }
-
     [field: SerializeField]
     public PlayerInputManager InputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
 
@@ -28,6 +22,9 @@ public class PlayerMain : MonoBehaviour
 
     [field : SerializeField]
     public PlayerTools Tools { get; private set; }
+
+    [field : SerializeField]
+    public PlayerGrabBox GrabBox { get; private set; }
 
     [field : SerializeField]
     public WheelBarrowMain WheelBarrow { get; private set; }
@@ -46,5 +43,6 @@ public class PlayerMain : MonoBehaviour
         {
             instance = this;
         }
+        Cursor.visible = false;
     }
 }

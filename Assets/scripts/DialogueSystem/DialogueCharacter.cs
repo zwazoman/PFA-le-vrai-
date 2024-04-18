@@ -62,6 +62,16 @@ public class DialogueCharacter
 
     }
 
+    public async Task<int> Ask(string Question, string[] options)
+    {
+        _Panel.SendAllCharactersToBackGround();
+        _Panel.SetTalkingCharacter(this);
+
+        //await Task.Yield();
+
+        return 0;
+    }
+
     public void SetEmotion(Emotions newEmotion)
     {
         Assert.IsTrue(EmotionSprites.ContainsKey(newEmotion),Name+ " n'a pas encore débloqué cette émotion.il ne peut pas être "+newEmotion.ToString() +". Connard. Va dessiner tes putains de sprites");

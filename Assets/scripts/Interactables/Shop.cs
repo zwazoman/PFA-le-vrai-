@@ -23,7 +23,7 @@ public class Shop : Interactable
     {
         if (_pStats.Money >= _soItem.Price)
         {
-            Debug.Log("Objets acheté");
+            Debug.Log("Objets achetï¿½");
             //Faire spawn l'objet a
         }
         else if (_pStats.Money <= _soItem.Price)

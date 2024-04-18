@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sign : Interactable
 {
     bool isActivated = false;
-    public override void InteractWith()
+    protected override void Interaction()
     {
         if(!isActivated)
         {

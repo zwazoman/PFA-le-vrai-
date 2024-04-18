@@ -41,6 +41,10 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnDisable()
     {
+        foreach(Interactable interactable in Interactables)
+        {
+            interactable.OnStopHighLight();
+        }
         Interactables.Clear(); // vide la liste "Interactables" quand le component est désactivé pour éviter de re-ramasser a l'infini un objet en voulant le jeter
     }
 }
