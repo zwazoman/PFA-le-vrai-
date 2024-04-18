@@ -39,4 +39,10 @@ public class PlayerGrabBox : MonoBehaviour
             }
         }
     }
+
+    public void ClearHands()
+    {
+        _interaction.Interactables[0].OnStopHighLight();
+        _interaction.Interactables.Clear();
+    }
 }
