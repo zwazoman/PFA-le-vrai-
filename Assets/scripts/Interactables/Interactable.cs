@@ -26,7 +26,7 @@ public abstract class Interactable : MonoBehaviour
         print("La pute");
         foreach(MeshFilter mr in GetComponentsInChildren<MeshFilter>())
         {
-            GameObject spawned = GameObject.Instantiate(Resources.Load<GameObject>("OutlineMesh"), transform);
+            GameObject spawned = GameObject.Instantiate(Resources.Load<GameObject>("OutlineMesh"), mr.gameObject.transform);
             /*spawned.transform.localScale = Vector3.one;
             spawned.transform.localPosition = Vector3.zero;
             spawned.transform.localRotation = Quaternion.identity;*/
