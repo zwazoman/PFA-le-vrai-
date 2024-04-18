@@ -14,7 +14,7 @@ public class WheelBarrow : Interactable
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
-    public override void InteractWith()
+    protected override void Interaction()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
         _storage.enabled = false;
