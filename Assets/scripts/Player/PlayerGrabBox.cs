@@ -14,11 +14,12 @@ public class PlayerGrabBox : MonoBehaviour
         _interaction = gameObject.transform.parent.GetComponent<PlayerInteraction>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Interactable>(out Interactable interactable))
+        if (other.gameObject.TryGetComponent<Interactable>(out Interactable interactable)&& _interaction.Interactables.Count==0)
         {
             print("détecte");
+            interactable.OnHighlighted();
             //changer un truc sur l'objet interactable pour être explicitement rammassable
             _interaction.Interactables.Add(interactable);
             print("ajouter " + interactable.gameObject.name) ;
@@ -31,6 +32,7 @@ public class PlayerGrabBox : MonoBehaviour
         {
             if (_interaction.Interactables.Contains(interactable)) 
             {
+                interactable.OnStopHighLight();
                 // rétablir l'objet interactable pour n'être plus explicitement rammassable
                 _interaction.Interactables.Remove(interactable);
                 print("retirer " + interactable.gameObject.name);

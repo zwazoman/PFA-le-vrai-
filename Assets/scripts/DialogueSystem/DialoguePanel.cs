@@ -39,6 +39,23 @@ public class DialoguePanel : MonoBehaviour
         await Task.Yield();
     }
 
+    public async Task<int> WriteQuestion(string text, string[] options)
+    {
+        _dialogueText.text = "";
+
+        foreach (char character in text)
+        {
+            _dialogueText.text += character;
+            if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
+        }
+        if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield(); //t'inquiete
+        await Task.Yield();
+
+
+
+        return 0;
+    }
+
     public async Task EasyWriteString(string toWrite)
     {
         //InitDialogue(characters.Narrator, characters.Narrator);*

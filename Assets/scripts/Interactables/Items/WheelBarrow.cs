@@ -12,7 +12,7 @@ public class WheelBarrow : Interactable
     [SerializeField] WheelBarrowStorage _storage;
 
     /// <summary>
-    /// appelé quand le joueur intéragit avec la brouette. la snap au joueur recevant sa rotation au passage
+    /// appelï¿½ quand le joueur intï¿½ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
     public override void InteractWith()
     {
