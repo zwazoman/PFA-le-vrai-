@@ -24,24 +24,17 @@ public class WateringCan : Tool
         base.Use();
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.TryGetComponent<PlantCorruption>(out PlantCorruption corruption) && corruption.CanWater) // si c'est une plante et qu'elle peut etre arros�e
+            if (hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)) // si c'est une plante et qu'elle peut etre arros�e
             {
                 if (_waterStorage <= 0) // si l'arrosoir est vide
                 {
                     print("plus d'eau");
                     return;
-                }
-
-                if (corruption.CanWater == false) // si la plante a deja �t� arros�e
-                {
-                    print("d�ja arros�e");
-                    return;
-                }
+                }                
                 _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
                 print("water");
                 if (plantMain.PlantField == null) return;
-                plantMain.Corruption.ReduceCorruption(waterToGive); // r�duit la corruption de la plante cibl�e
-                corruption.CanWater = false;
+                plantMain.Corruption.ReduceCorruption(waterToGive); // r�duit la corruption de la plante cibl�
                 // spawn particules d'eau ?
             }
             if(hitCollider.gameObject.TryGetComponent<Well>(out Well well)) // si c'est un puit
