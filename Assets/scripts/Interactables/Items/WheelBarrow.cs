@@ -23,6 +23,7 @@ public class WheelBarrow : Interactable
         transform.parent = PlayerMain.Instance.transform;
         transform.position = PlayerMain.Instance.transform.position + PlayerMain.Instance.transform.forward * _distanceToLink + Vector3.up * _hightToLink;
         transform.rotation = Quaternion.Euler(PlayerMain.Instance.transform.eulerAngles + Vector3.right * 180 + Vector3.forward * 180);
+        GetComponent<Collider>().enabled = false;
         //changement de collider pour la brouette (gros bordel)
         /*PlayerMain.Instance.PlayerCollider.enabled = false;
         PlayerMain.Instance.WheelBarrowCollider.enabled = true;*/
@@ -32,6 +33,7 @@ public class WheelBarrow : Interactable
     {
         transform.parent = null;
         _storage.enabled = true;
+        GetComponent<Collider>().enabled = true;
         /*PlayerMain.Instance.WheelBarrowCollider.enabled = false;
         PlayerMain.Instance.PlayerCollider.enabled = true;*/
     }

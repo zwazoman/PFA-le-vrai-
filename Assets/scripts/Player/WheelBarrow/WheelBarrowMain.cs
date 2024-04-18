@@ -31,6 +31,7 @@ public class WheelBarrowMain : MonoBehaviour
     {
         Input.SwitchCurrentActionMap("WheelBarrow");
         PlayerMain.Instance.Movement.enabled = false;
+        PlayerMain.Instance.GrabBox.enabled = false;
     }
 
     /// <summary>
@@ -41,5 +42,6 @@ public class WheelBarrowMain : MonoBehaviour
         Input.SwitchCurrentActionMap("Player");
         WB.UnEquip();
         PlayerMain.Instance.Movement.enabled = true;
+        PlayerMain.Instance.GrabBox.enabled = true;
     }
 }
