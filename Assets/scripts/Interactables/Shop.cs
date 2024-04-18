@@ -10,7 +10,7 @@ public class Shop : Interactable
     [SerializeField] TMP_Text _description;
     [SerializeField] TMP_Text _prices;
     [SerializeField] TMP_Text _name;
-    public override void InteractWith()
+    protected override void Interaction()
     {
         _panelItem.SetActive(!false);
         _description.text = _soItem.Description;
