@@ -42,13 +42,15 @@ public class WheelBarrowStorage : Storage
     /// <returns></returns>
     public IEnumerator Empty()
     {
+        PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty -= () => StartCoroutine(Empty());
         for (int i = storageContent.Count - 1; i >= 0; i--)
         {
             storageContent[i].transform.position = transform.position + transform.forward * _distanceToEmpty + Vector3.up * _hightToEmpty;
             storageContent[i].transform.parent = null;
             storageContent[i].SetActive(true);
             storageContent.Remove(storageContent[i]);
-            yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
         }
+        PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty += () => StartCoroutine(Empty());
     }
 }

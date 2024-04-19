@@ -1,3 +1,4 @@
+using CustomInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,15 @@ using UnityEngine;
 public class PlayerMovement : DynamicObject
 {
     PlayerInputManager _inputManager;
+
+    [HorizontalLine("Player Stats",1,FixedColor.DarkGray)]
     //vitesse de marche du joueur
     [SerializeField] float _playerMoveSpeed;
     //vitesse de course du joueur
     [SerializeField] float _playerRunFactor;
     //acceleration du joueur lors de ses déplacements
-    [SerializeField] float _acceleration;
+    [SerializeField] float _acceleration, airAcceleration;
+
 
     private void Awake()
     {
@@ -32,7 +36,7 @@ public class PlayerMovement : DynamicObject
     private void Update()
     {
         Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, 0, _inputManager.moveInput.y);
-        Move(direction.normalized,_playerMoveSpeed,_acceleration);
+        Move(direction.normalized,_playerMoveSpeed,isGrounded? _acceleration: airAcceleration );
         if(Velocity.magnitude > 1f)
         {
             transform.rotation = Quaternion.Euler(Vector3.up * Mathf.Atan2(Velocity.x, Velocity.z) * Mathf.Rad2Deg); // rotaton jolie
@@ -55,4 +59,6 @@ public class PlayerMovement : DynamicObject
     {
         _playerMoveSpeed /= _playerRunFactor; // rétablie la vitesse
     }
+
+
 }
