@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -10,12 +11,14 @@ public class WateringCan : Tool
 
     [SerializeField] float waterToGive;
     [SerializeField] VisualEffect _waterVFX;
+    [SerializeField] GameObject _uiImage;
     [field : SerializeField]
     public int MaxWaterStorage { get; set; }
 
     private void Awake()
     {
         _waterStorage = MaxWaterStorage; // l'arrosoir est rempli
+        _uiImage.SetActive(false);
     }
 
     /// <summary>
@@ -25,6 +28,7 @@ public class WateringCan : Tool
     {
         base.Use();
         _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
+        StartCoroutine(ActivateUI());
         if (_waterStorage <= 0) // si l'arrosoir est vide
         {
             print("plus d'eau");
@@ -42,5 +46,12 @@ public class WateringCan : Tool
                 plantMain.CanWater = false;
             }
         }
+    }
+
+    IEnumerator ActivateUI()
+    {
+        _uiImage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _uiImage.SetActive(false);
     }
 }
