@@ -2,25 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSeed : MonoBehaviour
+public class SpawnSeed : Interactable
 {
     [SerializeField] GameObject seedPrefab;
     [SerializeField] float seedAmount;
+    bool _canInteract = false;
+
+    protected override void Interaction()
+    {
+        if (!_canInteract) return;
+        _canInteract = false;
+        StartCoroutine(ThrowSeed());
+    }
 
     private void Start()
     {
-       TimeManager.Instance.OnHour += () => StartCoroutine( ThrowSeed());
+        TimeManager.Instance.OnHour += SetGoodSpawnTime;
+    }
+
+    private void SetGoodSpawnTime()
+    {
+        if (TimeManager.Instance.Hour == 10) _canInteract = true;
     }
 
     private IEnumerator ThrowSeed()
     {
-        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) yield break;
-
-            if (TimeManager.Instance.Hour != 10) yield break;
         for(int i = 0; i <= seedAmount; i++)
         {
             Instantiate(seedPrefab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
         }
+
     }
 }

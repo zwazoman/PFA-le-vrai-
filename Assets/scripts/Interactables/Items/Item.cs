@@ -10,28 +10,28 @@ using UnityEngine;
 /// </summary>
 public class Item : Interactable
 {
+    private bool _canDespawn = false;
+
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
-    
-    Rigidbody rb;
     protected override void Interaction()
     {
         PlayerMain.Instance.Hands.Pickup(gameObject);
+    }
+
+    private void Start()
+    {
+        TimeManager.Instance.OnDay += Despawn;
     }
 
     public virtual void Jump()
     {
         GetComponent<ItemJump>().Jump();
     }
-
-    private void Update()
+    
+    protected void Despawn()
     {
-        if(rb==null) rb=GetComponent<Rigidbody>();
-        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) rb.Sleep(); else rb.WakeUp();
+        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) Destroy(gameObject); 
     }
-    /*private void OnDestroy()
-    {
-        if (PlayerMain.Instance.Interaction.Interactables==this) PlayerMain.Instance.Interaction.Interactables.Remove(this);
-    }*/
 }
