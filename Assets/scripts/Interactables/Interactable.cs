@@ -41,7 +41,7 @@ public abstract class Interactable : MonoBehaviour
     }
     public void OnStopHighLight()
     {
-        print("la depute");
+
         foreach(GameObject Mesh in outlineMeshes)
         {
             Destroy(Mesh);
