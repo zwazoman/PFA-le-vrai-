@@ -24,6 +24,7 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private Image _CharacterImage2;
     [SerializeField] private DialogueCharacters characters;
     [SerializeField] private TMP_Text _titleText;
+    [SerializeField] private GameObject Arrow;
     private Dictionary<DialogueCharacter, Image> characterDisplays = new();
 
     [Header("Question Box")]
@@ -39,6 +40,7 @@ public class DialoguePanel : MonoBehaviour
     {
         QuestionBox.SetActive(false);
         TextBox.SetActive(true);
+        Arrow.SetActive(false);
 
         _dialogueText.text = "";
 
@@ -47,7 +49,10 @@ public class DialoguePanel : MonoBehaviour
             _dialogueText.text += character;
             if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
         }
-        if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield(); //t'inquiete
+        Arrow.SetActive(true) ;
+
+        if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) //t'inquiete
+        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
         await Task.Yield();
     }
 
@@ -60,6 +65,20 @@ public class DialoguePanel : MonoBehaviour
         _QuestionDialogueText.text = "";
         int result = -1;
 
+        //clear buttons
+        foreach(Transform t in OptionPanel.transform)
+        {
+            Destroy(t.gameObject);
+        }
+
+        //popup buttons
+        for (int i = 0; i < options.Length; i++)
+        {
+            OptionButton spawnedButton = Instantiate(ButtonPrefab.gameObject, OptionPanel.transform).GetComponent<OptionButton>();
+            int j = i;//t'inquiete
+            spawnedButton.SetUp(options[i], () => { result = j; });
+        }
+
         //write text
         foreach (char character in text)
         {
@@ -67,14 +86,7 @@ public class DialoguePanel : MonoBehaviour
             if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
         }
 
-        //if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield(); //t'inquiete
-        //await Task.Yield();
-        for(int i = 0; i<options.Length; i++)
-        {
-            OptionButton spawnedButton = Instantiate(ButtonPrefab.gameObject, OptionPanel.transform).GetComponent<OptionButton>();
-            int j = i;//t'inquiete
-            spawnedButton.SetUp(options[i], () => { result = j;});
-        }
+        
 
         while(result == -1) await Task.Yield();
 
@@ -111,6 +123,7 @@ public class DialoguePanel : MonoBehaviour
 
     public void InitDialogue(DialogueCharacter character1, DialogueCharacter character2)
     {
+        characterDisplays.Clear();
         characterDisplays.Add(character1, _CharacterImage1);
         characterDisplays.Add(character2, _CharacterImage2);
 
@@ -162,13 +175,9 @@ public class DialoguePanel : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue("Df_testQuestion",this);
+        //StartDialogue("Df_testQuestion",this);
     }
 
-    void Message()
-    {
-        print("OMG JE TE CAPTE TROP BIEN");
-    }
 }
 
 

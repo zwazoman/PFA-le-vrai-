@@ -8,7 +8,7 @@ public class Lever : Interactable
     [SerializeField] PlayerStats _playerCoin;
     protected override void Interaction()
     {
-        _playerCoin.Money += _millCoin.MillMoney;
+        _playerCoin.AddMoney( _millCoin.MillMoney);
         _millCoin.MillMoney = 0;
     }
 }

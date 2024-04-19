@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class ItemJump : MonoBehaviour
 {
-     public Rigidbody RB { get; set; }
+    public Rigidbody RB { get; set; }
     [SerializeField] float _jumpForce = 10;
     private void Awake()
     {
