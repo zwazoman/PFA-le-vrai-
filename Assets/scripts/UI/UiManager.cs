@@ -48,16 +48,24 @@ public class UiManager : MonoBehaviour
 
     public async Task PopupDialogue(string DialogueScript, MonoBehaviour worldObject)
     {
+        foreach(MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled= false; }
+
         ActivateDialoguePanel();
         await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();
+
+        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
+
+
     }
 
     public async Task PopupSimpleString(string String)
     {
+        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = false; }
         ActivateDialoguePanel();
         await Dialogue_Panel.EasyWriteString(String);
         ActivateGameplayPanel();
+        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
     }
 
     //Shop
