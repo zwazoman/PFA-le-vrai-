@@ -21,6 +21,8 @@ public class PlantMain : MonoBehaviour
     [field : SerializeField]
     public ItemJump Jump { get; private set; }
 
+    [field: SerializeField]
+    public PlantVisuals Visuals { get; private set; }
     public bool CanWater { get; set; }
 
     private void Start()

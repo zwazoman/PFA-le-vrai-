@@ -55,7 +55,7 @@ public class Field : MonoBehaviour
             print("sow");
             _plant = seed.GetComponent<Seed>().Plant;
             Destroy(GetComponent<FieldStorage>());
-            GameObject plant = Instantiate(_plant, transform.position + Vector3.up, Quaternion.identity);
+            GameObject plant = Instantiate(_plant, transform.position + Vector3.up* 0.42f, Quaternion.identity);
             plant.GetComponent<PlantMain>().PlantField = this;
             IsEmpty = false;
         }

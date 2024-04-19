@@ -4,7 +4,7 @@ using UnityEngine;
 /// </summary>
 public class PlantCorruption : MonoBehaviour
 {
-    public float corruptionValue {get; set;}
+    public float corruptionValue {get; private set; }
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
@@ -27,7 +27,7 @@ public class PlantCorruption : MonoBehaviour
     private void Start()
     {
         TimeManager.Instance.OnDay += CorruptionStart;
-        corruptionValue = Random.Range(0.20f, 0.8f);
+        SetCorruptionValue( Random.Range(0.20f, 0.8f));
         Debug.Log(corruptionValue);
         MR.sharedMaterial = _plantNotReady;
     }
@@ -53,7 +53,7 @@ public class PlantCorruption : MonoBehaviour
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
-        corruptionValue -= reduce;
+        SetCorruptionValue( corruptionValue - reduce);
         if (corruptionValue < 0.2f) //si le seuil de corruption est en dessous de 0.20 alors on peut ramassé la plante
         {
             _plantMain.Harvest.isHarvesteable = true;
@@ -72,7 +72,10 @@ public class PlantCorruption : MonoBehaviour
     {
         newValue = Mathf.Clamp01(newValue);
         corruptionValue = newValue;
+
+        _plantMain.Visuals.UpdateVisuals(1f-newValue);
     }
+
 
     private void OnDestroy()
     {

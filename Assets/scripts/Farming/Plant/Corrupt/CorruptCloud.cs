@@ -29,7 +29,7 @@ public class CorruptCloud : MonoBehaviour
                 if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) //si c'est une plante
                 {
                     Debug.Log("SUUUU");
-                    plantCorrupt.corruptionValue += 0.2f; //ajoute 0.2 a la corruption actuelle
+                    plantCorrupt.SetCorruptionValue(plantCorrupt.corruptionValue + 0.2f); //ajoute 0.2 a la corruption actuelle
                 }
             }
         }        
