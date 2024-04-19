@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,9 +11,9 @@ public class OptionButton : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
     [SerializeField] Button btn;
-    public void SetUp(string optionName, int index, DialoguePanel panel)
+    public void SetUp(string optionName, UnityAction callback)
     {
         text.text = optionName;
-        //btn.onClick.AddListener(panel.);
+        btn.onClick.AddListener(callback);
     }
 }

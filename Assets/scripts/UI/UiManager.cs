@@ -46,10 +46,10 @@ public class UiManager : MonoBehaviour
         Dialogue_Panel.gameObject.SetActive(true);
     }
 
-    public async Task PopupDialogue(string DialogueScript)
+    public async Task PopupDialogue(string DialogueScript, MonoBehaviour worldObject)
     {
         ActivateDialoguePanel();
-        await Dialogue_Panel.StartDialogue(DialogueScript);
+        await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();
     }
 

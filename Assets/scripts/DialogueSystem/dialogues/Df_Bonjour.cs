@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class Df_Bonjour : DialogueFlow
 {
-    public Df_Bonjour(DialoguePanel panel, DialogueCharacters characters) : base(panel, characters) { }
+    public Df_Bonjour(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters,WorldObject) { }
 
     public override async Task StartDialogue()
     {

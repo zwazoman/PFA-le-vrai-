@@ -10,14 +10,15 @@ using UnityEngine;
 /// ex: le fichier Assets/scripts/DialogueSystem/dialogues/Df_Bonjour.cs contient la classe " Df_Bonjour : DialogueFlow "
 /// </summary>
 [Serializable]
-public abstract class DialogueFlow : ScriptableObject
+public abstract class DialogueFlow 
 {
     protected DialoguePanel _panel;
     protected DialogueCharacters _characters;
-
+    protected MonoBehaviour WorldObject;
     // Start is called before the first frame update
-    public DialogueFlow(DialoguePanel panel, DialogueCharacters characters)
+    public DialogueFlow(DialoguePanel panel, DialogueCharacters characters,MonoBehaviour _WorldObject)
     {
+        this.WorldObject = _WorldObject;
         _panel = panel;
         _characters = characters;
         characters.initAllCharacters(this, panel);
@@ -29,6 +30,7 @@ public abstract class DialogueFlow : ScriptableObject
 
         _characters.Nestor.SetEmotion(DialogueCharacter.Emotions.Normal);
         await _characters.Nestor.Say("Ta pute la mère noire oui c'est la mère noire yodelyodeliyodel ma grosse raclette la poésie putain");
+        
         await _characters.Noah.Say("ouh là là ça fait mal ça aie aie aie caramba baba my world is upside down; cold sleep il all I found");
         await _characters.Nestor.Say("All because of you, I haven't slept for so long. When I do I dream, I'm drowning in the ocean, longing for a shore, where I could let my head rest inside those arms of yours");
     }

@@ -67,9 +67,10 @@ public class DialogueCharacter
         _Panel.SendAllCharactersToBackGround();
         _Panel.SetTalkingCharacter(this);
 
-        //await Task.Yield();
+        
+        int answer =  await _Panel.WriteQuestion(Question, options);
 
-        return 0;
+        return answer;
     }
 
     public void SetEmotion(Emotions newEmotion)

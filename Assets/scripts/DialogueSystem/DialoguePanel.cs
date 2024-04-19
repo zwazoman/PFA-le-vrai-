@@ -14,20 +14,32 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
-
+    [Header("Simple Dialogue Box")]
+    [SerializeField] private GameObject TextBox;
     [SerializeField] private TMP_Text _dialogueText;
-    [SerializeField] private TMP_Text _titleText;
+    
 
+    [Header("Character Display")]
     [SerializeField] private Image _CharacterImage1;
     [SerializeField] private Image _CharacterImage2;
     [SerializeField] private DialogueCharacters characters;
-
+    [SerializeField] private TMP_Text _titleText;
     private Dictionary<DialogueCharacter, Image> characterDisplays = new();
+
+    [Header("Question Box")]
+    [SerializeField] private GameObject OptionPanel;
+    [SerializeField] private TMP_Text _QuestionDialogueText;
+    [SerializeField] private Button ButtonPrefab;
+    [SerializeField] private GameObject QuestionBox;
+
 
     int characterTimeDelay = 50;
 
     public async Task Write(string text)
     {
+        QuestionBox.SetActive(false);
+        TextBox.SetActive(true);
+
         _dialogueText.text = "";
 
         foreach (char character in text)
@@ -41,27 +53,47 @@ public class DialoguePanel : MonoBehaviour
 
     public async Task<int> WriteQuestion(string text, string[] options)
     {
-        _dialogueText.text = "";
+        Cursor.visible = true;
+        QuestionBox.SetActive(true);
+        TextBox.SetActive(false);
 
+        _QuestionDialogueText.text = "";
+        int result = -1;
+
+        //write text
         foreach (char character in text)
         {
-            _dialogueText.text += character;
+            _QuestionDialogueText.text += character;
             if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
         }
-        if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield(); //t'inquiete
-        await Task.Yield();
 
+        //if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield(); //t'inquiete
+        //await Task.Yield();
+        for(int i = 0; i<options.Length; i++)
+        {
+            OptionButton spawnedButton = Instantiate(ButtonPrefab.gameObject, OptionPanel.transform).GetComponent<OptionButton>();
+            int j = i;//t'inquiete
+            spawnedButton.SetUp(options[i], () => { result = j;});
+        }
 
+        while(result == -1) await Task.Yield();
 
-        return 0;
+        Cursor.visible = false;
+        return result;
+        
     }
+
 
     public async Task EasyWriteString(string toWrite)
     {
+        QuestionBox.SetActive(false);
+        TextBox.SetActive(true);
+
         //InitDialogue(characters.Narrator, characters.Narrator);*
         HideCharacterSprites();
         await Write(toWrite);
         while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+        gameObject.SetActive(false);
     }
 
     void HideCharacterSprites()
@@ -121,15 +153,21 @@ public class DialoguePanel : MonoBehaviour
     /// Le parametre dialogueName correspond au nom du fichier de dialogueflow dans le dossier : Assets/scripts/DialogueSystem/dialogues
     /// </summary>
     /// <param name="DialogueName"></param>
-    public async Task StartDialogue(string DialogueName)
+    public async Task StartDialogue(string DialogueName,MonoBehaviour worldObject)
     {
-        DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters);
+        DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters,worldObject);
         await Flo.StartDialogue();
+        gameObject.SetActive(false);
     }
 
     private void Start()
     {
-        //StartDialogue("Df_Bonjour");
+        StartDialogue("Df_testQuestion",this);
+    }
+
+    void Message()
+    {
+        print("OMG JE TE CAPTE TROP BIEN");
     }
 }
 
