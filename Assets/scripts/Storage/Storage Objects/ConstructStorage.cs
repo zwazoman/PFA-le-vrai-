@@ -12,7 +12,7 @@ public class ConstructStorage : Storage
 
     protected override void OnAbsorb(GameObject item)
     {
-        Instantiate(_fieldPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+        Instantiate(_fieldPrefab, transform.position, Quaternion.identity);
         Destroy(item);
         Destroy(gameObject);
     }
