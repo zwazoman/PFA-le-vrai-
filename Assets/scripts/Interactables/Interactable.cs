@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+[RequireComponent(typeof(Collider))]
 /// <summary>
 /// permet au joueur d'intéragir avec l'objet
 /// </summary>

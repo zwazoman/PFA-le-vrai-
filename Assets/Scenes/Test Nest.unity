@@ -391,7 +391,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ae37794582ca9449e2df922dc030f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   smoothTime: 0.2
+  PlayerAnticipation: 0
+  FOVscaleOverSpeed:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  FOVchangeSpeed: 1
 --- !u!1 &247797133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: 3178804739313794318, guid: 8794a5121e7a4fb4489d61576b013d48,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.87
+      value: 3.649
       objectReference: {fileID: 0}
     - target: {fileID: 3178804739313794318, guid: 8794a5121e7a4fb4489d61576b013d48,
         type: 3}
