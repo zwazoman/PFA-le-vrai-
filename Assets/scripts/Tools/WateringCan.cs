@@ -1,19 +1,24 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// g�re l'arrosoir, son stockage en eau et sa limite ainsi que l'arrosage des plantes
 /// </summary>
 public class WateringCan : Tool
 {
-    private int _waterStorage;
+    public int _waterStorage { get; set; }
 
     [SerializeField] float waterToGive;
+    [SerializeField] VisualEffect _waterVFX;
+    [SerializeField] GameObject _uiImage;
     [field : SerializeField]
     public int MaxWaterStorage { get; set; }
 
     private void Awake()
     {
         _waterStorage = MaxWaterStorage; // l'arrosoir est rempli
+        _uiImage.SetActive(false);
     }
 
     /// <summary>
@@ -22,28 +27,31 @@ public class WateringCan : Tool
     public override void Use()
     {
         base.Use();
+        _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
+        StartCoroutine(ActivateUI());
+        if (_waterStorage <= 0) // si l'arrosoir est vide
+        {
+            print("plus d'eau");
+            return;
+        }
+        Destroy(Instantiate(_waterVFX, transform.position + transform.forward * ToolLength + Vector3.up / 2, Quaternion.identity), 2f);
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)&& plantMain.CanWater) // si c'est une plante et qu'elle peut etre arros�e
             {
-                if (_waterStorage <= 0) // si l'arrosoir est vide
-                {
-                    print("plus d'eau");
-                    return;
-                }                
-                _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
                 print("water");
                 if (plantMain.PlantField == null) return;
                 plantMain.Corruption.ReduceCorruption(waterToGive); // r�duit la corruption de la plante cibl�
                 // spawn particules d'eau ?
                 plantMain.CanWater = false;
             }
-            if(hitCollider.gameObject.TryGetComponent<Well>(out Well well)) // si c'est un puit
-            {
-                print("replenish water");
-                _waterStorage = MaxWaterStorage; // remplir l'arrosoir
-            }
         }
+    }
 
+    IEnumerator ActivateUI()
+    {
+        _uiImage.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        _uiImage.SetActive(false);
     }
 }
