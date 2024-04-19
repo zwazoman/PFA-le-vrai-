@@ -10,8 +10,6 @@ using UnityEngine;
 /// </summary>
 public class Item : Interactable
 {
-    private bool _canDespawn = false;
-
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>

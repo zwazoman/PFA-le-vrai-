@@ -71,6 +71,7 @@ public class Field : MonoBehaviour
             Destroy(GetComponent<FieldStorage>()); // detruit le storage
             plant.transform.position = transform.position + Vector3.up;
             //plant.transform.rotation = Quaternion.identity; // place la plante
+            Destroy(plant.GetComponent<Item>());
             Destroy(plant.GetComponent<Rigidbody>()); // retire le rigidbody
             Destroy(plant.GetComponent<Plant>()); // retire Plant de type item
             plant.GetComponent<PlantMain>().PlantField = this; // définit ce champ comme étant le champ de la plante
