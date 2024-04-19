@@ -13,18 +13,23 @@ public class Item : Interactable
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
-    public override void InteractWith()
+    protected override void Interaction()
     {
         PlayerMain.Instance.Hands.Pickup(gameObject);
+    }
+
+    private void Start()
+    {
+        TimeManager.Instance.OnDay += Despawn;
     }
 
     public virtual void Jump()
     {
         GetComponent<ItemJump>().Jump();
     }
-
-    private void OnDestroy()
+    
+    protected void Despawn()
     {
-        if (PlayerMain.Instance.Interaction.Interactables.Contains(this)) PlayerMain.Instance.Interaction.Interactables.Remove(this);
+        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) Destroy(gameObject); 
     }
 }

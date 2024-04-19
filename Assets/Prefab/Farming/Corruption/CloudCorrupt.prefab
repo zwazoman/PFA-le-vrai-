@@ -221,8 +221,7 @@ GameObject:
   - component: {fileID: 7804204149718548887}
   - component: {fileID: 698503528903678569}
   - component: {fileID: 2785762161224956054}
-  - component: {fileID: 1519723260434915033}
-  - component: {fileID: 668749069649681162}
+  - component: {fileID: 5732666186214044685}
   m_Layer: 0
   m_Name: CloudCorrupt
   m_TagString: Untagged
@@ -240,7 +239,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.404, y: 0.731, z: -7.926}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5779589016300189521}
@@ -298,30 +297,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1519723260434915033
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6775288360862115256}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &668749069649681162
+--- !u!114 &5732666186214044685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,6 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8910e265c5a89d48877a5a2eb62d4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CorruptLength>k__BackingField: 15
+  <CorruptRange>k__BackingField: 15
 --- !u!1 &8669008051215839458
 GameObject:
   m_ObjectHideFlags: 0

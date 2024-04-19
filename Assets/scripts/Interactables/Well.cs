@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Well : Interactable
 {
-    public override void InteractWith()
+    protected override void Interaction()
     {
-        // lancer dialogue pour expliquer ce que c'est
+        PlayerMain.Instance.GetComponent<WateringCan>()._waterStorage = PlayerMain.Instance.GetComponent<WateringCan>().MaxWaterStorage;
     }
 }
