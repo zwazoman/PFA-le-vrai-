@@ -123,7 +123,7 @@ public class DynamicObject : MonoBehaviour
 
         if (!UseCharacterController)
             transform.position += velocity * Time.deltaTime;
-        else CharacterController.Move(velocity * Time.deltaTime);
+        else CharacterController.SimpleMove(velocity * Time.deltaTime);
 
     }
 
