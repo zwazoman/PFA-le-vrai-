@@ -5,9 +5,10 @@ using UnityEngine;
 [ExecuteAlways]
 public class ShaderUpdater : MonoBehaviour
 {
-    [SerializeField] Material _shader;
+    [SerializeField]List< Material > materials;
     void Update()
     {
-        _shader.SetVector("_PlayerPosition",transform.position);
+        foreach(Material mat in materials)
+        mat.SetVector("_PlayerPosition",transform.position);
     }
 }
