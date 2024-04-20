@@ -6,6 +6,6 @@ public class Well : Interactable
 {
     protected override void Interaction()
     {
-        PlayerMain.Instance.GetComponent<WateringCan>()._waterStorage = PlayerMain.Instance.GetComponent<WateringCan>().MaxWaterStorage;
+        PlayerMain.Instance.Watering.Replenish();
     }
 }

@@ -7,19 +7,9 @@ using UnityEngine.VFX;
 /// </summary>
 public class WateringCan : Tool
 {
-    public int _waterStorage { get; set; }
 
     [SerializeField] float waterToGive;
     [SerializeField] VisualEffect _waterVFX;
-    [SerializeField] GameObject _uiImage;
-    [field : SerializeField]
-    public int MaxWaterStorage { get; set; }
-
-    private void Awake()
-    {
-        _waterStorage = MaxWaterStorage; // l'arrosoir est rempli
-        _uiImage.SetActive(false);
-    }
 
     /// <summary>
     /// g�re les diff�rentes possibilit�s lors de l'utilisation de l'arrosoir
@@ -27,13 +17,12 @@ public class WateringCan : Tool
     public override void Use()
     {
         base.Use();
-        _waterStorage -= 1; // retirer 1 d'eau a l'arrosoir
-        StartCoroutine(ActivateUI());
-        if (_waterStorage <= 0) // si l'arrosoir est vide
+        if (PlayerMain.Instance.Watering.WaterStorage <= 0) // si l'arrosoir est vide
         {
             print("plus d'eau");
             return;
         }
+        PlayerMain.Instance.Watering.Empty();
         Destroy(Instantiate(_waterVFX, transform.position + transform.forward * ToolLength + Vector3.up / 2, Quaternion.identity), 2f);
         foreach (var hitCollider in hitColliders)
         {
@@ -46,12 +35,5 @@ public class WateringCan : Tool
                 plantMain.CanWater = false;
             }
         }
-    }
-
-    IEnumerator ActivateUI()
-    {
-        _uiImage.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        _uiImage.SetActive(false);
     }
 }
