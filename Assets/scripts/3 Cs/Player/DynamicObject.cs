@@ -153,13 +153,15 @@ public class DynamicObject : MonoBehaviour
         //if(isGrounded) vel.y = Mathf.Max(vel.y, 0);
         if(Physics.SphereCast(transform.position, col.radius, velocity, out hit, velocity.magnitude * Time.deltaTime, collisionLayer))
         {
-            print("normal collision !");
+            //print("normal collision !");
+
             //transform.position = hit.point - Velocity.normalized * col.radius;
             //if(Vector3.Dot(hit.normal, velocity)<0)  
             velocity =Vector3.Lerp(Vector3.ProjectOnPlane(velocity, hit.normal), Vector3.Reflect(velocity, hit.normal), bounciness);
 
 
-            if (n > 0) print($"{n} collisions this frame" );
+            //if (n > 0) print($"{n} collisions this frame" );
+
             if(n<MaxCollisionTests) CheckForCollision(n + 1); else velocity = Vector3.zero;
         }
         else if (Physics.Raycast(transform.position, velocity, out hit, col.radius, collisionLayer)) //si il a déjà clippé à l'intérieur d'un objet,j'éssaie de l'en sortir.
@@ -168,7 +170,7 @@ public class DynamicObject : MonoBehaviour
             velocity = Vector3.ProjectOnPlane(velocity, hit.normal);
 
             print("raycastCollision!");
-            if (n > 0) print($"{n} collisions this frame");
+            //if (n > 0) print($"{n} collisions this frame");
         }
 
     }

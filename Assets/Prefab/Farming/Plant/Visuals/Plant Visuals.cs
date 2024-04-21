@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 /// <summary>
@@ -30,9 +31,14 @@ public class PlantVisuals : MonoBehaviour
     [Header("Colors")]
     [GradientUsage(true)] //tema la syntax de merde https://docs.unity3d.com/ScriptReference/GradientUsageAttribute.html
     [SerializeField] Gradient orbColorOverLife;
+
+    [SerializeField] AnimationCurve animationCurve;
     private void Start()
     {
         rotationOffset = Random.value*360;
+
+        StartCoroutine(Tooling.InterpolateOverTime(0, 1,.5f, (float interpolatedValue) => transform.localScale = Vector3.one * interpolatedValue , (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); }));
+
     }
 
     private void OnValidate()
@@ -40,31 +46,40 @@ public class PlantVisuals : MonoBehaviour
         UpdateVisuals(AnimationValue);
     }
 
+
     public void UpdateVisuals(float newValue)
     {
-        AnimationValue=newValue;
+        StartCoroutine(Tooling.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
+    }
 
+    void applyVisuals(float newValue)
+    {
         //mesh
-        mesh.SetBlendShapeWeight(0, Mathf.Clamp01( AnimationValue * 2)*100);
-        mesh.SetBlendShapeWeight(1, Mathf.Clamp01( AnimationValue * 2 -1)*100);
+        mesh.SetBlendShapeWeight(0, Mathf.Clamp01(newValue * 2) * 100);
+        mesh.SetBlendShapeWeight(1, Mathf.Clamp01(newValue * 2 - 1) * 100);
 
         //scale
-        if (AnimationValue <= 0.5f)
-        {
-            visuals.transform.localScale = Vector3.Lerp(corrupted_scale, middle_scale, Mathf.Clamp01(AnimationValue*2));
-        }
-        else
-        {
-            visuals.transform.localScale = Vector3.Lerp(middle_scale, pure_scale, Mathf.Clamp01(AnimationValue * 2-1));
-
-        }
+        visuals.transform.localScale = lerpScale(newValue);
 
         //rotation
-        visuals.transform.localEulerAngles = Vector3.up *( rotationChangeRate * AnimationValue+ rotationOffset);
+        visuals.transform.localEulerAngles = Vector3.up * (rotationChangeRate * newValue + rotationOffset);
 
         //orbColor
         MaterialPropertyBlock properties = new();
-        properties.SetColor("_Color", orbColorOverLife.Evaluate(AnimationValue));
+        properties.SetColor("_Color", orbColorOverLife.Evaluate(newValue));
         mesh.SetPropertyBlock(properties, 1);
     }
+
+    private Vector3 lerpScale(float alpha)
+    {
+        if (alpha <= 0.5f)
+        {
+            return Vector3.Lerp(corrupted_scale, middle_scale, /*Mathf.Clamp01(*/alpha * 2);
+        }
+        else
+        {
+            return Vector3.Lerp(middle_scale, pure_scale, /*Mathf.Clamp01(*/alpha * 2 - 1);
+        }
+    }
+
 }

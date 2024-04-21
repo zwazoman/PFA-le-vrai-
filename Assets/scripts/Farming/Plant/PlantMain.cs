@@ -23,14 +23,11 @@ public class PlantMain : MonoBehaviour
 
     [field: SerializeField]
     public PlantVisuals Visuals { get; private set; }
-    public bool CanWater { get; set; }
+    public bool CanWater { get; set; } = true;
 
     private void Start()
     {
         TimeManager.Instance.OnDay += () => CanWater = true;
     }
-    private void Update()
-    {
-        print(PlantField);
-    }
+
 }

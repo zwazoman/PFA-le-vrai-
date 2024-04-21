@@ -30,19 +30,22 @@ public class PlayerHands : MonoBehaviour
     /// gère le rammassage des objets de type "items" : les colle aux mains et désactive sa physique et ses collisions change le parent a ce gameObject
     /// </summary>
     /// <param name="item"></param>
-    public void Pickup(GameObject item)
+    public void Pickup(Item item)
     {
-        ItemInHands = item;
+        ItemInHands = item.gameObject;
         _itemInHandsRb = ItemInHands.GetComponent<Rigidbody>(); 
         _iteminHandsColl = ItemInHands.GetComponent<Collider>(); 
+
         _iteminHandsColl.enabled = false; // désactive collider
         _itemInHandsRb.constraints = RigidbodyConstraints.FreezeAll; // freeze l'objet
         ItemInHands.transform.parent = gameObject.transform; // remplace le parent de l'objet par le joueur
         ItemInHands.transform.localPosition = Vector3.forward * _itemDistanceToPlayer; // snap l'objet au joueur
-        ItemInHands.transform.rotation = gameObject.transform.rotation; // change la rotation de l'objet par celle du joueur (temporaire ?)
+        ItemInHands.transform.localRotation= Quaternion.Euler(item.pickUpRotation); // change la rotation de l'objet par celle du joueur (temporaire ?)
+
         _grabZone.SetActive(false); // désactive la grabzone
         _interaction.enabled = false;
         _tools.canUse = false;
+
         _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet en utilisant la touche d'intéraction
     }
 

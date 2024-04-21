@@ -10,12 +10,13 @@ using UnityEngine;
 /// </summary>
 public class Item : Interactable
 {
+    public Vector3 pickUpRotation;
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
     protected override void Interaction()
     {
-        PlayerMain.Instance.Hands.Pickup(gameObject);
+        PlayerMain.Instance.Hands.Pickup(this);
     }
 
     private void Start()

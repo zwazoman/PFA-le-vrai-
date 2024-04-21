@@ -39,17 +39,14 @@ public class CameraBehaviour : MonoBehaviour
     {
         
         //FOV
-        cam.fieldOfView = Damp(cam.fieldOfView, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude),FOVchangeSpeed);
+        cam.fieldOfView = Tooling.DampFloat(cam.fieldOfView, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude),FOVchangeSpeed);
 
         //mouvement
         transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.Velocity*PlayerAnticipation, ref vel, smoothTime);
 
     }
 
-    public static float Damp(float a, float b, float lambda)
-    {
-        return Mathf.Lerp(a, b, 1 - Mathf.Exp(-lambda * Time.deltaTime));
-    }
+
 
 
 }

@@ -30,7 +30,7 @@ public class WateringStorage : MonoBehaviour
         StartCoroutine(UpdateUI(WaterStorage));
     }
 
-    public void Empty(int usedWater = 1)
+    public void Drain(int usedWater = 1)
     {
         WaterStorage -= usedWater;
         StopAllCoroutines();
@@ -45,13 +45,9 @@ public class WateringStorage : MonoBehaviour
         _wateringBar.enabled = true;
         float targetFillAmount = Mathf.InverseLerp(0, MaxWaterStorage, newWaterAmount);
         _wateringBar.DOFillAmount(targetFillAmount, _animTime).SetEase(_tweenCurve);
-        yield return new WaitUntil(CoroutineTime);
+        yield return new WaitUntil(() => { return Time.time > _startTime + 1.5f; });
         _wateringBar.enabled = false;
         //_wateringBar.DOFade(0, _animTime);
     }
 
-    private bool CoroutineTime()
-    {
-         return Time.time > _startTime + 1.5f; 
-    }
 }

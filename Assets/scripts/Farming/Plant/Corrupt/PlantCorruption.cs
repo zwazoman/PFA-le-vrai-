@@ -8,6 +8,9 @@ public class PlantCorruption : MonoBehaviour
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
     [SerializeField] float _corruptionSpawnValue;
+
+    [SerializeField] float baseCorruption = 0.2f;
+
     [field:SerializeField] public float _addCorruption { get; set;}
     [SerializeField] PlantMain _plantMain;
     [SerializeField] Material _plantReady;
@@ -22,17 +25,16 @@ public class PlantCorruption : MonoBehaviour
         MR = GetComponent<MeshRenderer>();
         _plantReady = MR.sharedMaterial;
         MR.sharedMaterial = _plantReady;
-    }
 
-    private void Start()
-    {
-        TimeManager.Instance.OnDay += CorruptionStart;
-        SetCorruptionValue( Random.Range(0.20f, 0.8f));
+        TimeManager.Instance.OnDay += UpdateCorruption;
+        SetCorruptionValue(baseCorruption);
         Debug.Log(corruptionValue);
         MR.sharedMaterial = _plantNotReady;
     }
 
-    public void CorruptionStart()
+
+
+    public void UpdateCorruption()
     {       
             SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption tous les jours 
             CanWater = true;
@@ -79,18 +81,18 @@ public class PlantCorruption : MonoBehaviour
 
     private void OnDestroy()
     {
-        TimeManager.Instance.OnDay -= CorruptionStart;
+        TimeManager.Instance.OnDay -= UpdateCorruption;
     }
 
     public void FreezeCorruption()
     {
-        TimeManager.Instance.OnDay -= CorruptionStart;
+        TimeManager.Instance.OnDay -= UpdateCorruption;
         print("freeze corruption");
     }
 
     public void UnFreezeCorruption()
     {
-        TimeManager.Instance.OnDay += CorruptionStart;
+        TimeManager.Instance.OnDay += UpdateCorruption;
         print("unfreeze corruption");
     }
 }
