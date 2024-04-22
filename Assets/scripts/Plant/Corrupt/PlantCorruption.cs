@@ -7,7 +7,14 @@ public class PlantCorruption : MonoBehaviour
     public float corruptionValue {get; set;}
     GameObject _corruptionZone;
     [SerializeField] GameObject _corruptionZonePrefab;
+<<<<<<< Updated upstream:Assets/scripts/Plant/Corrupt/PlantCorruption.cs
     [SerializeField] float _corruptionSpawnValue;
+=======
+    [SerializeField] float _corruptionSpawnTreshold;
+
+    [SerializeField] float baseCorruption = 0.2f;
+
+>>>>>>> Stashed changes:Assets/_scripts/Farming/Plant/Corrupt/PlantCorruption.cs
     [field:SerializeField] public float _addCorruption { get; set;}
     [SerializeField] PlantMain _plantMain;
     [SerializeField] Material _plantReady;
@@ -59,7 +66,7 @@ public class PlantCorruption : MonoBehaviour
             _plantMain.Harvest.isHarvesteable = true;
             MR.sharedMaterial = _plantReady;
         }
-        if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
+        if (corruptionValue <= _corruptionSpawnTreshold && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
                 _addCorruption /= 2;
@@ -72,6 +79,26 @@ public class PlantCorruption : MonoBehaviour
     {
         newValue = Mathf.Clamp01(newValue);
         corruptionValue = newValue;
+<<<<<<< Updated upstream:Assets/scripts/Plant/Corrupt/PlantCorruption.cs
+=======
+
+        //Gestion du nuages de corruption
+        if (corruptionValue >= _corruptionSpawnTreshold && _corruptionZone == null)
+        {
+            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position + Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
+            _plantMain.Harvest.isHarvesteable = false;
+            MR.sharedMaterial = _plantNotReady;
+        }
+
+        else if (corruptionValue <= _corruptionSpawnTreshold && _corruptionZone != null)
+        {
+            Destroy(_corruptionZone);
+        }
+        Debug.Log(corruptionValue);
+
+        //mise à jour des visuels
+        _plantMain.Visuals.UpdateVisuals(1f-newValue);
+>>>>>>> Stashed changes:Assets/_scripts/Farming/Plant/Corrupt/PlantCorruption.cs
     }
 
     private void OnDestroy()
