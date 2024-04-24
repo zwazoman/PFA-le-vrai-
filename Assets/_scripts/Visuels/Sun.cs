@@ -20,6 +20,7 @@ public class Sun : MonoBehaviour
     {
         TimeManager.Instance.OnHour += UpdateVisuals;
         OnValidate();
+        NightVolume.weight = 1;
     }
 
     private void OnValidate()
