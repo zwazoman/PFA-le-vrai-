@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +12,8 @@ public class TimeManager : MonoBehaviour
     //float _minute;
     public event Action OnHour;
     public event Action OnDay;
-    [SerializeField] float IrlSecond;
+    [SerializeField] float _irlHourDuration;
+    public float IrlHourDuration=>_irlHourDuration;
 
     //singleton
     private static TimeManager instance = null;
@@ -39,9 +41,11 @@ public class TimeManager : MonoBehaviour
     }
 
 
-    private void Start()
+    private IEnumerator Start()
     {
-        InvokeRepeating(nameof(TimePass), IrlSecond, IrlSecond); //repete la fonction TimePass
+        InvokeRepeating(nameof(TimePass), _irlHourDuration, _irlHourDuration); //repete la fonction TimePass
+        yield return 0;
+        OnHour.Invoke();//premiere heure
     }
     private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
@@ -73,7 +77,7 @@ public class TimeManager : MonoBehaviour
             print(i);
         }
 
-        InvokeRepeating(nameof(TimePass), IrlSecond, IrlSecond); 
+        InvokeRepeating(nameof(TimePass), _irlHourDuration, _irlHourDuration); 
     }
 
     public void SkipTo(int hourToGo)
@@ -92,8 +96,8 @@ public class TimeManager : MonoBehaviour
     {
         isPaused = false;
         float elapsedTime = lastRealPauseTime-LastRealTickTime;
-        float remainingTime = IrlSecond - elapsedTime;
+        float remainingTime = _irlHourDuration - elapsedTime;
         print($"elapsedTime : {elapsedTime} ; remainingTime : {remainingTime}");
-        InvokeRepeating(nameof(TimePass), remainingTime, IrlSecond);
+        InvokeRepeating(nameof(TimePass), remainingTime, _irlHourDuration);
     }
 }

@@ -6,24 +6,24 @@ public class SpawnSeed : Interactable
 {
     [SerializeField] GameObject seedPrefab;
     [SerializeField] float seedAmount;
-    bool _canInteract = false;
+
 
     protected override void Interaction()
     {
-        if (!_canInteract) return;
-        _canInteract = false;
+       // if (!_canInteract) return;
+        //_canInteract = false;
         StartCoroutine(ThrowSeed());
     }
 
-    private void Start()
+   /* private void Start()
     {
         TimeManager.Instance.OnHour += SetGoodSpawnTime;
-    }
+    }*/
 
-    private void SetGoodSpawnTime()
+   /* private void SetGoodSpawnTime()
     {
         if (TimeManager.Instance.Hour == 10) _canInteract = true;
-    }
+    }*/
 
     private IEnumerator ThrowSeed()
     {
