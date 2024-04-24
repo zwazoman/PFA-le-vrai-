@@ -49,7 +49,7 @@ public class PlantVisuals : MonoBehaviour
 
     public void UpdateVisuals(float newValue)
     {
-        StartCoroutine(Tooling.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
+        if(Application.isPlaying) StartCoroutine(Tooling.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
     }
 
     void applyVisuals(float newValue)

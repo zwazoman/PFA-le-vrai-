@@ -28,7 +28,7 @@ public class UiManager : MonoBehaviour
     void HideEverything()
     {
         Dialogue_Panel.gameObject.SetActive(false);
-        //Gameplay_Panel.gameObject.SetActive(false);
+        Gameplay_Panel.gameObject.SetActive(false);
         //hide shop panel
     }
 
@@ -36,7 +36,7 @@ public class UiManager : MonoBehaviour
     public void ActivateGameplayPanel()
     {
         HideEverything();
-        //Gameplay_Panel.gameObject.SetActive(true );
+        Gameplay_Panel.gameObject.SetActive(true );
     }
 
     //Dialogue
@@ -48,23 +48,39 @@ public class UiManager : MonoBehaviour
 
     public async Task PopupDialogue(string DialogueScript, MonoBehaviour worldObject)
     {
+        //deactivate player
         foreach(MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled= false; }
+
+        //pause the time 
+        bool wasTimeAlreadyPaused = TimeManager.Instance.isPaused; //pour pas perturber si le temps était déjà en pause,comme dans les magasins par exemple.
+        if(!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
 
         ActivateDialoguePanel();
         await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();
 
+        //resume Time
+        if (!wasTimeAlreadyPaused) TimeManager.Instance.resume();
+        //reactivate player
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
-
-
     }
 
-    public async Task PopupSimpleString(string String)
+    public async Task PopupSimpleString(string String) //fait apparaitre une ligne de dialogues sans afficher les personnages
     {
+        //deactivate player
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = false; }
+
+        //pause the time 
+        bool wasTimeAlreadyPaused = TimeManager.Instance.isPaused; //pour pas perturber si le temps était déjà en pause,comme dans les magasins par exemple.
+        if (!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
+
         ActivateDialoguePanel();
         await Dialogue_Panel.EasyWriteString(String);
         ActivateGameplayPanel();
+
+        //resume Time
+        if (!wasTimeAlreadyPaused) TimeManager.Instance.resume();
+        //reactivate player
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
     }
 

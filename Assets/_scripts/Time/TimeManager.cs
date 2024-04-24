@@ -17,6 +17,10 @@ public class TimeManager : MonoBehaviour
     private static TimeManager instance = null;
     public static TimeManager Instance => instance;
 
+    //pause
+    public bool isPaused=false;
+    float LastRealTickTime; //ces deux valeurs sont utilisées pour pouvoir mettre en pause le jeu, et reprendre en tenant compte du temps qui s'etait deja ecoulé entre deux heures.
+    float lastRealPauseTime;
     private void Awake()
     {
         Day = 1;
@@ -41,6 +45,8 @@ public class TimeManager : MonoBehaviour
     }
     private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
+        LastRealTickTime = Time.time;
+
         Hour++;
         OnHour?.Invoke();
         //Debug.Log(Hour);
@@ -73,5 +79,21 @@ public class TimeManager : MonoBehaviour
     public void SkipTo(int hourToGo)
     {
         SkipTime(24 - Hour + hourToGo);
+    }
+
+    public void pauseTime()
+    {
+        lastRealPauseTime= Time.time;
+        CancelInvoke(nameof(TimePass));
+        isPaused = true;
+    }
+
+    public void resume()
+    {
+        isPaused = false;
+        float elapsedTime = lastRealPauseTime-LastRealTickTime;
+        float remainingTime = IrlSecond - elapsedTime;
+        print($"elapsedTime : {elapsedTime} ; remainingTime : {remainingTime}");
+        InvokeRepeating(nameof(TimePass), remainingTime, IrlSecond);
     }
 }
