@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 public class WateringCan : Tool
 {
 
-    [SerializeField] float waterToGive;
+    [SerializeField] float _waterToGive;
     [SerializeField] VisualEffect _waterVFX;
 
     /// <summary>
@@ -33,10 +33,15 @@ public class WateringCan : Tool
 
                 //Play water vfx
 
-                plantMain.Corruption.ReduceCorruption(waterToGive); // r�duit la corruption de la plante cibl�
+                plantMain.Corruption.ReduceCorruption(_waterToGive); // r�duit la corruption de la plante cibl�
 
                 plantMain.CanWater = false;
             }
         }
+    }
+
+    public void AddWaterToGive(float waterToAdd)
+    {
+        _waterToGive += waterToAdd;
     }
 }
