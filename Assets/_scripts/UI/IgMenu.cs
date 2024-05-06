@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IgMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject _pausePanel;
+    
+
+    private void Start()
     {
-        
+        PlayerMain.Instance.InputManager.OnPause += PauseMenu;
     }
 
-    // Update is called once per frame
-    void Update()
+    void PauseMenu()
     {
-        
+        _pausePanel.SetActive(true);
     }
 }
