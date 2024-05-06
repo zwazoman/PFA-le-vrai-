@@ -35,6 +35,9 @@ public class PlayerMain : MonoBehaviour
     [field: SerializeField]
     public WateringStorage Watering { get; private set; }
 
+    [field : SerializeField]
+    public WateringCan Can { get; private set; }
+
     //singleton
     private static PlayerMain instance = null;
     public static PlayerMain Instance => instance;
