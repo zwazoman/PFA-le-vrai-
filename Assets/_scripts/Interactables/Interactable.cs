@@ -21,8 +21,6 @@ public abstract class Interactable : MonoBehaviour
 
     List<GameObject> outlineMeshes = new();
 
-
-
     public void OnHighlighted()
     {
         print("La pute");
@@ -36,9 +34,8 @@ public abstract class Interactable : MonoBehaviour
             spawned.GetComponent<MeshFilter>().sharedMesh = mr.sharedMesh;
             outlineMeshes.Add(spawned);
         }
-
-
     }
+
     public void OnStopHighLight()
     {
 
