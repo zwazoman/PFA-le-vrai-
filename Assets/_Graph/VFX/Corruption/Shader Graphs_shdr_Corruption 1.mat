@@ -44,9 +44,13 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _alpha: 0.41
+    - _ROTATE_90: 0
+    - _TUEZMOI: 0
+    - _alpha: 1.06
     m_Colors:
-    - _Movement: {r: 0.1, g: -0.2, b: 0, a: 0}
+    - _Movement: {r: 0.1, g: -0.1, b: 0, a: 0}
+    - _jpp: {r: 0, g: 0, b: 0, a: 0}
+    - _tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7972319101198212797
 MonoBehaviour:

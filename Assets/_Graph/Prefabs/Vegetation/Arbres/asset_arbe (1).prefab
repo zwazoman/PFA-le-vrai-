@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6278477636026392104}
   - component: {fileID: 6764843071096785632}
   - component: {fileID: 3392968570671092260}
-  - component: {fileID: 7331067082358330230}
   m_Layer: 6
   m_Name: ARBE.001
   m_TagString: Untagged
@@ -84,29 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7331067082358330230
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5054820677999491098}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.054629065
-  m_Height: 0.07035145
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.0024317293, z: 0.054531656}
 --- !u!1 &8240527371921746525
 GameObject:
   m_ObjectHideFlags: 0

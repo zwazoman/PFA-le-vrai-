@@ -12,7 +12,8 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _TUEZMOI
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -44,9 +45,13 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _alpha: 0.91
+    - _ROTATE_90: 0
+    - _TUEZMOI: 1
+    - _alpha: 0.56
     m_Colors:
-    - _Movement: {r: 0.1, g: -0.2, b: 0, a: 0}
+    - _Movement: {r: 0.05, g: 0, b: 0, a: 0}
+    - _jpp: {r: -0.15, g: 0.005, b: 0, a: 0}
+    - _tiling: {r: 4, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7972319101198212797
 MonoBehaviour:
