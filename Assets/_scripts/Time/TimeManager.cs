@@ -85,6 +85,8 @@ public class TimeManager : MonoBehaviour
         SkipTime(24 - Hour + hourToGo);
     }
 
+
+    //-Pause-
     public void pauseTime()
     {
         lastRealPauseTime= Time.time;
@@ -94,6 +96,8 @@ public class TimeManager : MonoBehaviour
 
     public void resume()
     {
+        if (!isPaused) return;
+
         isPaused = false;
         float elapsedTime = lastRealPauseTime-LastRealTickTime;
         float remainingTime = _irlHourDuration - elapsedTime;

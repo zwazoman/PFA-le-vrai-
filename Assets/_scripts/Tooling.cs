@@ -52,6 +52,10 @@ public class Tooling : MonoBehaviour
         if(onEnd!=null) onEnd();
     }
 
+    public static float SmoothStep(float v)
+    {
+        return Mathf.SmoothStep(0,1,v);
+    }
 
     //https://learn.microsoft.com/en-US/dotnet/csharp/programming-guide/delegates/using-delegates
     public delegate void ValueSetter(float newValue);
