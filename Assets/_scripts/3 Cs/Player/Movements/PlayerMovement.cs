@@ -8,10 +8,13 @@ public class PlayerMovement : DynamicObject
     PlayerInputManager _inputManager;
 
     [HorizontalLine("Player Stats",1,FixedColor.DarkGray)]
+    //vitesse actuelle du joueur
+    public float _playerMoveSpeed;
+
     //vitesse de marche du joueur
-    [SerializeField] float _playerMoveSpeed;
+    public float PlayerWalkSpeed = 7;
     //vitesse de course du joueur
-    [SerializeField] float _playerRunFactor;
+    public float _playerRunFactor;
     //acceleration du joueur lors de ses déplacements
     [SerializeField] float _acceleration, airAcceleration;
 
@@ -53,7 +56,7 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StartRunning()
     {
-        _playerMoveSpeed *= _playerRunFactor; // multiplie la vitesse par le "runFactor"
+        _playerMoveSpeed = PlayerWalkSpeed * _playerRunFactor; // multiplie la vitesse par le "runFactor"
     }
 
     /// <summary>
@@ -61,7 +64,7 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StopRunning()
     {
-        _playerMoveSpeed /= _playerRunFactor; // rétablie la vitesse
+        _playerMoveSpeed = PlayerWalkSpeed; // rétablie la vitesse
     }
 
 
