@@ -1,26 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/// <summary>
+/// Permet de gerer les scenes
+/// </summary>
 public class SwitchScene : MonoBehaviour
 {
-    [SerializeField]
-    GameObject _optionPanel;
-
-
     public void GoPlay()
     {
         SceneManager.LoadScene("1");
+    }
+
+    public void GoMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
     {
         Application.Quit();
         print("Quit");
-    }
-
-    public void GoOptions()
-    {
-        _optionPanel.SetActive(!true);
     }
 }
