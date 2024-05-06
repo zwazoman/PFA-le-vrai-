@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SpawnSeed : Interactable
 {
-    [SerializeField] GameObject seedPrefab;
-    [SerializeField] float seedAmount;
+    [SerializeField] GameObject _seedPrefab;
 
 
     protected override void Interaction()
     {
        // if (!_canInteract) return;
         //_canInteract = false;
+
         StartCoroutine(ThrowSeed());
+        PlayerMain.Instance.Stats.Seeds = PlayerMain.Instance.Stats.InitialSeeds;
     }
+
 
    /* private void Start()
     {
@@ -27,11 +29,10 @@ public class SpawnSeed : Interactable
 
     private IEnumerator ThrowSeed()
     {
-        for(int i = 0; i <= seedAmount; i++)
+        for(int i = 0; i <= PlayerMain.Instance.Stats.Seeds; i++)
         {
-            Instantiate(seedPrefab, transform.position, Quaternion.identity);
+            Instantiate(_seedPrefab, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(Random.Range(0.2f, 0.5f));
         }
-
     }
 }
