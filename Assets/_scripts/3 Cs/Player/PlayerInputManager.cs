@@ -95,8 +95,8 @@ public class PlayerInputManager : MonoBehaviour
         if (context.performed) OnShovel?.Invoke();
     }
 
-    public void ShowPause(InputAction.CallbackContext context)
+    public void Pause(InputAction.CallbackContext context)
     {
-        if (!context.performed) OnPause?.Invoke();
+        if (context.performed) OnPause?.Invoke();
     }
 }
