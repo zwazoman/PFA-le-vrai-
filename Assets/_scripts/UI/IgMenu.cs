@@ -7,11 +7,6 @@ public class IgMenu : MonoBehaviour
 
     private void Start()
     {
-        PlayerMain.Instance.InputManager.OnPause += PauseMenu;
-    }
-
-    void PauseMenu()
-    {
-        _pausePanel.SetActive(true);
+        PlayerMain.Instance.InputManager.OnPause += UiManager.Instance.ActivatePausePanel;
     }
 }
