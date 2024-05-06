@@ -15,6 +15,10 @@ public class PlayerMovement : DynamicObject
     //acceleration du joueur lors de ses déplacements
     [SerializeField] float _acceleration, airAcceleration;
 
+    private void OnDisable()
+    {
+        ResetVelocity();
+    }
 
     private void Awake()
     {
