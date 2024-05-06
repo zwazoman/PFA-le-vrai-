@@ -1355,6 +1355,7 @@ MonoBehaviour:
   <WheelBarrow>k__BackingField: {fileID: 8577543130640639059}
   <Stats>k__BackingField: {fileID: 7483418212233676595}
   <Watering>k__BackingField: {fileID: 7058492088811955063}
+  <Can>k__BackingField: {fileID: 5868292390827359}
 --- !u!114 &8577543130640639059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1383,6 +1384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Money>k__BackingField: 0
+  <InitialSeeds>k__BackingField: 0
 --- !u!114 &8543143193072082659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,7 +1515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ToolLength>k__BackingField: 1.5
   <ToolRange>k__BackingField: 1
-  waterToGive: 0.1
+  _waterToGive: 0
   _waterVFX: {fileID: 6752748110393959733, guid: 47fbca1ec6281b644a824073c724d546,
     type: 3}
 --- !u!114 &2510606083231798804
@@ -2306,7 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e4370de1ccbe4094d1499f280d74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 6081136262088953805}
+  cam: {fileID: 0}
 --- !u!1 &6622590109642160777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,6 +2644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Dialogue_Panel: {fileID: 4155267916859364565}
   Gameplay_Panel: {fileID: 5320159633238185636}
+  Pause_Panel: {fileID: 0}
 --- !u!1 &8163013394285903934
 GameObject:
   m_ObjectHideFlags: 0

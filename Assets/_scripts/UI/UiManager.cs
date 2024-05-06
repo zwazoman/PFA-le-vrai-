@@ -9,8 +9,10 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] DialoguePanel Dialogue_Panel;
     [SerializeField] GameplayPanel Gameplay_Panel;
+    [SerializeField] IgMenu Pause_Panel;
     //[SerializeField] DialoguePanel Dialogue_Panel;
 
+    bool wasPaused = false; 
     private void Awake()
     {
         //Singleton
@@ -36,8 +38,21 @@ public class UiManager : MonoBehaviour
     public void ActivateGameplayPanel()
     {
         HideEverything();
+        if(!wasPaused) TimeManager.Instance.resume();
         Gameplay_Panel.gameObject.SetActive(true );
     }
+    
+    public void ActivatePausePanel()
+    {
+        HideEverything();
+
+        wasPaused = TimeManager.Instance.isPaused;
+        if(!wasPaused ) TimeManager.Instance.pauseTime();
+
+
+        Pause_Panel.gameObject.SetActive(true);
+    }
+    
 
     //Dialogue
     void ActivateDialoguePanel()
