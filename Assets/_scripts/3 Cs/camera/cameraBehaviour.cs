@@ -47,7 +47,10 @@ public class CameraBehaviour : MonoBehaviour
 
     }
 
-
+    public void TeleportToTargetPosition()
+    {
+        transform.position =  target.transform.position + Offset + target.getFlatVelocity() * PlayerAnticipation;
+    }
 
 
 }
