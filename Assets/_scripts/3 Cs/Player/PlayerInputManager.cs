@@ -25,6 +25,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnScythe;
     // event utilisation de la pelle
     public event Action OnShovel;
+    //event menu pause
+    public event Action OnPause;
 
     /// <summary>
     /// gère les inputs de mouvements du joueur
@@ -91,5 +93,10 @@ public class PlayerInputManager : MonoBehaviour
     public void UseShovel(InputAction.CallbackContext context)
     {
         if (context.performed) OnShovel?.Invoke();
+    }
+
+    public void ShowPause(InputAction.CallbackContext context)
+    {
+        if (!context.performed) OnPause?.Invoke();
     }
 }
