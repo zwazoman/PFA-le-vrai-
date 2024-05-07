@@ -9,10 +9,21 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] DialoguePanel Dialogue_Panel;
     [SerializeField] GameplayPanel Gameplay_Panel;
-    [SerializeField] IgMenu Pause_Panel;
+    [SerializeField] PausePanel Pause_Panel;
     //[SerializeField] DialoguePanel Dialogue_Panel;
 
-    bool wasPaused = false; 
+    bool wasPaused = false;
+
+    private void Start()
+    {
+        PlayerMain.Instance.InputManager.OnPause += OnPause;
+    }
+
+    private void OnPause()
+    {
+        if(Gameplay_Panel.gameObject.activeSelf)ActivatePausePanel();else ActivateGameplayPanel();
+    }
+
     private void Awake()
     {
         //Singleton
@@ -31,7 +42,7 @@ public class UiManager : MonoBehaviour
     {
         Dialogue_Panel.gameObject.SetActive(false);
         Gameplay_Panel.gameObject.SetActive(false);
-        //hide shop panel
+        Pause_Panel.gameObject.SetActive(false);
     }
 
     //Gameplay
@@ -40,6 +51,7 @@ public class UiManager : MonoBehaviour
         HideEverything();
         if(!wasPaused) TimeManager.Instance.resume();
         Gameplay_Panel.gameObject.SetActive(true );
+        Cursor.visible = false;
     }
     
     public void ActivatePausePanel()
@@ -49,15 +61,18 @@ public class UiManager : MonoBehaviour
         wasPaused = TimeManager.Instance.isPaused;
         if(!wasPaused ) TimeManager.Instance.pauseTime();
 
-
+        Cursor.visible = true;
         Pause_Panel.gameObject.SetActive(true);
     }
-    
+
+
 
     //Dialogue
     void ActivateDialoguePanel()
     {
         HideEverything() ;
+
+        Cursor.visible = true;
         Dialogue_Panel.gameObject.SetActive(true);
     }
 

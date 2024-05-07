@@ -39,7 +39,7 @@ public class PlayerHands : MonoBehaviour
         _iteminHandsColl.enabled = false; // désactive collider
         _itemInHandsRb.constraints = RigidbodyConstraints.FreezeAll; // freeze l'objet
         ItemInHands.transform.parent = gameObject.transform; // remplace le parent de l'objet par le joueur
-        ItemInHands.transform.localPosition = Vector3.forward * _itemDistanceToPlayer; // snap l'objet au joueur
+        ItemInHands.transform.position = PlayerMain.Instance.GrabBox.transform.position; // snap l'objet au joueur
         ItemInHands.transform.localRotation= Quaternion.Euler(item.pickUpRotation); // change la rotation de l'objet par celle du joueur (temporaire ?)
 
         _grabZone.SetActive(false); // désactive la grabzone
@@ -57,6 +57,7 @@ public class PlayerHands : MonoBehaviour
         _iteminHandsColl.enabled = true; // réactive le collider
         _itemInHandsRb.constraints = RigidbodyConstraints.None; // unfreeze l'objet
         ItemInHands.transform.parent = null;
+        ItemInHands.GetComponent<Rigidbody>().AddForce(Vector3.down*10,ForceMode.Impulse);
         ItemInHands = null;
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;

@@ -151,7 +151,7 @@ public class BezierCurve : MonoBehaviour
     {
         foreach(BezierCurveControlPoint point in points)
         {
-            point.curve = this;
+            if(point!=null) point.curve = this;
         }
 
         this.Recalculate();
