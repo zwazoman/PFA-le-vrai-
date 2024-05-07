@@ -14,6 +14,7 @@ public class Field : MonoBehaviour
     [SerializeField] MeshFilter _mF;
     [SerializeField] Mesh _sowableMesh;
     [SerializeField] Mesh _notSowableMesh;
+    int _hoeCount = 3;
 
     private void Awake()
     {
@@ -27,10 +28,13 @@ public class Field : MonoBehaviour
     /// </summary>
     public void Plow()
     {
+        
+        if (!IsEmpty ) return;  
+        
         print("try plow");
-        if(!IsEmpty) return;
-        print("Plow");
-        Sowable = !Sowable;
+        _hoeCount--;
+        
+        Sowable = _hoeCount<=0;
         if (Sowable)
         {
             FieldStorage storage = gameObject.AddComponent<FieldStorage>();
@@ -58,6 +62,7 @@ public class Field : MonoBehaviour
             GameObject plant = Instantiate(_plant, transform.position + Vector3.up* 0.42f, Quaternion.identity);
             plant.GetComponent<PlantMain>().PlantField = this;
             IsEmpty = false;
+            _hoeCount = 3;
         }
     }
     /// <summary>
