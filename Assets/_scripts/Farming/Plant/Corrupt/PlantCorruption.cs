@@ -11,36 +11,37 @@ public class PlantCorruption : MonoBehaviour
 
     [SerializeField] float baseCorruption = 0.2f;
 
-    [field:SerializeField] public float _addCorruption { get; set;}
+    [field:SerializeField] public float CorruptionRateWhenNotWatered { get; set;}
+    [SerializeField] float NaturalGrowRateWhenWatered;
     [SerializeField] PlantMain _plantMain;
-    [SerializeField] Material _plantReady;
-    [SerializeField] Material _plantNotReady;
-    MeshRenderer MR;
+
     public bool CanWater { get; set; }
 
 
     private void Awake()
     {
         corruptionValue = 0;
-        MR = GetComponent<MeshRenderer>();
-        _plantReady = MR.sharedMaterial;
-        MR.sharedMaterial = _plantReady;
+
 
         SetCorruptionValue(baseCorruption);
         Debug.Log(corruptionValue);
-        MR.sharedMaterial = _plantNotReady;
+
     }
 
     private void Start()
     {
-        TimeManager.Instance.OnDay += UpdateCorruption;
+        TimeManager.Instance.OnDay+= UpdateCorruption;
     }
 
 
     public void UpdateCorruption()
-    {       
-            SetCorruptionValue(corruptionValue + _addCorruption); //Augmente la corruption tous les jours 
-            CanWater = true;
+    {
+        //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
+        if(CanWater)
+        SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered); 
+        else SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
+
+        CanWater = true;
                                               
     }
 
@@ -50,12 +51,12 @@ public class PlantCorruption : MonoBehaviour
         if (corruptionValue < 0.2f) //si le seuil de corruption est en dessous de 0.20 alors on peut ramassé la plante
         {
             _plantMain.Harvest.isHarvesteable = true;
-            MR.sharedMaterial = _plantReady;
+
         }
         if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
             {
                 Destroy(_corruptionZone);
-                _addCorruption /= 2;
+                CorruptionRateWhenNotWatered /= 2;
             }
     }
 
@@ -66,12 +67,12 @@ public class PlantCorruption : MonoBehaviour
         newValue = Mathf.Clamp01(newValue);
         corruptionValue = newValue;
 
-        //Gestion du nuages de corruption
+        //Gestion du nuage de corruption
         if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null)
         {
-            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position + Vector3.up, _corruptionZonePrefab.transform.rotation, gameObject.transform);
+            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position , _corruptionZonePrefab.transform.rotation, gameObject.transform);
             _plantMain.Harvest.isHarvesteable = false;
-            MR.sharedMaterial = _plantNotReady;
+
         }
 
         else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)

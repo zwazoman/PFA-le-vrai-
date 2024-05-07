@@ -53,14 +53,15 @@ public class TimeManager : MonoBehaviour
 
         Hour++;
         OnHour?.Invoke();
-        //Debug.Log(Hour);
+
+        //print($"heure : {Hour} , day : {Day}");
 
         if (Hour >= 24)
         {
+            //print("a whole day has passed!");
             Day++;
             Hour = 0;
             OnDay?.Invoke();
-            Debug.Log(Day);
         }
     }
 

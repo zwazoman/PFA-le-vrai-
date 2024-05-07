@@ -21,6 +21,7 @@ public class Field : MonoBehaviour
         IsEmpty = true;
         Sowable = false;
         _notSowableMesh = _mF.mesh;
+        _hoeCount = 3;
     }
 
     /// <summary>
@@ -42,7 +43,7 @@ public class Field : MonoBehaviour
         }
         else
         {
-            Destroy(GetComponent<FieldStorage>());
+            if(GetComponent<FieldStorage>()) Destroy(GetComponent<FieldStorage>());
         }
         _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;
     }

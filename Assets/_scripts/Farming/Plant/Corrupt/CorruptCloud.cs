@@ -5,14 +5,15 @@ using UnityEngine;
 /// </summary>
 public class CorruptCloud : MonoBehaviour
 {
+
     [field: SerializeField]
-    public float CorruptLength { get; private set; }
-    [field: SerializeField]
-    public float CorruptRange { get; private set; }
+    public float Range { get; private set; }
+
+    [SerializeField] float  CorruptionStrength = 0.2f;
     public Collider[] hitColliders { get; private set; }
     private void Start()
     {
-        TimeManager.Instance.OnHour += CloudCorrupt;
+        TimeManager.Instance.OnDay += CloudCorrupt;
     }
 
     /// <summary>
@@ -23,12 +24,12 @@ public class CorruptCloud : MonoBehaviour
     {
         if (TimeManager.Instance.Hour == 1) //tous les jours a 1h 
         {
-            hitColliders = Physics.OverlapSphere(transform.position + transform.forward * CorruptLength, CorruptRange);
+            hitColliders = Physics.OverlapSphere(transform.position , Range);
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) //si c'est une plante
                 {
-                    plantCorrupt.SetCorruptionValue(plantCorrupt.corruptionValue + 0.2f); //ajoute 0.2 a la corruption actuelle
+                    plantCorrupt.SetCorruptionValue(plantCorrupt.corruptionValue + CorruptionStrength); //ajoute 0.2 a la corruption actuelle
                 }
             }
         }        
@@ -36,5 +37,11 @@ public class CorruptCloud : MonoBehaviour
     private void OnDestroy()
     {
         TimeManager.Instance.OnDay -= CloudCorrupt;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, Range);
     }
 }

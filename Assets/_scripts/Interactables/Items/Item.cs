@@ -21,7 +21,7 @@ public class Item : Interactable
 
     private void Start()
     {
-        TimeManager.Instance.OnDay += Despawn;
+        TimeManager.Instance.OnDay += DistanceCull;
     }
 
     public virtual void Jump()
@@ -29,8 +29,14 @@ public class Item : Interactable
         GetComponent<ItemJump>().Jump();
     }
     
-    protected void Despawn()
+    protected void DistanceCull()
     {
         if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) Destroy(gameObject); 
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        TimeManager.Instance.OnDay-=DistanceCull;
     }
 }
