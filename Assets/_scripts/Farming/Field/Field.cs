@@ -62,7 +62,7 @@ public class Field : MonoBehaviour
             GameObject plant = Instantiate(_plant, transform.position + Vector3.up* 0.42f, Quaternion.identity);
             plant.GetComponent<PlantMain>().PlantField = this;
             IsEmpty = false;
-            _hoeCount = 3;
+            _hoeCount = 4;
         }
     }
     /// <summary>
