@@ -26,12 +26,15 @@ public class PlantCorruption : MonoBehaviour
         _plantReady = MR.sharedMaterial;
         MR.sharedMaterial = _plantReady;
 
-        TimeManager.Instance.OnDay += UpdateCorruption;
         SetCorruptionValue(baseCorruption);
         Debug.Log(corruptionValue);
         MR.sharedMaterial = _plantNotReady;
     }
 
+    private void Start()
+    {
+        TimeManager.Instance.OnDay += UpdateCorruption;
+    }
 
 
     public void UpdateCorruption()

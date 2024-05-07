@@ -7,4 +7,14 @@ public class PausePanel : MonoBehaviour
     {
         UiManager.Instance.ActivateGameplayPanel();
     }
+
+    private void OnEnable()
+    {
+        PlayerMain.Instance.Movement.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        PlayerMain.Instance.Movement.enabled = true;
+    }
 }
