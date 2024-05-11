@@ -11,4 +11,9 @@ public class ShaderUpdater : MonoBehaviour
         foreach(Material mat in materials)
         mat.SetVector("_PlayerPosition",transform.position);
     }
+
+    private void OnApplicationQuit()
+    {
+        foreach (Material mat in materials)  mat.SetVector("_PlayerPosition", Vector3.zero);
+    }
 }
