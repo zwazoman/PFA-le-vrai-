@@ -11,6 +11,7 @@ public class PlantVisuals : MonoBehaviour
     [Header("References")]
     [SerializeField] SkinnedMeshRenderer mesh;
     [SerializeField] GameObject visuals;
+    [SerializeField] PlantMain _main;
 
     [Header("corrupted")]
     [SerializeField] Vector3 corrupted_scale;
@@ -20,7 +21,6 @@ public class PlantVisuals : MonoBehaviour
 
     [Header("pure")]
     [SerializeField] Vector3 pure_scale;
-    [SerializeField] public VisualEffect sparkleVFX;
 
     [Header("rotation")]
     [SerializeField] float rotationChangeRate;
@@ -30,9 +30,13 @@ public class PlantVisuals : MonoBehaviour
     [GradientUsage(true)] //tema la syntax de merde https://docs.unity3d.com/ScriptReference/GradientUsageAttribute.html
     [SerializeField] Gradient orbColorOverLife;
 
+    [Header("VFX")]
+    [SerializeField] public VisualEffect sparkleVFX;
+    [SerializeField] public VisualEffect DyingVFX;
+
     [SerializeField] AnimationCurve animationCurve;
 
-    [SerializeField] PlantMain _main;
+    
     
     
     
@@ -57,6 +61,7 @@ public class PlantVisuals : MonoBehaviour
         if(isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
 
         if (_main.Harvest.isHarvesteable) sparkleVFX.Play(); else sparkleVFX.Stop(); //vfx quand la plante peut etre récoltée.
+        if (_main.CanWater) DyingVFX.Play(); else DyingVFX.Stop(); //vfx quand la plante se corromp.
 
     }
 

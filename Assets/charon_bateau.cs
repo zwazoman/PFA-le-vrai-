@@ -29,7 +29,6 @@ public class charon_bateau : MonoBehaviour
         //à 5h il commence son voyage qui dure deux heures; pour le faire arriver à 7h au port. à11h il repart et traverse la map en 4h;
         if (TimeManager.Instance.Hour == 5)
         {
-            print("debout");
             StartCoroutine( Nathan.InterpolateOverTime(0, 0.329f, 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, activateCharon, true));
         }
         else if (TimeManager.Instance.Hour == 11)

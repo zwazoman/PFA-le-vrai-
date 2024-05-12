@@ -10,6 +10,7 @@ public class cogWheel : MonoBehaviour
     Vector3 baseRotation;
     float offset = 0;
 
+    public float ptn;
     private void OnValidate()
     {
         baseRotation = transform.localEulerAngles;
@@ -28,7 +29,8 @@ public class cogWheel : MonoBehaviour
 
         if (transform.hasChanged)
         {
-            if(otherWheel!=null) otherWheel.transform.localEulerAngles = otherWheel.baseRotation + otherWheel.Axis *  Vector3.Dot(Axis, transform.localEulerAngles) * (-Ratio);
+            ptn = Vector3.Dot(Axis, transform.localEulerAngles)%360;
+            if (otherWheel!=null) otherWheel.transform.localEulerAngles = otherWheel.baseRotation + otherWheel.Axis * ( Mathf.Abs( Vector3.Dot(Axis, transform.localEulerAngles))%360f) * (-Ratio);
             transform.hasChanged = false;
         }
     }

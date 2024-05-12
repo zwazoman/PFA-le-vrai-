@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// gère le champ et la plante de graines
@@ -12,6 +13,8 @@ public class Field : MonoBehaviour
     [SerializeField] Mesh _sowableMesh;
     [SerializeField] Mesh _notSowableMesh;
     int _hoeCount = 3;
+
+    [SerializeField] VisualEffect hitVFX;
 
     private void Awake()
     {
@@ -40,6 +43,8 @@ public class Field : MonoBehaviour
         }
         else
         {
+            Destroy( Instantiate(hitVFX, transform.position, Quaternion.identity),5);
+
             if(GetComponent<FieldStorage>()) Destroy(GetComponent<FieldStorage>());
         }
         _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;

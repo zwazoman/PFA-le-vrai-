@@ -26,13 +26,20 @@ public class PlantCorruption : MonoBehaviour
 
     public void UpdateCorruption()
     {
-        //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
-        if(_Main.CanWater)
-        SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered); 
-        else SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
+        if (_Main.Harvest.isHarvesteable) return; //une fois que la plante a totalement poussé, il n'ya plus besoin de l'arroser et elle reste comme ça, à moins qu'un nuage de corruption n'apparaisse à coté
 
-        _Main.CanWater = true;
-                                              
+        //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
+        if (_Main.CanWater)
+        {
+            _Main.CanWater = true;
+            SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered);
+        }
+        else
+        {
+            _Main.CanWater = true;
+            SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
+        }
+                                      
     }
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 

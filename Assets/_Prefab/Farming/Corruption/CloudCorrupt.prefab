@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Range>k__BackingField: 5.65
-  CorruptionStrength: 0.2
+  HourlyCorruptionStrength: 0.02083333
 --- !u!1001 &7591082916219402859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,6 +175,11 @@ PrefabInstance:
     - target: {fileID: 7396703626751592862, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457526029099660790, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
+        type: 3}
+      propertyPath: m_AllowInstancing
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7457526029099660790, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,

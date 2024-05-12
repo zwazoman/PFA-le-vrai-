@@ -30,12 +30,12 @@ public class WateringCan : Tool
             {
                 if (plantMain.PlantField == null) return;
 
-                
-                //Play water vfx
 
-                plantMain.Corruption.ReduceCorruption(_waterToGive); // r�duit la corruption de la plante cibl�
 
                 plantMain.CanWater = false;
+                plantMain.Corruption.ReduceCorruption(_waterToGive); // r�duit la corruption de la plante cibl�
+
+                
             }
         }
     }
