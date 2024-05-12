@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class charon_bateau : MonoBehaviour
@@ -32,20 +30,23 @@ public class charon_bateau : MonoBehaviour
         if (TimeManager.Instance.Hour == 5)
         {
             print("debout");
-            StartCoroutine( Tooling.InterpolateOverTime(0, 0.329f, 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, activateCharon, true));
+            StartCoroutine( Nathan.InterpolateOverTime(0, 0.329f, 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, activateCharon, true));
         }
         else if (TimeManager.Instance.Hour == 11)
         {
             deActivateCharon();
-            StartCoroutine(Tooling.InterpolateOverTime(0.329f, 1, 4 * TimeManager.Instance.IrlHourDuration,  setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); },null,true));
+            StartCoroutine(Nathan.InterpolateOverTime(0.329f, 1, 4 * TimeManager.Instance.IrlHourDuration,  setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); },null,true));
         }
 
     }
 
     void setPositionAlongCurve(float alpha)
     {
+        if (curve == null) return;
         transform.position = curve.Sample(1 - alpha);
-        transform.forward = curve.Sample(1 - alpha) - curve.Sample(1 - (alpha+1/200f)); // la tangente du pauvre
+
+        Vector3 f = curve.Sample(1 - alpha) - curve.Sample(1 - (alpha + 1 / 200f)); // la tangente du pauvre
+        if(f!=Vector3.zero) transform.forward = f;
     }
 
     //temporaire, en attendant d'avoir une animation où il descend du bateau

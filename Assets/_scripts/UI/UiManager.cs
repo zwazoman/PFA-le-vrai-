@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using System.Threading.Tasks;
 
 public class UiManager : MonoBehaviour

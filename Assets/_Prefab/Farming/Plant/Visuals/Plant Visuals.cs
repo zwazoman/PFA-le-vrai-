@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// Ce script gere le visuel de la plante en fonction de son niveau de corruption.
@@ -22,8 +20,8 @@ public class PlantVisuals : MonoBehaviour
 
     [Header("pure")]
     [SerializeField] Vector3 pure_scale;
+    [SerializeField] public VisualEffect sparkleVFX;
 
-    
     [Header("rotation")]
     [SerializeField] float rotationChangeRate;
     float rotationOffset;
@@ -33,12 +31,19 @@ public class PlantVisuals : MonoBehaviour
     [SerializeField] Gradient orbColorOverLife;
 
     [SerializeField] AnimationCurve animationCurve;
+
+    [SerializeField] PlantMain _main;
+    
+    
+    
     private void Start()
     {
         rotationOffset = Random.value*360;
 
-        StartCoroutine(Tooling.InterpolateOverTime(0, 1,.5f, (float interpolatedValue) => transform.localScale = Vector3.one * interpolatedValue , (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); }));
+        //animation du scale pour donner l'impression qu'elle sort du sol
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1,.5f, (float interpolatedValue) => transform.localScale = Vector3.one * interpolatedValue , (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); }));
 
+        sparkleVFX.Stop();
     }
 
     private void OnValidate()
@@ -49,10 +54,13 @@ public class PlantVisuals : MonoBehaviour
 
     public void UpdateVisuals(float newValue)
     {
-        if(Application.isPlaying) StartCoroutine(Tooling.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
+        if(isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
+
+        if (_main.Harvest.isHarvesteable) sparkleVFX.Play(); else sparkleVFX.Stop(); //vfx quand la plante peut etre récoltée.
+
     }
 
-    void applyVisuals(float newValue)
+    void applyVisuals(float newValue) //appelé dans la coroutine
     {
         //mesh
         mesh.SetBlendShapeWeight(0, Mathf.Clamp01(newValue * 2) * 100);

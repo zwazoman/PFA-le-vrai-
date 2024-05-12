@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// gère le ramassage des objets de type "Item" par le joueur

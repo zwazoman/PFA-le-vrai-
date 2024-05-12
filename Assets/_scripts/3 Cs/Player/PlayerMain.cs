@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// component "Main" du joueur référençant toutes ses autres classes utilmisées comme components

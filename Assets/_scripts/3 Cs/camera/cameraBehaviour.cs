@@ -1,8 +1,4 @@
-using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class CameraBehaviour : MonoBehaviour
 {
@@ -40,7 +36,7 @@ public class CameraBehaviour : MonoBehaviour
     {
         
         //FOV
-        cam.fieldOfView = Tooling.DampFloat(cam.fieldOfView, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude),FOVchangeSpeed);
+        cam.fieldOfView = Nathan.DampFloat(cam.fieldOfView, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude),FOVchangeSpeed);
 
         //mouvement
         transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.getFlatVelocity()*PlayerAnticipation, ref vel, smoothTime);

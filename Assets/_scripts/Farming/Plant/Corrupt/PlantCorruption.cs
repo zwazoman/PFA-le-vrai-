@@ -13,23 +13,13 @@ public class PlantCorruption : MonoBehaviour
 
     [field:SerializeField] public float CorruptionRateWhenNotWatered { get; set;}
     [SerializeField] float NaturalGrowRateWhenWatered;
-    [SerializeField] PlantMain _plantMain;
+    [SerializeField] PlantMain _Main;
 
-    public bool CanWater { get; set; }
-
-
-    private void Awake()
-    {
-        corruptionValue = 0;
-
-
-        SetCorruptionValue(baseCorruption);
-        Debug.Log(corruptionValue);
-
-    }
+    
 
     private void Start()
     {
+        SetCorruptionValue(baseCorruption);
         TimeManager.Instance.OnDay+= UpdateCorruption;
     }
 
@@ -37,31 +27,21 @@ public class PlantCorruption : MonoBehaviour
     public void UpdateCorruption()
     {
         //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
-        if(CanWater)
+        if(_Main.CanWater)
         SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered); 
         else SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
 
-        CanWater = true;
+        _Main.CanWater = true;
                                               
     }
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
-        SetCorruptionValue( corruptionValue - reduce);
-        if (corruptionValue < 0.2f) //si le seuil de corruption est en dessous de 0.20 alors on peut ramassé la plante
-        {
-            _plantMain.Harvest.isHarvesteable = true;
-
-        }
-        if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
-            {
-                Destroy(_corruptionZone);
-                CorruptionRateWhenNotWatered /= 2;
-            }
+            SetCorruptionValue(corruptionValue - reduce);
     }
 
 
-    //Gere la corruption (Setter)
+    //permet de changer la corruption (Setter)
     public void SetCorruptionValue(float newValue) 
     {
         newValue = Mathf.Clamp01(newValue);
@@ -70,19 +50,15 @@ public class PlantCorruption : MonoBehaviour
         //Gestion du nuage de corruption
         if (corruptionValue >= _corruptionSpawnValue && _corruptionZone == null)
         {
-            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position , _corruptionZonePrefab.transform.rotation, gameObject.transform);
-            _plantMain.Harvest.isHarvesteable = false;
-
+            _corruptionZone = Instantiate(_corruptionZonePrefab, transform.position , _corruptionZonePrefab.transform.rotation, gameObject.transform); //on le fait spawn si la corruption est assez haute
         }
-
-        else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null)
+        else if (corruptionValue <= _corruptionSpawnValue && _corruptionZone != null) //on le detruit si la corruption est assez basse
         {
             Destroy(_corruptionZone);
         }
-        Debug.Log(corruptionValue);
 
         //mise à jour des visuels
-        _plantMain.Visuals.UpdateVisuals(1f-newValue);
+        _Main.Visuals.UpdateVisuals(1f-newValue);
     }
 
 

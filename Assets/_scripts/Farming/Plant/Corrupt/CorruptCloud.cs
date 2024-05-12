@@ -17,7 +17,7 @@ public class CorruptCloud : MonoBehaviour
     }
 
     /// <summary>
-    /// Gere le nuage de corruption 
+    /// applique de la corruption sur toutes les plantes dans le nuage , si il est 1h du matin
     /// </summary>
 
     public virtual void CloudCorrupt()
@@ -29,7 +29,7 @@ public class CorruptCloud : MonoBehaviour
             {
                 if (hitCollider.TryGetComponent<PlantCorruption>(out PlantCorruption plantCorrupt)) //si c'est une plante
                 {
-                    plantCorrupt.SetCorruptionValue(plantCorrupt.corruptionValue + CorruptionStrength); //ajoute 0.2 a la corruption actuelle
+                    plantCorrupt.SetCorruptionValue(plantCorrupt.corruptionValue + CorruptionStrength); //ajoute x a la corruption actuelle
                 }
             }
         }        

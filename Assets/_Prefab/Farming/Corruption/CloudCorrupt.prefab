@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6775288360862115256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8910e265c5a89d48877a5a2eb62d4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Range>k__BackingField: -0.64
+  <Range>k__BackingField: 5.65
   CorruptionStrength: 0.2
 --- !u!1001 &7591082916219402859
 PrefabInstance:
@@ -115,17 +115,17 @@ PrefabInstance:
     - target: {fileID: 7396703626751592862, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7396703626751592862, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7396703626751592862, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7396703626751592862, guid: 10965b1d8ea780f4c9e4a5f04273ecd4,
         type: 3}

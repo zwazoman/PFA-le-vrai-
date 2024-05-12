@@ -1,6 +1,3 @@
-using Cinemachine.Utility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -16,6 +13,7 @@ public class cogWheel : MonoBehaviour
     private void OnValidate()
     {
         baseRotation = transform.localEulerAngles;
+        if(otherWheel != null)
         offset = Vector3.Dot(transform.localEulerAngles, otherWheel.Axis.normalized);
     }
 

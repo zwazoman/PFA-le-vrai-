@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Rendering;
@@ -22,7 +20,6 @@ public class TP : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         if (other.TryGetComponent<PlayerMain>(out PlayerMain player))
         {
             Assert.IsFalse(pauseTimeWhenActivated && otherTP.pauseTimeWhenActivated, "les deux tp mettent le temps en pause,il y'a un probleme. couillon va");
@@ -50,7 +47,7 @@ public class TP : MonoBehaviour
         CameraBehaviour.Instance.enabled = false;
         PlayerMain.Instance.Movement.enabled = false;
 
-        StartCoroutine(Tooling.InterpolateOverTime(0, 1, 0.5f, (float v) => fondu.weight = v,Tooling.SmoothStep,finirFondu));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, (float v) => fondu.weight = v,Nathan.SmoothStep,finirFondu));
     }
 
 
@@ -63,7 +60,7 @@ public class TP : MonoBehaviour
 
         //-----------------------------------
 
-        StartCoroutine(Tooling.InterpolateOverTime(1, 0, 0.5f, (float v) => fondu.weight = v, Tooling.SmoothStep, () => PlayerMain.Instance.Movement.enabled = true)) ;
+        StartCoroutine(Nathan.InterpolateOverTime(1, 0, 0.5f, (float v) => fondu.weight = v, Nathan.SmoothStep, () => PlayerMain.Instance.Movement.enabled = true)) ;
     }
 
     

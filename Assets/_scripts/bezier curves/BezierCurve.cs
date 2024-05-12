@@ -32,6 +32,8 @@ public class BezierCurve : MonoBehaviour
     /// <returns></returns>
     public Vector3 sampleCurveSegment(int A,int B,float alpha)
     {
+        if (points[A] == null || points[B] == null) return Vector3.zero;
+
         Vector3 V1 = Vector3.Lerp( points[A].transform.position, points[A].rightTangent.transform.position,alpha);
         Vector3 V2 = Vector3.Lerp(points[A].rightTangent.transform.position, points[B].leftTangent.transform.position, alpha);
         Vector3 V3 = Vector3.Lerp(points[B].leftTangent.transform.position, points[B].transform.position, alpha);
@@ -62,7 +64,7 @@ public class BezierCurve : MonoBehaviour
             sampledPoints[i* initialSampleRatePerSegment + j] = sampleCurveSegment(i, i+1,((float)j)/(float)initialSampleRatePerSegment);
             Debug.DrawRay(sampledPoints[i], Vector3.down * 2, Color.blue);
         }
-        sampledPoints[sampledPoints.Length-1] = points[points.Count-1].transform.position;
+        if(points[points.Count - 1]!=null) sampledPoints[sampledPoints.Length-1] = points[points.Count-1].transform.position;
 
 
         //estimate curve length;

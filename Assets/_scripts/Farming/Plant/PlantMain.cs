@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlantMain : MonoBehaviour
@@ -25,9 +23,5 @@ public class PlantMain : MonoBehaviour
     public PlantVisuals Visuals { get; private set; }
     public bool CanWater { get; set; } = true;
 
-    private void Start()
-    {
-        TimeManager.Instance.OnDay += () => CanWater = true;
-    }
 
 }

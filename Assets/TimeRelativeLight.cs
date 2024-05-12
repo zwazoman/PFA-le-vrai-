@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class TimeRelativeLight : MonoBehaviour
 {
@@ -15,7 +12,7 @@ public class TimeRelativeLight : MonoBehaviour
 
     void OnHour()
     {
-        StartCoroutine( Tooling.InterpolateOverTime(Mathf.Abs((TimeManager.Instance.Hour -1) % 24f / 12f - 1f), Mathf.Abs((TimeManager.Instance.Hour) % 24f / 12f - 1f), 1, (a) => { _light.intensity = MaxIntensity * a * a; }, (a) => {return Mathf.SmoothStep(0, 1, a); },null)); //moi je bande
+        StartCoroutine( Nathan.InterpolateOverTime(Mathf.Abs((TimeManager.Instance.Hour -1) % 24f / 12f - 1f), Mathf.Abs((TimeManager.Instance.Hour) % 24f / 12f - 1f), 1, (a) => { _light.intensity = MaxIntensity * a * a; }, (a) => {return Mathf.SmoothStep(0, 1, a); },null)); //moi je bande
        
     }
 }
