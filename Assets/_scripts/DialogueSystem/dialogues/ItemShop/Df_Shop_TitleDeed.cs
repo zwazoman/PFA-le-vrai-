@@ -9,45 +9,26 @@ public class Df_Shop_TitleDeed : DialogueFlow
     {
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
-        await _characters.Noah.Say("Cet objet est très utile.Il te permet de débloquer de nouveaux emplacements de champ pour planter tes graines.");
-        await _characters.Noah.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
+        await _characters.Noah.Say("Avec ce parchemin, vous pourrez débloquer une nouvelle parcelle pour y planter des âmes et augmenter votre production.");
+        await _characters.Noah.Say($"Chaque titre vous coûtera un peu plus cher que le précédent. Ca vous fera {((SellingSpot)WorldObject).price} âmes.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat==0)   
         {
             if(((SellingSpot)WorldObject).price<=PlayerMain.Instance.Stats.Money)
             {
-                await _characters.Noah.Say("ça c'est un client comme je les aime!");
+                await _characters.Noah.Say("Je ne sais pas si c’est une bonne idée de vous donner plus de responsabilités, mais bon… Occupez vous en bien.");
                 WorldObject.SendMessage("SellItem");
             }
             else
             {
-                await _characters.Noah.Say("Retourne travailler,clochard");
+                await _characters.Noah.Say("Revenez me voir lorsque vous aurez travaillé et que vous pourrez vous payer cette parcelle !");
             }
         }
         else
         {
-            int resultat2 = await _characters.Narrator.Ask($"Bon ok, et si je te le fais à {(int)(((SellingSpot)WorldObject).price*0.8f)} bitcoins ?", new string[] { "J'achète !", "Non, j'en veux vraiment pas" });
-            if (resultat2 == 0)
-            {
-                if ((int)(((SellingSpot)WorldObject).price * 0.8f) <= PlayerMain.Instance.Stats.Money)
-                {
-                    ((SellingSpot)WorldObject).price = (int)(((SellingSpot)WorldObject).price * 0.8f);
-                    await _characters.Noah.Say("ça c'est un client comme je les aime!");
-                    WorldObject.SendMessage("SellItem");
-                }
-                else
-                {
-                    await _characters.Noah.Say("Je veux bien faire un geste, mais t'es vraiment trop pauvre. Retourne travailler,clochard");
-                }
-            }
-            else
-            {
-                await _characters.Noah.Say("Une autre fois peut-être...");
-            }
+             await _characters.Noah.Say("Une autre fois peut-être...");         
         }
-
     }
-
 }
 
