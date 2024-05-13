@@ -892,7 +892,7 @@ Transform:
   m_GameObject: {fileID: 2211111412440666142}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: -34.82, y: 49.260006, z: -34.83}
+  m_LocalPosition: {x: -33.64, y: 49.28, z: -34.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1842,7 +1842,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1680969746163789370}
@@ -2833,7 +2833,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 16017977406295928}
@@ -3418,7 +3418,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7481176775869295146}
@@ -4416,7 +4416,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4921413307398893777}
@@ -4842,6 +4842,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6988935951628119916, guid: cccf4c50d2187434aaddb4a61f5f5861,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6988935951628119916, guid: cccf4c50d2187434aaddb4a61f5f5861,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
@@ -5196,6 +5201,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7314569246328688716}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cccf4c50d2187434aaddb4a61f5f5861,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1342490202541701072}
   m_SourcePrefab: {fileID: 100100000, guid: cccf4c50d2187434aaddb4a61f5f5861, type: 3}
 --- !u!4 &93850599503008707 stripped
 Transform:
@@ -5356,6 +5365,36 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1342490202541701072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972828522583065650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2318de75a8641c0498fe4891cfd38502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnScythe:
+    m_PersistentCalls:
+      m_Calls: []
+  OnScytheEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWatering:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWateringEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHoeHit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHoeEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2022281294586761523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 842484120991656016, guid: cccf4c50d2187434aaddb4a61f5f5861,

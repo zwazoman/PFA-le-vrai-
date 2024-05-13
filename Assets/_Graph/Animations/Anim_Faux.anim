@@ -3261,16 +3261,16 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.75
-        value: {x: -97.813, y: 0, z: 0}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: -97.825, y: -30.438995, z: -0.1499939}
+        inSlope: {x: -0.028327491, y: -260.65378, z: -0.90346384}
+        outSlope: {x: -0.028327491, y: -260.65378, z: -0.90346384}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.78333336
-        value: {x: -97.813, y: 0, z: 0}
+        value: {x: -97.827, y: -48.901978, z: -0.25598145}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -3280,8 +3280,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.1666666
         value: {x: -97.813, y: 24.438004, z: 5.173996}
-        inSlope: {x: 0, y: 0, z: 22.51161}
-        outSlope: {x: 0, y: 0, z: 22.51161}
+        inSlope: {x: 0, y: 0, z: 23.007057}
+        outSlope: {x: 0, y: 0, z: 23.007057}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -18691,16 +18691,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.75
-        value: -97.813
-        inSlope: 0
-        outSlope: 0
+        value: -97.825
+        inSlope: -0.028327491
+        outSlope: -0.028327491
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.78333336
-        value: -97.813
+        value: -97.827
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -18775,16 +18775,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.75
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        value: -30.438995
+        inSlope: -260.65378
+        outSlope: -260.65378
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.78333336
-        value: 0
+        value: -48.901978
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -18859,16 +18859,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.75
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        value: -0.1499939
+        inSlope: -0.90346384
+        outSlope: -0.90346384
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.78333336
-        value: 0
+        value: -0.25598145
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -18878,8 +18878,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 1.1666666
         value: 5.173996
-        inSlope: 22.51161
-        outSlope: 22.51161
+        inSlope: 23.007057
+        outSlope: 23.007057
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -20557,7 +20557,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Armature
+    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -20569,7 +20569,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Armature
+    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -20581,7 +20581,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Armature
+    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -20701,7 +20701,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
+    path: Armature
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -20713,7 +20713,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
+    path: Armature
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -20725,10 +20725,24 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Armature/Hanche_R/Jambe_R/Jambe2_R/Pied_R
+    path: Armature
     classID: 4
     script: {fileID: 0}
     flags: 0
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.7
+    functionName: InvokeOnScythe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: InvokeOnScytheEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
