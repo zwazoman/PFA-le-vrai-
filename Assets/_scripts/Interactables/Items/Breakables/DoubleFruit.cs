@@ -1,6 +1,6 @@
 public class DoubleFruit : Breakable
 {
-    public override void Break()
+    protected override void Break()
     {
         base.Break();
     }

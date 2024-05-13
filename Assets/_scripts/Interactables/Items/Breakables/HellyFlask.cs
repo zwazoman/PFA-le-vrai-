@@ -7,7 +7,11 @@ public class HellyFlask : Breakable
 
     private Collider[] _hitColliders;
 
-    public override void Break()
+    private void Awake()
+    {
+        maxhp = 1;
+    }
+    protected override void Break()
     {
         //instancier vfx
         _hitColliders = Physics.OverlapSphere(transform.position, _range);

@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Hoe : Tool
 {
+    public int breakPower { get; set; }
+
+    private void Awake()
+    {
+        breakPower = 1;
+    }
+
     /// <summary>
     /// gère les différentes possibilités lors de l'utilisation
     /// </summary>
@@ -24,7 +31,7 @@ public class Hoe : Tool
 
             if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable)) // si c'est un objet cassable
             {
-                breakable.Break(); // casse l'objet
+                breakable.SetBreak(breakPower); // casse l'objet
             }
         }
         if(closest != null && !closest.Sowable) closest.Plow(); // retourne le champ

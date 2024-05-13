@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class Lever : Interactable
 {
-    [SerializeField] MillStorage _millCoin;
-    [SerializeField] PlayerStats _playerCoin;
+    [SerializeField] Mill _mill;
     protected override void Interaction()
     {
-        _playerCoin.AddMoney( _millCoin.MillMoney);
-        _millCoin.MillMoney = 0;
+        //animation de con
+        _mill.Crush();
     }
 }
