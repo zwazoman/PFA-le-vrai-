@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class MoreWaterStorage : Interactable
+public class MoreWaterStorage : SellingSpot
 {
     [SerializeField] int _waterStorageAddition;
 
-    protected override void Interaction()
+    public override void SellItem()
     {
+        base.SellItem();
         PlayerMain.Instance.Watering.MaxWaterStorage += _waterStorageAddition;
-        Destroy(gameObject);
-        //a refaire dans la boite de dialogue
     }
+
 }

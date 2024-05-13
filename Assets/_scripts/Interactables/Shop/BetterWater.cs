@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class BetterWater : Interactable
+public class BetterWater : SellingSpot
 {
     [SerializeField] float _waterAddition;
-    protected override void Interaction()
+
+    public override void SellItem()
     {
+        base.SellItem();
         PlayerMain.Instance.Can.AddWaterToGive(_waterAddition);
-        //a refaire dans la boite de dialogue
     }
 }
