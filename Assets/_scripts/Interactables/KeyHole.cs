@@ -10,7 +10,7 @@ public class KeyHole : MonoBehaviour
     {
         if (other.tag == "Key")
         {
-            foreach (GameObject go in doors) { go.SetActive(false); }
+            foreach (GameObject go in doors) { go.GetComponent<BoxCollider>().enabled = false; }
             Debug.Log("Key");
         }
     }
