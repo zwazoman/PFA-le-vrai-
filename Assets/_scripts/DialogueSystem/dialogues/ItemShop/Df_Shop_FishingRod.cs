@@ -11,7 +11,7 @@ public class Df_Shop_FishingRod : DialogueFlow
     {
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
-        await _characters.Noah.Say("Cet objet est très utile. Il de pêcher dans le styx et d'attraper la chtouille");
+        await _characters.Noah.Say("Un peu de pêche pour se détendre après s’être occupé de toutes ces âmes ? Elle te permettra de t’essayer à la pêche sur le ponton qui longe ta ferme.");
         await _characters.Noah.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
@@ -19,36 +19,18 @@ public class Df_Shop_FishingRod : DialogueFlow
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
             {
-                await _characters.Noah.Say("ça c'est un client comme je les aime!");
+                await _characters.Noah.Say("Qui sait ce que tu vas trouver dans le Styx…");
                 WorldObject.SendMessage("SellItem");
             }
             else
             {
-                await _characters.Noah.Say("Retourne travailler,clochard");
+                await _characters.Noah.Say("Hé là, je t’apprécie, mais tout de même ! Reviens me voir lorsque tu auras quelques sous, et là nous pourrons parler.");
             }
         }
         else
         {
-            int resultat2 = await _characters.Narrator.Ask($"Bon ok, et si je te le fais à {(int)(((SellingSpot)WorldObject).price * 0.8f)} bitcoins ?", new string[] { "J'achète !", "Non, j'en veux vraiment pas" });
-            if (resultat2 == 0)
-            {
-                if ((int)(((SellingSpot)WorldObject).price * 0.8f) <= PlayerMain.Instance.Stats.Money)
-                {
-                    ((SellingSpot)WorldObject).price = (int)(((SellingSpot)WorldObject).price * 0.8f);
-                    await _characters.Noah.Say("ça c'est un client comme je les aime!");
-                    WorldObject.SendMessage("SellItem");
-                }
-                else
-                {
-                    await _characters.Noah.Say("Je veux bien faire un geste, mais t'es vraiment trop pauvre. Retourne travailler,clochard");
-                }
-            }
-            else
-            {
-                await _characters.Noah.Say("Une autre fois peut-être...");
-            }
+                await _characters.Noah.Say("Les plaisirs de la pêche ne sont visiblement pas pour tout de suite… Au travail alors, ahahah !");
         }
 
     }
-
 }

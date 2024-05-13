@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class SellingSpot : Interactable
 {
-    [SerializeField] Item itemToSell;
     [SerializeField] string DialogueScript;
     
     public int price = 10;
@@ -11,13 +10,10 @@ public class SellingSpot : Interactable
         foreach(MonoBehaviour mb in GetComponents<MonoBehaviour>()) mb.enabled = false; //desactive l'item
     }
 
-    public void SellItem()
+    public virtual void SellItem()
     {
-        foreach (MonoBehaviour mb in GetComponents<MonoBehaviour>()) mb.enabled = true; //desactive l'item
+        foreach (MonoBehaviour mb in GetComponents<MonoBehaviour>()) mb.enabled = true; //a l'item
         PlayerMain.Instance.Stats.AddMoney(-price);
-        
-        itemToSell.GetComponent<Item>().Jump();
-        this.enabled = false;
     }
 
     protected override void Interaction()
