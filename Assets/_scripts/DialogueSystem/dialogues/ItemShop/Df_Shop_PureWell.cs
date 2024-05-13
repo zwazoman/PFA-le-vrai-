@@ -10,8 +10,8 @@ public class Df_Shop_PureWell : DialogueFlow
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
         await _characters.Noah.Say("Un peu d’eau pure, que demander de plus ? En même temps, avec le nombre de cadavres qui sont tombés dedans");
-        await _characters.Noah.Say("Je comprends que l’on puisse avoir envie de la purifier, ahaha ! Jette juste cette orbe dans le puit, et le lendemain les impuretés seront parties.");
-        await _characters.Noah.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
+        await _characters.Noah.Say("Je comprends que l’on puisse avoir envie de la purifier, ahaha ! Jette juste cette orbe dans le puit, et le lendemain les impuretés seront parties,");
+        await _characters.Noah.Say($"et tu n’auras à débourser que {((SellingSpot)WorldObject).price} âmes pour ça.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)

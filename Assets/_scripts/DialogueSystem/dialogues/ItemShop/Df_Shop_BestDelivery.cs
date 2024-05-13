@@ -10,7 +10,7 @@ public class Df_Shop_BestDelivery : DialogueFlow
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
         await _characters.Noah.Say("Aaah, je me demandais quand tu allais venir la prendre, celle-ci. Il te suffit de l’activer, et tu auras une livraison d’âmes plus importante de la part de Charon. Une vrai petite merveille.");
-        await _characters.Noah.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
+        await _characters.Noah.Say($"Une vrai petite merveille, que je te vend pour {((SellingSpot)WorldObject).price} âmes.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] {"J'achète !", "J'ai changé d'avis."});
         if (resultat == 0)
