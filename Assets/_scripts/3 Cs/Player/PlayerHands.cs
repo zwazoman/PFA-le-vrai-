@@ -49,7 +49,7 @@ public class PlayerHands : MonoBehaviour
     /// <summary>
     /// gère le "lachage" de l'objet dans les mains : réactive sa physique et ses collisions, change le parent a null
     /// </summary>
-    private void Drop()
+    public void Drop()
     {
         _iteminHandsColl.enabled = true; // réactive le collider
         _itemInHandsRb.constraints = RigidbodyConstraints.None; // unfreeze l'objet
