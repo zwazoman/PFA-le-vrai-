@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-    Transform door1;
+    [SerializeField]  Transform door1;
     Quaternion BaseRot1;
     [SerializeField] private Vector3 openRotation1;
 
-    Transform door2;
+    [SerializeField]  Transform door2;
     Quaternion BaseRot2;
     [SerializeField] private Vector3 openRotation2;
 
     [SerializeField] float openingDuration = 0.3f;
-    [SerializeField] BoxCollider mainCollider;
+    [SerializeField] GameObject Cadenas;
 
-
+    Vector3 bs;
     private void Awake()
     {
         BaseRot1 = door1.localRotation;
         BaseRot2 = door2.localRotation;
     }
 
-    public void Open()
+    public virtual void Open()
     {
-        StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep,()=>mainCollider.enabled = false));
-
+        bs = Cadenas.transform.localScale;
+        StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep,()=> Destroy(Cadenas)));
+        Cadenas.GetComponentInChildren<Collider>().enabled = false;
     }
 
-    void jenpeuplu(float alpha)
+    
+
+    private void jenpeuplu(float alpha)
     {
-        door2.localRotation = Quaternion.Slerp(BaseRot2,Quaternion.Euler(openRotation1),alpha);
+        door2.localRotation = Quaternion.Slerp(BaseRot2,Quaternion.Euler(openRotation2),alpha);
         door1.localRotation = Quaternion.Slerp(BaseRot1,Quaternion.Euler(openRotation1),alpha);
 
+        
+        Cadenas.transform.localScale = Vector3.Lerp(bs,Vector3.zero,alpha);
     }
 }
