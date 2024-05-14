@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Key : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int id = -1;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public void OnUsed() 
+    { 
+        Destroy(gameObject);
+    }    
 }
