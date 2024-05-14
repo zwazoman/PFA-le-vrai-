@@ -5,12 +5,22 @@ public class KeyHole : MonoBehaviour
 {
     [SerializeField] List<GameObject> doors = new List<GameObject>();
 
+    public int id = -1;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Key")
+        if (other.TryGetComponent<PlayerMain>(out PlayerMain player))
         {
-            foreach (GameObject go in doors) { go.GetComponent<BoxCollider>().enabled = false; }
-            Debug.Log("Key");
+            if(player.Hands.ItemInHands.TryGetComponent<Key>(out Key key))
+            {
+                if (key.id != id) return;
+
+                foreach (GameObject go in doors) { if (go.TryGetComponent<door>(out door d)) d.Open(); }
+
+                player.Hands.Drop();
+                key.OnUsed();
+                Destroy(gameObject);
+            }
         }
     }
 }
