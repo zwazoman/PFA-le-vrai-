@@ -17,24 +17,24 @@ public class Item : Interactable
         PlayerMain.Instance.Hands.Pickup(this);
     }
 
-    private void Start()
+   /* private void Start()
     {
         TimeManager.Instance.OnDay += DistanceCull;
-    }
+    }*/
 
     public virtual void Jump()
     {
         GetComponent<ItemJump>().Jump();
     }
     
-    protected void DistanceCull()
+    /*protected void DistanceCull()
     {
         if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) Destroy(gameObject); 
-    }
+    }*/
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        TimeManager.Instance.OnDay-=DistanceCull;
+        //TimeManager.Instance.OnDay-=DistanceCull;
     }
 }

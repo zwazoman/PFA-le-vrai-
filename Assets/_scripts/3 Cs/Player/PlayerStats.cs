@@ -9,6 +9,12 @@ public class PlayerStats : MonoBehaviour
     [field : SerializeField]
     public int InitialSeeds { get; set; }
 
+    [field: SerializeField]
+    public float WalkSpeed { get; set; }
+
+    [field: SerializeField]
+    public float RunFactor {  get; set; }
+
     private void Start()
     {
         Seeds = InitialSeeds;
@@ -28,5 +34,10 @@ public class PlayerStats : MonoBehaviour
     public void TemporarlyAddSeeds(int seedAmount)
     {
         Seeds += seedAmount;
+    }
+
+    public void MultiplyRunFactor(float factor)
+    {
+        PlayerMain.Instance.Movement._playerRunFactor *= factor;
     }
 }
