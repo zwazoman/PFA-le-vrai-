@@ -10,7 +10,7 @@ public class PlayerMovement : DynamicObject
     public float _playerMoveSpeed;
 
     //vitesse de marche du joueur
-    public float PlayerWalkSpeed = 7;
+    public float PlayerWalkSpeed;
     //vitesse de course du joueur
     public float _playerRunFactor;
     //acceleration du joueur lors de ses déplacements
@@ -29,6 +29,8 @@ public class PlayerMovement : DynamicObject
     private void Awake()
     {
         initPhysics();
+        PlayerWalkSpeed = PlayerMain.Instance.Stats.WalkSpeed;
+        _playerRunFactor = PlayerMain.Instance.Stats.RunFactor;
     }
 
     private void LateUpdate()
@@ -40,7 +42,7 @@ public class PlayerMovement : DynamicObject
     {
         _inputManager = PlayerMain.Instance.InputManager;
         _inputManager.OnSprintStart += StartRunning; // début course
-        _inputManager.OnSprintEnd += StopRunning; // fin course
+        _inputManager.OnSprintEnd += StopRunning; // fin course       
     }
 
     private void Update()
