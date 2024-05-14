@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public float WalkSpeed { get; set; }
 
     [field: SerializeField]
-    public float RunSpeed {  get; set; }
+    public float RunFactor {  get; set; }
 
     private void Start()
     {
@@ -34,5 +34,10 @@ public class PlayerStats : MonoBehaviour
     public void TemporarlyAddSeeds(int seedAmount)
     {
         Seeds += seedAmount;
+    }
+
+    public void MultiplyRunFactor(float factor)
+    {
+        PlayerMain.Instance.Movement._playerRunFactor *= factor;
     }
 }

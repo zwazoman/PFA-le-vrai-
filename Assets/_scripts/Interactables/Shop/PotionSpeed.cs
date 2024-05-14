@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PotionSpeed : Breakable
 {
+    [SerializeField] float _speedFactor;
     protected override void Break()
     {
-        base.Break();
         AddSpeed();
-
+        base.Break();
     }
 
     private void AddSpeed()
     {
-        PlayerMain.Instance.Stats.WalkSpeed *= 1.3f;
-        Debug.Log("Oui");
+        PlayerMain.Instance.Stats.MultiplyRunFactor(_speedFactor);
     }
 
 }
