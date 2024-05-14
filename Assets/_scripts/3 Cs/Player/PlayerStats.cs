@@ -9,6 +9,12 @@ public class PlayerStats : MonoBehaviour
     [field : SerializeField]
     public int InitialSeeds { get; set; }
 
+    [field: SerializeField]
+    public float WalkSpeed { get; set; }
+
+    [field: SerializeField]
+    public float RunSpeed {  get; set; }
+
     private void Start()
     {
         Seeds = InitialSeeds;
