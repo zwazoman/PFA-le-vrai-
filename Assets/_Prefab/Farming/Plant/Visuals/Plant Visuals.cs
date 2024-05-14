@@ -61,7 +61,7 @@ public class PlantVisuals : MonoBehaviour
         if(isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
 
         if (_main.Harvest.isHarvesteable) sparkleVFX.Play(); else sparkleVFX.Stop(); //vfx quand la plante peut etre récoltée.
-        if (_main.CanWater) DyingVFX.Play(); else DyingVFX.Stop(); //vfx quand la plante se corromp.
+        if (_main.CanWater && !_main.Harvest.isHarvesteable) DyingVFX.Play(); else DyingVFX.Stop(); //vfx quand la plante se corromp.car elle n'a pas été arrosée
 
     }
 

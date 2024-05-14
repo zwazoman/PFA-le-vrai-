@@ -31,7 +31,7 @@ public class PlantCorruption : MonoBehaviour
         //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
         if (_Main.CanWater)
         {
-            _Main.CanWater = true;
+             _Main.CanWater = true;
             SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered);
         }
         else

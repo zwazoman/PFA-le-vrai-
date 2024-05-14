@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Intensity: 2
-    - _NoiseScale: 0.05
+    - _NoiseScale: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Radius: 3
@@ -52,8 +52,9 @@ Material:
     - _power: 0.5
     - _smoothness: 0.5
     m_Colors:
-    - _PlayerPosition: {r: 46.1, g: 28.62, b: 157.3, a: 0}
-    - _WorldDirection: {r: 10, g: 0, b: 10, a: 0}
+    - _PlayerPosition: {r: 70.74, g: 18.7, b: 12.43, a: 0}
+    - _WindAxis: {r: 1, g: 0, b: 0, a: 0}
+    - _WorldDirection: {r: 5, g: 0, b: 5, a: 0}
     - _fresnelColor: {r: 0.08184306, g: 0.08184306, b: 0.08184306, a: 1}
     - _player_Position: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

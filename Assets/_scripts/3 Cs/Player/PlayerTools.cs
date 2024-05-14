@@ -32,9 +32,12 @@ public class PlayerTools : MonoBehaviour
     private void Hoe()
     {
         if (!canUse) return;
-        print("Hoe");
+        canUse = false;
+        PlayerMain.Instance.InputManager.enabled = false;
+
+        PlayerMain.Instance.Visuals.startHoeAnimation();
         // lancer l'animation de l'outil
-        _hoe.Use(); // pas nécessaire si appelé dan sl'event de l'animation
+        //_hoe.Use(); // pas nécessaire si appelé dan sl'event de l'animation
     }
 
     /// <summary>
@@ -43,9 +46,12 @@ public class PlayerTools : MonoBehaviour
     private void WateringCan()
     {
         if (!canUse) return;
-        print("WateringCan");
+        canUse = false;
+        PlayerMain.Instance.InputManager.enabled = false;
+
+        PlayerMain.Instance.Visuals.startWateringAnimation();
         // lancer l'animation de l'outil
-        _wateringCan.Use();// pas nécessaire si appelé dan sl'event de l'animation
+        //_wateringCan.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
 
     /// <summary>
@@ -54,9 +60,12 @@ public class PlayerTools : MonoBehaviour
     private void Scythe()
     {
         if (!canUse) return;
-        print("Scythe");
+        canUse = false;
+        PlayerMain.Instance.InputManager.enabled = false;
+
+        PlayerMain.Instance.Visuals.startScytheAnimation();
         // lancer l'animation de l'outil
-        _scythe.Use();// pas nécessaire si appelé dan sl'event de l'animation
+        //_scythe.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
 
     /// <summary>
@@ -65,8 +74,19 @@ public class PlayerTools : MonoBehaviour
     private void Shovel()
     {
         if (!canUse) return;
-        print("Shovel");
+        canUse = false;
         // lancer l'animation de l'outil
         _shovel.Use();// pas nécessaire si appelé dan sl'event de l'animation
+    }
+
+    public void OnToolUseEnd()
+    {
+        Debug.ClearDeveloperConsole();
+        print("=============================");
+        print("fini!");
+        print("=============================");
+        canUse = true;
+        PlayerMain.Instance.InputManager.enabled = true;
+        
     }
 }

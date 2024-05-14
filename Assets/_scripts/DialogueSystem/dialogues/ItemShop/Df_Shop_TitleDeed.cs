@@ -10,7 +10,7 @@ public class Df_Shop_TitleDeed : DialogueFlow
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
         await _characters.Noah.Say("Avec ce parchemin, vous pourrez débloquer une nouvelle parcelle pour y planter des âmes et augmenter votre production.");
-        await _characters.Noah.Say($"Chaque titre vous coûtera un peu plus cher que le précédent. Ca vous fera {((SellingSpot)WorldObject).price} âmes.");
+        await _characters.Noah.Say($"{((SellingSpot)WorldObject).price} âmes pour ton bon plaisir.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat==0)   

@@ -7,7 +7,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
-    public Vector2 moveInput { get; private set; } //valeur de déplacement
+    private Vector2 MoveInput;
+    public Vector2 moveInput => enabled ? MoveInput : Vector2.zero;//valeur de déplacement
     // event interaction du joueur
     public event Action OnInteract;
     // event début de la course du joueur
@@ -31,7 +32,7 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void Move(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        MoveInput = context.ReadValue<Vector2>();
     }
 
     /// <summary>
@@ -40,7 +41,9 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void Interact(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if(!enabled)return;
+
+        if (context.performed ) 
         {
             OnInteract?.Invoke();
         }
@@ -52,6 +55,8 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void Sprint(InputAction.CallbackContext context)
     {
+        //if (!enabled) return;
+
         if (context.performed) OnSprintStart?.Invoke();
         if (context.canceled) OnSprintEnd?.Invoke();
     }
@@ -62,6 +67,8 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void UseHoe(InputAction.CallbackContext context)
     {
+        if (!enabled) return;
+
         if (context.performed) OnHoe?.Invoke();
     }
 
@@ -71,6 +78,8 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void UseWateringCan(InputAction.CallbackContext context)
     {
+        if (!enabled) return;
+
         if (context.performed) OnWateringCan?.Invoke();
     }
 
@@ -80,6 +89,8 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void UseScythe(InputAction.CallbackContext context)
     {
+        if (!enabled) return;
+
         if (context.performed) OnScythe?.Invoke();
     }
 
@@ -89,11 +100,15 @@ public class PlayerInputManager : MonoBehaviour
     /// <param name="context"></param>
     public void UseShovel(InputAction.CallbackContext context)
     {
+        if (!enabled) return;
+
         if (context.performed) OnShovel?.Invoke();
     }
 
     public void Pause(InputAction.CallbackContext context)
     {
+        //if (!enabled) return;
+
         if (context.performed) OnPause?.Invoke();
     }
 }
