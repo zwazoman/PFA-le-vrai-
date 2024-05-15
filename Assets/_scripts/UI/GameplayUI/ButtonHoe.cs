@@ -13,8 +13,6 @@ public class ButtonHoe : MonoBehaviour
 
         PlayerMain.Instance.InputManager.OnWateringCan += _juiceWateringCan.ButtonScale;
 
-        PlayerMain.Instance.InputManager.OnShovel += _juiceShovel.ButtonScale;
-
         PlayerMain.Instance.InputManager.OnScythe += _juiceScythe.ButtonScale;
     }
 }

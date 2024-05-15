@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HellyFlask : Breakable
+public class Napalm : Breakable
 {
     [SerializeField] private float _range;
     [SerializeField] private float _increaseAmount;
@@ -19,7 +19,7 @@ public class HellyFlask : Breakable
         {
             if (hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain main))
             {
-                //rajouter de la corruption ?
+                main.Unplant();
             }
         }
         base.Break();
