@@ -2576,6 +2576,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f07a0d8bf1c14abb3266709dc6716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toolsWooshes:
+  - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
+  - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
+  - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
+  _toolsEquip: []
+  _walkFootsteps:
+  - {fileID: 8300000, guid: ed13adc603eed6744b2fea1f674a401d, type: 3}
+  - {fileID: 8300000, guid: 30a9fd2c2ddaad14cbcb563d1698e51f, type: 3}
+  - {fileID: 8300000, guid: 39aa8dffd86b8784b92cd9f7a5976538, type: 3}
+  _runFootsteps:
+  - {fileID: 8300000, guid: 78381a1eaebfb5f4f91c5fb137b26a21, type: 3}
+  - {fileID: 8300000, guid: 6f5dd67db86cd8648852952d0e35752e, type: 3}
+  - {fileID: 8300000, guid: 3a23fed6cd2565a4fad4f8543ee0fb4a, type: 3}
 --- !u!114 &121151280416837700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5586,13 +5599,52 @@ MonoBehaviour:
         m_CallState: 2
   OnWoosh:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayToolsWooshSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnToolEquiped:
     m_PersistentCalls:
       m_Calls: []
-  OnFootstep:
+  OnWalkFootstep:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayWalkFootstepSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRunFootstep:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayRunFootstepSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &2022281294586761523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 842484120991656016, guid: cccf4c50d2187434aaddb4a61f5f5861,

@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioClip[] _toolsWooshes;
+    [SerializeField] AudioClip[] _toolsEquip;
+    [SerializeField] AudioClip[] _walkFootsteps;
+    [SerializeField] AudioClip[] _runFootsteps;
+
+    public void PlayToolsWooshSound()
     {
-        
+        SFXManager.Instance.PlaySFXClip(_toolsWooshes, transform, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayToolEquipSound()
     {
-        
+        SFXManager.Instance.PlaySFXClip(_toolsEquip, transform, 1f);
     }
+
+    public void PlayWalkFootstepSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_walkFootsteps, transform, 0.5f);
+    }
+
+    public void PlayRunFootstepSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_runFootsteps, transform, 0.5f);
+    }
+
 }
