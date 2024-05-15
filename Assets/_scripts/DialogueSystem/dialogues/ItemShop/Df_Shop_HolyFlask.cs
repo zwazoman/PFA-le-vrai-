@@ -22,29 +22,12 @@ public class Df_Shop_HolyFlask : DialogueFlow
             }
             else
             {
-                await _characters.Noah.Say("Retourne travailler,clochard");
+                await _characters.Noah.Say("Une telle relique ne se donne pas à crédit.");
             }
         }
         else
         {
-            int resultat2 = await _characters.Narrator.Ask($"Bon ok, et si je te le fais à {(int)(((SellingSpot)WorldObject).price * 0.8f)} bitcoins ?", new string[] { "J'achète !", "Non, j'en veux vraiment pas" });
-            if (resultat2 == 0)
-            {
-                if ((int)(((SellingSpot)WorldObject).price * 0.8f) <= PlayerMain.Instance.Stats.Money)
-                {
-                    ((SellingSpot)WorldObject).price = (int)(((SellingSpot)WorldObject).price * 0.8f);
-                    await _characters.Noah.Say("ça c'est un client comme je les aime!");
-                    WorldObject.SendMessage("SellItem");
-                }
-                else
-                {
-                    await _characters.Noah.Say("Je veux bien faire un geste, mais t'es vraiment trop pauvre. Retourne travailler,clochard");
-                }
-            }
-            else
-            {
-                await _characters.Noah.Say("Une autre fois peut-être...");
-            }
+            await _characters.Noah.Say("Elle restera à vous attendre.");
         }
 
     }
