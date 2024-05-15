@@ -14,14 +14,13 @@ public class PlantMain : MonoBehaviour
     public PlantCorruption Corruption { get; private set; }
 
     [field: SerializeField]
-    public PlantUnplant Unplant {get;private set;}
-
-    [field : SerializeField]
-    public ItemJump Jump { get; private set; }
-
-    [field: SerializeField]
     public PlantVisuals Visuals { get; private set; }
     public bool CanWater { get; set; } = true;
 
-
+    public void Unplant()
+    {
+        PlantField.IsEmpty = true;
+        PlantField.Plow();
+        Destroy(gameObject);
+    }
 }

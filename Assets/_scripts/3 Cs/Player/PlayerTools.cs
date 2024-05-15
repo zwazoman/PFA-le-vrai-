@@ -9,7 +9,6 @@ public class PlayerTools : MonoBehaviour
     [SerializeField] Hoe _hoe;
     [SerializeField] WateringCan _wateringCan;
     [SerializeField] Scythe _scythe;
-    [SerializeField] Shovel _shovel;
     public bool canUse { get; set; }
 
     private void Awake()
@@ -23,7 +22,6 @@ public class PlayerTools : MonoBehaviour
         _inputManager.OnHoe += Hoe;
         _inputManager.OnWateringCan += WateringCan;
         _inputManager.OnScythe += Scythe;
-        _inputManager.OnShovel += Shovel;
     }
 
     /// <summary>
@@ -66,17 +64,6 @@ public class PlayerTools : MonoBehaviour
         PlayerMain.Instance.Visuals.startScytheAnimation();
         // lancer l'animation de l'outil
         //_scythe.Use();// pas nécessaire si appelé dan sl'event de l'animation
-    }
-
-    /// <summary>
-    /// réagit a l'event OnShovel() de l'input manager et appelle Use() dans la classe Shovel
-    /// </summary>
-    private void Shovel()
-    {
-        if (!canUse) return;
-        canUse = false;
-        // lancer l'animation de l'outil
-        _shovel.Use();// pas nécessaire si appelé dan sl'event de l'animation
     }
 
     public void OnToolUseEnd()

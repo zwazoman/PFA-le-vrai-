@@ -1,15 +1,15 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class Df_Shop_BestDelivery : DialogueFlow
+public class Df_Shop_PermBestDelivery : DialogueFlow
 {
-    public Df_Shop_BestDelivery(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters, WorldObject) { }
+    public Df_Shop_PermBestDelivery(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters, WorldObject) { }
 
     public override async Task StartDialogue()
     {
         _panel.InitDialogue(_characters.Quentin, _characters.Noah);
 
-        await _characters.Noah.Say("Aaah, je me demandais quand tu allais venir la prendre, celle-ci. Il te suffit de l’activer, et tu auras une livraison d’âmes plus importante de la part de Charon. Une vrai petite merveille.");
+        await _characters.Noah.Say("Aaah, je me demandais quand tu allais venir la prendre, celle-ci. Il te suffit de l’activer, et tu auras une livraison d’âmes plus importante de la part de Charon.");
         await _characters.Noah.Say($"Une vrai petite merveille, que je te vend pour {((SellingSpot)WorldObject).price} âmes.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] {"J'achète !", "J'ai changé d'avis."});

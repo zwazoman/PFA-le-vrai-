@@ -16,7 +16,7 @@ public class Orb : Breakable
 
     protected override void Break()
     {
-        //argent ++
+        PlayerMain.Instance.Stats.AddMoney(10);
         //faire apparaître l'argent
         Destroy(gameObject);
     }

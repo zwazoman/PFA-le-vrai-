@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PotionSpeed : Breakable
+public class SpeedPotion : Breakable
 {
     [SerializeField] float _speedFactor;
     protected override void Break()

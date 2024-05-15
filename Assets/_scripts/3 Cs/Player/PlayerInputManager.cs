@@ -21,8 +21,6 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnWateringCan;
     // event utilisation de la faux
     public event Action OnScythe;
-    // event utilisation de la pelle
-    public event Action OnShovel;
     //event menu pause
     public event Action OnPause;
 
@@ -95,16 +93,9 @@ public class PlayerInputManager : MonoBehaviour
     }
 
     /// <summary>
-    /// gère les inputs de l'utilisation de la pelle du joueur
+    /// gère l'utilisation de l'event de Pause
     /// </summary>
     /// <param name="context"></param>
-    public void UseShovel(InputAction.CallbackContext context)
-    {
-        if (!enabled) return;
-
-        if (context.performed) OnShovel?.Invoke();
-    }
-
     public void Pause(InputAction.CallbackContext context)
     {
         //if (!enabled) return;

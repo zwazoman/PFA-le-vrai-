@@ -21,7 +21,7 @@ public abstract class Interactable : MonoBehaviour
 
     public void OnHighlighted()
     {
-        print("La pute");
+
         foreach(MeshFilter mr in GetComponentsInChildren<MeshFilter>())
         {
             GameObject spawned = GameObject.Instantiate(Resources.Load<GameObject>("OutlineMesh"), mr.gameObject.transform);
