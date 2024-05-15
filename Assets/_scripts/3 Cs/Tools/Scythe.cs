@@ -3,7 +3,7 @@ using UnityEngine.Experimental.Audio;
 
 public class Scythe : Tool
 {
-    AudioClip[] _cutsounds;
+    [SerializeField] AudioClip[] _cutsounds;
 
     /// <summary>
     /// gère les différentes possibilités lors de l'utilisation
