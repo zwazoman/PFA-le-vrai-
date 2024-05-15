@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class Canne_visuels : MonoBehaviour
 {
     Vector3 bout;
