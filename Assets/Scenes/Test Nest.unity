@@ -237,12 +237,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 927602826800415264, guid: 9ca3de5aec86c0e4cb2ff94163d18e82,
-        type: 3}
-      propertyPath: _SFXObject
-      value: 
-      objectReference: {fileID: 5477517414722178483, guid: f45dac70d8e618c43a8b577a78fd8bd1,
-        type: 3}
     - target: {fileID: 6561555771577063375, guid: 9ca3de5aec86c0e4cb2ff94163d18e82,
         type: 3}
       propertyPath: m_Name
@@ -1313,36 +1307,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 728590062080348119, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: _plowSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9875d6355bf82e346a002494a80ce829, type: 3}
-    - target: {fileID: 728590062080348119, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: _plowSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 728590062080348119, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: _plowSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9875d6355bf82e346a002494a80ce829, type: 3}
-    - target: {fileID: 728590062080348119, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: _plowSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0739d0443d143bc4e9cdbca157ac6867, type: 3}
-    - target: {fileID: 728590062080348119, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: _plowSounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: a5c3c9cde6b51bb40a34efa39f6b205c, type: 3}
-    - target: {fileID: 4190535962425562199, guid: 93cfb37c2e176f442b10410aecc76f37,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5411243086529900602, guid: 93cfb37c2e176f442b10410aecc76f37,
         type: 3}
       propertyPath: m_Name
@@ -1398,8 +1362,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8578276114159150430, guid: 93cfb37c2e176f442b10410aecc76f37, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
