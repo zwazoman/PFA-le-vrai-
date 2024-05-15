@@ -17,7 +17,6 @@ public class Hoe : Tool
     /// </summary>
     public override void Use()
     {
-        SFXManager.Instance.PlaySFXClip(_plowSound, transform, 1f);
         base.Use();
         float min = -1;
         Field closest = null;
@@ -38,6 +37,11 @@ public class Hoe : Tool
                 breakable.SetBreak(breakPower); // casse l'objet
             }
         }
-        if(closest != null && !closest.Sowable) closest.Plow(); // retourne le champ
+        if(closest != null && !closest.Sowable)
+        {
+            closest.Plow(); // retourne le champ
+            SFXManager.Instance.PlaySFXClip(_plowSound, transform, 1f); // son bien
+
+        }
     }
 }
