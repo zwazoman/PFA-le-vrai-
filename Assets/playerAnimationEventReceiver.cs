@@ -15,7 +15,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnHoeHit;
     public UnityEvent OnHoeEnd;
 
-    [HorizontalLine("Sons et vfx", 1,FixedColor.DarkGray)]
+    //[HorizontalLine("Sons et vfx", 1,FixedColor.DarkGray)]
     public UnityEvent OnWoosh;
     public UnityEvent OnToolEquiped;
     public UnityEvent OnFootstep;
