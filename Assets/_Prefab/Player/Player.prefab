@@ -158,8 +158,8 @@ Transform:
   m_GameObject: {fileID: 608792170635603266}
   serializedVersion: 2
   m_LocalRotation: {x: -0.8933817, y: 0.00000071410574, z: 0.00000006705518, w: -0.44929856}
-  m_LocalPosition: {x: -0.00225, y: -0, z: -0.0007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00225, y: 0, z: -0.0007}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2773063248079960386}
@@ -1311,7 +1311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7945397693172489421
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,7 +1321,7 @@ Transform:
   m_GameObject: {fileID: 2467395658315086693}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6868029, y: -0.72252446, z: -0.078796186, w: 0.007160602}
-  m_LocalPosition: {x: -0.93920135, y: 2.707767, z: -5.575644}
+  m_LocalPosition: {x: -0.0016, y: -0.0395, z: 0.0956}
   m_LocalScale: {x: -0.8231002, y: -0.8231001, z: -0.8231005}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5386,7 +5386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972828522583065650}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
@@ -6129,16 +6129,16 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
-  - {x: 28.436165, y: 19.996716, z: 117.47097}
+  - {x: 27.744476, y: 20.852875, z: 117.189575}
+  - {x: 27.738756, y: 20.95152, z: 117.892075}
+  - {x: 27.733034, y: 21.050095, z: 118.594574}
+  - {x: 27.727314, y: 21.14859, z: 119.297066}
+  - {x: 27.721592, y: 21.247013, z: 119.999565}
+  - {x: 27.715872, y: 21.345358, z: 120.702065}
+  - {x: 27.71015, y: 21.443628, z: 121.404564}
+  - {x: 27.70443, y: 21.541822, z: 122.107056}
+  - {x: 27.698708, y: 21.639942, z: 122.809555}
+  - {x: 27.692987, y: 21.737986, z: 123.512054}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
