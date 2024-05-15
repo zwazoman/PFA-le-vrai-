@@ -6,6 +6,17 @@ public class ItemSellingSpot : SellingSpot
 {
     [SerializeField] Item itemToSell;
 
+    private void Awake()
+    {
+        foreach (Behaviour b in itemToSell.GetComponents<Behaviour>()) //desactive l'item
+        {
+            if (b.GetType() != typeof(Renderer) && b.GetType() != typeof(MeshFilter))
+            b.enabled = false;
+        }
+
+        if(itemToSell.TryGetComponent<Rigidbody>(out Rigidbody rb))rb.isKinematic=true;
+        
+    }
     public override void SellItem()
     {
         base.SellItem();
@@ -14,7 +25,15 @@ public class ItemSellingSpot : SellingSpot
 
     private void SpawnItem()
     {
+        if (itemToSell.TryGetComponent<Rigidbody>(out Rigidbody rb)) rb.isKinematic = false; 
+        foreach (Behaviour b in itemToSell.GetComponents<Behaviour>()) //desactive l'item
+        {
+            if (b.GetType() != typeof(Renderer) && b.GetType() != typeof(MeshFilter))
+                b.enabled = false;
+        }
+
+
         itemToSell.GetComponent<Item>().Jump();
-        this.enabled = false;
+        Destroy(this);
     }
 }
