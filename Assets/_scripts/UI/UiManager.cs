@@ -7,7 +7,7 @@ public class UiManager : MonoBehaviour
     public static UiManager Instance => instance;
 
     [SerializeField] DialoguePanel Dialogue_Panel;
-    [SerializeField] GameplayPanel Gameplay_Panel;
+    [SerializeField] public GameplayPanel Gameplay_Panel;
     [SerializeField] PausePanel Pause_Panel;
     //[SerializeField] DialoguePanel Dialogue_Panel;
 

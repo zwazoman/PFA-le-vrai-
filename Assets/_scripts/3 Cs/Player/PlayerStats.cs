@@ -20,9 +20,12 @@ public class PlayerStats : MonoBehaviour
         Seeds = InitialSeeds;
     }
 
-    public void AddMoney(int toADD)
+    public void AddMoney(int toAdd)
     {
-        Money += toADD;
+
+        UiManager.Instance.Gameplay_Panel.UpdateDisplay(Money, Money + toAdd);
+        Money += toAdd;
+        
     }
 
     public void AddSeeds(int seedAmount)
