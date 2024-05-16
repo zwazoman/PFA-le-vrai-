@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Mill : MonoBehaviour
 {
     List<Collider> _collList = new List<Collider>();
+    [SerializeField] UnityEvent OnCrush;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,7 +26,8 @@ public class Mill : MonoBehaviour
     /// </summary>
     public void Crush()
     {
-        foreach(Collider coll in _collList)
+        OnCrush.Invoke();
+        foreach (Collider coll in _collList)
         {
             coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().maxhp);
         }

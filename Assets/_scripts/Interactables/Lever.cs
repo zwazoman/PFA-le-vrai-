@@ -6,6 +6,10 @@ public class Lever : Interactable
     [SerializeField] Mill _mill;
     [SerializeField] cogWheel firstCogWheel;
     [SerializeField] float minWheelAngle, maxWheelAngle;
+    [SerializeField] Transform Levier;
+
+    [SerializeField] Material mat_Impact;
+
 
     /// <summary>
     /// utiliser setAngle
@@ -14,10 +18,11 @@ public class Lever : Interactable
     bool canUse = true;
     protected override void Interaction()
     {
-        print("ta pute");
+        if(!canUse) return;
         canUse = false;
-        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .8f, updateWheelRotation, (float a) => { return curve.Evaluate(a); },()=> { print("salope  "); ; _ = mesCouilles(); }, true));
-        //animation de con
+        
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .8f, (float a) => { Levier.localRotation = Quaternion.LerpUnclamped(Quaternion.Euler(-90, 0, 0), Quaternion.Euler(-156, 0, 0),1f- ( a *2-1) * (a * 2 -1)); }));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .75f, updateWheelRotation, (float a) => { return curve.Evaluate(a); },()=> { _ = mesCouilles(); }, true));
         
     }
 
@@ -28,11 +33,11 @@ public class Lever : Interactable
 
     private async Task mesCouilles()
     {
-        print("la pute");
         _mill.Crush();
-        //sound effect pshhh pshh
+        //sound effect pshhh pshh et feedbacks
+        //StartCoroutine(Nathan.InterpolateOverTime(0, 100, .5f, (float a) => mat_Impact.SetFloat("_animationValue",a)));
 
-        await Task.Delay(300);
+        await Task.Delay(500);
         StartCoroutine(Nathan.InterpolateOverTime(1, 0, 1.5f, updateWheelRotation,Nathan.SmoothStep01,()=>canUse=true, true));
     }
 
