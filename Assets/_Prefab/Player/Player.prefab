@@ -2528,7 +2528,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9875d6355bf82e346a002494a80ce829, type: 3}
   - {fileID: 8300000, guid: 0739d0443d143bc4e9cdbca157ac6867, type: 3}
   - {fileID: 8300000, guid: a5c3c9cde6b51bb40a34efa39f6b205c, type: 3}
-  _breakSound: {fileID: 0}
+  _plowVolume: 1
+  _groundHitSounds:
+  - {fileID: 8300000, guid: 6b5647433f80716429723196e49bcfc8, type: 3}
+  - {fileID: 8300000, guid: d313bac4f5541c344bdf6f4f5f325ac3, type: 3}
+  - {fileID: 8300000, guid: f5b6737151e405c47aeca80fe20ee193, type: 3}
+  _groundHitVolume: 1
 --- !u!114 &5868292390827359
 MonoBehaviour:
   m_ObjectHideFlags: 0
