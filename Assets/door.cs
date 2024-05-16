@@ -25,7 +25,7 @@ public class door : MonoBehaviour
     public virtual void Open()
     {
         bs = Cadenas.transform.localScale;
-        StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep,()=> Destroy(Cadenas)));
+        StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep01,()=> Destroy(Cadenas)));
         Cadenas.GetComponentInChildren<Collider>().enabled = false;
     }
 

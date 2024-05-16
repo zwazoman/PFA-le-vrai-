@@ -47,7 +47,7 @@ public class TP : MonoBehaviour
         CameraBehaviour.Instance.enabled = false;
         PlayerMain.Instance.Movement.enabled = false;
 
-        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, (float v) => fondu.weight = v,Nathan.SmoothStep,finirFondu));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, (float v) => fondu.weight = v,Nathan.SmoothStep01,finirFondu));
     }
 
 
@@ -60,7 +60,7 @@ public class TP : MonoBehaviour
 
         //-----------------------------------
 
-        StartCoroutine(Nathan.InterpolateOverTime(1, 0, 0.5f, (float v) => fondu.weight = v, Nathan.SmoothStep, () => PlayerMain.Instance.Movement.enabled = true)) ;
+        StartCoroutine(Nathan.InterpolateOverTime(1, 0, 0.5f, (float v) => fondu.weight = v, Nathan.SmoothStep01, () => PlayerMain.Instance.Movement.enabled = true)) ;
     }
 
     
