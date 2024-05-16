@@ -20,10 +20,16 @@ public class cogWheel : MonoBehaviour
     // Update is called once per frame
     void OnValidate()
     {
+        setAngle(angle);
+    }
+
+    public void setAngle(float newAngle)
+    {
+        angle= newAngle;
+
         transform.localEulerAngles = Axis * angle + BaseAngle;
         if (otherWheel != null) otherWheel.UpdateAngle(angle, Ratio);
         transform.hasChanged = false;
-        
     }
 
     public void UpdateAngle(float _oldAngle,float _ratio)
