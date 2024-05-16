@@ -28,7 +28,8 @@ public class cogWheel : MonoBehaviour
 
     public void UpdateAngle(float _oldAngle,float _ratio)
     {
-        otherWheel.transform.localEulerAngles = otherWheel.Axis * (_oldAngle * -_ratio + angleOffset) + BaseAngle;
-        if(otherWheel!=null) otherWheel.UpdateAngle(angle, Ratio);
+        angle = _oldAngle * -_ratio;
+        transform.localEulerAngles = Axis * (angle + angleOffset) + BaseAngle;
+        if(otherWheel!=null)otherWheel.UpdateAngle(angle, Ratio);
     }
 }
