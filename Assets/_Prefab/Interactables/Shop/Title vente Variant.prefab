@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8782079630815367218
+--- !u!1001 &305235498511828776
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       propertyPath: DialogueScript
-      value: Df_Shop_BigWheelbarrow
+      value: Df_Shop_HolyFlask
       objectReference: {fileID: 0}
     - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.465324
+      value: -34.365326
       objectReference: {fileID: 0}
     - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       propertyPath: m_Name
-      value: TempMoreSeeds vente_Title Variant
+      value: Title vente Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
@@ -96,26 +96,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3681309301465991468}
+      addedObject: {fileID: 4419057213765866147}
   m_SourcePrefab: {fileID: 100100000, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
---- !u!1 &855214095641791900 stripped
+--- !u!114 &6917953716463082357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7223184812092365917, guid: 104f0e39e26fbcc42bf93f199699aa85,
+    type: 3}
+  m_PrefabInstance: {fileID: 305235498511828776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e3674c9594cea41a16a05cbd76f837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8503368137867025030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
     type: 3}
-  m_PrefabInstance: {fileID: 8782079630815367218}
+  m_PrefabInstance: {fileID: 305235498511828776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3681309301465991468
+--- !u!114 &4419057213765866147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855214095641791900}
+  m_GameObject: {fileID: 8503368137867025030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036b829ff26b2f540ab17df7d658ded9, type: 3}
+  m_Script: {fileID: 11500000, guid: c3a81bead46beab4395b31dd93f8ca85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueScript: Df_Shop_Shop_Seed
+  DialogueScript: Df_Shop_TitleDeed
   price: 10
-  _seedBoost: 0
+  itemToSell: {fileID: 6917953716463082357}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8360118268947961337}
   - component: {fileID: 4469365786459022403}
   - component: {fileID: 9024546498281471679}
+  - component: {fileID: 1314312526622677272}
   m_Layer: 6
   m_Name: Well
   m_TagString: Untagged
@@ -69,6 +70,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8313044cf2fdf314db0f65f0cf662186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wellSounds: {fileID: 1314312526622677272}
+--- !u!114 &1314312526622677272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331300911821970168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f02b3bf7f3dfcf408e802571007552d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sploushSounds:
+  - {fileID: 8300000, guid: 5a54e0cc2a3a36d49aecb67b9d4f84d4, type: 3}
+  - {fileID: 8300000, guid: eb0810742e6e00f4cb530a6cfa50dafd, type: 3}
+  _volume: 1
 --- !u!1001 &4127050425012332936
 PrefabInstance:
   m_ObjectHideFlags: 0

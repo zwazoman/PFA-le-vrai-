@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &138196243053125919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: DialogueScript
+      value: Df_Shop_FishingRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -34.365326
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 117.68997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.16272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      propertyPath: m_Name
+      value: Holy Flask vente_Title Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4732167270273800852, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 850142244082189190}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7821564020310643263}
+  m_SourcePrefab: {fileID: 100100000, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
+--- !u!4 &4120772853161210495 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
+    type: 3}
+  m_PrefabInstance: {fileID: 138196243053125919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8346465976013487281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
+    type: 3}
+  m_PrefabInstance: {fileID: 138196243053125919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7821564020310643263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8346465976013487281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a81bead46beab4395b31dd93f8ca85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueScript: Df_Shop_HolyFlask
+  price: 0
+  itemToSell: {fileID: 7425412152232630445}
+--- !u!1001 &3316134692944979242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4120772853161210495}
+    m_Modifications:
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116401686646105863, guid: 1c95774e79f97744da3d963767dbeb39,
+        type: 3}
+      propertyPath: m_Name
+      value: Holy Flask
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c95774e79f97744da3d963767dbeb39, type: 3}
+--- !u!4 &850142244082189190 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2722717563888281260, guid: 1c95774e79f97744da3d963767dbeb39,
+    type: 3}
+  m_PrefabInstance: {fileID: 3316134692944979242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7425412152232630445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5262768347717860743, guid: 1c95774e79f97744da3d963767dbeb39,
+    type: 3}
+  m_PrefabInstance: {fileID: 3316134692944979242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a975057fa3fd3ac4b95e3e984a7952a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
