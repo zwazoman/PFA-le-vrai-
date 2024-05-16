@@ -2404,7 +2404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628c0ce70dca5a47a76fb8dc733524b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Money>k__BackingField: 10
+  <Money>k__BackingField: 100
   <InitialSeeds>k__BackingField: 0
   <WalkSpeed>k__BackingField: 8
   <RunFactor>k__BackingField: 1.8
@@ -2576,19 +2576,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f07a0d8bf1c14abb3266709dc6716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wateringAction:
+  - {fileID: 8300000, guid: ff64efe1d9be0d0418a9129aab1841c5, type: 3}
+  - {fileID: 8300000, guid: 2d477a2449d46b649ab88c5a45717128, type: 3}
+  - {fileID: 8300000, guid: b30fc9f9c555dcf4cb8d73f48b122c83, type: 3}
+  _wateringActionVolume: 1
   _toolsWooshes:
   - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
   - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
   - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
+  _toolsWooshesVolume: 1
   _toolsEquip: []
+  _toolsEquipVolume: 1
   _walkFootsteps:
   - {fileID: 8300000, guid: ed13adc603eed6744b2fea1f674a401d, type: 3}
   - {fileID: 8300000, guid: 30a9fd2c2ddaad14cbcb563d1698e51f, type: 3}
   - {fileID: 8300000, guid: 39aa8dffd86b8784b92cd9f7a5976538, type: 3}
+  _walkFootstepsVolume: 1
   _runFootsteps:
   - {fileID: 8300000, guid: 78381a1eaebfb5f4f91c5fb137b26a21, type: 3}
   - {fileID: 8300000, guid: 6f5dd67db86cd8648852952d0e35752e, type: 3}
   - {fileID: 8300000, guid: 3a23fed6cd2565a4fad4f8543ee0fb4a, type: 3}
+  _runFootstepsVolume: 1
 --- !u!114 &121151280416837700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5543,6 +5552,21 @@ MonoBehaviour:
       - m_Target: {fileID: 5868292390827359}
         m_TargetAssemblyTypeName: WateringCan, Assembly-CSharp
         m_MethodName: Use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnWateringAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayWateringActionSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
