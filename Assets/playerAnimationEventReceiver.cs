@@ -10,6 +10,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnScytheEnd;
     
     public UnityEvent OnWatering;
+    public UnityEvent OnWateringAction;
     public UnityEvent OnWateringEnd;
 
     public UnityEvent OnHoeHit;
@@ -25,6 +26,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public void InvokeOnScytheEnd() => OnScytheEnd.Invoke();
 
     public void InvokeOnWatering() => OnWatering.Invoke();
+    public void InvokeOnWateringAction() => OnWateringAction.Invoke();
     public void InvokeOnWateringEnd() => OnWateringEnd.Invoke();
 
     public void InvokeOnHoeHit() => OnHoeHit.Invoke();
