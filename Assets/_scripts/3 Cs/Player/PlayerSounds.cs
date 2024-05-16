@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] AudioClip[] _wateringAction;
+    [SerializeField] float _wateringActionVolume = 1f;
+
+    [SerializeField] AudioClip[] _toolsWooshes;
+    [SerializeField] float _toolsWooshesVolume = 1f;
+
+    [SerializeField] AudioClip[] _toolsEquip;
+    [SerializeField] float _toolsEquipVolume = 1f;
+
+    [SerializeField] AudioClip[] _walkFootsteps;
+    [SerializeField] float _walkFootstepsVolume = 1f;
+
+    [SerializeField] AudioClip[] _runFootsteps;
+    [SerializeField] float _runFootstepsVolume = 1f;
+
+    public void PlayWateringActionSound()
     {
-        
+        SFXManager.Instance.PlaySFXClip(_wateringAction, transform, _wateringActionVolume);
+    }
+    public void PlayToolsWooshSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_toolsWooshes, transform, _toolsWooshesVolume);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayToolEquipSound()
     {
-        
+        SFXManager.Instance.PlaySFXClip(_toolsEquip, transform, _toolsEquipVolume);
     }
+
+    public void PlayWalkFootstepSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_walkFootsteps, transform, _walkFootstepsVolume);
+    }
+
+    public void PlayRunFootstepSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_runFootsteps, transform, _runFootstepsVolume);
+    }
+
 }

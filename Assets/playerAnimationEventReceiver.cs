@@ -10,6 +10,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnScytheEnd;
     
     public UnityEvent OnWatering;
+    public UnityEvent OnWateringAction;
     public UnityEvent OnWateringEnd;
 
     public UnityEvent OnHoeHit;
@@ -18,12 +19,14 @@ public class playerAnimationEventReceiver : MonoBehaviour
     //[HorizontalLine("Sons et vfx", 1,FixedColor.DarkGray)]
     public UnityEvent OnWoosh;
     public UnityEvent OnToolEquiped;
-    public UnityEvent OnFootstep;
+    public UnityEvent OnWalkFootstep;
+    public UnityEvent OnRunFootstep;
 
     public void InvokeOnScythe() => OnScythe.Invoke();
     public void InvokeOnScytheEnd() => OnScytheEnd.Invoke();
 
     public void InvokeOnWatering() => OnWatering.Invoke();
+    public void InvokeOnWateringAction() => OnWateringAction.Invoke();
     public void InvokeOnWateringEnd() => OnWateringEnd.Invoke();
 
     public void InvokeOnHoeHit() => OnHoeHit.Invoke();
@@ -32,6 +35,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public void InvokeOnWoosh() => OnWoosh.Invoke();
     public void InvokeOnToolEquiped() => OnToolEquiped.Invoke();
 
-    public void InvokeOnFootstep() => OnFootstep.Invoke();
+    public void InvokeOnWalkFootstep() => OnWalkFootstep.Invoke();
+    public void InvokeOnRunFootstep() => OnRunFootstep.Invoke();
 
 }
