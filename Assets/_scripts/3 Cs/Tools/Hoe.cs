@@ -30,7 +30,6 @@ public class Hoe : Tool
             if (hitCollider.gameObject.TryGetComponent<Field>(out Field field)) // si c'est un champ
             {
                 fieldHit = true;
-                SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume); // son bien
                 Vector3 distance = field.gameObject.transform.position - transform.position; // distance entre l'objet et le joueur
                 if (distance.sqrMagnitude < min || closest == null)
                 {
@@ -44,10 +43,8 @@ public class Hoe : Tool
                 breakable.SetBreak(breakPower); // casse l'objet
             }
         }
-        if (!fieldHit)
-        {
-            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume);
-        }
+        if (!fieldHit) SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume); else SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume);
+        
 
         if(closest != null && !closest.Sowable)
         {
