@@ -2528,7 +2528,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9875d6355bf82e346a002494a80ce829, type: 3}
   - {fileID: 8300000, guid: 0739d0443d143bc4e9cdbca157ac6867, type: 3}
   - {fileID: 8300000, guid: a5c3c9cde6b51bb40a34efa39f6b205c, type: 3}
-  _plowVolume: 1
+  _plowVolume: 0.3
   _groundHitSounds:
   - {fileID: 8300000, guid: 6b5647433f80716429723196e49bcfc8, type: 3}
   - {fileID: 8300000, guid: d313bac4f5541c344bdf6f4f5f325ac3, type: 3}
@@ -2581,28 +2581,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f07a0d8bf1c14abb3266709dc6716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toolsWooshes:
+  - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
+  - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
+  - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
+  _toolsWooshesVolume: 0.2
+  _hoeEquip:
+  - {fileID: 8300000, guid: 69c96c618f5729f48849c9368ee6402b, type: 3}
+  - {fileID: 8300000, guid: 39280181d7d68fb42ab8e8abf638dae8, type: 3}
+  - {fileID: 8300000, guid: d685d7951608dbc4dadb84cc8a7e0287, type: 3}
+  _hoeEquipVolume: 1
+  _wateringCanEquip:
+  - {fileID: 8300000, guid: 83e9c59379f5fbb4fa869811d8ca45ab, type: 3}
+  - {fileID: 8300000, guid: 589914e0ae1062a4fafab79854534cf8, type: 3}
+  - {fileID: 8300000, guid: c9f7d78c0365813418721d9185f1602e, type: 3}
+  _wateringCanEquipVolume: 0.2
   _wateringAction:
   - {fileID: 8300000, guid: ff64efe1d9be0d0418a9129aab1841c5, type: 3}
   - {fileID: 8300000, guid: 2d477a2449d46b649ab88c5a45717128, type: 3}
   - {fileID: 8300000, guid: b30fc9f9c555dcf4cb8d73f48b122c83, type: 3}
   _wateringActionVolume: 1
-  _toolsWooshes:
-  - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
-  - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
-  - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
-  _toolsWooshesVolume: 1
-  _toolsEquip: []
-  _toolsEquipVolume: 1
+  _scytheEquip:
+  - {fileID: 8300000, guid: 98751350ac601b9429f4a15279a577e3, type: 3}
+  - {fileID: 8300000, guid: 922dd848caf52b440b34b36a5b805605, type: 3}
+  - {fileID: 8300000, guid: 4f547ada661aa2949b142436d00fb058, type: 3}
+  _scytheEquipVolume: 0.3
   _walkFootsteps:
   - {fileID: 8300000, guid: ed13adc603eed6744b2fea1f674a401d, type: 3}
   - {fileID: 8300000, guid: 30a9fd2c2ddaad14cbcb563d1698e51f, type: 3}
   - {fileID: 8300000, guid: 39aa8dffd86b8784b92cd9f7a5976538, type: 3}
-  _walkFootstepsVolume: 1
+  _walkFootstepsVolume: 0.3
   _runFootsteps:
   - {fileID: 8300000, guid: 78381a1eaebfb5f4f91c5fb137b26a21, type: 3}
   - {fileID: 8300000, guid: 6f5dd67db86cd8648852952d0e35752e, type: 3}
   - {fileID: 8300000, guid: 3a23fed6cd2565a4fad4f8543ee0fb4a, type: 3}
-  _runFootstepsVolume: 1
+  _runFootstepsVolume: 0.3
 --- !u!114 &121151280416837700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5521,6 +5534,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2318de75a8641c0498fe4891cfd38502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnScytheEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayScytheEquipSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnScythe:
     m_PersistentCalls:
       m_Calls:
@@ -5542,6 +5570,21 @@ MonoBehaviour:
       - m_Target: {fileID: 4858216239149246388}
         m_TargetAssemblyTypeName: PlayerTools, Assembly-CSharp
         m_MethodName: OnToolUseEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnWateringEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayWateringCanEquipSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5596,6 +5639,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnHoeEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayHoeEquipSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHoeHit:
     m_PersistentCalls:
       m_Calls:
@@ -5641,9 +5699,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnToolEquiped:
-    m_PersistentCalls:
-      m_Calls: []
   OnWalkFootstep:
     m_PersistentCalls:
       m_Calls:
