@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    [SerializeField] AudioClip[] _wateringAction;
-    [SerializeField] float _wateringActionVolume = 1f;
-
     [SerializeField] AudioClip[] _toolsWooshes;
     [SerializeField] float _toolsWooshesVolume = 1f;
 
-    [SerializeField] AudioClip[] _toolsEquip;
-    [SerializeField] float _toolsEquipVolume = 1f;
+    [Header("Hoe")]
+    [SerializeField] AudioClip[] _hoeEquip;
+    [SerializeField] float _hoeEquipVolume = 1f;
 
+    [Header("Watering Can")] 
+    [SerializeField] AudioClip[] _wateringCanEquip;
+    [SerializeField] float _wateringCanEquipVolume = 1f;
+
+    [SerializeField] AudioClip[] _wateringAction;
+    [SerializeField] float _wateringActionVolume = 1f;
+
+    [Header("Scythe")]
+    [SerializeField] AudioClip[] _scytheEquip;
+    [SerializeField] float _scytheEquipVolume = 1f;
+
+    [Header("Footsteps")]
     [SerializeField] AudioClip[] _walkFootsteps;
     [SerializeField] float _walkFootstepsVolume = 1f;
 
@@ -28,9 +38,19 @@ public class PlayerSounds : MonoBehaviour
         SFXManager.Instance.PlaySFXClip(_toolsWooshes, transform, _toolsWooshesVolume);
     }
 
-    public void PlayToolEquipSound()
+    public void PlayHoeEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_toolsEquip, transform, _toolsEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform, _hoeEquipVolume);
+    }
+
+    public void PlayWateringCanEquipSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform, _wateringCanEquipVolume);
+    }
+
+    public void PlayScytheEquipSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform, _scytheEquipVolume);
     }
 
     public void PlayWalkFootstepSound()
