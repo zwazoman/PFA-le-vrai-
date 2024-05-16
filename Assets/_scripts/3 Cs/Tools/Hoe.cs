@@ -5,7 +5,10 @@ public class Hoe : Tool
     public int breakPower { get; set; }
 
     [SerializeField] AudioClip[] _plowSounds;
-    [SerializeField] AudioClip _breakSound;
+    [SerializeField] float _plowVolume = 1f;
+
+    [SerializeField] AudioClip[] _groundHitSounds;
+    [SerializeField] float _groundHitVolume = 1f;
 
 
     private void Awake()
@@ -20,12 +23,14 @@ public class Hoe : Tool
     {
         base.Use();
         float min = -1;
+        bool fieldHit = false;
         Field closest = null;
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.TryGetComponent<Field>(out Field field)) // si c'est un champ
             {
-                SFXManager.Instance.PlaySFXClip(_plowSounds, transform, 0.8f); // son bien
+                fieldHit = true;
+                SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume); // son bien
                 Vector3 distance = field.gameObject.transform.position - transform.position; // distance entre l'objet et le joueur
                 if (distance.sqrMagnitude < min || closest == null)
                 {
@@ -39,6 +44,11 @@ public class Hoe : Tool
                 breakable.SetBreak(breakPower); // casse l'objet
             }
         }
+        if (!fieldHit)
+        {
+            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume);
+        }
+
         if(closest != null && !closest.Sowable)
         {
             closest.Plow(); // retourne le champ
