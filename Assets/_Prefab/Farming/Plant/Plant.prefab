@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 195215160965412397}
   - component: {fileID: -7605233672586355946}
   - component: {fileID: -4899262846464620559}
-  - component: {fileID: 7709540834803914455}
   - component: {fileID: 5609020720694215343}
   - component: {fileID: 3616232998929044952}
   m_Layer: 0
@@ -149,8 +148,6 @@ MonoBehaviour:
     type: 3}
   <Harvest>k__BackingField: {fileID: -4899262846464620559}
   <Corruption>k__BackingField: {fileID: 195215160965412397}
-  <Unplant>k__BackingField: {fileID: 7709540834803914455}
-  <Jump>k__BackingField: {fileID: 5609020720694215343}
   <Visuals>k__BackingField: {fileID: 3616232998929044952}
 --- !u!114 &-4899262846464620559
 MonoBehaviour:
@@ -162,19 +159,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7705c90eff2e1cc44a1fea09e3b235b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _main: {fileID: -7605233672586355946}
---- !u!114 &7709540834803914455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2285719506262521259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6438f2a3a4d9d4c895654a62cff841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _main: {fileID: -7605233672586355946}

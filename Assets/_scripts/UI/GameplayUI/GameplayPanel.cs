@@ -4,12 +4,11 @@ using TMPro;
 public class GameplayPanel : MonoBehaviour
 {
     public TMP_Text TextMoney;
-    [SerializeField] PlayerStats _pStats;
 
 
-    public void Update()
+    public void Start()
     {
-        TextMoney.text = _pStats.Money.ToString();
+        TextMoney.text = PlayerMain.Instance.Stats.Money.ToString();
     }
 }
 
