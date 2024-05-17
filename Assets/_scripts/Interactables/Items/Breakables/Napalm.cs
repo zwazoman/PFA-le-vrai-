@@ -19,6 +19,7 @@ public class Napalm : Breakable
         {
             if (hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain main))
             {
+                //jouer _effectSound
                 main.Unplant();
             }
         }

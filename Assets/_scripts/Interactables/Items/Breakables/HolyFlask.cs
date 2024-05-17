@@ -19,6 +19,7 @@ public class HolyFlask : Breakable
         {
             if(hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain main))
             {
+                //jouer _effectSound
                 main.Corruption.ReduceCorruption(_reduceAmount);
             }
         }
