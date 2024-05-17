@@ -8,22 +8,22 @@ public class Df_Shop_HoeUpgrade : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Quentin, _characters.Noah);
+        _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Noah.Say("Cet objet est très utile.Il te permet de rendre ta houe plus éfficace.");
-        await _characters.Noah.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
+        await _characters.Bobbus.Say("Cet objet est très utile.Il te permet de rendre ta houe plus éfficace.");
+        await _characters.Bobbus.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
             {
-                await _characters.Noah.Say("ça c'est un client comme je les aime!");
+                await _characters.Bobbus.Say("ça c'est un client comme je les aime!");
                 WorldObject.SendMessage("SellItem");
             }
             else
             {
-                await _characters.Noah.Say("Retourne travailler,clochard");
+                await _characters.Bobbus.Say("Retourne travailler,clochard");
             }
         }
         else
@@ -34,17 +34,17 @@ public class Df_Shop_HoeUpgrade : DialogueFlow
                 if ((int)(((SellingSpot)WorldObject).price * 0.8f) <= PlayerMain.Instance.Stats.Money)
                 {
                     ((SellingSpot)WorldObject).price = (int)(((SellingSpot)WorldObject).price * 0.8f);
-                    await _characters.Noah.Say("ça c'est un client comme je les aime!");
+                    await _characters.Bobbus.Say("ça c'est un client comme je les aime!");
                     WorldObject.SendMessage("SellItem");
                 }
                 else
                 {
-                    await _characters.Noah.Say("Je veux bien faire un geste, mais t'es vraiment trop pauvre. Retourne travailler,clochard");
+                    await _characters.Bobbus.Say("Je veux bien faire un geste, mais t'es vraiment trop pauvre. Retourne travailler,clochard");
                 }
             }
             else
             {
-                await _characters.Noah.Say("Une autre fois peut-être...");
+                await _characters.Bobbus.Say("Une autre fois peut-être...");
             }
         }
 
