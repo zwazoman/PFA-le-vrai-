@@ -8,6 +8,12 @@ public class Breakable : Item
 {
     public int maxhp { get; protected set; }
 
+    [SerializeField] AudioClip[] _breakSound;
+    [SerializeField] float _breakSoundVolume = 1f;
+
+    [SerializeField] AudioClip[] _effectSound;
+    [SerializeField] float _effectSoundVolume = 1f;
+
     private int hp;
 
     private void Awake()
@@ -33,6 +39,7 @@ public class Breakable : Item
     /// 
  protected virtual void Break()
     {
+        SFXManager.Instance.PlaySFXClip(_breakSound, transform, _breakSoundVolume);
         Destroy(gameObject);
     }
 }
