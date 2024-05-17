@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// interaction du joueur avec la brouette
 /// </summary>
-public class WheelBarrow : Interactable
+public class WheelBarrowHandles : Interactable
 {
     [SerializeField] float _distanceToLink;
     [SerializeField] float _hightToLink;
