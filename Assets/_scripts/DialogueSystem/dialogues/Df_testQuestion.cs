@@ -7,11 +7,11 @@ public class Df_testQuestion : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Quentin, _characters.Noah);
+        _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Quentin.Say("OH PUTAIN CA MARCHE");
+        await _characters.Charon.Say("OH PUTAIN CA MARCHE");
         WorldObject.SendMessage("Message");
-        await _characters.Noah.Say("NATHAN LE GOAT");
+        await _characters.Bobbus.Say("NATHAN LE GOAT");
 
 
 
@@ -20,8 +20,8 @@ public class Df_testQuestion : DialogueFlow
         if (result == 0) await _characters.Narrator.Say("Je suis content que tu ailles bien mon bebou au chocolat");
         else await _characters.Narrator.Say("Oh non qu'est-ce qui t'arrive ma creme glacée à la menthe gout fraise?? >_<");
 
-        _characters.Quentin.SetEmotion(DialogueCharacter.Emotions.horny);
-        await _characters.Quentin.Say("je bande");
+        _characters.Charon.SetEmotion(DialogueCharacter.Emotions.horny);
+        await _characters.Charon.Say("je bande");
         
     }
 
