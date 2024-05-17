@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class WheelBarrowMain : MonoBehaviour
 {
-    public WheelBarrow WB { get; set; }
+    public WheelBarrowHandles WB { get; set; }
 
     [field: SerializeField]
     public WheelBarrowInputManager InputManager { get; private set; }
@@ -16,6 +16,9 @@ public class WheelBarrowMain : MonoBehaviour
 
     [field : SerializeField]
     public PlayerInput Input { get; private set; }
+
+    [field : SerializeField]
+    public WheelBarrowStorage Storage { get; private set; }
 
     private void Start()
     {
