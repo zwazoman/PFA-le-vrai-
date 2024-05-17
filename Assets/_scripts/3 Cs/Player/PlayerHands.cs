@@ -43,6 +43,8 @@ public class PlayerHands : MonoBehaviour
         _interaction.enabled = false;
         _tools.canUse = false;
 
+        PlayerMain.Instance.Sounds.PlayPickupPopSound();
+
         _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet en utilisant la touche d'intéraction
     }
 
@@ -59,6 +61,9 @@ public class PlayerHands : MonoBehaviour
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;
         _tools.canUse = true;
+
+        PlayerMain.Instance.Sounds.PlayDropPopSound();
+
         _inputManager.OnInteract -= Drop; // retire la possibilité de lacher un objet lorsqu'il vient d'en lacher un (car il a les mains vides)
     }
 }
