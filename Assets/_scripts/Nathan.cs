@@ -52,6 +52,12 @@ public class Nathan : MonoBehaviour
         return Mathf.SmoothStep(0,1,v);
     }
 
+    public static float Parabola(float v)
+    {
+        return 1f - (v * 2 - 1) * (v * 2 - 1);
+    }
+
+
     //https://learn.microsoft.com/en-US/dotnet/csharp/programming-guide/delegates/using-delegates
     public delegate void ValueSetter(float newValue);
     public delegate float AlphaInterpolation(float alpha);
