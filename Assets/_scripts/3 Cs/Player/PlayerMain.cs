@@ -15,6 +15,9 @@ public class PlayerMain : MonoBehaviour
     public PlayerVisuals Visuals { get; private set; }
 
     [field : SerializeField]
+    public PlayerSounds Sounds { get; private set; }
+
+    [field : SerializeField]
     public PlayerInteraction Interaction { get; private set; }// référence au component "PlayerInteraction" attaché au joueur
 
     [field : SerializeField]
