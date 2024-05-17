@@ -26,13 +26,13 @@ public abstract class DialogueFlow
 
     public virtual async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Nestor, _characters.Noah);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Geoffrrus);
 
-        _characters.Nestor.SetEmotion(DialogueCharacter.Emotions.Normal);
-        await _characters.Nestor.Say("Ta pute la mère noire oui c'est la mère noire yodelyodeliyodel ma grosse raclette la poésie putain");
+        _characters.Bobbus.SetEmotion(DialogueCharacter.Emotions.Normal);
+        await _characters.Bobbus.Say("Ta pute la mère noire oui c'est la mère noire yodelyodeliyodel ma grosse raclette la poésie putain");
         
-        await _characters.Noah.Say("ouh là là ça fait mal ça aie aie aie caramba baba my world is upside down; cold sleep il all I found");
-        await _characters.Nestor.Say("All because of you, I haven't slept for so long. When I do I dream, I'm drowning in the ocean, longing for a shore, where I could let my head rest inside those arms of yours");
+        await _characters.Geoffrrus.Say("ouh là là ça fait mal ça aie aie aie caramba baba my world is upside down; cold sleep il all I found");
+        await _characters.Bobbus.Say("All because of you, I haven't slept for so long. When I do I dream, I'm drowning in the ocean, longing for a shore, where I could let my head rest inside those arms of yours");
     }
 
 }

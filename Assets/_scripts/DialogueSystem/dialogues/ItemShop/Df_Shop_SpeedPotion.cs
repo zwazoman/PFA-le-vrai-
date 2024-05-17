@@ -7,27 +7,27 @@ public class Df_Shop_SpeedPotion : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Quentin, _characters.Noah);
+        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
-        await _characters.Noah.Say("Buvez ceci, et les vents eux même se porteront à vos pieds pour vous conférer célérité et agilité.");
-        await _characters.Noah.Say($"Je vous en demande seulement quelques âmes, {((SellingSpot)WorldObject).price}.");
+        await _characters.Geoffrrus.Say("Buvez ceci, et les vents eux même se porteront à vos pieds pour vous conférer célérité et agilité.");
+        await _characters.Geoffrrus.Say($"Je vous en demande seulement quelques âmes, {((SellingSpot)WorldObject).price}.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
             {
-                await _characters.Noah.Say("Un bon choix, enfin.");
+                await _characters.Geoffrrus.Say("Un bon choix, enfin.");
                 WorldObject.SendMessage("SellItem");
             }
             else
             {
-                await _characters.Noah.Say("Ca ne se brade pas.");
+                await _characters.Geoffrrus.Say("Ca ne se brade pas.");
             }
         }
         else
         {
-            await _characters.Noah.Say("Vous ne savez pas ce que vous ratez.");
+            await _characters.Geoffrrus.Say("Vous ne savez pas ce que vous ratez.");
         }
     }
 }
