@@ -8,13 +8,14 @@ using UnityEngine.Assertions;
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
 {
-    public DialogueCharacter  Narrator, Noah, Nestor,Quentin; //penser à init les persos juste en dessous
+    public DialogueCharacter  Narrator, Geoffrrus, Bobbus,Charon; //penser à init les persos juste en dessous
     public void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
-        Quentin.Init(flow, panel);
+        Charon.Init(flow, panel);
         Narrator.Init(flow, panel);
-        Nestor.Init(flow, panel);
-        Noah.Init(flow, panel);
+        Bobbus.Init(flow, panel);
+        Geoffrrus.Init(flow, panel);
+
     }
 }
 
@@ -34,6 +35,7 @@ public class DialogueCharacter
     public enum Emotions
     {
         Normal,
+        Happy,
         angry,
         hungry,
         blush,
