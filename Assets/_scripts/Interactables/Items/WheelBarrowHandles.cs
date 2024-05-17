@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// interaction du joueur avec la brouette
 /// </summary>
-public class WheelBarrowHandles : Interactable
+public class WheelBarrowHandles : MonoBehaviour
 {
     [SerializeField] float _distanceToLink;
     [SerializeField] float _hightToLink;
@@ -12,7 +12,7 @@ public class WheelBarrowHandles : Interactable
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
-    protected override void Interaction()
+    public void Equip()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
         _storage.enabled = false;
