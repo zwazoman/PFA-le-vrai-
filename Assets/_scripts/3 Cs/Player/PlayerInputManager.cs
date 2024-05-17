@@ -22,7 +22,7 @@ public class PlayerInputManager : MonoBehaviour
     // event utilisation de la faux
     public event Action OnScythe;
     //event menu pause
-    public event Action OnPause;
+    public     Action OnPause;
 
     /// <summary>
     /// gère les inputs de mouvements du joueur
