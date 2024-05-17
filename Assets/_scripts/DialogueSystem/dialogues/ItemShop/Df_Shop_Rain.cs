@@ -7,7 +7,7 @@ public class Df_Shop_Rain : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
         await _characters.Bobbus.Say("Une petite ondée bénite peut être ? Avec cela, vous aurez l’occasion de convoquer une averse d’eau bénite sur votre ferme et vos plantations.");
         await _characters.Bobbus.Say("Lisez juste la formule, et faite un dance de la pluie, et ça fonctionnera.");

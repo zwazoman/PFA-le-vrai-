@@ -7,10 +7,10 @@ public class Df_Bonjour : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
         await _characters.Charon.Say("OH PUTAIN CA MARCHE");
-        await _characters.Bobbus.Say("NATHAN LE GOAT");
+        await _characters.Geoffrrus.Say("NATHAN LE GOAT");
         await _characters.Narrator.Say("Bonjour c'est moi, gégé le narrateur");
 
         _characters.Charon.SetEmotion(DialogueCharacter.Emotions.horny);
