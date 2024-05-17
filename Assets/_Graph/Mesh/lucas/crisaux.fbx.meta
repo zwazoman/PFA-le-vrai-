@@ -3,7 +3,12 @@ guid: 35afcdd2ee615ef4386c03fb491e84ba
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tensparent
+    second: {fileID: 2100000, guid: eb6074670b4c45c4683929e2eac113a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
