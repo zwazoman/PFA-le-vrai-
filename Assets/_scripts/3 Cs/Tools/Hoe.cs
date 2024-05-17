@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Hoe : Tool
 {
@@ -10,7 +11,8 @@ public class Hoe : Tool
     [SerializeField] AudioClip[] _groundHitSounds;
     [SerializeField] float _groundHitVolume = 1f;
 
-
+    [SerializeField] Transform _head;
+    [SerializeField] GameObject groundHitVFXPrefab;
     private void Awake()
     {
         breakPower = 1;
@@ -43,7 +45,12 @@ public class Hoe : Tool
                 breakable.SetBreak(breakPower); // casse l'objet
             }
         }
-        if (!fieldHit) SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume); else SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume);
+        if (!fieldHit)
+        {
+            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume);
+            Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
+        }
+        else SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume);
         
 
         if(closest != null && !closest.Sowable)

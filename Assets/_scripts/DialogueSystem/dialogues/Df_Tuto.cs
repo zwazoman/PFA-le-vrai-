@@ -11,7 +11,7 @@ public class Df_Tuto : DialogueFlow
     {
         await _characters.Charon.Say("Vous allez voir, c’est enfantin ! Les âmes sont sous formes de petites graines, qu’ils vous suffit de planter dans le sol des parcelles.");
         await _characters.Charon.Say("Arrosez les, et après quelques jours vous obtiendrez une belle fleur d’âme toute pure que vous n’aurez qu’à récolter avec une faux et apporter au moulin pour finir l’opération.");
-        await _characters.B.Say("Et une fois que tout est fini ?");
+        await _characters.Bobbus.Say("Et une fois que tout est fini ?");
     }
 
     async Task ExplanationTools()
