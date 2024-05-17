@@ -2967,6 +2967,7 @@ MonoBehaviour:
   <InputManager>k__BackingField: {fileID: 121151280416837700}
   <Movement>k__BackingField: {fileID: 8543143193072082659}
   <Visuals>k__BackingField: {fileID: 3295748448775433640}
+  <Sounds>k__BackingField: {fileID: 6790433302852059315}
   <Interaction>k__BackingField: {fileID: 1579884416940165209}
   <Hands>k__BackingField: {fileID: 7021991349392015451}
   <Tools>k__BackingField: {fileID: 4858216239149246388}
@@ -3180,11 +3181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f07a0d8bf1c14abb3266709dc6716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toolsWooshes:
-  - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
-  - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
-  - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
-  _toolsWooshesVolume: 0.2
   _hoeEquip:
   - {fileID: 8300000, guid: 69c96c618f5729f48849c9368ee6402b, type: 3}
   - {fileID: 8300000, guid: 39280181d7d68fb42ab8e8abf638dae8, type: 3}
@@ -3215,6 +3211,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6f5dd67db86cd8648852952d0e35752e, type: 3}
   - {fileID: 8300000, guid: 3a23fed6cd2565a4fad4f8543ee0fb4a, type: 3}
   _runFootstepsVolume: 0.3
+  _toolWoosh:
+  - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
+  - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
+  - {fileID: 8300000, guid: 8f5b99c562083e144bed2cca305df7f3, type: 3}
+  _toolWooshVolume: 0.3
+  _pickupPop:
+  - {fileID: 8300000, guid: 7fe6ee4e7ec1ceb4ea68a512ff2af9f2, type: 3}
+  - {fileID: 8300000, guid: e7ccc832682b7e9459c73e3f04ade5db, type: 3}
+  _pickupPopVolume: 0.4
+  _dropPop:
+  - {fileID: 8300000, guid: 59cdbac1561ffbd449521de920b95fcb, type: 3}
+  _dropPopSound: 0.4
 --- !u!114 &121151280416837700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6476,7 +6484,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6790433302852059315}
         m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
-        m_MethodName: PlayToolsWooshSound
+        m_MethodName: PlayToolWooshSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

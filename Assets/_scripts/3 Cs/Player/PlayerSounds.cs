@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    [SerializeField] AudioClip[] _toolsWooshes;
-    [SerializeField] float _toolsWooshesVolume = 1f;
-
     [Header("Hoe")]
     [SerializeField] AudioClip[] _hoeEquip;
     [SerializeField] float _hoeEquipVolume = 1f;
@@ -29,29 +26,46 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _runFootsteps;
     [SerializeField] float _runFootstepsVolume = 1f;
 
-    public void PlayWateringActionSound()
+    [Header("Wooshes")]
+    [SerializeField] AudioClip[] _toolWoosh;
+    [SerializeField] float _toolWooshVolume = 1f;
+
+    [Header("Pops")]
+    [SerializeField] AudioClip[] _pickupPop;
+    [SerializeField] float _pickupPopVolume = 1f;
+
+    [SerializeField] AudioClip[] _dropPop;
+    [SerializeField] float _dropPopSound = 1f;
+
+
+    public void PlayToolWooshSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringAction, transform, _wateringActionVolume);
+        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform, _toolWooshVolume);
     }
-    public void PlayToolsWooshSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_toolsWooshes, transform, _toolsWooshesVolume);
-    }
+
 
     public void PlayHoeEquipSound()
     {
         SFXManager.Instance.PlaySFXClip(_hoeEquip, transform, _hoeEquipVolume);
     }
 
+
     public void PlayWateringCanEquipSound()
     {
         SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform, _wateringCanEquipVolume);
     }
 
+    public void PlayWateringActionSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_wateringAction, transform, _wateringActionVolume);
+    }
+
+
     public void PlayScytheEquipSound()
     {
         SFXManager.Instance.PlaySFXClip(_scytheEquip, transform, _scytheEquipVolume);
     }
+
 
     public void PlayWalkFootstepSound()
     {
@@ -61,6 +75,17 @@ public class PlayerSounds : MonoBehaviour
     public void PlayRunFootstepSound()
     {
         SFXManager.Instance.PlaySFXClip(_runFootsteps, transform, _runFootstepsVolume);
+    }
+
+
+    public void PlayPickupPopSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_pickupPop, transform, _pickupPopVolume);
+    }
+
+    public void PlayDropPopSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_dropPop, transform, _dropPopSound);
     }
 
 }
