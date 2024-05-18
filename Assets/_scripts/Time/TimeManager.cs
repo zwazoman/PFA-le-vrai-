@@ -90,6 +90,7 @@ public class TimeManager : MonoBehaviour
     //-Pause-
     public void pauseTime()
     {
+        if (isPaused ) return;
         lastRealPauseTime= Time.time;
         CancelInvoke(nameof(TimePass));
         isPaused = true;

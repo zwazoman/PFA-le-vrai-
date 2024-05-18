@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour
@@ -13,10 +14,24 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField] AnimationCurve FOVscaleOverSpeed;
     [SerializeField] float FOVchangeSpeed=1;
     float BaseFOV;
+    float fovWithoutOffset;
 
     public static CameraBehaviour Instance { get; private set; }
 
+    public float FOVOffset;
+    public float FOVOffsetSpeed;
+    public float lambda = 10;
+
     public Camera cam { get; private set; }
+
+    public void zoomEffect(float intensity)
+    {
+        /*FOVOffset-=intensity;
+        await Task.Delay((int)(delay * 100));
+        FOVOffset += intensity;*/
+
+        FOVOffsetSpeed = Mathf.Min(FOVOffsetSpeed,-lambda) - intensity;
+    }
 
     void Start()
     {
@@ -30,13 +45,18 @@ public class CameraBehaviour : MonoBehaviour
         Offset = -target.transform.position + transform.position; // naze un peu
 
         BaseFOV = cam.fieldOfView;
+        fovWithoutOffset = BaseFOV;
     }
 
     void Update()
     {
-        
+        FOVOffset += FOVOffsetSpeed * Time.deltaTime;
+        FOVOffsetSpeed = Mathf.Sign(FOVOffsetSpeed) * (Mathf.Abs(FOVOffsetSpeed) - Mathf.Min(Mathf.Abs(FOVOffsetSpeed), lambda * Time.deltaTime));
+        FOVOffset =  Mathf.Sign(FOVOffset) * (Mathf.Abs(FOVOffset) - Mathf.Min(Mathf.Abs( FOVOffset), lambda * Time.deltaTime));
+
         //FOV
-        cam.fieldOfView = Nathan.DampFloat(cam.fieldOfView, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude),FOVchangeSpeed);
+        fovWithoutOffset = Nathan.DampFloat(fovWithoutOffset, BaseFOV * FOVscaleOverSpeed.Evaluate(target.getFlatVelocity().magnitude), FOVchangeSpeed);
+        cam.fieldOfView = fovWithoutOffset + FOVOffset;
 
         //mouvement
         transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.getFlatVelocity()*PlayerAnticipation, ref vel, smoothTime);

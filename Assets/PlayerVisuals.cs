@@ -19,9 +19,6 @@ public class PlayerVisuals : MonoBehaviour
         i.OnSprintStart+= ()=> animator.SetBool("running",true);
         i.OnSprintEnd+= ()=> animator.SetBool("running", false);
 
-
-        Application.targetFrameRate = 30;
-
         InvokeRepeating("TryIdleBreaker", 2, 2);
     }
 
@@ -50,7 +47,7 @@ public class PlayerVisuals : MonoBehaviour
     {
         animator.SetBool("moving", p.InputManager.moveInput != Vector2.zero ); //walk
 
-        if (p.InputManager.moveInput == Vector2.zero) footstepVFX.Stop(); else footstepVFX.Play();
+        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();print("ta ûte la mere"); } else footstepVFX.Play();
     }
 
     IEnumerator BreakIdle()
@@ -61,5 +58,16 @@ public class PlayerVisuals : MonoBehaviour
 
     }
 
-    
+    public void GrabItem()
+    {
+        StartCoroutine(Nathan.InterpolateOverTime(0,0.95f,0.05f,(float a)=> animator.SetLayerWeight(1, a),Nathan.SmoothStep01));
+    }
+
+    public void releaseItem()
+    {
+        StartCoroutine(Nathan.InterpolateOverTime(0.95f, 0, 0.05f, (float a) => animator.SetLayerWeight(1, a), Nathan.SmoothStep01));
+
+    }
+
+
 }

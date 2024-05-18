@@ -59,7 +59,7 @@ public class DialogueCharacter
 
         await _Panel.Write(text);
 
-        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+        while (!Input.GetKeyUp(_Panel.skipKey)) await Task.Yield();
 
     }
 

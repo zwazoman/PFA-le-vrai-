@@ -38,8 +38,8 @@ public class Lever : Interactable
 
     private async Task mesCouilles()
     {
-        _mill.Crush();
-        //sound effect pshhh pshh et feedbacks
+        await _mill.Crush();
+        //sound effect pshhh peshh et feedbacks
         //StartCoroutine(Nathan.InterpolateOverTime(0, 100, .5f, (float a) => mat_Impact.SetFloat("_animationValue",a)));
 
         await Task.Delay(500);

@@ -19,6 +19,7 @@ public class Df_Shop_TitleDeed : DialogueFlow
             {
                 await _characters.Geoffrrus.Say("Je ne sais pas si c’est une bonne idée de vous donner plus de responsabilités, mais bon… Occupez vous en bien.");
                 WorldObject.SendMessage("SellItem");
+                ((SellingSpot)WorldObject).price += 5;
             }
             else
             {

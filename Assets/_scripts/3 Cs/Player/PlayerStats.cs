@@ -22,7 +22,6 @@ public class PlayerStats : MonoBehaviour
 
     public void AddMoney(int toAdd)
     {
-
         UiManager.Instance.Gameplay_Panel.UpdateDisplay(Money, Money + toAdd);
         Money += toAdd;
         

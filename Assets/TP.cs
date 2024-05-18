@@ -26,6 +26,7 @@ public class TP : MonoBehaviour
             commencerFondu();
             //tp le joueur
             player.transform.position = otherTP.Arrivee.transform.position;
+            player.Movement.SnapToGround();
 
             //fondu au noir
 
