@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -4899262846464620559}
   - component: {fileID: 5609020720694215343}
   - component: {fileID: 3616232998929044952}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plant
   m_TagString: Plant
   m_Icon: {fileID: 0}
@@ -187,13 +187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51d90c5e79e0a44db2a9293a78263e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationValue: 0.99
+  AnimationValue: 0.506
   mesh: {fileID: 4265668264890358122}
   visuals: {fileID: 8269326422176463617}
   _main: {fileID: -7605233672586355946}
-  corrupted_scale: {x: 1.61, y: 1.725, z: 1.61}
-  middle_scale: {x: 1.61, y: 1.955, z: 1.61}
-  pure_scale: {x: 1.495, y: 1.495, z: 1.495}
+  corrupted_scale: {x: 1.2075, y: 1.29375, z: 1.2075}
+  middle_scale: {x: 1.2075, y: 1.46625, z: 1.2075}
+  pure_scale: {x: 1.12125, y: 1.12125, z: 1.12125}
   rotationChangeRate: 180
   orbColorOverLife:
     serializedVersion: 2
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 4060369443345454032}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.10296631, y: 1.3330231, z: -0.14281368}
+  m_LocalPosition: {x: -0.10296631, y: 0.86, z: -0.14281368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -422,9 +422,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8269326422176463617}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9998767, z: 0, w: 0.015707402}
+  m_LocalRotation: {x: 0, y: 0.7137396, z: 0, w: 0.7004112}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4973, y: 1.5042, z: 1.4973}
+  m_LocalScale: {x: 1.206465, y: 1.4621099, z: 1.206465}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8554018040465303187}
@@ -446,7 +446,7 @@ PrefabInstance:
     - target: {fileID: 2134932262947625863, guid: f9cf5ddb9cb8cba4c9340e93378c481d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.470001
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 2134932262947625863, guid: f9cf5ddb9cb8cba4c9340e93378c481d,
         type: 3}
@@ -636,7 +636,7 @@ PrefabInstance:
     - target: {fileID: -3887185075125053422, guid: 5d34a97fa24b8bd469f71e91bafe26ed,
         type: 3}
       propertyPath: m_BlendShapeWeights.Array.data[1]
-      value: 98
+      value: 1.1999965
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d34a97fa24b8bd469f71e91bafe26ed,
         type: 3}

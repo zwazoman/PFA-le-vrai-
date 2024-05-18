@@ -47,6 +47,11 @@ public class Nathan : MonoBehaviour
         if(onEnd!=null) onEnd();
     }
 
+    public static IEnumerator executeNextFrame(Action action)
+    {
+        yield return 0;
+        action();
+    }
     public static float SmoothStep01(float v)
     {
         return Mathf.SmoothStep(0,1,v);

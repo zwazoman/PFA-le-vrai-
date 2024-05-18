@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacters
   Narrator:
     Name: 
-    Font: {fileID: 0}
-    Sprite: {fileID: 0}
+    Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    Sprite: {fileID: 21300000, guid: c6618dd04ce70324592cd7dbb0449363, type: 3}
     EmotionSprites:
       info: 0
       keys:
@@ -27,13 +27,13 @@ MonoBehaviour:
       values:
         _: 0
         values:
-        - {fileID: 0}
+        - {fileID: 21300000, guid: c6618dd04ce70324592cd7dbb0449363, type: 3}
       editor_keyInput: 0
       editor_valueInput: {fileID: 0}
-  Noah:
-    Name: Noah
-    Font: {fileID: 0}
-    Sprite: {fileID: 21300000, guid: 420881cc5a8a1a54b8ae84a0c0bef07c, type: 3}
+  Geoffrrus:
+    Name: Geoffrus
+    Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    Sprite: {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5, type: 3}
     EmotionSprites:
       info: 0
       keys:
@@ -45,44 +45,45 @@ MonoBehaviour:
       values:
         _: 0
         values:
-        - {fileID: 21300000, guid: 420881cc5a8a1a54b8ae84a0c0bef07c, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 0}
-  Nestor:
-    Name: Nestor
-    Font: {fileID: 0}
-    Sprite: {fileID: 21300000, guid: 26140f8b017cc134593ae2406c2b6ef4, type: 3}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 00000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: 26140f8b017cc134593ae2406c2b6ef4, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 0}
-  Quentin:
-    Name: Quentin
-    Font: {fileID: 0}
-    Sprite: {fileID: 0}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 0000000004000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: 4c952c2fc5da56049bb1211fa10c0b79, type: 3}
         - {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5, type: 3}
-      editor_keyInput: 4
+      editor_keyInput: 0
       editor_valueInput: {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5,
+        type: 3}
+  Bobbus:
+    Name: Bobbus
+    Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    Sprite: {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3, type: 3}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 00000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3, type: 3}
+      editor_keyInput: 0
+      editor_valueInput: {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3,
+        type: 3}
+  Charon:
+    Name: Charon
+    Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    Sprite: {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571, type: 3}
+    EmotionSprites:
+      info: 0
+      keys:
+        info: 0
+        values:
+          _: 0
+          values: 00000000
+        editor_input: 0
+      values:
+        _: 0
+        values:
+        - {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571, type: 3}
+      editor_keyInput: 0
+      editor_valueInput: {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571,
         type: 3}

@@ -13,6 +13,9 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
+    [Header("inputs")]
+    public KeyCode skipKey = KeyCode.E;
+
     [Header("Simple Dialogue Box")]
     [SerializeField] private GameObject TextBox;
     [SerializeField] private TMP_Text _dialogueText;
@@ -33,7 +36,7 @@ public class DialoguePanel : MonoBehaviour
     [SerializeField] private GameObject QuestionBox;
 
 
-    int characterTimeDelay = 50;
+    int characterTimeDelay = 10;
 
     public async Task Write(string text)
     {
@@ -46,12 +49,12 @@ public class DialoguePanel : MonoBehaviour
         foreach (char character in text)
         {
             _dialogueText.text += character;
-            if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
+            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
         }
         Arrow.SetActive(true) ;
 
-        if (Input.GetKey(KeyCode.Space)) while (!Input.GetKeyUp(KeyCode.Space)) //t'inquiete
-        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+        if (Input.GetKey(skipKey)) while (!Input.GetKeyUp(skipKey)) //t'inquiete
+        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
         await Task.Yield();
     }
 
@@ -82,7 +85,7 @@ public class DialoguePanel : MonoBehaviour
         foreach (char character in text)
         {
             _QuestionDialogueText.text += character;
-            if (!Input.GetKey(KeyCode.Space)) await Task.Delay(characterTimeDelay);
+            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
         }
 
         
@@ -103,7 +106,7 @@ public class DialoguePanel : MonoBehaviour
         //InitDialogue(characters.Narrator, characters.Narrator);*
         HideCharacterSprites();
         await Write(toWrite);
-        while (!Input.GetKeyUp(KeyCode.Space)) await Task.Yield();
+        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
         gameObject.SetActive(false);
     }
 
@@ -167,8 +170,13 @@ public class DialoguePanel : MonoBehaviour
     /// <param name="DialogueName"></param>
     public async Task StartDialogue(string DialogueName,MonoBehaviour worldObject)
     {
+        print("about to create instance");
         DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters,worldObject);
+        print("instance created,dialogue starting");
+
         await Flo.StartDialogue();
+        print("dialogue over");
+
         gameObject.SetActive(false);
     }
 

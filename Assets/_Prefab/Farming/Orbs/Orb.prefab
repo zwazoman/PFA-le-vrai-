@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.42, y: 5.9422655, z: -2.4436746}
-  m_LocalScale: {x: 1.4068755, y: 1.4068755, z: 1.4068755}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,6 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpRotation: {x: 0, y: 0, z: 0}
+  _breakSound: []
+  _breakSoundVolume: 1
+  _effectSound: []
+  _effectSoundVolume: 1
   <OrbValue>k__BackingField: 50
 --- !u!114 &6832354867805928778
 MonoBehaviour:

@@ -11,9 +11,9 @@ public class UI_ToolButton : MonoBehaviour
 
     public void activate()
     {
-        //StopAllCoroutines();
-        print("putain");
-        StartCoroutine(Nathan.InterpolateOverTime(0, 1f, .4f, (float a) => bouton.transform.localScale = Vector3.one * curve.Evaluate(a)  ));
+
+        StopAllCoroutines();
+        if(gameObject.activeSelf && enabled) StartCoroutine(Nathan.InterpolateOverTime(0, 1f, .4f, (float a) => bouton.transform.localScale = Vector3.one * curve.Evaluate(a)  ));
     }
 
     private void Start()

@@ -8,7 +8,8 @@ public class PlayerHands : MonoBehaviour
     [HideInInspector] public GameObject ItemInHands = null;
 
     [SerializeField] GameObject _grabZone;
-    [SerializeField] float _itemDistanceToPlayer;
+    [SerializeField] Transform ItemSocket;
+
 
     Rigidbody _itemInHandsRb;
     Collider _iteminHandsColl;
@@ -35,8 +36,8 @@ public class PlayerHands : MonoBehaviour
 
         _iteminHandsColl.enabled = false; // désactive collider
         _itemInHandsRb.constraints = RigidbodyConstraints.FreezeAll; // freeze l'objet
-        ItemInHands.transform.parent = gameObject.transform; // remplace le parent de l'objet par le joueur
-        ItemInHands.transform.position = PlayerMain.Instance.GrabBox.transform.position; // snap l'objet au joueur
+        ItemInHands.transform.parent = ItemSocket; // remplace le parent de l'objet par le joueur
+        ItemInHands.transform.position = ItemSocket.position; // snap l'objet au joueur
         ItemInHands.transform.localRotation= Quaternion.Euler(item.pickUpRotation); // change la rotation de l'objet par celle du joueur (temporaire ?)
 
         _grabZone.SetActive(false); // désactive la grabzone
@@ -44,6 +45,8 @@ public class PlayerHands : MonoBehaviour
         _tools.canUse = false;
 
         PlayerMain.Instance.Sounds.PlayPickupPopSound();
+        PlayerMain.Instance.Visuals.GrabItem();
+
 
         _inputManager.OnInteract += Drop; // permet au joueur de lacher l'objet en utilisant la touche d'intéraction
     }
@@ -63,6 +66,7 @@ public class PlayerHands : MonoBehaviour
         _tools.canUse = true;
 
         PlayerMain.Instance.Sounds.PlayDropPopSound();
+        PlayerMain.Instance.Visuals.releaseItem();
 
         _inputManager.OnInteract -= Drop; // retire la possibilité de lacher un objet lorsqu'il vient d'en lacher un (car il a les mains vides)
     }

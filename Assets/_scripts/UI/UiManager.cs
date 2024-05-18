@@ -39,6 +39,8 @@ public class UiManager : MonoBehaviour
 
     void HideEverything()
     {
+        if (!wasPaused && Pause_Panel.isActiveAndEnabled) TimeManager.Instance.resume();
+
         Dialogue_Panel.gameObject.SetActive(false);
         Gameplay_Panel.gameObject.SetActive(false);
         Pause_Panel.gameObject.SetActive(false);
@@ -48,7 +50,7 @@ public class UiManager : MonoBehaviour
     public void ActivateGameplayPanel()
     {
         HideEverything();
-        if(!wasPaused) TimeManager.Instance.resume();
+        
         Gameplay_Panel.gameObject.SetActive(true );
         Cursor.visible = false;
     }
@@ -58,7 +60,7 @@ public class UiManager : MonoBehaviour
         HideEverything();
 
         wasPaused = TimeManager.Instance.isPaused;
-        if(!wasPaused ) TimeManager.Instance.pauseTime();
+        if (!wasPaused ) TimeManager.Instance.pauseTime();
 
         Cursor.visible = true;
         Pause_Panel.gameObject.SetActive(true);
@@ -82,6 +84,8 @@ public class UiManager : MonoBehaviour
 
         //pause the time 
         bool wasTimeAlreadyPaused = TimeManager.Instance.isPaused; //pour pas perturber si le temps était déjà en pause,comme dans les magasins par exemple.
+        print("debut wasTimePaused: "+wasTimeAlreadyPaused.ToString());
+
         if(!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
 
         ActivateDialoguePanel();
@@ -89,6 +93,7 @@ public class UiManager : MonoBehaviour
         ActivateGameplayPanel();
 
         //resume Time
+        print("fin wasTimePaused: " + wasTimeAlreadyPaused.ToString());
         if (!wasTimeAlreadyPaused) TimeManager.Instance.resume();
         //reactivate player
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }

@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Threading.Tasks;
 
 public class Mill : MonoBehaviour
 {
     List<Collider> _collList = new List<Collider>();
     [SerializeField] UnityEvent OnCrush;
+    [SerializeField] xpSource  vfxSource;
 
     [Header("Sounds")]
     [SerializeField] AudioClip[] _crushSound;
@@ -14,6 +16,7 @@ public class Mill : MonoBehaviour
 
     [SerializeField] AudioClip[] _rechargeSound;
     [SerializeField] float _rechargeSoundVolume = 1f;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,21 +35,29 @@ public class Mill : MonoBehaviour
     /// <summary>
     /// casse les objets dans le moulin
     /// </summary>
-    public void Crush()
+    public async Task Crush()
     {
         StartCoroutine(PlaySounds());
         OnCrush.Invoke();
+        CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
-            coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().maxhp);
+            if(coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().maxhp);
+            if(coll.gameObject.transform.root.GetComponentInChildren<Orb>()) vfxSource.playFX();
+
+            
+
+            await Task.Delay(100);
         }
         _collList.Clear();
+
+        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform, _rechargeSoundVolume);
     }
 
     IEnumerator PlaySounds()
     {
         SFXManager.Instance.PlaySFXClip(_crushSound, transform, _crushSoundVolume);
         yield return new WaitForSeconds(0.5f);
-        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform, _rechargeSoundVolume);
+       
     }
 }

@@ -10,7 +10,8 @@ public class GameplayPanel : MonoBehaviour
     
     public void UpdateDisplay(float from, float to)
     {
-        StartCoroutine(Nathan.InterpolateOverTime(from, to, 0.2f,UpdateText));
+        //print("putain de money qui marche pas la pute");
+        _textMoney.text = to.ToString();
     }
 
     private void UpdateText(float newValue)
