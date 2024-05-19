@@ -20,6 +20,8 @@ public class WheelBarrowMain : MonoBehaviour
     [field : SerializeField]
     public WheelBarrowStorage Storage { get; private set; }
 
+    public bool isDrivingTheBrouette = false;
+
     private void Start()
     {
         InputManager.OnDrop += UnEquip;
@@ -30,6 +32,7 @@ public class WheelBarrowMain : MonoBehaviour
     /// </summary>
     public void Equip()
     {
+        isDrivingTheBrouette = true;
         Input.SwitchCurrentActionMap("WheelBarrow");
         PlayerMain.Instance.Movement.enabled = false;
         PlayerMain.Instance.GrabBox.enabled = false;
@@ -40,6 +43,7 @@ public class WheelBarrowMain : MonoBehaviour
     /// </summary>
     public void UnEquip()
     {
+        isDrivingTheBrouette = false;
         Input.SwitchCurrentActionMap("Player");
         WB.UnEquip();
         PlayerMain.Instance.Movement.enabled = true;

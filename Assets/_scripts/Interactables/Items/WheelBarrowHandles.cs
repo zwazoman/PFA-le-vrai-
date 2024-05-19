@@ -21,8 +21,8 @@ public class WheelBarrowHandles : MonoBehaviour
         CameraBehaviour.Instance.target = FindObjectOfType<WheelBarrowMain>().Movement; //t'avais qu'à faire un singleton fdp
 
         PlayerMain.Instance.WheelBarrow.WB = this;
-        transform.parent = PlayerMain.Instance.transform;
-        transform.position = PlayerMain.Instance.transform.position + PlayerMain.Instance.transform.forward * _distanceToLink + Vector3.up * _hightToLink;
+        transform.parent = PlayerMain.Instance.WheelBarrowSocket;
+        transform.localPosition = Vector3.zero;
         transform.rotation = Quaternion.Euler(PlayerMain.Instance.transform.eulerAngles + Vector3.right * 180 + Vector3.forward * 180);
         GetComponent<Collider>().enabled = false;
         //changement de collider pour la brouette (gros bordel)

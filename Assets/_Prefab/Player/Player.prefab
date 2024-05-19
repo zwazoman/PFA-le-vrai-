@@ -42,7 +42,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05, y: 0.28888893}
   m_AnchorMax: {x: 0.9487501, y: 0.71333337}
-  m_AnchoredPosition: {x: 1.199707, y: -1.2000122}
+  m_AnchoredPosition: {x: 1.199707, y: -1.2001953}
   m_SizeDelta: {x: -925.6001, y: -8.399963}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4001789082403588936
@@ -1460,7 +1460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 235.7}
+  m_AnchoredPosition: {x: 0, y: 235.7002}
   m_SizeDelta: {x: 1235.1, y: 312.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3258446783450963663
@@ -2833,6 +2833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1165084002154110600}
+  - {fileID: 7629403595697943147}
   m_Father: {fileID: 6863210167928016197}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &3295748448775433640
@@ -2996,6 +2997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InputManager>k__BackingField: {fileID: 121151280416837700}
+  <WBInputManager>k__BackingField: {fileID: 8759161627018368913}
   <Movement>k__BackingField: {fileID: 8543143193072082659}
   <Visuals>k__BackingField: {fileID: 3295748448775433640}
   <Sounds>k__BackingField: {fileID: 6790433302852059315}
@@ -3007,6 +3009,7 @@ MonoBehaviour:
   <Stats>k__BackingField: {fileID: 7483418212233676595}
   <Watering>k__BackingField: {fileID: 7058492088811955063}
   <Can>k__BackingField: {fileID: 5868292390827359}
+  WheelBarrowSocket: {fileID: 7629403595697943147}
 --- !u!114 &8577543130640639059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3023,6 +3026,7 @@ MonoBehaviour:
   <Movement>k__BackingField: {fileID: 579326058760354247}
   <Input>k__BackingField: {fileID: 24137043705160043}
   <Storage>k__BackingField: {fileID: 0}
+  isDrivingTheBrouette: 0
 --- !u!114 &7483418212233676595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,11 +3094,11 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   bounciness: 0
   Gravity: 20
-  GroundFriction: 13.69
+  GroundFriction: 20.2
   Airfriction: 11
   speedMultiplier: 1
   UseCharacterController: 0
-  _playerMoveSpeed: 6.35
+  _playerMoveSpeed: 7.3
   _acceleration: 43.1
   _turnSpeed: 838.8
   decelerationY: 6.12
@@ -3551,6 +3555,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 84dc83c1-164d-420f-9686-062bae2509eb
     m_ActionName: Player/Pause[/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8759161627018368913}
+        m_TargetAssemblyTypeName: WheelBarrowInputManager, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f9214a17-cb2f-4c97-a51b-67e4507f3e35
+    m_ActionName: WheelBarrow/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -5463,7 +5483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &865406614215549685
@@ -5585,7 +5605,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -151, y: 235.7}
+  m_AnchoredPosition: {x: -151, y: 235.7002}
   m_SizeDelta: {x: 1107, y: 312.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7133568120496423224
@@ -5798,6 +5818,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 6130534080841169746}
+--- !u!1 &9180905834764209337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7629403595697943147}
+  m_Layer: 0
+  m_Name: WheelBarrowSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7629403595697943147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180905834764209337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4333330033702122519}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1215611734320482769
 PrefabInstance:
   m_ObjectHideFlags: 0
