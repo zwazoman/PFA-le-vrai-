@@ -60,12 +60,7 @@ public class PlayerVisuals : MonoBehaviour
             animator.SetFloat("wheelbarrowInput", p.WBInputManager.MoveInput);
         }
 
-        
-
-        
-        
-
-        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();print("ta ûte la mere"); } else footstepVFX.Play();
+        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();/*print("ta ûte la mere");*/ } else footstepVFX.Play();
     }
 
     IEnumerator BreakIdle()

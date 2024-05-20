@@ -29,8 +29,10 @@ public class Mill : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_collList.Contains(other)) _collList.Remove(other);
+        if (_collList.Contains(other)) { _collList.Remove(other); }
+        else if (PlayerMain.Instance.Hands.ItemInHands!=null && _collList.Contains(PlayerMain.Instance.Hands.ItemInHands.GetComponent<Collider>())){_collList.Remove(PlayerMain.Instance.Hands.ItemInHands.GetComponent<Collider>());}
     }
+
 
     /// <summary>
     /// casse les objets dans le moulin

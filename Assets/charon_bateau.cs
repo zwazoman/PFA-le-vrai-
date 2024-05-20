@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class charon_bateau : MonoBehaviour
@@ -7,7 +8,11 @@ public class charon_bateau : MonoBehaviour
     [Range(0,1)]
     public float value = 1; // cascade : 0  ; quai : 0.329
 
+    [SerializeField] Animator anim;
+
     [SerializeField] GameObject charon;
+
+    bool EstDejaParti = false;
     private void Update()
     {
         //transform.position = curve.Sample(1-value);
@@ -26,17 +31,34 @@ public class charon_bateau : MonoBehaviour
     void OnHour()
     {
 
-        //à 5h il commence son voyage qui dure deux heures; pour le faire arriver à 7h au port. à11h il repart et traverse la map en 4h;
-        if (TimeManager.Instance.Hour == 5)
+        //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
+        if (TimeManager.Instance.Hour == 2)
         {
-            StartCoroutine( Nathan.InterpolateOverTime(0, 0.329f, 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, activateCharon, true));
+            StartCoroutine( Nathan.InterpolateOverTime(1, 0.329f, 5 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
         }
         else if (TimeManager.Instance.Hour == 11)
         {
-            deActivateCharon();
-            StartCoroutine(Nathan.InterpolateOverTime(0.329f, 1, 4 * TimeManager.Instance.IrlHourDuration,  setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); },null,true));
+            Partir();
         }
 
+    }
+
+    void Arriver()
+    {
+        anim.SetTrigger("arriver");
+        EstDejaParti = false;
+    }
+
+    public void Partir()
+    {
+        if (EstDejaParti) return;
+        EstDejaParti = true;
+        anim.SetTrigger("partir");
+    }
+
+    public void PartirPourDeVrai()
+    {
+        StartCoroutine(Nathan.InterpolateOverTime(0.329f, 0 , 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
     }
 
     void setPositionAlongCurve(float alpha)
@@ -44,13 +66,11 @@ public class charon_bateau : MonoBehaviour
         if (curve == null) return;
         transform.position = curve.Sample(1 - alpha);
 
-        Vector3 f = curve.Sample(1 - alpha) - curve.Sample(1 - (alpha + 1 / 200f)); // la tangente du pauvre
+        Vector3 f =  ( curve.Sample(1 - alpha) - curve.Sample(1 - (alpha + 1 / 200f))); // la tangente du pauvre
         if(f!=Vector3.zero) transform.forward = f;
     }
 
-    //temporaire, en attendant d'avoir une animation où il descend du bateau
-    void activateCharon() => charon.SetActive(true);
-    void deActivateCharon() => charon.SetActive(false);
+
 
 
 }
