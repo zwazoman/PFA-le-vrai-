@@ -177,7 +177,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8087319238819111987}
+      addedObject: {fileID: 3093627811019662802}
     - targetCorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
         type: 3}
       insertIndex: -1
@@ -214,11 +214,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanRestock>k__BackingField: 1
   DialogueScript: Df_Shop_HolyFlask
-  _gameObjectToSell: {fileID: 0}
-  _itemShopVisual: {fileID: 0}
+  _gameObjectToSell: {fileID: 4116401686646105863, guid: 1c95774e79f97744da3d963767dbeb39,
+    type: 3}
+  _itemShopVisual: {fileID: 5089451154712663783}
   _maxStock: 1
   price: 15
---- !u!1001 &8624767681670906840
+--- !u!1001 &3270879309898039865
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -293,27 +294,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0040a7ab558b00f4f97f82ff63d11344,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 22686541426194193}
+      addedObject: {fileID: 8805558304896045782}
   m_SourcePrefab: {fileID: 100100000, guid: 0040a7ab558b00f4f97f82ff63d11344, type: 3}
---- !u!4 &8087319238819111987 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0040a7ab558b00f4f97f82ff63d11344,
-    type: 3}
-  m_PrefabInstance: {fileID: 8624767681670906840}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8894676692162756233 stripped
+--- !u!1 &2424368949336014696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0040a7ab558b00f4f97f82ff63d11344,
     type: 3}
-  m_PrefabInstance: {fileID: 8624767681670906840}
+  m_PrefabInstance: {fileID: 3270879309898039865}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &22686541426194193
+--- !u!65 &8805558304896045782
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8894676692162756233}
+  m_GameObject: {fileID: 2424368949336014696}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -328,3 +323,9 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.027563568, y: 0.029953802, z: 0.05090544}
   m_Center: {x: 0.000034266617, y: 0.000021775253, z: 0.022443077}
+--- !u!4 &3093627811019662802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0040a7ab558b00f4f97f82ff63d11344,
+    type: 3}
+  m_PrefabInstance: {fileID: 3270879309898039865}
+  m_PrefabAsset: {fileID: 0}
