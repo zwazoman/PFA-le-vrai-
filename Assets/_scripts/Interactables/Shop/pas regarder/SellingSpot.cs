@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class SellingSpot : Interactable
 {
-    [SerializeField] string DialogueScript;
-    
+    [field: SerializeField]
+    public bool CanRestock { get; private set; }
+
+    [SerializeField] protected string DialogueScript;
+    [SerializeField] protected GameObject _gameObjectToSell;
+    [SerializeField] protected MeshRenderer _itemShopVisual;
+    [SerializeField] protected int _maxStock;
+
+    protected int _stock;
+
     public int price = 10;
 
     public virtual void SellItem()
@@ -13,6 +21,12 @@ public class SellingSpot : Interactable
 
     protected override void Interaction()
     {
+        if(_stock == 0)
+        {
+            //dialogue hors stock
+            print("hors stock");
+            return;
+        }
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this);
     }
 

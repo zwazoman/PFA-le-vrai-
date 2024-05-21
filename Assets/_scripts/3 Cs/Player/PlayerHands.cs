@@ -41,6 +41,7 @@ public class PlayerHands : MonoBehaviour
         ItemInHands.transform.localRotation= Quaternion.Euler(item.pickUpRotation); // change la rotation de l'objet par celle du joueur (temporaire ?)
 
         _grabZone.SetActive(false); // désactive la grabzone
+        PlayerMain.Instance.GrabBox.ClearHands();
         _interaction.enabled = false;
         _tools.canUse = false;
 
