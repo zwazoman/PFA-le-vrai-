@@ -37,7 +37,7 @@ public class PlayerGrabBox : MonoBehaviour
 
     public void ClearHands()
     {
-        if(_interaction.Interactables.Count>0)   _interaction.Interactables[0].OnStopHighLight();
+        if(_interaction.Interactables.Count>0) _interaction.Interactables[0].OnStopHighLight();
         _interaction.Interactables.Clear();
     }
 }
