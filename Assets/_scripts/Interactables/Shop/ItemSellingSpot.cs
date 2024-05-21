@@ -9,6 +9,7 @@ public class ItemSellingSpot : SellingSpot
     //item floating animation
     Vector3 ItemBasePosition;
     float basePhase;
+    public GameObject buttonUI;
 
     private void Awake()
     {
