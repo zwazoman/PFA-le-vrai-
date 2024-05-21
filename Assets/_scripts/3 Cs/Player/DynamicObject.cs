@@ -177,7 +177,7 @@ public class DynamicObject : MonoBehaviour
     public void SnapToGround()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(transform.position + 20 * Vector3.up, col.radius, Vector3.down, out hit, 40, collisionLayer.value))
+        if (Physics.SphereCast(transform.position + 1 * Vector3.up, col.radius, Vector3.down, out hit, 40, collisionLayer.value))
         {
             transform.position = hit.point + Vector3.up * (col.radius + 0.1f);
         }
