@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Df_Shop_BigWheelbarrow : DialogueFlow
 {
@@ -13,6 +14,7 @@ public class Df_Shop_BigWheelbarrow : DialogueFlow
         await _characters.Geoffrrus.Say($"Enfin, elle te servira à transporter bien plus d’âmes d’un coup, pour seulement {((SellingSpot)WorldObject).price} âmes.");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        EventSystem.current.SetSelectedGameObject(null);
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
