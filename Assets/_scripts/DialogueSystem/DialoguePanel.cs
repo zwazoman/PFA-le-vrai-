@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -76,7 +77,14 @@ public class DialoguePanel : MonoBehaviour
         //popup buttons
         for (int i = 0; i < options.Length; i++)
         {
+
+
             OptionButton spawnedButton = Instantiate(ButtonPrefab.gameObject, OptionPanel.transform).GetComponent<OptionButton>();
+            if (i == options.Length - 1)
+            {
+                print("UwU");
+                EventSystem.current.SetSelectedGameObject(spawnedButton.gameObject);
+            }
             int j = i;//t'inquiete
             spawnedButton.SetUp(options[i], () => { result = j; });
         }
