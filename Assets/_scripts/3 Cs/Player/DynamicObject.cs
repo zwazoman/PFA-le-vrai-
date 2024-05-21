@@ -44,6 +44,7 @@ public class DynamicObject : MonoBehaviour
 
     [SerializeField] bool UseCharacterController = false;
     CharacterController CharacterController;
+
     public struct FrameInfo
     {     
         public FrameInfo(Vector3 Position,Vector3 Velocity,bool isGrounded)

@@ -23,7 +23,7 @@ public class Df_Tuto : DialogueFlow
 
     async Task ExplanationSoul()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        //_panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
         await _characters.Charon.Say("Oh, c’est très simple ! Disons qu’au vu de votre vie… mouvementée, on vous laisse une chance de vous racheter.");
         await _characters.Charon.Say("Racheter votre âme, plus précisément. Vous voyez ce sac ? Il contient un paquet d’âmes comme la vôtre, encore pleines des pêchés de leur vie passée,");
@@ -36,7 +36,7 @@ public class Df_Tuto : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Charon.Say("C’est bon, vous êtes remis de vos émotions ?");
+        /*await _characters.Charon.Say("C’est bon, vous êtes remis de vos émotions ?");
         await _characters.Bobbus.Say("… Je… Je ne suis pas vraiment sûr de…ce que je fais là, en premier lieu ?");
 
         await _characters.Charon.Say("Ahahah, c’est souvent comme ça au début. Et bien, laissez-moi vous accueillir officiellement dans l’au-delà.");
@@ -51,10 +51,10 @@ public class Df_Tuto : DialogueFlow
         await _characters.Charon.Say("Oh, c’est très simple ! Disons qu’au vu de votre vie… mouvementée, on vous laisse une chance de vous racheter.");
         await _characters.Charon.Say("Racheter votre âme, plus précisément. Vous voyez ce sac ? Il contient un paquet d’âmes comme la vôtre, encore pleines des pêchés de leur vie passée,");
         await _characters.Charon.Say("mais ne demandant qu’à accéder à la félicité éternelle du paradis… Et il vous incombe de vous en occuper");
-        await _characters.Geoffrrus.Say("Comment ça m’en occuper ? Attendez, qu’est ce que c’est que cette histoire ?");
+        await _characters.Bobbus.Say("Comment ça m’en occuper ? Attendez, qu’est ce que c’est que cette histoire ?");
 
         await _characters.Charon.Say("C’est votre nouvelle mission, mon jeune ami. Vous devriez vous sentir honoré, ça n’est pas donné à tout le monde !");
-        await _characters.Geoffrrus.Say("Je… Je ne sais pas exactement comment le prendre. Comment ça s’entretient une âme en premier lieu ?");
+        await _characters.Bobbus.Say("Je… Je ne sais pas exactement comment le prendre. Comment ça s’entretient une âme en premier lieu ?");
 
         await _characters.Charon.Say("Vous allez voir, c’est enfantin ! Les âmes sont sous formes de petites graines, qu’ils vous suffit de planter dans le sol des parcelles.");
         await _characters.Charon.Say("Arrosez les, et après quelques jours vous obtiendrez une belle fleur d’âme toute pure que vous n’aurez qu’à récolter avec une faux et apporter au moulin pour finir l’opération.");
@@ -78,24 +78,24 @@ public class Df_Tuto : DialogueFlow
 
         await _characters.Charon.Say("Regardez dans la maison, il y a un manuel qui résume tout ce que je viens de vous expliquez.Votre prédécesseur a eu la bonne idée de compiler plusieurs de ses observations dans un herbier.");
         await _characters.Bobbus.Say("Mon prédécesseur ? Combien de gens comme moi ce sont retrouvés ici avant moi exactement ?");
-
-        _characters.Charon.SetEmotion(DialogueCharacter.Emotions.Happy);
+        */
+        //_characters.Charon.SetEmotion(DialogueCharacter.Emotions.Happy);
         int resultat=-1;
-        while(resultat != 4)
+        while(resultat != 3)
         {
-            resultat = await _characters.Geoffrrus.Ask("Vous n’avez pas besoin de le savoir. Besoin que je répète quoi que ça soit ?", new string[] { "Le cycle de plantation", "Les outils", "Le salut de mon âme", "Non merci" });
+            resultat = await _characters.Bobbus.Ask("Vous n’avez pas besoin de le savoir. Besoin que je répète quoi que ça soit ?", new string[] { "Le cycle de plantation", "Les outils", "Le salut de mon âme", "Non merci" });
 
-            if (resultat == 1)
+            if (resultat == 0)
             {
                 await ExplanationPlant();
             }
 
-            if (resultat == 2)
+            if (resultat == 1)
             {
                 await ExplanationTools();
             }
 
-            if(resultat == 3)
+            if(resultat == 2)
             {
                 await ExplanationSoul();
             }

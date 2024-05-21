@@ -8,7 +8,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public int Day {  get; private set; }
-    public float Hour { get; private set; }
+    public float Hour;// { get; private set; }
     //float _minute;
     public event Action OnHour;
     public event Action OnDay;
@@ -23,6 +23,7 @@ public class TimeManager : MonoBehaviour
     public bool isPaused=false;
     float LastRealTickTime; //ces deux valeurs sont utilisées pour pouvoir mettre en pause le jeu, et reprendre en tenant compte du temps qui s'etait deja ecoulé entre deux heures.
     float lastRealPauseTime;
+    
     private void Awake()
     {
         Day = 1;
