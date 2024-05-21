@@ -13,6 +13,7 @@ public class SpawnSeed : Interactable
 
         StartCoroutine(ThrowSeed());
         PlayerMain.Instance.Stats.Seeds = PlayerMain.Instance.Stats.InitialSeeds;
+
     }
 
 
