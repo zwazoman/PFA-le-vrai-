@@ -5,7 +5,7 @@ public class CameraBehaviour : MonoBehaviour
 {
     public DynamicObject target;
     Vector3 vel;
-    Vector3 Offset;
+    public Vector3 Offset;
     [Header("Movement")]
     [SerializeField] float smoothTime;
     [SerializeField] float PlayerAnticipation = 0;
@@ -33,13 +33,14 @@ public class CameraBehaviour : MonoBehaviour
         FOVOffsetSpeed = Mathf.Min(FOVOffsetSpeed,-lambda) - intensity;
     }
 
-    void Start()
+    private void Awake()
     {
-        transform.parent = null;
+        print("jenpeuplus");
         Instance = this;//le singleton wish
 
+        transform.parent = null;
         cam = GetComponentInChildren<Camera>();
-        target =PlayerMain.Instance.Movement;
+        
 
 
         Offset = -target.transform.position + transform.position; // naze un peu
@@ -48,8 +49,16 @@ public class CameraBehaviour : MonoBehaviour
         fovWithoutOffset = BaseFOV;
     }
 
+    void Start()
+    {
+        target = PlayerMain.Instance.Movement;
+
+    }
+
     void Update()
     {
+        if(transform.parent !=null) return;
+
         FOVOffset += FOVOffsetSpeed * Time.deltaTime;
         FOVOffsetSpeed = Mathf.Sign(FOVOffsetSpeed) * (Mathf.Abs(FOVOffsetSpeed) - Mathf.Min(Mathf.Abs(FOVOffsetSpeed), lambda * Time.deltaTime));
         FOVOffset =  Mathf.Sign(FOVOffset) * (Mathf.Abs(FOVOffset) - Mathf.Min(Mathf.Abs( FOVOffset), lambda * Time.deltaTime));

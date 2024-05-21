@@ -8,7 +8,7 @@ using UnityEngine;
 public class Clock : MonoBehaviour
 {
     float AnimationDuration = 1.0f;
-    private void UpdateVisuals() => StartCoroutine(MoveNeedle());
+    private void UpdateVisuals() { if(enabled) StartCoroutine(MoveNeedle()); }
     private void Start()
     {
         TimeManager.Instance.OnHour += UpdateVisuals; 

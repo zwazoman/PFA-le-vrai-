@@ -11,7 +11,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] PausePanel Pause_Panel;
     //[SerializeField] DialoguePanel Dialogue_Panel;
 
-    bool wasPaused = false;
+    bool wasPaused = true;
 
     private void Start()
     {

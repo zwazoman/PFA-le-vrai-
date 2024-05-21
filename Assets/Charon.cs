@@ -7,7 +7,7 @@ public class Charon : Interactable
 {
     [SerializeField] string _dialogue;
     [SerializeField] List<GameObject> _seedPrefabs;
-    [SerializeField] Transform SpawnSocket;
+    [SerializeField] public Transform SpawnSocket;
     [SerializeField] charon_bateau bateau;
     protected override void Interaction()
     {
