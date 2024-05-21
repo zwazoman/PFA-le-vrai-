@@ -9,7 +9,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] DialoguePanel Dialogue_Panel;
     [SerializeField] public GameplayPanel Gameplay_Panel;
     [SerializeField] PausePanel Pause_Panel;
+    [SerializeField] GameObject Intro_Panel;
     //[SerializeField] DialoguePanel Dialogue_Panel;
+
+    public bool canPause = true;
 
     bool wasPaused = true;
 
@@ -42,6 +45,7 @@ public class UiManager : MonoBehaviour
     {
         if (!wasPaused && Pause_Panel.isActiveAndEnabled) TimeManager.Instance.resume();
 
+        Intro_Panel.SetActive(false);
         Dialogue_Panel.gameObject.SetActive(false);
         Gameplay_Panel.gameObject.SetActive(false);
         Pause_Panel.gameObject.SetActive(false);
@@ -55,9 +59,19 @@ public class UiManager : MonoBehaviour
         Gameplay_Panel.gameObject.SetActive(true );
         Cursor.visible = false;
     }
-    
+
+    public void ActivateIntroPanel()
+    {
+        HideEverything();
+
+        Intro_Panel.SetActive(true);
+        Cursor.visible = false;
+    }
+
     public void ActivatePausePanel()
     {
+        if (!canPause) return;
+
         HideEverything();
 
         wasPaused = TimeManager.Instance.isPaused;

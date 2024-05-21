@@ -172,7 +172,7 @@ public class DialoguePanel : MonoBehaviour
     }
 
     /// <summary>
-    /// Appeler cette fonction pour faire parler deux personnages entre eux à partir d'un fichier de dialogue contenant une classe enfant de DialogueFlow.
+    /// Appeler cette fonction pour faire parler deux personnages entre eux à partir d'un fichier de premierDialogueCharon contenant une classe enfant de DialogueFlow.
     /// Le parametre dialogueName correspond au nom du fichier de dialogueflow dans le dossier : Assets/scripts/DialogueSystem/dialogues
     /// </summary>
     /// <param name="DialogueName"></param>
@@ -180,10 +180,10 @@ public class DialoguePanel : MonoBehaviour
     {
         print("about to create instance");
         DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters,worldObject);
-        print("instance created,dialogue starting");
+        print("instance created,premierDialogueCharon starting");
 
         await Flo.StartDialogue();
-        print("dialogue over");
+        print("premierDialogueCharon over");
 
         gameObject.SetActive(false);
     }

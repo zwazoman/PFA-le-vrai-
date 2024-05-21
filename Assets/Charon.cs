@@ -18,13 +18,13 @@ public class Charon : Interactable
     {
         await UiManager.Instance.PopupDialogue(_dialogue,this);
 
-        TimeManager.Instance.pauseTime();
+        //TimeManager.Instance.pauseTime();
         for (int i = 0; i <= PlayerMain.Instance.Stats.Seeds + Random.Range(-1,2); i++)
         {
             Instantiate(_seedPrefabs[Random.Range(0, _seedPrefabs.Count)], SpawnSocket.position + Random.insideUnitSphere*0.5f , Quaternion.identity);
             await Task.Delay( Random.Range(200, 300));
         }
-        TimeManager.Instance.resume();
+        //TimeManager.Instance.resume();
         bateau.Partir();
 
     }
