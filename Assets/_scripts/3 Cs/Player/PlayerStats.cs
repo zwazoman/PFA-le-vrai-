@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
     [field: SerializeField]
     public float RunFactor {  get; set; }
 
-    private void Start()
+    private void Awake()
     {
         Seeds = InitialSeeds;
     }

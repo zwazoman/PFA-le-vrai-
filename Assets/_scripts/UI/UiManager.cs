@@ -16,6 +16,7 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         PlayerMain.Instance.InputManager.OnPause += OnPause;
+        PlayerMain.Instance.WBInputManager.OnPause += OnPause;
     }
 
     private void OnPause()

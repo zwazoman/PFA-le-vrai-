@@ -17,6 +17,8 @@ public class WheelBarrowInputManager : MonoBehaviour
     public event Action OnStartSprint;
 
     public event Action OnStopSprint;
+
+    public event Action OnPause;
     public void Move(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<float>();
@@ -55,5 +57,12 @@ public class WheelBarrowInputManager : MonoBehaviour
         {
             OnStopSprint?.Invoke();
         }
+    }
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        //if (!enabled) return;
+        print("putain la pause");
+        if (context.performed) OnPause?.Invoke();
     }
 }

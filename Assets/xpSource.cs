@@ -16,7 +16,10 @@ public class xpSource : MonoBehaviour
 
     private void Update()
     {
-        foreach(VisualEffect fx in fxs)
-        if(fx!=null) fx.SetVector3("PlayerPosition", PlayerMain.Instance.transform.position); else fxs.Remove(fx);
+        for ( int i = 0;i<fxs.Count;i++)
+        {
+            VisualEffect fx = fxs[i];
+            if (fx != null) { fx.SetVector3("PlayerPosition", PlayerMain.Instance.transform.position); } else { fxs.RemoveAt(i);  }
+        }
     }
 }

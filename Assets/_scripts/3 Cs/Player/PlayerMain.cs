@@ -9,6 +9,10 @@ public class PlayerMain : MonoBehaviour
     public PlayerInputManager InputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
 
     [field: SerializeField]
+    public WheelBarrowInputManager WBInputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
+
+
+    [field: SerializeField]
     public PlayerMovement Movement { get; private set; }// référence au component "PlayerMovement" attaché au joueur
 
     [field: SerializeField]
@@ -40,6 +44,9 @@ public class PlayerMain : MonoBehaviour
 
     [field : SerializeField]
     public WateringCan Can { get; private set; }
+
+    public Transform WheelBarrowSocket;
+
 
     //singleton
     private static PlayerMain instance = null;

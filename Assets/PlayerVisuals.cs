@@ -19,7 +19,7 @@ public class PlayerVisuals : MonoBehaviour
         i.OnSprintStart+= ()=> animator.SetBool("running",true);
         i.OnSprintEnd+= ()=> animator.SetBool("running", false);
 
-        InvokeRepeating("TryIdleBreaker", 2, 2);
+        //InvokeRepeating("TryIdleBreaker", 2, 2);
     }
 
     public void startScytheAnimation()
@@ -45,9 +45,22 @@ public class PlayerVisuals : MonoBehaviour
 
     private void Update()
     {
-        animator.SetBool("moving", p.InputManager.moveInput != Vector2.zero ); //walk
+        animator.SetBool("holdingwheelbarrow", p.WheelBarrow.isDrivingTheBrouette);
 
-        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();print("ta ûte la mere"); } else footstepVFX.Play();
+        if (!p.WheelBarrow.isDrivingTheBrouette)
+        {
+            animator.SetLayerWeight(2, 0);
+            animator.SetBool("moving", p.InputManager.moveInput != Vector2.zero); //walk
+        }
+        else
+        {
+            animator.SetLayerWeight(2, 1);
+
+            animator.SetBool("moving", p.WBInputManager.MoveInput != 0);
+            animator.SetFloat("wheelbarrowInput", p.WBInputManager.MoveInput);
+        }
+
+        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();/*print("ta ûte la mere");*/ } else footstepVFX.Play();
     }
 
     IEnumerator BreakIdle()
@@ -69,5 +82,12 @@ public class PlayerVisuals : MonoBehaviour
 
     }
 
+    public void EquiBarrow() 
+    { 
 
+    }
+    public void UnEquiBarrow() 
+    { 
+    
+    }
 }
