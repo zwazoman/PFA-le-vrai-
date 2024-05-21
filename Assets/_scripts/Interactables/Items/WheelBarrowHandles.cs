@@ -20,6 +20,8 @@ public class WheelBarrowHandles : MonoBehaviour
 
         CameraBehaviour.Instance.target = FindObjectOfType<WheelBarrowMain>().Movement; //t'avais qu'à faire un singleton fdp
 
+        PlayerMain.Instance.WheelBarrow.Movement.enabled = true;
+
         PlayerMain.Instance.WheelBarrow.WB = this;
         transform.parent = PlayerMain.Instance.WheelBarrowSocket;
         transform.localPosition = Vector3.zero;
@@ -32,6 +34,8 @@ public class WheelBarrowHandles : MonoBehaviour
 
     public void UnEquip()
     {
+        PlayerMain.Instance.WheelBarrow.Movement.enabled = false;
+
         transform.parent = null;
         _storage.enabled = true;
 

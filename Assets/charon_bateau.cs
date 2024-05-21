@@ -20,21 +20,21 @@ public class charon_bateau : MonoBehaviour
 
     private void OnValidate()
     {
-        //setPositionAlongCurve(value);
+        setPositionAlongCurve(value);
     }
 
     private void Start()
     {
-        TimeManager.Instance.OnHour += OnHour;
+        if (!introManager.IsActive) { TimeManager.Instance.OnHour += OnHour; }
     }
 
-    void OnHour()
+    public void OnHour()
     {
 
         //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
-        if (TimeManager.Instance.Hour == 2&& TimeManager.Instance.Day!=1)
+        if (TimeManager.Instance.Hour == 1)
         {
-            StartCoroutine( Nathan.InterpolateOverTime(1, 0.329f, 5 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
+            StartCoroutine( Nathan.InterpolateOverTime(1, 0.329f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
         }
         else if (TimeManager.Instance.Hour == 11)
         {
@@ -60,12 +60,11 @@ public class charon_bateau : MonoBehaviour
 
     public void PartirPourDeVrai()
     {
-        StartCoroutine(Nathan.InterpolateOverTime(0.329f, 0 , 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
+        StartCoroutine(Nathan.InterpolateOverTime(0.329f, 0 , 3 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
     }
 
     public void setPositionAlongCurve(float alpha)
     {
-        print("pute");
         if (curve == null) return;
         transform.position = curve.Sample(1 - alpha);
 
