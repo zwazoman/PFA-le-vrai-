@@ -16,7 +16,8 @@ public class PlayerMovement : DynamicObject
     //acceleration du joueur lors de ses déplacements
     [SerializeField] float _acceleration, airAcceleration;
 
-    
+
+
     public void Unblock()
     {
         gameObject.transform.position = transform.position + Vector3.up * 6;

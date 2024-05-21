@@ -10,7 +10,7 @@ public class charon_bateau : MonoBehaviour
 
     [SerializeField] Animator anim;
 
-    [SerializeField] GameObject charon;
+    [SerializeField] public Charon charon;
 
     bool EstDejaParti = false;
     private void Update()
@@ -20,7 +20,7 @@ public class charon_bateau : MonoBehaviour
 
     private void OnValidate()
     {
-        setPositionAlongCurve(value);
+        //setPositionAlongCurve(value);
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class charon_bateau : MonoBehaviour
     {
 
         //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
-        if (TimeManager.Instance.Hour == 2)
+        if (TimeManager.Instance.Hour == 2&& TimeManager.Instance.Day!=1)
         {
             StartCoroutine( Nathan.InterpolateOverTime(1, 0.329f, 5 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
         }
@@ -42,6 +42,8 @@ public class charon_bateau : MonoBehaviour
         }
 
     }
+
+
 
     void Arriver()
     {
@@ -61,13 +63,14 @@ public class charon_bateau : MonoBehaviour
         StartCoroutine(Nathan.InterpolateOverTime(0.329f, 0 , 2 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
     }
 
-    void setPositionAlongCurve(float alpha)
+    public void setPositionAlongCurve(float alpha)
     {
+        print("pute");
         if (curve == null) return;
         transform.position = curve.Sample(1 - alpha);
 
-        Vector3 f =  ( curve.Sample(1 - alpha) - curve.Sample(1 - (alpha + 1 / 200f))); // la tangente du pauvre
-        if(f!=Vector3.zero) transform.forward = f;
+        Vector3 f = (curve.Sample(1 - alpha) - curve.Sample(1 - (alpha + 1 / 200f))); // la tangente du pauvre
+        if (f != Vector3.zero) transform.forward = f;
     }
 
 
