@@ -4,33 +4,25 @@ using UnityEngine;
 
 public class ItemSellingSpot : SellingSpot
 {
-    [SerializeField] Item itemToSell;
-
     //item floating animation
-    Vector3 ItemBasePosition;
-    float basePhase;
-    public GameObject buttonUI;
+    Vector3 _itemBasePosition;
+    float _basePhase;
 
     private void Awake()
     {
-        foreach (Behaviour b in itemToSell.GetComponents<Behaviour>()) //desactive l'item
-        {
-            if (b.GetType() != typeof(Renderer) && b.GetType() != typeof(MeshFilter))
-            b.enabled = false;
-        }
-
-        if(itemToSell.TryGetComponent<Rigidbody>(out Rigidbody rb))rb.isKinematic=true;
-
-
-        ItemBasePosition = itemToSell.transform.position;
-        basePhase = Random.value * 100;
-
-
+        _stock = _maxStock;
+        _itemBasePosition = _gameObjectToSell.transform.position;
+        _basePhase = Random.value * 100;
     }
+    private void Start()
+    {
+        if(CanRestock) TimeManager.Instance.OnDay += Restock;
+    }
+
     public override void SellItem()
     {
         base.SellItem();
-        SpawnItem();
+        GiveItem();
     }
 
     private void Update()
@@ -38,23 +30,32 @@ public class ItemSellingSpot : SellingSpot
         //animation de l'item
         if(TimeManager.Instance.isPaused)
         {
-            itemToSell.transform.position = ItemBasePosition + Vector3.up * Mathf.Sin(Time.time * 2+ basePhase) * 0.3f;
-            itemToSell.transform.Rotate(Vector3.up, Time.deltaTime * 20,Space.World);
+            _gameObjectToSell.transform.position = _itemBasePosition + Vector3.up * Mathf.Sin(Time.time * 2+ _basePhase) * 0.3f;
+            _gameObjectToSell.transform.Rotate(Vector3.up, Time.deltaTime * 20,Space.World);
         }
         
     }
 
-    private void SpawnItem()
+    private void GiveItem()
     {
-        if (itemToSell.TryGetComponent<Rigidbody>(out Rigidbody rb)) rb.isKinematic = false; 
-        foreach (Behaviour b in itemToSell.GetComponents<Behaviour>()) //desactive l'item
+        Destock();
+        GameObject gameObjectToPickup = Instantiate(_gameObjectToSell, transform.position, Quaternion.identity);
+        Item itemToPickup = gameObjectToPickup.GetComponent<Item>();
+        PlayerMain.Instance.Hands.Pickup(itemToPickup);
+    }
+
+    void Destock()
+    {
+        _stock -= 1;
+        if (_stock == 0)
         {
-            if (b.GetType() != typeof(Renderer) && b.GetType() != typeof(MeshFilter))
-                b.enabled = false;
+            _itemShopVisual.enabled = false;
         }
+    }
 
-
-        itemToSell.GetComponent<Item>().Jump();
-        Destroy(this);
+    public void Restock()
+    {
+        _itemShopVisual.enabled = true;
+        _stock = _maxStock;
     }
 }

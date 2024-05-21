@@ -13,8 +13,9 @@ public abstract class Interactable : MonoBehaviour
     {
         OnStopHighLight();
         Interaction();
+        //PlayerMain.Instance.Interaction.Interactables.Clear();
     }
-
+    
     protected abstract void Interaction();
 
     List<GameObject> outlineMeshes = new();
