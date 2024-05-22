@@ -41,12 +41,18 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    public void Init() => StartCoroutine(_init());
 
-    private IEnumerator Start()
+    private IEnumerator _init()
     {
-        InvokeRepeating(nameof(TimePass), _irlHourDuration, _irlHourDuration); //repete la fonction TimePass
+        InvokeRepeating(nameof(TimePass), 0, _irlHourDuration); //repete la fonction TimePass
         yield return 0;
         OnHour.Invoke();//premiere heure
+    }
+
+    private void Start()
+    {
+        Init();
     }
     private void TimePass() //gere le temps en seconde irl pour 1h ig
     {
@@ -102,9 +108,14 @@ public class TimeManager : MonoBehaviour
         if (!isPaused) return;
 
         isPaused = false;
+
         float elapsedTime = lastRealPauseTime-LastRealTickTime;
         float remainingTime = _irlHourDuration - elapsedTime;
+
+        LastRealTickTime = Time.time;
         print($"elapsedTime : {elapsedTime} ; remainingTime : {remainingTime}");
         InvokeRepeating(nameof(TimePass), remainingTime, _irlHourDuration);
     }
+
+
 }

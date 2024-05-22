@@ -14,7 +14,7 @@ public class PlayerMain : MonoBehaviour
 
     [field: SerializeField]
     public PlayerMovement Movement { get; private set; }// référence au component "PlayerMovement" attaché au joueur
-
+    
     [field: SerializeField]
     public PlayerVisuals Visuals { get; private set; }
 

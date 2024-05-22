@@ -210,13 +210,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a81bead46beab4395b31dd93f8ca85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanRestock>k__BackingField: 0
   DialogueScript: Df_Shop_SpeedPotion
-  price: 10
-  <canRestock>k__BackingField: 1
-  gameObjectToSell: {fileID: 4742238996338866902, guid: 03f96d557b5c3294fa2fe9d223e7c69e,
+  _gameObjectToSell: {fileID: 4742238996338866902, guid: 03f96d557b5c3294fa2fe9d223e7c69e,
     type: 3}
-  ItemShopVisual: {fileID: 8854870145915813045}
-  maxStock: 1
+  _itemShopVisual: {fileID: 8854870145915813045}
+  _maxStock: 0
+  price: 10
 --- !u!4 &8165862120532598695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
