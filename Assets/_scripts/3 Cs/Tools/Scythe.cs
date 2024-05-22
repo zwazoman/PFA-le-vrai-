@@ -3,8 +3,6 @@ using UnityEngine.Experimental.Audio;
 
 public class Scythe : Tool
 {
-    [SerializeField] AudioClip[] _cutsounds;
-
     /// <summary>
     /// gère les différentes possibilités lors de l'utilisation
     /// </summary>
@@ -16,7 +14,6 @@ public class Scythe : Tool
             if(hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)) // si c'ets une plante
             {
                 if (plantMain.PlantField == null) return;
-                SFXManager.Instance.PlaySFXClip(_cutsounds, transform, 1f);
                 plantMain.Harvest.Harvest(); // récolte la plante
             }
         }
