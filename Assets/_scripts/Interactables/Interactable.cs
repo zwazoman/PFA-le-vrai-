@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider))]
 /// <summary>
@@ -8,7 +8,6 @@ using UnityEngine;
 /// </summary>
 public abstract class Interactable : MonoBehaviour
 {
-
     public void InteractWith()
     {
         OnStopHighLight();

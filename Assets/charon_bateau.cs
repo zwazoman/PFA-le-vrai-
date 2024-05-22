@@ -1,9 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class charon_bateau : MonoBehaviour
 {
     [SerializeField] BezierCurve curve;
+
+    [SerializeField] AudioClip[] _charonArrivalSound;
+    [SerializeField] float _CharonArrivalVolume = 1f;
 
     [Range(0,1)]
     public float value = 1; // cascade : 0  ; quai : 0.329
@@ -18,10 +22,13 @@ public class charon_bateau : MonoBehaviour
         //transform.position = curve.Sample(1-value);
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         setPositionAlongCurve(value);
     }
+
+#endif
 
     private void Start()
     {
@@ -47,6 +54,7 @@ public class charon_bateau : MonoBehaviour
 
     void Arriver()
     {
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
         anim.SetTrigger("arriver");
         EstDejaParti = false;
     }
@@ -55,6 +63,7 @@ public class charon_bateau : MonoBehaviour
     {
         if (EstDejaParti) return;
         EstDejaParti = true;
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
         anim.SetTrigger("partir");
     }
 

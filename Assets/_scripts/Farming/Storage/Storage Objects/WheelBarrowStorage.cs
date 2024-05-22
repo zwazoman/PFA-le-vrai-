@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 
@@ -13,6 +14,8 @@ public class WheelBarrowStorage : Storage
     [SerializeField] GameObject _emptySocket;
 
     Collider coll;
+
+    [SerializeField] AnimationCurve animationCurve;
 
     private void Awake()
     {
@@ -38,6 +41,9 @@ public class WheelBarrowStorage : Storage
         item.SetActive(false);
         item.transform.parent = transform;
         item.transform.position = transform.position + Vector3.up;
+
+        //animation
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .55f, (float a) => { transform.localScale = Vector3.one * (100 + animationCurve.Evaluate(a)); }, (float a) => { return a; },()=>transform.localScale = Vector3.one*100));
     }
 
     /// <summary>
@@ -47,11 +53,13 @@ public class WheelBarrowStorage : Storage
     public IEnumerator Empty()
     {
         PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty -= () => StartCoroutine(Empty());
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 1.1f, (float a) => { transform.localScale = Vector3.one * (100 - animationCurve.Evaluate(a) * 1.6f); }, (float a) => { return a; }, () => transform.localScale = Vector3.one * 100));
+
         for (int i = storageContent.Count - 1; i >= 0; i--)
         {
             storageContent[i].transform.position = _emptySocket.transform.position;
             Detach(storageContent[i]);
-            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
         }
         PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty += () => StartCoroutine(Empty());
     }
