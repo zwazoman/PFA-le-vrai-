@@ -27,7 +27,7 @@ public class Lever : Interactable
         SFXManager.Instance.PlaySFXClip(_millChargeSound, transform, _millChargeSoundVolume);
         
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .8f, (float a) => { Levier.localRotation = Quaternion.LerpUnclamped(Quaternion.Euler(-90, 0, 0), Quaternion.Euler(-156, 0, 0),1f- ( a *2-1) * (a * 2 -1)); }));
-        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .75f, updateWheelRotation, (float a) => { return curve.Evaluate(a); },()=> { _ = mesCouilles(); }, true));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .75f, updateWheelRotation, (float a) => { return curve.Evaluate(a); },()=> { _ = mesCouilles(); print("mes couilles"); }, true));
         
     }
 

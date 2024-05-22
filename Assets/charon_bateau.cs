@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+
 public class charon_bateau : MonoBehaviour
 {
     [SerializeField] BezierCurve curve;
@@ -21,10 +22,13 @@ public class charon_bateau : MonoBehaviour
         //transform.position = curve.Sample(1-value);
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         setPositionAlongCurve(value);
     }
+
+#endif
 
     private void Start()
     {
