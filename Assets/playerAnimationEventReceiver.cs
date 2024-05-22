@@ -15,6 +15,9 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnWateringAction;
     public UnityEvent OnWateringEnd;
 
+    public UnityEvent OnStopWaterVFX;
+    public UnityEvent OnPlayWaterVFX;
+
     public UnityEvent OnHoeEquip;
     public UnityEvent OnHoeHit;
     public UnityEvent OnHoeEnd;
@@ -41,5 +44,9 @@ public class playerAnimationEventReceiver : MonoBehaviour
 
     public void InvokeOnWalkFootstep() => OnWalkFootstep.Invoke();
     public void InvokeOnRunFootstep() => OnRunFootstep.Invoke();
+
+
+    public void InvokeOnStopWaterVFX() => OnStopWaterVFX.Invoke();
+    public void InvokeOnPlayWaterVFX() => OnPlayWaterVFX.Invoke();
 
 }
