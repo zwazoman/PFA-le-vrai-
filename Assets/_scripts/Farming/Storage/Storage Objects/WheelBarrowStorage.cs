@@ -10,8 +10,14 @@ public class WheelBarrowStorage : Storage
     [field : SerializeField] 
     public float _maxStorageWheelBarrow { get; set; }
 
-    [SerializeField] float _distanceToEmpty;
-    [SerializeField] float _hightToEmpty;
+    [SerializeField] GameObject _emptySocket;
+
+    Collider coll;
+
+    private void Awake()
+    {
+        coll = GetComponent<Collider>();
+    }
 
     private void Start()
     {
@@ -43,7 +49,7 @@ public class WheelBarrowStorage : Storage
         PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty -= () => StartCoroutine(Empty());
         for (int i = storageContent.Count - 1; i >= 0; i--)
         {
-            storageContent[i].transform.position = transform.position + transform.forward * _distanceToEmpty + Vector3.up * _hightToEmpty;
+            storageContent[i].transform.position = _emptySocket.transform.position;
             Detach(storageContent[i]);
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
         }
@@ -63,5 +69,15 @@ public class WheelBarrowStorage : Storage
         objectToEject.transform.parent = null;
         objectToEject.SetActive(true);
         storageContent.Remove(objectToEject);
+    }
+
+    public void DisableStorage()
+    {
+        coll.enabled = false;
+    }
+
+    public void EnableStorage()
+    {
+        coll.enabled = true;
     }
 }
