@@ -17,6 +17,7 @@ public class WheelBarrowHandles : MonoBehaviour
         PlayerMain.Instance.WheelBarrow.Equip();
         _storage.enabled = false;
         UiManager.Instance.Gameplay_Panel.SwitchUI();
+        _storage.DisableStorage();
         //visuels
 
         CameraBehaviour.Instance.target = FindObjectOfType<WheelBarrowMain>().Movement; //t'avais qu'à faire un singleton fdp
@@ -39,7 +40,7 @@ public class WheelBarrowHandles : MonoBehaviour
         UiManager.Instance.Gameplay_Panel.SwitchUI();
 
         transform.parent = null;
-        _storage.enabled = true;
+        _storage.EnableStorage();
 
         CameraBehaviour.Instance.target = PlayerMain.Instance.Movement;
 
