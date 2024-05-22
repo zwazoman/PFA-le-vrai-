@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ItemSellingSpot : SellingSpot
 {
+    [SerializeField] protected GameObject _gameObjectToSell;
+
+
     //item floating animation
     Vector3 _itemBasePosition;
     float _basePhase;
