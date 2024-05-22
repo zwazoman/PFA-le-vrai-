@@ -5,6 +5,9 @@ public class charon_bateau : MonoBehaviour
 {
     [SerializeField] BezierCurve curve;
 
+    [SerializeField] AudioClip[] _charonArrivalSound;
+    [SerializeField] float _CharonArrivalVolume = 1f;
+
     [Range(0,1)]
     public float value = 1; // cascade : 0  ; quai : 0.329
 
@@ -48,6 +51,7 @@ public class charon_bateau : MonoBehaviour
     void Arriver()
     {
         anim.SetTrigger("arriver");
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
         EstDejaParti = false;
     }
 
