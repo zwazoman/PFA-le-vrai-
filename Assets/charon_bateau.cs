@@ -50,8 +50,8 @@ public class charon_bateau : MonoBehaviour
 
     void Arriver()
     {
-        anim.SetTrigger("arriver");
         SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
+        anim.SetTrigger("arriver");
         EstDejaParti = false;
     }
 
@@ -59,6 +59,7 @@ public class charon_bateau : MonoBehaviour
     {
         if (EstDejaParti) return;
         EstDejaParti = true;
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
         anim.SetTrigger("partir");
     }
 
