@@ -10,7 +10,7 @@ public class Orb : Breakable
 
     private void Awake()
     {
-        maxhp = 90;
+        Maxhp = 90;
         Jump();
     }
 

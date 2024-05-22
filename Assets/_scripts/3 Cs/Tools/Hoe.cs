@@ -3,7 +3,7 @@ using UnityEngine.VFX;
 
 public class Hoe : Tool
 {
-    public int breakPower { get; set; }
+    int breakPower = 1;
 
     [SerializeField] AudioClip[] _plowSounds;
     [SerializeField] float _plowVolume = 1f;
@@ -13,10 +13,6 @@ public class Hoe : Tool
 
     [SerializeField] Transform _head;
     [SerializeField] GameObject groundHitVFXPrefab;
-    private void Awake()
-    {
-        breakPower = 1;
-    }
 
     /// <summary>
     /// gère les différentes possibilités lors de l'utilisation
@@ -42,7 +38,7 @@ public class Hoe : Tool
 
             if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable)) // si c'est un objet cassable
             {
-                breakable.SetBreak(breakPower); // casse l'objet
+                if(!breakable.HoeCantBreak) breakable.SetBreak(breakPower); // casse l'objet si il est cassable par la hoe
             }
         }
         if (!fieldHit)

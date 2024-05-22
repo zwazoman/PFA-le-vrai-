@@ -9,7 +9,7 @@ public class HolyFlask : Breakable
 
     private void Awake()
     {
-        maxhp = 1;
+        Maxhp = 1;
     }
     protected override void Break()
     {

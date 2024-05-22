@@ -6,19 +6,19 @@ using UnityEngine;
 /// </summary>
 public class Breakable : Item
 {
-    public int maxhp { get; protected set; }
+    public int Maxhp { get; protected set; }
+
+    [field : SerializeField]
+    public bool HoeCantBreak { get; private set; }
 
     [SerializeField] AudioClip[] _breakSound;
     [SerializeField] float _breakSoundVolume = 1f;
 
-    [SerializeField] AudioClip[] _effectSound;
-    [SerializeField] float _effectSoundVolume = 1f;
-
-    private int hp;
+    private int _hp;
 
     private void Awake()
     {
-        hp = maxhp;
+        _hp = Maxhp;
     }
 
     /// <summary>
@@ -27,8 +27,8 @@ public class Breakable : Item
     /// <param name="breakPower"></param>
     public void SetBreak(int breakPower)
     {
-        hp -= breakPower;
-        if(hp <= 0)
+        _hp -= breakPower;
+        if(_hp <= 0)
         {
             Break();
         }
@@ -39,7 +39,7 @@ public class Breakable : Item
     /// 
  protected virtual void Break()
     {
-        SFXManager.Instance.PlaySFXClip(_breakSound, transform, _breakSoundVolume);
+        if(_breakSound != null) SFXManager.Instance.PlaySFXClip(_breakSound, transform, _breakSoundVolume);
         Destroy(gameObject);
     }
 }
