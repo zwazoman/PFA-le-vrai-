@@ -15,6 +15,8 @@ public class WheelBarrowHandles : MonoBehaviour
     public void Equip()
     {
         PlayerMain.Instance.WheelBarrow.Equip();
+        _storage.enabled = false;
+        UiManager.Instance.Gameplay_Panel.SwitchUI();
         _storage.DisableStorage();
         //visuels
 
@@ -35,6 +37,7 @@ public class WheelBarrowHandles : MonoBehaviour
     public void UnEquip()
     {
         PlayerMain.Instance.WheelBarrow.Movement.enabled = false;
+        UiManager.Instance.Gameplay_Panel.SwitchUI();
 
         transform.parent = null;
         _storage.EnableStorage();
