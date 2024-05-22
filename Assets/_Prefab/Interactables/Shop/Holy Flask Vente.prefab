@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1667778171913208365
+--- !u!1 &3923949703101907128
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 850142244082189190}
-  - component: {fileID: 8643575334146192923}
-  - component: {fileID: 5089451154712663783}
+  - component: {fileID: 9157015854850736228}
+  - component: {fileID: 9062282448283375775}
+  - component: {fileID: 3851267657816615405}
   m_Layer: 0
   m_Name: Holy Flask
   m_TagString: Untagged
@@ -18,36 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &850142244082189190
+--- !u!4 &9157015854850736228
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667778171913208365}
+  m_GameObject: {fileID: 3923949703101907128}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 1.718, z: 0}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4120772853161210495}
+  m_Father: {fileID: 3334669973698836358}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!33 &8643575334146192923
+--- !u!33 &9062282448283375775
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667778171913208365}
+  m_GameObject: {fileID: 3923949703101907128}
   m_Mesh: {fileID: 4880472951363131118, guid: 0358e729ef2d49645af9445eb9c80509, type: 3}
---- !u!23 &5089451154712663783
+--- !u!23 &3851267657816615405
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667778171913208365}
+  m_GameObject: {fileID: 3923949703101907128}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,130 +83,69 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &138196243053125919
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: DialogueScript
-      value: Df_Shop_FishingRod
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.380005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 25.294603
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.4299927
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      propertyPath: m_Name
-      value: Holy Flask vente_Title Variant
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 350811139669349419, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
-    - {fileID: 8749204244505687625, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
-    - {fileID: 2693722899062447339, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 4732167270273800852, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
-    - {fileID: 302980676049016402, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1540566693930484254}
-    - targetCorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 850142244082189190}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7821564020310643263}
-  m_SourcePrefab: {fileID: 100100000, guid: 104f0e39e26fbcc42bf93f199699aa85, type: 3}
---- !u!4 &4120772853161210495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4090699836692009824, guid: 104f0e39e26fbcc42bf93f199699aa85,
-    type: 3}
-  m_PrefabInstance: {fileID: 138196243053125919}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8346465976013487281 stripped
+--- !u!1 &5168400051562851194
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8232125287539891630, guid: 104f0e39e26fbcc42bf93f199699aa85,
-    type: 3}
-  m_PrefabInstance: {fileID: 138196243053125919}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7821564020310643263
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3334669973698836358}
+  - component: {fileID: 5803432066333169575}
+  - component: {fileID: 8120933199870908128}
+  m_Layer: 0
+  m_Name: Holy Flask Vente
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3334669973698836358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168400051562851194}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.380005, y: 25.294603, z: 7.4299927}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4664463561476559594}
+  - {fileID: 9157015854850736228}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5803432066333169575
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168400051562851194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8120933199870908128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8346465976013487281}
+  m_GameObject: {fileID: 5168400051562851194}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3a81bead46beab4395b31dd93f8ca85, type: 3}
@@ -216,16 +155,16 @@ MonoBehaviour:
   DialogueScript: Df_Shop_HolyFlask
   _gameObjectToSell: {fileID: 4116401686646105863, guid: 1c95774e79f97744da3d963767dbeb39,
     type: 3}
-  _itemShopVisual: {fileID: 5089451154712663783}
+  _itemShopVisual: {fileID: 3851267657816615405}
   _maxStock: 1
   price: 15
---- !u!1001 &1363333135940134389
+--- !u!1001 &5129944776341009665
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 4120772853161210495}
+    m_TransformParent: {fileID: 3334669973698836358}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0040a7ab558b00f4f97f82ff63d11344,
         type: 3}
@@ -294,27 +233,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0040a7ab558b00f4f97f82ff63d11344,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9015401730156638692}
+      addedObject: {fileID: 3497275056039955525}
   m_SourcePrefab: {fileID: 100100000, guid: 0040a7ab558b00f4f97f82ff63d11344, type: 3}
---- !u!4 &1540566693930484254 stripped
+--- !u!4 &4664463561476559594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0040a7ab558b00f4f97f82ff63d11344,
     type: 3}
-  m_PrefabInstance: {fileID: 1363333135940134389}
+  m_PrefabInstance: {fileID: 5129944776341009665}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2173797789123090596 stripped
+--- !u!1 &5471961825125861456 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0040a7ab558b00f4f97f82ff63d11344,
     type: 3}
-  m_PrefabInstance: {fileID: 1363333135940134389}
+  m_PrefabInstance: {fileID: 5129944776341009665}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &9015401730156638692
+--- !u!65 &3497275056039955525
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2173797789123090596}
+  m_GameObject: {fileID: 5471961825125861456}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

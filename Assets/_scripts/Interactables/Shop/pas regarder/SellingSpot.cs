@@ -6,7 +6,6 @@ public class SellingSpot : Interactable
     public bool CanRestock { get; private set; }
 
     [SerializeField] protected string DialogueScript;
-    [SerializeField] protected GameObject _gameObjectToSell;
     [SerializeField] protected MeshRenderer _itemShopVisual;
     [SerializeField] protected int _maxStock;
 
