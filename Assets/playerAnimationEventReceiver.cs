@@ -31,9 +31,15 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public void InvokeOnScythe() => OnScythe.Invoke();
     public void InvokeOnScytheEnd() => OnScytheEnd.Invoke();
 
-    public void InvokeOnWateringEquip() => OnWateringEquip.Invoke();
+    public void InvokeOnWateringEquip() 
+    {
+        if (PlayerMain.Instance.Watering.CanWater) OnWateringEquip.Invoke(); 
+    }
     public void InvokeOnWatering() => OnWatering.Invoke();
-    public void InvokeOnWateringAction() => OnWateringAction.Invoke();
+    public void InvokeOnWateringAction()
+    {
+        if (PlayerMain.Instance.Watering.CanWater) OnWateringAction.Invoke();
+    } 
     public void InvokeOnWateringEnd() => OnWateringEnd.Invoke();
 
     public void InvokeHoeEquip() => OnHoeEquip.Invoke();
@@ -47,6 +53,9 @@ public class playerAnimationEventReceiver : MonoBehaviour
 
 
     public void InvokeOnStopWaterVFX() => OnStopWaterVFX.Invoke();
-    public void InvokeOnPlayWaterVFX() => OnPlayWaterVFX.Invoke();
+    public void InvokeOnPlayWaterVFX() 
+    {
+        if (PlayerMain.Instance.Watering.CanWater) OnPlayWaterVFX.Invoke();
+    }
 
 }
