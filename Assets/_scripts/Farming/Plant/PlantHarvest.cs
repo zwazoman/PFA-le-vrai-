@@ -11,6 +11,7 @@ public class PlantHarvest : MonoBehaviour
     public bool isHarvesteable => _main.Corruption.corruptionValue <= 0; 
 
     [SerializeField] PlantMain _main;
+    [SerializeField] AudioClip[] _cutSounds;
 
 
     /// <summary>
@@ -20,6 +21,7 @@ public class PlantHarvest : MonoBehaviour
     {
         if (!isHarvesteable) return; // vérifie si la plante est récoltable
 
+        SFXManager.Instance.PlaySFXClip(_cutSounds, transform, 1f);
         Instantiate(_main.orb, _main.Visuals.sparkleVFX.transform.position, Quaternion.identity).gameObject.transform.localScale = _main.orb.transform.localScale; //fait spawn un orbe
 
         _main.PlantField.IsEmpty = true; // annonce au champ qu'il est vide
