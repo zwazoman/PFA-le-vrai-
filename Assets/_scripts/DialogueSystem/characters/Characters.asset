@@ -9,81 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d72f339ceff91ca4c9263ccb226226e7, type: 3}
   m_Name: Characters
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacters
   Narrator:
     Name: 
     Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     Sprite: {fileID: 21300000, guid: c6618dd04ce70324592cd7dbb0449363, type: 3}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 00000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: c6618dd04ce70324592cd7dbb0449363, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 0}
   Geoffrrus:
     Name: Geoffrus
     Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     Sprite: {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5, type: 3}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 00000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 21300000, guid: 6b19e64b566b83f478e5ae95ed73c7c5,
-        type: 3}
   Bobbus:
     Name: Bobbus
     Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     Sprite: {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3, type: 3}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 00000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 21300000, guid: 730da0b111c6f294ebf8d4ec786894a3,
-        type: 3}
   Charon:
     Name: Charon
     Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     Sprite: {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571, type: 3}
-    EmotionSprites:
-      info: 0
-      keys:
-        info: 0
-        values:
-          _: 0
-          values: 00000000
-        editor_input: 0
-      values:
-        _: 0
-        values:
-        - {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571, type: 3}
-      editor_keyInput: 0
-      editor_valueInput: {fileID: 21300000, guid: 355d4791b29966b448938927f08fc571,
-        type: 3}
+  Eve:
+    Name: Eve
+    Font: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    Sprite: {fileID: 0}
