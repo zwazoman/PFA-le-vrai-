@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class charon_bateau : MonoBehaviour
@@ -54,7 +55,7 @@ public class charon_bateau : MonoBehaviour
 
     void Arriver()
     {
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
         anim.SetTrigger("arriver");
         EstDejaParti = false;
     }
@@ -63,7 +64,7 @@ public class charon_bateau : MonoBehaviour
     {
         if (EstDejaParti) return;
         EstDejaParti = true;
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
         anim.SetTrigger("partir");
     }
 

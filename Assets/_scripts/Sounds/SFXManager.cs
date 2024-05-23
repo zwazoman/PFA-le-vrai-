@@ -23,11 +23,11 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXClip(AudioClip[] audioClips, Transform spawnTransform, float volume, float pitch = 1f)
+    public void PlaySFXClip(AudioClip[] audioClips, Vector3 position, float volume, float pitch = 1f)
     {
         if (audioClips.Length == 0) return;
         int rand = Random.Range(0, audioClips.Length);
-        AudioSource audioSource = Instantiate(_SFXObject, spawnTransform.position, Quaternion.identity);
+        AudioSource audioSource = Instantiate(_SFXObject, position, Quaternion.identity);
         audioSource.clip = audioClips[rand];
         audioSource.volume = volume;
         audioSource.pitch = pitch;
