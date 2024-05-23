@@ -39,7 +39,7 @@ public class Breakable : Item
     /// 
  protected virtual void Break()
     {
-        if(_breakSound != null) SFXManager.Instance.PlaySFXClip(_breakSound, transform, _breakSoundVolume);
+        if(_breakSound != null) SFXManager.Instance.PlaySFXClip(_breakSound, transform.position, _breakSoundVolume);
         Destroy(gameObject);
     }
 }
