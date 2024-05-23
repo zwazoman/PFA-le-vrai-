@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1317746907993621078}
   - component: {fileID: 2214141848369457948}
   - component: {fileID: 7812225515100348574}
-  - component: {fileID: 4831138980522692536}
   m_Layer: 6
   m_Name: cristaux.002
   m_TagString: Untagged
@@ -84,26 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4831138980522692536
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8000212174367101863}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0050735436
-  m_Height: 0.012541237
-  m_Direction: 2
-  m_Center: {x: 0.00010660507, y: -0.013491599, z: 0.0071571223}

@@ -43,10 +43,10 @@ public class Hoe : Tool
         }
         if (!fieldHit)
         {
-            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform, _groundHitVolume);
+            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume);
             Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
         }
-        else SFXManager.Instance.PlaySFXClip(_plowSounds, transform, _plowVolume);
+        else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume);
         
 
         if(closest != null && !closest.Sowable)

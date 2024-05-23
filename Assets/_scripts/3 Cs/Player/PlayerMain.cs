@@ -45,6 +45,9 @@ public class PlayerMain : MonoBehaviour
     [field : SerializeField]
     public WateringCan Can { get; private set; }
 
+    [field: SerializeField]
+    public DialogueInputManager DialogueInput {  get; private set; }
+
     public Transform WheelBarrowSocket;
 
 
