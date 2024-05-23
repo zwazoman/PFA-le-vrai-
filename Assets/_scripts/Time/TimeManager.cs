@@ -116,6 +116,4 @@ public class TimeManager : MonoBehaviour
         print($"elapsedTime : {elapsedTime} ; remainingTime : {remainingTime}");
         InvokeRepeating(nameof(TimePass), remainingTime, _irlHourDuration);
     }
-
-
 }

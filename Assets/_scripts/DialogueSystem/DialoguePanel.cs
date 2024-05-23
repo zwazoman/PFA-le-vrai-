@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class DialoguePanel : MonoBehaviour
 {
     [Header("inputs")]
     public KeyCode skipKey = KeyCode.E;
+    public DialogueInputManager _input;
 
     [Header("Simple Dialogue Box")]
     [SerializeField] private GameObject TextBox;
@@ -38,6 +40,11 @@ public class DialoguePanel : MonoBehaviour
 
 
     int characterTimeDelay = 10;
+
+    public void Start()
+    {
+        _input = PlayerMain.Instance.DialogueInput;
+    }
 
     public async Task Write(string text)
     {
@@ -188,10 +195,10 @@ public class DialoguePanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Start()
-    {
+    //private void Start()
+    //{
         //StartDialogue("Df_testQuestion",this);
-    }
+    //}
 
 }
 

@@ -1,8 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-
-
+using UnityEngine.Rendering;
 
 /// <summary>
 /// Les enfants de cette classe sont utilisés pour écrire les dialogues entre deux personnages.
@@ -20,7 +19,11 @@ public abstract class DialogueFlow
     {
         this.WorldObject = _WorldObject;
         _panel = panel;
+
+        Debug.Log("scriptable is null: " + (characters == null).ToString()) ;
+
         _characters = characters;
+
         characters.initAllCharacters(this, panel);
     }
 
