@@ -12,8 +12,14 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _wateringCanEquip;
     [SerializeField] float _wateringCanEquipVolume = 1f;
 
+    [SerializeField] AudioClip[] _wateringCanEmptyEquip;
+    [SerializeField] float _wateringCanEmptyEquipVolume = 1f;
+
     [SerializeField] AudioClip[] _wateringAction;
     [SerializeField] float _wateringActionVolume = 1f;
+
+    [SerializeField] AudioClip[] _wateringEmpty;
+    [SerializeField] float _wateringEmptyVolume = 0.2f;
 
     [Header("Scythe")]
     [SerializeField] AudioClip[] _scytheEquip;
@@ -55,11 +61,20 @@ public class PlayerSounds : MonoBehaviour
         SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform, _wateringCanEquipVolume);
     }
 
+    public void PlayWateringCanEmptyEquipSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform, _wateringCanEmptyEquipVolume);
+    }
+
     public void PlayWateringActionSound()
     {
         SFXManager.Instance.PlaySFXClip(_wateringAction, transform, _wateringActionVolume);
     }
 
+    public void PlayWateringEmpty()
+    {
+        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform, _wateringEmptyVolume);
+    }
 
     public void PlayScytheEquipSound()
     {
