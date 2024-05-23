@@ -8,6 +8,7 @@ public class DiscordController : MonoBehaviour
 {
 
     public Discord.Discord _discord { get;  set; }
+    private long _time;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,9 @@ public class DiscordController : MonoBehaviour
         var activityManager = _discord.GetActivityManager();
         var activity = new Discord.Activity
         {
-            Details = "Plante des graines",
+            Details = "Récolte des âmes",
             State = "",
+            Timestamps = { Start = _time}
 
         };
         activityManager.UpdateActivity(activity, (res) =>
@@ -30,7 +32,14 @@ public class DiscordController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        _discord.RunCallbacks();
+    {       
+        try
+        {
+            _discord.RunCallbacks();
+        }
+        catch 
+        { 
+            Destroy(gameObject);
+        }
     }
 }
