@@ -60,4 +60,16 @@ public class playerAnimationEventReceiver : MonoBehaviour
         if (PlayerMain.Instance.Watering.CanWater) OnPlayWaterVFX.Invoke();
     }
 
+
+
+
+
+
+
+
+
+    private void Start()
+    {
+        InvokeOnStopWaterVFX();
+    }
 }

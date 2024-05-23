@@ -16,6 +16,8 @@ public class Charon : Interactable
 
     async void activateDialogue()
     {
+        GetComponent<Collider>().enabled = false;
+        PlayerMain.Instance.Interaction.Interactables.Clear();
         await UiManager.Instance.PopupDialogue(_dialogue,this);
 
         //TimeManager.Instance.pauseTime();

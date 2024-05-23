@@ -22,6 +22,11 @@ public class PlayerGrabBox : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(_interaction.Interactables.Count>0 && !_interaction.Interactables[0].GetComponent<Collider>().enabled) { _interaction.Interactables.Clear(); }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if(other.gameObject.TryGetComponent<Interactable>(out Interactable interactable))
