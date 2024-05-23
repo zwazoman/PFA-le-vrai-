@@ -9,24 +9,26 @@ public class AmbienceManager : MonoBehaviour
 
     [SerializeField] float _sphereSize = 10f;
 
-    [SerializeField] AudioClip[] _ambientSound;
-    [SerializeField] float _ambiendVolume;
+    [SerializeField] AudioClip[] _ambientEventSounds;
+    [SerializeField] float _ambientEventVolume;
+
+
 
     private void Start()
     {
-        StartCoroutine(PlayAmbientSound());
+        StartCoroutine(PlayAmbientEventSound());
     }
 
-    IEnumerator PlayAmbientSound()
+    IEnumerator PlayAmbientEventSound()
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
-            SFXManager.Instance.PlaySFXClip(_ambientSound, SelectSoundSpot(), _ambiendVolume);
+            SFXManager.Instance.PlaySFXClip(_ambientEventSounds, SelectRandomSoundSpot(), _ambientEventVolume);
         }
     }
 
-    Vector3 SelectSoundSpot()
+    Vector3 SelectRandomSoundSpot()
     {
         Vector3 spot = Random.insideUnitSphere * _sphereSize;
         Mathf.Abs(spot.y);
@@ -40,7 +42,7 @@ public class AmbienceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(PlayAmbientSound());
+        StartCoroutine(PlayAmbientEventSound());
     }
 
 }

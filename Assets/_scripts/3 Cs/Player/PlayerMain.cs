@@ -11,7 +11,6 @@ public class PlayerMain : MonoBehaviour
     [field: SerializeField]
     public WheelBarrowInputManager WBInputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
 
-
     [field: SerializeField]
     public PlayerMovement Movement { get; private set; }// référence au component "PlayerMovement" attaché au joueur
     
@@ -47,6 +46,9 @@ public class PlayerMain : MonoBehaviour
 
     [field: SerializeField]
     public DialogueInputManager DialogueInput {  get; private set; }
+
+    [field: SerializeField]
+    public AmbienceManager Ambience { get; private set; }
 
     public Transform WheelBarrowSocket;
 
