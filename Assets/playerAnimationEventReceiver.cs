@@ -11,6 +11,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnScytheEnd;
 
     public UnityEvent OnWateringEquip;
+    public UnityEvent OnWateringEmptyEquip;
     public UnityEvent OnWatering;
     public UnityEvent OnWateringAction;
     public UnityEvent OnWateringEmpty;
@@ -34,7 +35,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
 
     public void InvokeOnWateringEquip() 
     {
-        if (PlayerMain.Instance.Watering.CanWater) OnWateringEquip.Invoke(); else OnWateringEmpty.Invoke();
+        if (PlayerMain.Instance.Watering.CanWater) OnWateringEquip.Invoke(); else OnWateringEmptyEquip.Invoke();
     }
     public void InvokeOnWatering() => OnWatering.Invoke();
     public void InvokeOnWateringAction()
