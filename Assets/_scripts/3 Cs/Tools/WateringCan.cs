@@ -6,7 +6,6 @@ using UnityEngine.VFX;
 /// </summary>
 public class WateringCan : Tool
 {
-
     [SerializeField] float _waterToGive;
     [SerializeField] VisualEffect _waterVFX;
 
@@ -28,13 +27,8 @@ public class WateringCan : Tool
             if (hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)&& plantMain.CanWater) // si c'est une plante et qu'elle peut etre arros�e
             {
                 if (plantMain.PlantField == null) return;
-
-
-
                 plantMain.CanWater = false;
                 plantMain.Corruption.ReduceCorruption(_waterToGive); // r�duit la corruption de la plante cibl�
-
-                
             }
         }
     }

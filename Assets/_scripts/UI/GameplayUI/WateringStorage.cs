@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class WateringStorage : MonoBehaviour
 {
     public int WaterStorage { get; private set; }
-
+    public bool CanWater { get; private set; }
 
     public int MaxWaterStorage;
 
@@ -21,23 +21,24 @@ public class WateringStorage : MonoBehaviour
 
     private void Awake()
     {
+        CanWater = true;
         WaterStorage = MaxWaterStorage;
     }
 
     public void Replenish()
     {
-        
         StopAllCoroutines();
         UpdateUI(WaterStorage,MaxWaterStorage);
         WaterStorage = MaxWaterStorage;
+        CanWater = true;
     }
 
     public void Drain(int usedWater = 1)
     {
-        
         StopAllCoroutines();
         UpdateUI(WaterStorage, WaterStorage - usedWater);
         WaterStorage -= usedWater;
+        if (WaterStorage == 0) CanWater = false;
     }
 
     private void UpdateUI(int oldAmount,int newWaterAmount) // comment on reset le temps ? c'est chiantos
