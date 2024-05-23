@@ -8,6 +8,7 @@ public class DiscordController : MonoBehaviour
 {
 
     public Discord.Discord _discord { get;  set; }
+    private long _time;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class DiscordController : MonoBehaviour
         {
             Details = "Récolte des âmes",
             State = "",
+            Timestamps = { Start = _time}
 
         };
         activityManager.UpdateActivity(activity, (res) =>
