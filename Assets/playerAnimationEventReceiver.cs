@@ -13,6 +13,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnWateringEquip;
     public UnityEvent OnWatering;
     public UnityEvent OnWateringAction;
+    public UnityEvent OnWateringEmpty;
     public UnityEvent OnWateringEnd;
 
     public UnityEvent OnStopWaterVFX;
@@ -33,12 +34,12 @@ public class playerAnimationEventReceiver : MonoBehaviour
 
     public void InvokeOnWateringEquip() 
     {
-        if (PlayerMain.Instance.Watering.CanWater) OnWateringEquip.Invoke(); 
+        if (PlayerMain.Instance.Watering.CanWater) OnWateringEquip.Invoke(); else OnWateringEmpty.Invoke();
     }
     public void InvokeOnWatering() => OnWatering.Invoke();
     public void InvokeOnWateringAction()
     {
-        if (PlayerMain.Instance.Watering.CanWater) OnWateringAction.Invoke();
+        if (PlayerMain.Instance.Watering.CanWater) OnWateringAction.Invoke(); else OnWateringEmpty.Invoke();
     } 
     public void InvokeOnWateringEnd() => OnWateringEnd.Invoke();
 
