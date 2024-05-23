@@ -13,7 +13,7 @@ public class UI_ToolButton : MonoBehaviour
     {
 
         StopAllCoroutines();
-        if(gameObject.activeSelf && enabled) StartCoroutine(Nathan.InterpolateOverTime(0, 1f, .4f, (float a) => bouton.transform.localScale = Vector3.one * curve.Evaluate(a)  ));
+        if (gameObject.activeSelf && this.enabled) { StartCoroutine(Nathan.InterpolateOverTime(0, 1f, .4f, (float a) => bouton.transform.localScale = Vector3.one * curve.Evaluate(a))); }
     }
 
     private void Start()

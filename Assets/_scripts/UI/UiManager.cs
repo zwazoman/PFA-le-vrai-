@@ -90,6 +90,8 @@ public class UiManager : MonoBehaviour
 
         Cursor.visible = true;
         Dialogue_Panel.gameObject.SetActive(true);
+        print("TAIN");
+
     }
 
     public async Task PopupDialogue(string DialogueScript, MonoBehaviour worldObject)
@@ -99,16 +101,15 @@ public class UiManager : MonoBehaviour
 
         //pause the time 
         bool wasTimeAlreadyPaused = TimeManager.Instance.isPaused; //pour pas perturber si le temps était déjà en pause,comme dans les magasins par exemple.
-        print("debut wasTimePaused: "+wasTimeAlreadyPaused.ToString());
+
 
         if(!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
-
+        print("PU");
         ActivateDialoguePanel();
         await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();
 
-        //resume Time
-        print("fin wasTimePaused: " + wasTimeAlreadyPaused.ToString());
+        
         if (!wasTimeAlreadyPaused) TimeManager.Instance.resume();
         //reactivate player
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
