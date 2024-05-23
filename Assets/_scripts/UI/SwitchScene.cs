@@ -7,7 +7,7 @@ public class SwitchScene : MonoBehaviour
 {
     public void GoPlay()
     {
-        SceneManager.LoadScene("1");
+        SceneManager.LoadScene(1);
     }
 
     public void GoMenu()
