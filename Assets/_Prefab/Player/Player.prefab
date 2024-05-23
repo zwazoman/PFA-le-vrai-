@@ -4311,11 +4311,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 589914e0ae1062a4fafab79854534cf8, type: 3}
   - {fileID: 8300000, guid: c9f7d78c0365813418721d9185f1602e, type: 3}
   _wateringCanEquipVolume: 0.2
+  _wateringCanEmptyEquip:
+  - {fileID: 8300000, guid: 15fde725f9a6c754d887fe0a08043051, type: 3}
+  - {fileID: 8300000, guid: d1e5d01ef72a623459b336411d511b4c, type: 3}
+  _wateringCanEmptyEquipVolume: 1
   _wateringAction:
   - {fileID: 8300000, guid: ff64efe1d9be0d0418a9129aab1841c5, type: 3}
   - {fileID: 8300000, guid: 2d477a2449d46b649ab88c5a45717128, type: 3}
   - {fileID: 8300000, guid: b30fc9f9c555dcf4cb8d73f48b122c83, type: 3}
   _wateringActionVolume: 1
+  _wateringEmpty:
+  - {fileID: 8300000, guid: 3544bbd41962b5546b1070ac7a2ff70b, type: 3}
+  - {fileID: 8300000, guid: afa7aa22e1a33c341846a5f06c255141, type: 3}
+  - {fileID: 8300000, guid: 4111882f57a65b247955913d1b1ceaab, type: 3}
+  _wateringEmptyVolume: 0.2
   _scytheEquip:
   - {fileID: 8300000, guid: 98751350ac601b9429f4a15279a577e3, type: 3}
   - {fileID: 8300000, guid: 922dd848caf52b440b34b36a5b805605, type: 3}
@@ -8949,6 +8958,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnWateringEmptyEquip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayWateringCanEmptyEquipSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWatering:
     m_PersistentCalls:
       m_Calls:
@@ -8970,6 +8994,21 @@ MonoBehaviour:
       - m_Target: {fileID: 6790433302852059315}
         m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
         m_MethodName: PlayWateringActionSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnWateringEmpty:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayWateringEmpty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
