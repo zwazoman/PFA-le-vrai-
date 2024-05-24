@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.EventSystems;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] public GameplayPanel Gameplay_Panel;
     [SerializeField] PausePanel Pause_Panel;
     [SerializeField] GameObject Intro_Panel;
+    [SerializeField] GameObject _firstButtonSelect;
     //[SerializeField] DialoguePanel Dialogue_Panel;
 
     public bool canPause = true;
@@ -24,7 +26,13 @@ public class UiManager : MonoBehaviour
 
     private void OnPause()
     {
-        if(Gameplay_Panel.gameObject.activeSelf)ActivatePausePanel();else ActivateGameplayPanel();
+        if (Gameplay_Panel.gameObject.activeSelf) 
+        { 
+            ActivatePausePanel() ;
+            EventSystem.current.SetSelectedGameObject(_firstButtonSelect);
+        }          
+        else ActivateGameplayPanel();
+        
     }
 
     private void Awake()
