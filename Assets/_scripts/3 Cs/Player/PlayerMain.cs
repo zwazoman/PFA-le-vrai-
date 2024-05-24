@@ -71,6 +71,6 @@ public class PlayerMain : MonoBehaviour
         {
             instance = this;
         }
-        Cursor.visible = false;
+        Cursor.visible = false; //Cursor devient invisible
     }
 }
