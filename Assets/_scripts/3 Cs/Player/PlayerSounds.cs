@@ -36,12 +36,15 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _toolWoosh;
     [SerializeField] float _toolWooshVolume = 1f;
 
-    [Header("Pops")]
+    [Header("Other")]
     [SerializeField] AudioClip[] _pickupPop;
     [SerializeField] float _pickupPopVolume = 1f;
 
     [SerializeField] AudioClip[] _dropPop;
     [SerializeField] float _dropPopSound = 1f;
+
+    [SerializeField] AudioClip[] _buySound;
+    [SerializeField] float _buySoundVolume = 1f;
 
 
     public void PlayToolWooshSound()
@@ -101,6 +104,11 @@ public class PlayerSounds : MonoBehaviour
     public void PlayDropPopSound()
     {
         SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound);
+    }
+
+    public void PlayBuySOund()
+    {
+        SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume);
     }
 
 }
