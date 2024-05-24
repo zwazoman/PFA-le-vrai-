@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// component "Main" du joueur référençant toutes ses autres classes utilmisées comme components
@@ -51,6 +52,9 @@ public class PlayerMain : MonoBehaviour
     public AmbienceManager Ambience { get; private set; }
 
     public Transform WheelBarrowSocket;
+
+    public UnityEvent OnEnterInterior;
+    public UnityEvent OnExitInterior;
 
 
     //singleton

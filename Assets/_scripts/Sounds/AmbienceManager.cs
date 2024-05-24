@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
 {
+    [SerializeField] AudioSource _ambienceAudioSource;
+
     [SerializeField] float _minTime;
     [SerializeField] float _maxTime;
 
     [SerializeField] float _sphereSize = 10f;
 
     [SerializeField] AudioClip[] _ambientEventSounds;
-    [SerializeField] float _ambientEventVolume;
-
-
-
+    [SerializeField] float _ambientEventVolume = 1f;
     private void Start()
     {
         StartCoroutine(PlayAmbientEventSound());
@@ -38,11 +37,13 @@ public class AmbienceManager : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
+        _ambienceAudioSource.Pause();
     }
 
     private void OnEnable()
     {
         StartCoroutine(PlayAmbientEventSound());
+        _ambienceAudioSource.Play();
     }
 
 }
