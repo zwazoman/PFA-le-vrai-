@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 2
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -4341,7 +4341,7 @@ MonoBehaviour:
   MaxSlopeAngle: 30
   velocity: {x: 0, y: 0, z: 0}
   bounciness: 0
-  Gravity: 30
+  Gravity: 20
   GroundFriction: 100
   Airfriction: 50
   speedMultiplier: 1
@@ -4351,6 +4351,7 @@ MonoBehaviour:
   _playerRunFactor: 1.8
   _acceleration: 170
   airAcceleration: 100
+  RotationInverseSpeed: 14
 --- !u!114 &579326058760354247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4367,11 +4368,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   MaxCollisionTests: 5
-  GroundCheckDistance: 0.15
+  GroundCheckDistance: 0.17
   MaxSlopeAngle: 30
   velocity: {x: 0, y: 0, z: 0}
   bounciness: 0
-  Gravity: 20
+  Gravity: 15
   GroundFriction: 20.2
   Airfriction: 11
   speedMultiplier: 1
