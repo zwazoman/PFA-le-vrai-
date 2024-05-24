@@ -21,7 +21,6 @@ public class WateringStorage : MonoBehaviour
 
     private void Awake()
     {
-        
         WaterStorage = MaxWaterStorage;
     }
 

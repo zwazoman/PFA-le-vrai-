@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
@@ -9,7 +10,10 @@ using UnityEngine;
 public class WheelBarrowStorage : Storage
 {
     [field : SerializeField] 
-    public float _maxStorageWheelBarrow { get; set; }
+    public float MaxStorageWheelBarrow { get; set; }
+
+    public event Action OnAdd;
+    public event Action OnRemove;
 
     [SerializeField] GameObject _emptySocket;
 
@@ -29,7 +33,7 @@ public class WheelBarrowStorage : Storage
 
     protected override bool CanAbsorb(Item item)
     {
-        return storageContent.Count <= _maxStorageWheelBarrow;
+        return storageContent.Count <= MaxStorageWheelBarrow;
     }
 
     /// <summary>
@@ -42,7 +46,8 @@ public class WheelBarrowStorage : Storage
         item.transform.parent = transform;
         item.transform.position = transform.position + Vector3.up;
 
-        //animation
+        //animation et UI
+        OnAdd?.Invoke();
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .55f, (float a) => { transform.localScale = Vector3.one * (100 + animationCurve.Evaluate(a)); }, (float a) => { return a; },()=>transform.localScale = Vector3.one*100));
     }
 
@@ -59,7 +64,7 @@ public class WheelBarrowStorage : Storage
         {
             storageContent[i].transform.position = _emptySocket.transform.position;
             Detach(storageContent[i]);
-            yield return new WaitForSeconds(Random.Range(0.05f, 0.2f));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.05f, 0.2f));
         }
         PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty += () => StartCoroutine(Empty());
     }
@@ -77,6 +82,7 @@ public class WheelBarrowStorage : Storage
         objectToEject.transform.parent = null;
         objectToEject.SetActive(true);
         storageContent.Remove(objectToEject);
+        OnRemove?.Invoke();
     }
 
     public void DisableStorage()
