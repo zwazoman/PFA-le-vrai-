@@ -45,6 +45,7 @@ public class WheelBarrowStorage : Storage
         item.SetActive(false);
         item.transform.parent = transform;
         item.transform.position = transform.position + Vector3.up;
+        PlayerMain.Instance.GrabBox.ClearHands();
 
         //animation et UI
         OnAdd?.Invoke();
@@ -81,8 +82,8 @@ public class WheelBarrowStorage : Storage
     {
         objectToEject.transform.parent = null;
         objectToEject.SetActive(true);
-        storageContent.Remove(objectToEject);
         OnRemove?.Invoke();
+        storageContent.Remove(objectToEject);
     }
 
     public void DisableStorage()

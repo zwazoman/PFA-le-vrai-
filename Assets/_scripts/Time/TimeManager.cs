@@ -12,6 +12,9 @@ public class TimeManager : MonoBehaviour
     //float _minute;
     public event Action OnHour;
     public event Action OnDay;
+    public event Action OnMorning;
+    public event Action OnEvening;
+
     [SerializeField] float _irlHourDuration;
     public float IrlHourDuration=>_irlHourDuration;
 
@@ -62,6 +65,8 @@ public class TimeManager : MonoBehaviour
         OnHour?.Invoke();
 
         //print($"heure : {Hour} , day : {Day}");
+        if (Hour == 6) OnMorning?.Invoke();
+        if (Hour == 20) OnEvening?.Invoke();
 
         if (Hour >= 24)
         {
