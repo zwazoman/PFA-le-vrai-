@@ -54,7 +54,8 @@ public class AmbienceManager : MonoBehaviour
     {
         //StopCoroutine(PlayNightAmbientEventSound());
         StartCoroutine(PlayDayAmbientEventSound());
-        _dayAmbienceAudioSource.Play();
+        _nightAmbienceAudioSource.Pause();
+        //_dayAmbienceAudioSource.Play();
     }
 
     private void OnDisable()
@@ -62,6 +63,7 @@ public class AmbienceManager : MonoBehaviour
         StopCoroutine(PlayDayAmbientEventSound());
         //StartCoroutine(PlayNightAmbientEventSound());
         _dayAmbienceAudioSource.Pause();
+        //_nightAmbienceAudioSource.Play();
     }
 
 }

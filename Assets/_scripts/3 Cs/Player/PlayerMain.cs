@@ -51,6 +51,9 @@ public class PlayerMain : MonoBehaviour
     [field: SerializeField]
     public AmbienceManager Ambience { get; private set; }
 
+    [field: SerializeField]
+    public ItemTag Tag { get; private set; }
+
     public Transform WheelBarrowSocket;
 
     public UnityEvent OnEnterInterior;
