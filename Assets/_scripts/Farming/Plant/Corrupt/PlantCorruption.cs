@@ -49,6 +49,7 @@ public class PlantCorruption : MonoBehaviour
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
         SetCorruptionValue(corruptionValue - reduce);
+        _Main.Visuals.PlayWateredAnimation();
         if (_Main.Harvest.isHarvesteable) SFXManager.Instance.PlaySFXClip(_plantReadySound, transform.position, _plantReadySoundVolume);
     }
 
