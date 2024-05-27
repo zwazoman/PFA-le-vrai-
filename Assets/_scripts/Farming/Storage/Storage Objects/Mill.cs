@@ -53,12 +53,12 @@ public class Mill : MonoBehaviour
         }
         _collList.Clear();
 
-        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform, _rechargeSoundVolume);
+        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
     }
 
     IEnumerator PlaySounds()
     {
-        SFXManager.Instance.PlaySFXClip(_crushSound, transform, _crushSoundVolume);
+        SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
         yield return new WaitForSeconds(0.5f);
        
     }

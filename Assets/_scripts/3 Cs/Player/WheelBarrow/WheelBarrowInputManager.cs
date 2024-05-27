@@ -14,6 +14,10 @@ public class WheelBarrowInputManager : MonoBehaviour
 
     public event Action OnEmpty;
 
+    public event Action OnMove;
+
+    public event Action OnStop;
+
     public event Action OnStartSprint;
 
     public event Action OnStopSprint;
@@ -22,6 +26,7 @@ public class WheelBarrowInputManager : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<float>();
+        if (context.performed) OnMove?.Invoke(); else if (context.canceled) OnStop?.Invoke();
     }
 
     public void Turn(InputAction.CallbackContext context)

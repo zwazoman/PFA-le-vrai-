@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// component "Main" du joueur référençant toutes ses autres classes utilmisées comme components
@@ -10,7 +11,6 @@ public class PlayerMain : MonoBehaviour
 
     [field: SerializeField]
     public WheelBarrowInputManager WBInputManager { get; private set; } // référence au component "PlayerInputManager" attaché au joueur
-
 
     [field: SerializeField]
     public PlayerMovement Movement { get; private set; }// référence au component "PlayerMovement" attaché au joueur
@@ -45,7 +45,19 @@ public class PlayerMain : MonoBehaviour
     [field : SerializeField]
     public WateringCan Can { get; private set; }
 
+    [field: SerializeField]
+    public DialogueInputManager DialogueInput {  get; private set; }
+
+    [field: SerializeField]
+    public AmbienceManager Ambience { get; private set; }
+
+    [field: SerializeField]
+    public ItemTag Tag { get; private set; }
+
     public Transform WheelBarrowSocket;
+
+    public UnityEvent OnEnterInterior;
+    public UnityEvent OnExitInterior;
 
 
     //singleton
@@ -62,6 +74,6 @@ public class PlayerMain : MonoBehaviour
         {
             instance = this;
         }
-        Cursor.visible = false;
+        Cursor.visible = false; //Cursor devient invisible
     }
 }

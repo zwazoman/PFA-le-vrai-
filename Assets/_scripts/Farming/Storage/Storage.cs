@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Storage : MonoBehaviour
 {
-    protected List<GameObject> storageContent = new List<GameObject>();
+    [HideInInspector] public List<GameObject> storageContent = new List<GameObject>();
 
     private void Awake()
     {
