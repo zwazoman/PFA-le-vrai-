@@ -45,6 +45,7 @@ public class PlayerHands : MonoBehaviour
         _interaction.enabled = false;
         _tools.canUse = false;
 
+        PlayerMain.Instance.Tag.Showtag(item.Name);
         PlayerMain.Instance.Sounds.PlayPickupPopSound();
         PlayerMain.Instance.Visuals.GrabItem();
 
@@ -66,6 +67,7 @@ public class PlayerHands : MonoBehaviour
         _interaction.enabled = true;
         _tools.canUse = true;
 
+        PlayerMain.Instance.Tag.Hidetag();
         PlayerMain.Instance.Sounds.PlayDropPopSound();
         PlayerMain.Instance.Visuals.releaseItem();
 

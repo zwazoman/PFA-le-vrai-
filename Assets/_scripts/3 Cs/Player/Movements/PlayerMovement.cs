@@ -16,11 +16,15 @@ public class PlayerMovement : DynamicObject
     //acceleration du joueur lors de ses déplacements
     [SerializeField] float _acceleration, airAcceleration;
 
-
+    [SerializeField] float RotationInverseSpeed = 120f;
 
     public void Unblock()
     {
-        gameObject.transform.position = transform.position + Vector3.up * 6;
+        if (isGrounded) 
+        {
+            gameObject.transform.position = transform.position + Vector3.up * 6;
+        }
+        
     }
 
     private void OnDisable()
@@ -52,9 +56,10 @@ public class PlayerMovement : DynamicObject
     {
         Vector3 direction = Matrix4x4.Rotate(Quaternion.Euler(Vector3.up * 45)) * new Vector3(_inputManager.moveInput.x, 0, _inputManager.moveInput.y);
         Move(direction.normalized,_playerMoveSpeed,isGrounded? _acceleration: airAcceleration );
-        if(Velocity.sqrMagnitude > 8)
+        if(direction.sqrMagnitude >0.1f)
         {
-            transform.rotation = Quaternion.Euler(Vector3.up * Mathf.Atan2(Velocity.x, Velocity.z) * Mathf.Rad2Deg); // rotaton jolie
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.up *( Mathf.Atan2(-direction.z, direction.x) * Mathf.Rad2Deg+90f))   , Time.deltaTime* RotationInverseSpeed); // rotaton jolie
         }
         //print(_playerMoveSpeed);
     }

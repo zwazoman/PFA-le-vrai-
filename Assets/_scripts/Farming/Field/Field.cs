@@ -16,6 +16,8 @@ public class Field : MonoBehaviour
 
     [SerializeField] VisualEffect hitVFX;
 
+    [SerializeField] bool SawOnStart = false;
+
     private void Awake()
     {
         IsEmpty = true;
@@ -23,6 +25,22 @@ public class Field : MonoBehaviour
         _notSowableMesh = _mF.mesh;
         _hoeCount = 3;
     }
+
+    private void Start()
+    {
+        if (SawOnStart)
+        {
+            Sowable = true;
+            if (Sowable)
+            {
+                FieldStorage storage = gameObject.AddComponent<FieldStorage>();
+                storage.Field = this;
+            }
+
+            _mF.mesh = Sowable ? _sowableMesh : _notSowableMesh;
+        }
+    }
+
 
     /// <summary>
     /// change le mesh du champ, le rend apte a la plantation lors d'un coup de bêche

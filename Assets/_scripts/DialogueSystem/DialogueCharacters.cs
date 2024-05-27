@@ -15,6 +15,7 @@ public class DialogueCharacters : ScriptableObject
         Narrator.Init(flow, panel);
         Bobbus.Init(flow, panel);
         Geoffrrus.Init(flow, panel);
+        Eve.Init(flow, panel);
     }
 }
 

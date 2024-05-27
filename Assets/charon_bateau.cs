@@ -18,6 +18,7 @@ public class charon_bateau : MonoBehaviour
     [SerializeField] public Charon charon;
 
     bool EstDejaParti = false;
+
     private void Update()
     {
         //transform.position = curve.Sample(1-value);
@@ -40,6 +41,12 @@ public class charon_bateau : MonoBehaviour
     {
 
         //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
+        if(TimeManager.Instance.Day % 2  != 1)
+        {
+            return;
+        }
+
+
         if (TimeManager.Instance.Hour == 1)
         {
             StartCoroutine( Nathan.InterpolateOverTime(1, 0.323f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));

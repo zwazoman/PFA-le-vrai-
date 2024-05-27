@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 
 /// <summary>
@@ -10,19 +12,20 @@ public class TP : MonoBehaviour
 
     [SerializeField] TP otherTP;
     [HideInInspector] public GameObject Arrivee;
-    public bool pauseTimeWhenActivated = false;
+    [field : SerializeField]
+    public bool EnterInterior { get; private set; }
     Volume fondu;
     private void Awake()
     {
         Arrivee = transform.Find("Arrivée").gameObject;
-        Assert.IsFalse(pauseTimeWhenActivated && otherTP.pauseTimeWhenActivated, "les deux tp mettent le temps en pause,il y'a un probleme. couillon va");
+        Assert.IsFalse(EnterInterior && otherTP.EnterInterior, "les deux tps mènent vers l'intérieur le frère");
         fondu = GameObject.Find("BlackVolume").GetComponent<Volume>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<PlayerMain>(out PlayerMain player))
         {
-            Assert.IsFalse(pauseTimeWhenActivated && otherTP.pauseTimeWhenActivated, "les deux tp mettent le temps en pause,il y'a un probleme. couillon va");
+            Assert.IsFalse(EnterInterior && otherTP.EnterInterior, "les deux tps mènent vers l'intérieur le frère");
             commencerFondu();
             //tp le joueur
             player.transform.position = otherTP.Arrivee.transform.position;
@@ -30,14 +33,16 @@ public class TP : MonoBehaviour
 
             //fondu au noir
 
-            //met le temps en pause ou le debloque selon si on rentre ou on sort
-            if (pauseTimeWhenActivated)
+            //met le temps en pause ou le debloque selon si on rentre ou on sort ou pas
+            if (EnterInterior)
             {
-                TimeManager.Instance.pauseTime();
+                //TimeManager.Instance.pauseTime();
+                PlayerMain.Instance.OnEnterInterior.Invoke();
             }
-            else if (otherTP.pauseTimeWhenActivated)
+            else if (otherTP.EnterInterior)
             {
-                TimeManager.Instance.resume();
+                //TimeManager.Instance.resume();
+                PlayerMain.Instance.OnExitInterior.Invoke();
             }
 
         }
