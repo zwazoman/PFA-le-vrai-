@@ -22,11 +22,12 @@ public class AmbienceManager : MonoBehaviour
     {
         TimeManager.Instance.OnMorning += OnEnable;
         TimeManager.Instance.OnEvening += OnDisable;
-        StartCoroutine(PlayDayAmbientEventSound());
     }
 
-    IEnumerator PlayDayAmbientEventSound()
+    IEnumerator PlayDayAmbience()
     {
+        _nightAmbienceAudioSource.Pause();
+        _dayAmbienceAudioSource.Play();
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
@@ -34,8 +35,10 @@ public class AmbienceManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayNightAmbientEventSound()
+    IEnumerator PlayNightAmbience()
     {
+        _dayAmbienceAudioSource.Pause();
+        _nightAmbienceAudioSource.Play();
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
@@ -52,18 +55,14 @@ public class AmbienceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //StopCoroutine(PlayNightAmbientEventSound());
-        StartCoroutine(PlayDayAmbientEventSound());
-        _nightAmbienceAudioSource.Pause();
-        //_dayAmbienceAudioSource.Play();
+        StopCoroutine(PlayNightAmbience());
+        StartCoroutine(PlayDayAmbience());
     }
 
     private void OnDisable()
     {
-        StopCoroutine(PlayDayAmbientEventSound());
-        //StartCoroutine(PlayNightAmbientEventSound());
-        _dayAmbienceAudioSource.Pause();
-        //_nightAmbienceAudioSource.Play();
+        StopCoroutine(PlayDayAmbience());
+        StartCoroutine(PlayNightAmbience());
     }
 
 }
