@@ -15,9 +15,9 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] float NaturalGrowRateWhenWatered;
     [SerializeField] PlantMain _Main;
 
-    [Header("Sounds")]
-    [SerializeField] AudioClip[] _plantReadySound;
-    [SerializeField] float _plantReadySoundVolume = 1f;
+    //[Header("SFX")]
+    //[SerializeField] AudioClip[] _plantReadySound;
+    //[SerializeField] float _plantReadySoundVolume = 1f;
 
     
 
@@ -50,7 +50,7 @@ public class PlantCorruption : MonoBehaviour
     {
         SetCorruptionValue(corruptionValue - reduce);
         _Main.Visuals.PlayWateredAnimation();
-        if (_Main.Harvest.isHarvesteable) SFXManager.Instance.PlaySFXClip(_plantReadySound, transform.position, _plantReadySoundVolume);
+        //if (_Main.Harvest.isHarvesteable) SFXManager.Instance.PlaySFXClip(_plantReadySound, transform.position, _plantReadySoundVolume);
     }
 
 

@@ -132,10 +132,6 @@ MonoBehaviour:
   <CorruptionRateWhenNotWatered>k__BackingField: 0.4
   NaturalGrowRateWhenWatered: 0.2
   _Main: {fileID: -7605233672586355946}
-  _plantReadySound:
-  - {fileID: 8300000, guid: 7a5e99d3051bae54eb605ede6ff0e26b, type: 3}
-  - {fileID: 8300000, guid: 6f71ff7578715c647807ea0ad82f5ea7, type: 3}
-  _plantReadySoundVolume: 1
 --- !u!114 &-7605233672586355946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +165,11 @@ MonoBehaviour:
   _cutSounds:
   - {fileID: 8300000, guid: 79d5de57fea2bf1448130b4a69b1d116, type: 3}
   - {fileID: 8300000, guid: fab60e7edf443014d9a4603ad66de3e4, type: 3}
+  _cutVolume: 1
+  _juiceSounds:
+  - {fileID: 8300000, guid: 7a5e99d3051bae54eb605ede6ff0e26b, type: 3}
+  - {fileID: 8300000, guid: 6f71ff7578715c647807ea0ad82f5ea7, type: 3}
+  _juiceVolume: 1
 --- !u!114 &3616232998929044952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +223,11 @@ MonoBehaviour:
   sparkleVFX: {fileID: 8561927128270491536}
   DyingVFX: {fileID: 2543629367917372548}
   splashVFX: {fileID: 8851191504234242735}
+  _wateredSound:
+  - {fileID: 8300000, guid: 5699701c71a400846869a128145e467c, type: 3}
+  - {fileID: 8300000, guid: a7fbfcdea32af7a48a93f71ec869f826, type: 3}
+  - {fileID: 8300000, guid: 5481ecc4fd9878948888e2dd1a95aa6a, type: 3}
+  _wateredVolume: 1
   animationCurve:
     serializedVersion: 2
     m_Curve:

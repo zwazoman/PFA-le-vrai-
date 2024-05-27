@@ -35,6 +35,10 @@ public class PlantVisuals : MonoBehaviour
     [SerializeField] public VisualEffect DyingVFX;
     [SerializeField] VisualEffect splashVFX;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip[] _wateredSound;
+    [SerializeField] float _wateredVolume = 1f;
+
     [SerializeField] AnimationCurve animationCurve;
 
     
@@ -96,6 +100,8 @@ public class PlantVisuals : MonoBehaviour
 
     void applyVisuals(float newValue) //appelé dans la coroutine
     {
+        newValue = Mathf.Pow(newValue, 1.2f);
+
         //mesh
         mesh.SetBlendShapeWeight(0, Mathf.Clamp01(newValue * 2) * 100);
         mesh.SetBlendShapeWeight(1, Mathf.Clamp01(newValue * 2 - 1) * 100);
@@ -127,6 +133,9 @@ public class PlantVisuals : MonoBehaviour
     public void PlayWateredAnimation()
     {
         //--- ton son ici Nestor ---
+        //--- merci mon frère ---
+
+        SFXManager.Instance.PlaySFXClip(_wateredSound, transform.position, _wateredVolume);
         
         StartCoroutine(Nathan.ExecuteWithDelay(() => { splashVFX.Play(); /*ou bien ici si tu veux que ça soit au milieu de l'animation*/    }, .25f));
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .5f, applyWaterAnimation, (float a) =>{return a;},OnWateringAnimationEnd));
@@ -135,7 +144,6 @@ public class PlantVisuals : MonoBehaviour
     void OnWateringAnimationEnd()
     {
         transform.localScale = Vector3.one;
-
     }
 
     void applyWaterAnimation(float a)
