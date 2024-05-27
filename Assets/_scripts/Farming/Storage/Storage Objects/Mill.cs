@@ -39,13 +39,13 @@ public class Mill : MonoBehaviour
     /// </summary>
     public async Task Crush()
     {
-        StartCoroutine(PlaySounds());
-        OnCrush.Invoke();
+        SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
+        OnCrush?.Invoke();
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
             if(coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
-            if(coll.gameObject.transform.root.GetComponentInChildren<Orb>()) vfxSource.playFX();
+            if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
 
             
 
@@ -54,12 +54,5 @@ public class Mill : MonoBehaviour
         _collList.Clear();
 
         SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
-    }
-
-    IEnumerator PlaySounds()
-    {
-        SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
-        yield return new WaitForSeconds(0.5f);
-       
     }
 }
