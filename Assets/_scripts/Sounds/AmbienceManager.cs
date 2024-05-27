@@ -20,13 +20,13 @@ public class AmbienceManager : MonoBehaviour
 
     private void Start()
     {
-        TimeManager.Instance.OnMorning += OnEnable;
-        TimeManager.Instance.OnEvening += OnDisable;
+        TimeManager.Instance.OnMorning += DayAmbience;
+        TimeManager.Instance.OnEvening += NightAmbience;
     }
 
     IEnumerator PlayDayAmbience()
     {
-        _nightAmbienceAudioSource.Pause();
+        _nightAmbienceAudioSource.Stop();
         _dayAmbienceAudioSource.Play();
         while (true)
         {
@@ -37,7 +37,7 @@ public class AmbienceManager : MonoBehaviour
 
     IEnumerator PlayNightAmbience()
     {
-        _dayAmbienceAudioSource.Pause();
+        _dayAmbienceAudioSource.Stop();
         _nightAmbienceAudioSource.Play();
         while (true)
         {
@@ -53,16 +53,26 @@ public class AmbienceManager : MonoBehaviour
         return transform.position + spot;
     }
 
-    private void OnEnable()
+    private void DayAmbience()
     {
         StopCoroutine(PlayNightAmbience());
         StartCoroutine(PlayDayAmbience());
     }
 
-    private void OnDisable()
+    private void NightAmbience()
     {
         StopCoroutine(PlayDayAmbience());
         StartCoroutine(PlayNightAmbience());
+    }
+
+    public void EnterInterior()
+    {
+        StopAllCoroutines();
+    }
+
+    public void Exitinterior()
+    {
+        if (TimeManager.Instance.IsDay) StartCoroutine(PlayDayAmbience()); else StartCoroutine(PlayNightAmbience());
     }
 
 }
