@@ -28,7 +28,7 @@ public class WheelBarrowHandles : MonoBehaviour
         transform.parent = PlayerMain.Instance.WheelBarrowSocket;
         transform.localPosition = Vector3.zero;
         transform.rotation = Quaternion.Euler(PlayerMain.Instance.transform.eulerAngles + Vector3.right * 180 + Vector3.forward * 180);
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
         //changement de collider pour la brouette (gros bordel)
         /*PlayerMain.Instance.PlayerCollider.enabled = false;
         PlayerMain.Instance.WheelBarrowCollider.enabled = true;*/
@@ -44,7 +44,7 @@ public class WheelBarrowHandles : MonoBehaviour
 
         CameraBehaviour.Instance.target = PlayerMain.Instance.Movement;
 
-        GetComponent<Collider>().enabled = true;
+        //GetComponent<Collider>().enabled = true;
         /*PlayerMain.Instance.WheelBarrowCollider.enabled = false;
         PlayerMain.Instance.PlayerCollider.enabled = true;*/
     }

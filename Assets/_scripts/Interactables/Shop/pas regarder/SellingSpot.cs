@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class SellingSpot : Interactable
@@ -16,6 +17,7 @@ public class SellingSpot : Interactable
     public virtual void SellItem()
     {
         PlayerMain.Instance.Stats.AddMoney(-price);
+        PlayerMain.Instance.Sounds.PlayBuySOund();
     }
 
     protected override void Interaction()

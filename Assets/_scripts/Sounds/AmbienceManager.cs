@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
 {
-    [SerializeField] AudioSource _ambienceAudioSource;
+    [SerializeField] AudioSource _dayAmbienceAudioSource;
+    [SerializeField] AudioSource _nightAmbienceAudioSource;
 
     [SerializeField] float _minTime;
     [SerializeField] float _maxTime;
 
     [SerializeField] float _sphereSize = 10f;
 
-    [SerializeField] AudioClip[] _ambientEventSounds;
-    [SerializeField] float _ambientEventVolume = 1f;
+    [SerializeField] AudioClip[] _dayAmbientEventSounds;
+    [SerializeField] float _dayAmbientEventVolume = 1f;
+
+    [SerializeField] AudioClip[] _nightAmbientEventSounds;
+    [SerializeField] float _nightAmbientEventVolume = 1f;
+
     private void Start()
     {
-        StartCoroutine(PlayAmbientEventSound());
+        TimeManager.Instance.OnMorning += OnEnable;
+        TimeManager.Instance.OnEvening += OnDisable;
+        StartCoroutine(PlayDayAmbientEventSound());
     }
 
-    IEnumerator PlayAmbientEventSound()
+    IEnumerator PlayDayAmbientEventSound()
     {
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
-            SFXManager.Instance.PlaySFXClip(_ambientEventSounds, SelectRandomSoundSpot(), _ambientEventVolume);
+            SFXManager.Instance.PlaySFXClip(_dayAmbientEventSounds, SelectRandomSoundSpot(), _dayAmbientEventVolume);
+        }
+    }
+
+    IEnumerator PlayNightAmbientEventSound()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
+            SFXManager.Instance.PlaySFXClip(_nightAmbientEventSounds, SelectRandomSoundSpot(), _nightAmbientEventVolume);
         }
     }
 
@@ -34,16 +50,20 @@ public class AmbienceManager : MonoBehaviour
         return transform.position + spot;
     }
 
-    private void OnDisable()
-    {
-        StopAllCoroutines();
-        _ambienceAudioSource.Pause();
-    }
-
     private void OnEnable()
     {
-        StartCoroutine(PlayAmbientEventSound());
-        _ambienceAudioSource.Play();
+        //StopCoroutine(PlayNightAmbientEventSound());
+        StartCoroutine(PlayDayAmbientEventSound());
+        _nightAmbienceAudioSource.Pause();
+        //_dayAmbienceAudioSource.Play();
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(PlayDayAmbientEventSound());
+        //StartCoroutine(PlayNightAmbientEventSound());
+        _dayAmbienceAudioSource.Pause();
+        //_nightAmbienceAudioSource.Play();
     }
 
 }

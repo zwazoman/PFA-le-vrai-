@@ -86,7 +86,7 @@ public class introManager : MonoBehaviour
 
 
         //depart bateau
-        StartCoroutine(Nathan.InterpolateOverTime(0.538f,0 , TimeManager.Instance.IrlHourDuration*5, bateau.setPositionAlongCurve, (v) => { return _boatMovementCurve.Evaluate(v); }, sequence, false));
+        StartCoroutine(Nathan.InterpolateOverTime(0.538f,0 , TimeManager.Instance.IrlHourDuration*5, bateau.setPositionAlongCurve, (v) => { return _boatMovementCurve.Evaluate(v); }));
 
         //bateau.PartirPourDeVrai();
         TimeManager.Instance.OnHour += bateau.OnHour;
