@@ -5201,12 +5201,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5056766720356638632, guid: b2597dfbc54267c46bb92031e6dc79e7,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8245605553659854606, guid: b2597dfbc54267c46bb92031e6dc79e7,
         type: 3}
       propertyPath: m_Name
       value: WheelBarrow
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7003897954770156217, guid: b2597dfbc54267c46bb92031e6dc79e7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5502,6 +5508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4a8473c405ca84ebff7691f18972bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: 
   pickUpRotation: {x: -90, y: 0, z: 0}
 --- !u!4 &4467460581335854450 stripped
 Transform:
