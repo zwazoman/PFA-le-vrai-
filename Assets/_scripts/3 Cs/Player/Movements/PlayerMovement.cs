@@ -20,7 +20,11 @@ public class PlayerMovement : DynamicObject
 
     public void Unblock()
     {
-        gameObject.transform.position = transform.position + Vector3.up * 6;
+        if (isGrounded) 
+        {
+            gameObject.transform.position = transform.position + Vector3.up * 6;
+        }
+        
     }
 
     private void OnDisable()
