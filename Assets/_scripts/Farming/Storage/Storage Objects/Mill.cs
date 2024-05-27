@@ -44,9 +44,11 @@ public class Mill : MonoBehaviour
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
-            if(coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
-            if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
-
+            if (coll.enabled)
+            {
+                if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
+                if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
+            }
             
 
             await Task.Delay(100);
