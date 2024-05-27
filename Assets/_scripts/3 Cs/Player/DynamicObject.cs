@@ -110,7 +110,7 @@ public class DynamicObject : MonoBehaviour
     /// </summary>
     protected void UpdatePhysics()
     {
-        AddForce(Vector3.down * Gravity);
+        if (!isGrounded) AddForce(Vector3.down * Gravity); else AddForce(Vector3.down * Gravity/2f);
 
         UpdateLastFrameInfo();
         velocity+=TotalForce;
