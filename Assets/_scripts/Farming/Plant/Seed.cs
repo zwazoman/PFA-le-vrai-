@@ -7,6 +7,6 @@ public class Seed : Item
 
     private void Start()
     {
-        Jump();
+        
     }
 }

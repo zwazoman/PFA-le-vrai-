@@ -7,6 +7,8 @@ public class ItemJump : MonoBehaviour
 {
     public Rigidbody RB { get; set; }
     [SerializeField] float _jumpForce = 10;
+
+    [SerializeField] bool JumpOnStart = true;
     private void Awake()
     {
         RB = GetComponent<Rigidbody>();
@@ -19,5 +21,10 @@ public class ItemJump : MonoBehaviour
     {
         Vector3 direction = new Vector3(Random.Range(-0.2f, 0.2f), 0.5f, Random.Range(-0.2f, 0.2f));
         RB.AddForce(direction * _jumpForce, ForceMode.Impulse); // fait sauter l'objet lorsqu'il est instancié
+    }
+
+    private void Start()
+    {
+        if(JumpOnStart) Jump();
     }
 }

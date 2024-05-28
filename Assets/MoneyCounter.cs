@@ -11,6 +11,8 @@ public class MoneyCounter : MonoBehaviour
     [SerializeField] AnimationCurve scaleCurve;
     float scale = 1;
 
+    Coroutine u;
+
     private void Start()
     {
         money = PlayerMain.Instance.Stats.Money;
@@ -19,11 +21,14 @@ public class MoneyCounter : MonoBehaviour
     public void SetMoney(float to)
     {
         StartCoroutine(Nathan.InterpolateOverTime(money, to, 0.5f, ApplyText, Nathan.SmoothStep01));
+        if(u!=null) StopCoroutine(u);
+        u = StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, applyScale, Nathan.SmoothStep01));
     }
 
     void applyScale(float a)
     {
-        scale = Mathf.Lerp(scale, 1, scaleCurve.Evaluate(a));
+        print("mes boules ");
+        scale = Mathf.Clamp( Mathf.Lerp(scale, 1,a) + scaleCurve.Evaluate(a) ,1,1.8f);
         transform.localScale = Vector3.one * scale;
     }
 

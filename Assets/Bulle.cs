@@ -31,4 +31,13 @@ public class Bulle : MonoBehaviour
         transform.position = target.position+CameraBehaviour.Instance.transform.up * offset.y;
     }
 
+    private IEnumerator Start()
+    {
+        yield return null;
+        if(target == null)
+        {
+            Debug.LogError("T'as pas set up la bulle gros fils de pute va");
+            Destroy(gameObject);
+        }
+    }
 }

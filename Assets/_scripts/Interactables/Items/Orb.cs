@@ -11,8 +11,10 @@ public class Orb : Breakable
     private void Awake()
     {
         Maxhp = 90;
-        Jump();
+        
     }
+
+
 
     protected override void Break()
     {
