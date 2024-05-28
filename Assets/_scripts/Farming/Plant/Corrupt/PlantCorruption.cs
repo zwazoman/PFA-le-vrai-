@@ -15,6 +15,10 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] float NaturalGrowRateWhenWatered;
     [SerializeField] PlantMain _Main;
 
+    //[Header("SFX")]
+    //[SerializeField] AudioClip[] _plantReadySound;
+    //[SerializeField] float _plantReadySoundVolume = 1f;
+
     
 
     private void Start()
@@ -44,7 +48,9 @@ public class PlantCorruption : MonoBehaviour
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
-            SetCorruptionValue(corruptionValue - reduce);
+        SetCorruptionValue(corruptionValue - reduce);
+        _Main.Visuals.PlayWateredAnimation();
+        //if (_Main.Harvest.isHarvesteable) SFXManager.Instance.PlaySFXClip(_plantReadySound, transform.position, _plantReadySoundVolume);
     }
 
 

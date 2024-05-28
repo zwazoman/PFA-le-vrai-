@@ -33,13 +33,18 @@ public class PlantVisuals : MonoBehaviour
     [Header("VFX")]
     [SerializeField] public VisualEffect sparkleVFX;
     [SerializeField] public VisualEffect DyingVFX;
+    [SerializeField] VisualEffect splashVFX;
+
+    [Header("SFX")]
+    [SerializeField] AudioClip[] _wateredSound;
+    [SerializeField] float _wateredVolume = 1f;
 
     [SerializeField] AnimationCurve animationCurve;
 
     
-    
-    
-    
+
+    float CurrentSaturation = 1;
+
     private void Start()
     {
         rotationOffset = Random.value*360;
@@ -47,7 +52,13 @@ public class PlantVisuals : MonoBehaviour
         //animation du scale pour donner l'impression qu'elle sort du sol
         StartCoroutine(Nathan.InterpolateOverTime(0, 1,.5f, (float interpolatedValue) => transform.localScale = Vector3.one * interpolatedValue , (float alpha) => { return /*Mathf.SmoothStep(0, 1, alpha)*/animationCurve.Evaluate(alpha); }));
 
+        DyingVFX.playRate = 1.5f;
         sparkleVFX.Stop();
+        splashVFX.Stop();
+
+
+
+
     }
 
     private void OnValidate()
@@ -61,12 +72,36 @@ public class PlantVisuals : MonoBehaviour
         if(isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
 
         if (_main.Harvest.isHarvesteable) sparkleVFX.Play(); else sparkleVFX.Stop(); //vfx quand la plante peut etre récoltée.
-        if (_main.CanWater && !_main.Harvest.isHarvesteable) DyingVFX.Play(); else DyingVFX.Stop(); //vfx quand la plante se corromp.car elle n'a pas été arrosée
+        
+        if (_main.CanWater && !_main.Harvest.isHarvesteable)//vfx quand la plante se corromp.car elle n'a pas été arrosée
+        {
+            StartCoroutine(Nathan.InterpolateOverTime(CurrentSaturation, .4f, .5f, (float a) => {
+                CurrentSaturation = a;
+                MaterialPropertyBlock BodyProperties = new();
+                BodyProperties.SetFloat("_Saturation", CurrentSaturation);
+                mesh.SetPropertyBlock(BodyProperties, 0);
+            }, Nathan.SmoothStep01)); 
+            
+            DyingVFX.Play();
+        }
+        else
+        {
+            StartCoroutine(Nathan.InterpolateOverTime(CurrentSaturation,1.1f, .5f, (float a) => { 
+                CurrentSaturation = a;
+                MaterialPropertyBlock BodyProperties = new();
+                BodyProperties.SetFloat("_Saturation", CurrentSaturation);
+                mesh.SetPropertyBlock(BodyProperties, 0);
+            }, Nathan.SmoothStep01));
+
+            DyingVFX.Stop();
+        } 
 
     }
 
     void applyVisuals(float newValue) //appelé dans la coroutine
     {
+        newValue = Mathf.Pow(newValue, 1.2f);
+
         //mesh
         mesh.SetBlendShapeWeight(0, Mathf.Clamp01(newValue * 2) * 100);
         mesh.SetBlendShapeWeight(1, Mathf.Clamp01(newValue * 2 - 1) * 100);
@@ -94,5 +129,32 @@ public class PlantVisuals : MonoBehaviour
             return Vector3.Lerp(middle_scale, pure_scale, /*Mathf.Clamp01(*/alpha * 2 - 1);
         }
     }
+
+    public void PlayWateredAnimation()
+    {
+        //--- ton son ici Nestor ---
+        //--- merci mon frère ---
+
+        SFXManager.Instance.PlaySFXClip(_wateredSound, transform.position, _wateredVolume);
+        
+        StartCoroutine(Nathan.ExecuteWithDelay(() => { splashVFX.Play(); /*ou bien ici si tu veux que ça soit au milieu de l'animation*/    }, .25f));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, .5f, applyWaterAnimation, (float a) =>{return a;},OnWateringAnimationEnd));
+    }
+
+    void OnWateringAnimationEnd()
+    {
+        transform.localScale = Vector3.one;
+    }
+
+    void applyWaterAnimation(float a)
+    {
+        //scale 
+        transform.localScale = Vector3.one * (1f + Nathan.Parabola( a) * 0.3f);
+        
+        MaterialPropertyBlock dBodyProperties = new();
+        dBodyProperties.SetFloat("_waterIntensity", (1f-  a)*(1f-a));
+        mesh.SetPropertyBlock(dBodyProperties, 0);
+    }
+    
 
 }

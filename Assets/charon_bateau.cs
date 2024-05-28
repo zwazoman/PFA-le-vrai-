@@ -63,6 +63,7 @@ public class charon_bateau : MonoBehaviour
     void Arriver()
     {
         SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
+        print("arriver là");
         charon.GetComponent<Collider>().enabled = true;
 
         anim.SetTrigger("arriver");
