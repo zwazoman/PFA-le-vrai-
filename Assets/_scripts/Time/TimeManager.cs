@@ -70,7 +70,7 @@ public class TimeManager : MonoBehaviour
 
         //print($"heure : {Hour} , day : {Day}");
         if (Hour == 6) { OnMorning?.Invoke(); IsDay = true; IsNight = false; }
-        if (Hour == 20) { OnEvening?.Invoke(); IsDay = false; IsNight = true; }
+        if (Hour == 18) { OnEvening?.Invoke(); IsDay = false; IsNight = true; }
 
         if (Hour >= 24)
         {

@@ -12,11 +12,12 @@ public class Field : MonoBehaviour
     [SerializeField] MeshFilter _mF;
     [SerializeField] Mesh _sowableMesh;
     [SerializeField] Mesh _notSowableMesh;
+    [SerializeField] Collider _destroyCollider;
     int _hoeCount = 3;
 
     [SerializeField] VisualEffect hitVFX;
 
-    [SerializeField] bool SawOnStart = false;
+    [SerializeField] bool SowOnStart = false;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class Field : MonoBehaviour
 
     private void Start()
     {
-        if (SawOnStart)
+        if (SowOnStart)
         {
             Sowable = true;
             if (Sowable)
@@ -38,6 +39,7 @@ public class Field : MonoBehaviour
             }
 
             _mF.mesh = Sowable ? _sowableMesh : _notSowableMesh;
+            _destroyCollider.enabled = Sowable;
         }
     }
 
@@ -66,6 +68,7 @@ public class Field : MonoBehaviour
             if(GetComponent<FieldStorage>()) Destroy(GetComponent<FieldStorage>());
         }
         _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;
+        _destroyCollider.enabled = Sowable;
     }
 
     /// <summary>
@@ -84,25 +87,6 @@ public class Field : MonoBehaviour
             plant.GetComponent<PlantMain>().PlantField = this;
             IsEmpty = false;
             _hoeCount = 4;
-        }
-    }
-    /// <summary>
-    /// remet une plant retirée d'un champs via la pelle dans ce champ
-    /// </summary>
-    /// <param name="plant"></param>
-    public void RePlant(GameObject plant)
-    {
-        if (Sowable && IsEmpty)
-        {
-            Destroy(GetComponent<FieldStorage>()); // detruit le storage
-            plant.transform.position = transform.position + Vector3.up;
-            //plant.transform.rotation = Quaternion.identity; // place la plante
-            Destroy(plant.GetComponent<Item>());
-            Destroy(plant.GetComponent<Rigidbody>()); // retire le rigidbody
-            Destroy(plant.GetComponent<Plant>()); // retire Plant de type item
-            plant.GetComponent<PlantMain>().PlantField = this; // définit ce champ comme étant le champ de la plante
-            plant.GetComponent<PlantMain>().Corruption.UnFreezeCorruption();
-            IsEmpty = false;
         }
     }
 }
