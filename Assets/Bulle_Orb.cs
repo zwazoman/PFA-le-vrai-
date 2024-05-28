@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Bulle_Orb : MonoBehaviour
 {
-    public static bool alreadyHappened;
+    public static int count;
     [SerializeField] int image;
     [SerializeField] private Bulle bullePrefab;
     // Start is called before the first frame update
     void Start()
     {
-        if (!alreadyHappened && Time.time>1)
+        if (count<5 && Time.time>1)
         {
             Instantiate(bullePrefab, transform ).setUp(image,gameObject,Vector3.up);
-            alreadyHappened = true;
+            count++ ;
         }
         Destroy(this);
     }
