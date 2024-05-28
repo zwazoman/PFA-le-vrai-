@@ -9,10 +9,10 @@ public class Df_Shop_Shop_Seed : DialogueFlow
     {
         _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
-        await _characters.Geoffrrus.Say("Une graine en plus pour votre labeur, que vous pouvez emportez de suite. Vous n’avez qu’à sélectionner un des trois types disponibles.");
-        await _characters.Geoffrrus.Say($"Je vous en demande seulement quelques âmes, {((SellingSpot)WorldObject).price}.");
+        await _characters.Geoffrrus.Say("-Une graine- en plus pour votre labeur, que vous pouvez emportez de suite. Vous n’avez qu’à sélectionner un des trois types disponibles.");
+        await _characters.Geoffrrus.Say($"Je vous en demande seulement quelques -âmes, {((SellingSpot)WorldObject).price}.-");
 
-        int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        int resultat = await _characters.Narrator.Ask($"Voulez vous cette -graine- pour -{((SellingSpot)WorldObject).price} âmes.-?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)

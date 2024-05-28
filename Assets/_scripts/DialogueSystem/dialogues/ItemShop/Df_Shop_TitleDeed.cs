@@ -9,10 +9,10 @@ public class Df_Shop_TitleDeed : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
-        await _characters.Geoffrrus.Say("Avec ce parchemin, vous pourrez débloquer une nouvelle parcelle pour y planter des âmes et augmenter votre production.");
-        await _characters.Geoffrrus.Say($"{((SellingSpot)WorldObject).price} âmes pour ton bon plaisir.");
+        await _characters.Geoffrrus.Say("Avec ce parchemin, vous pourrez débloquer -une nouvelle parcelle pour y planter des âmes- et augmenter votre production.");
+        await _characters.Geoffrrus.Say($"-{((SellingSpot)WorldObject).price} âmes- pour ton bon plaisir.");
 
-        int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter ce -titre de propriéter- pour -{((SellingSpot)WorldObject).price} âmes.-?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat==0)   
         {
             if(((SellingSpot)WorldObject).price<=PlayerMain.Instance.Stats.Money)
