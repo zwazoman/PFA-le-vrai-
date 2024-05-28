@@ -14,6 +14,7 @@ public class Orb : Breakable
         Jump();
     }
 
+
     protected override void Break()
     {
         PlayerMain.Instance.Stats.AddMoney(10);

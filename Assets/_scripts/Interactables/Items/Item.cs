@@ -22,6 +22,7 @@ public class Item : Interactable
         _itemTag = GetComponent<ItemTag>();
     }
 
+
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
@@ -29,6 +30,8 @@ public class Item : Interactable
     {
         PlayerMain.Instance.Hands.Pickup(this);
     }
+
+    public virtual void Drop() { }
 
     public virtual void Jump()
     {

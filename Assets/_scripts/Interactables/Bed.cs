@@ -15,6 +15,7 @@ public class Bed : Interactable
 
     public void Sleep()
     {
+        commencerFondu();
         if (TimeManager.Instance.Hour < 6 || TimeManager.Instance.Hour > 20)
         {
             TimeManager.Instance.SkipTo(6);
