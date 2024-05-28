@@ -17,7 +17,6 @@ public class WateringCan : Tool
         base.Use();
         if (PlayerMain.Instance.Watering.WaterStorage <= 0) // si l'arrosoir est vide
         {
-            print("plus d'eau");
             return;
         }
 

@@ -15,6 +15,11 @@ public class PlantMain : MonoBehaviour
 
     [field: SerializeField]
     public PlantVisuals Visuals { get; private set; }
+
+    [field: SerializeField]
+    public Bulle_Plantes bulleTrigger { get; private set; }
+
+
     public bool CanWater { get; set; } = true;
 
     public void Unplant()
