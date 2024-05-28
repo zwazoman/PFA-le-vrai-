@@ -3572,7 +3572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 127.2, y: -119.4}
+  m_AnchoredPosition: {x: 127, y: -795}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3394655584226371842
@@ -6769,7 +6769,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 220, y: -339}
+  m_AnchoredPosition: {x: 220, y: -1015}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7604255443946971257
@@ -6814,12 +6814,12 @@ MonoBehaviour:
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 1
-  m_colorMode: 3
+  m_colorMode: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 0.59114444, b: 0, a: 1}
-    topRight: {r: 0.754717, g: 0.5322316, b: 0, a: 1}
-    bottomLeft: {r: 1, g: 0.87648165, b: 0, a: 1}
-    bottomRight: {r: 0.8679245, g: 0.5692917, b: 0, a: 1}
+    topRight: {r: 1, g: 0.59114444, b: 0, a: 1}
+    bottomLeft: {r: 1, g: 0.59114444, b: 0, a: 1}
+    bottomRight: {r: 1, g: 0.59114444, b: 0, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
@@ -6883,6 +6883,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d1dd6b5a3004343b6f570807fb77c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 7233316847893508132}
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.025112
+      outSlope: 6.025112
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.090165794
+      value: 0.543259
+      inSlope: 3.2635584
+      outSlope: 3.2635584
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -1.0988777
+      outSlope: -1.0988777
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1678521
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7433634496067591668
 GameObject:
   m_ObjectHideFlags: 0
@@ -7572,9 +7606,9 @@ RectTransform:
   - {fileID: 1510287350582321995}
   m_Father: {fileID: 2548093900998611300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -99.7}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -149.7}
   m_SizeDelta: {x: 93.3, y: 35.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &460266197486524442
@@ -8192,10 +8226,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3562933147437763164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -884, y: 201}
-  m_SizeDelta: {x: 46.1, y: 58.4}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 76, y: -1015}
+  m_SizeDelta: {x: 46.099976, y: 58.400024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &351709530228636503
 CanvasRenderer:
