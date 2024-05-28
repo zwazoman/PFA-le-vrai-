@@ -10,7 +10,7 @@ public class Clock : MonoBehaviour
 {
     [SerializeField] TMP_Text Compteur;
     float AnimationDuration = 1.0f;
-    private void UpdateVisuals() { if (enabled) { StartCoroutine(MoveNeedle()); Compteur.text = TimeManager.Instance.Hour.ToString() + "h"; } }
+    private void UpdateVisuals() { if (isActiveAndEnabled) { StartCoroutine(MoveNeedle()); Compteur.text = TimeManager.Instance.Hour.ToString() + "h"; } }
     private void Start()
     {
         TimeManager.Instance.OnHour += UpdateVisuals; 
