@@ -15,10 +15,17 @@ public class PlantCorruption : MonoBehaviour
     [SerializeField] float NaturalGrowRateWhenWatered;
     [SerializeField] PlantMain _Main;
 
+
+    //[Header("SFX")]
+    //[SerializeField] AudioClip[] _plantReadySound;
+    //[SerializeField] float _plantReadySoundVolume = 1f;
+
     
 
     private void Start()
     {
+        _Main.bulleTrigger.spawnBubbleWhenPlayerIsNear = true;
+
         SetCorruptionValue(baseCorruption);
         TimeManager.Instance.OnDay+= UpdateCorruption;
     }
@@ -31,20 +38,24 @@ public class PlantCorruption : MonoBehaviour
         //si on l'a arrosé ce jour-ci , elle pousse pendant la nuit.Sinon, elle se corromp.
         if (_Main.CanWater)
         {
-             _Main.CanWater = true;
+            _Main.CanWater = true;
             SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered);
+            
         }
         else
         {
             _Main.CanWater = true;
             SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
         }
-                                      
+        _Main.bulleTrigger.spawnBubbleWhenPlayerIsNear = true;
+
     }
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 
     {
-            SetCorruptionValue(corruptionValue - reduce);
+        SetCorruptionValue(corruptionValue - reduce);
+        _Main.Visuals.PlayWateredAnimation();
+        //if (_Main.Harvest.isHarvesteable) SFXManager.Instance.PlaySFXClip(_plantReadySound, transform.position, _plantReadySoundVolume);
     }
 
 

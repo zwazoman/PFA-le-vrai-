@@ -28,7 +28,7 @@ public class WheelBarrowContent : MonoBehaviour
     void Add()
     {
         StopAllCoroutines();
-        UpdateUI(_storage.storageContent.Count, _storage.storageContent.Count + 1);
+        UpdateUI(_storage.storageContent.Count -1, _storage.storageContent.Count);
     }
 
     void Remove()
