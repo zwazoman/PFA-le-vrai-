@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4742238996338866902}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.011228762, y: -0.70701766, z: -0.70701766, w: 0.011228762}
-  m_LocalPosition: {x: 63.9, y: 37.818554, z: 176.34}
+  m_LocalRotation: {x: 0.70565945, y: -0.045219384, z: -0.045219384, w: -0.70565945}
+  m_LocalPosition: {x: 63.9, y: 37.540226, z: 176.34}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -164,10 +164,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: 
   pickUpRotation: {x: -90, y: 0, z: 0}
-  <HoeCantBreak>k__BackingField: 0
-  _breakSound:
-  - {fileID: 8300000, guid: 6522a0411441f4d46925bc555b601d41, type: 3}
-  - {fileID: 8300000, guid: 28c47bbae8d20ae43bf1e78a156aa715, type: 3}
-  - {fileID: 8300000, guid: 6e6d4f7c62537a648880e985347e60db, type: 3}
-  _breakSoundVolume: 1
   _speedFactor: 1.3
