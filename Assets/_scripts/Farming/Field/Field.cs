@@ -39,7 +39,7 @@ public class Field : MonoBehaviour
             }
 
             _mF.mesh = Sowable ? _sowableMesh : _notSowableMesh;
-            _destroyCollider.enabled = Sowable;
+            _destroyCollider.enabled = !Sowable;
         }
     }
 
@@ -52,7 +52,6 @@ public class Field : MonoBehaviour
         
         if (!IsEmpty ) return;  
         
-        print("try plow");
         _hoeCount--;
         
         Sowable = _hoeCount<=0;
@@ -68,7 +67,7 @@ public class Field : MonoBehaviour
             if(GetComponent<FieldStorage>()) Destroy(GetComponent<FieldStorage>());
         }
         _mF.mesh = Sowable ? _sowableMesh: _notSowableMesh;
-        _destroyCollider.enabled = Sowable;
+        _destroyCollider.enabled = !Sowable;
     }
 
     /// <summary>
