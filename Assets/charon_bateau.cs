@@ -40,8 +40,8 @@ public class charon_bateau : MonoBehaviour
     public void OnHour()
     {
 
-        //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
-        if(TimeManager.Instance.Day % 2  != 1)
+        //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à 11h il repart ;
+        if(TimeManager.Instance.Day % 2  != 1) // tous les deux jours
         {
             return;
         }
@@ -55,10 +55,7 @@ public class charon_bateau : MonoBehaviour
         {
             Partir();
         }
-
     }
-
-
 
     void Arriver()
     {

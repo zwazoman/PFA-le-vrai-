@@ -17,10 +17,11 @@ public class Df_Charon_Livraison : DialogueFlow
         "voici tes graines Bobbus. Elles sont toutes fraiches, c'est jeudi. ",
         "Un moustique, ma li... pardon,j'étais ailleurs.",
         "...",
+        "UNE SOURIS A L'AIDE ! Voilà tes graines. AAAHH",
         "Ma femme m'a quitté Bobbus.",
         "ça sent le poisson? bizarre. Voici tes graines.",
         "Tu sais Bobbus, je me demande parfois si je n'étais pas livreur de pizzas dans une autre vie. Enfin bon, en tous cas voici tes graines.",
-        "Ma vie n'est qu'un cercle monotone Bobbus. Je n'en peux plus. J'ai besoin d'un nouvel air. Termine vite ce jeu veux-tu ?"
+        "Ma vie n'est qu'un cycle monotone Bobbus. Je n'en peux plus. J'ai besoin d'un nouvel air. Termine vite ce jeu veux-tu ?"
     };
 
     List<string> dialogue2 = new List<string>()

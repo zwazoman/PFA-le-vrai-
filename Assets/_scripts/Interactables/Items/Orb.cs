@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class Orb : Breakable
 {
-    OrbCharon _tutorialScript;
+    OrbTuto _tutorialScript;
 
     [field : SerializeField]
     public int OrbValue { get; private set; }
@@ -18,11 +18,10 @@ public class Orb : Breakable
 
     private void Awake()
     {
-        _tutorialScript = GetComponent<OrbCharon>();
+        _tutorialScript = GetComponent<OrbTuto>();
         Maxhp = 90;
         Jump();
     }
-
 
     protected override void Break()
     {

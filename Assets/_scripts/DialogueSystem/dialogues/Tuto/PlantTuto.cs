@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbCharon : MonoBehaviour
+public class PlantTuto : MonoBehaviour
 {
-    public static bool Activated = false;
+    public static int Count = 0;
     [SerializeField] string _dialogueScript;
 
     public void ActivateTutorial()
     {
-        if (!Activated)
+        print("OH LE TUTO");
+        Count++;
+        print(Count);
+        if (Count == 3)
         {
             _ = UiManager.Instance.PopupDialogue(_dialogueScript, this);
-            Activated = true;
         }
         Destroy(this);
     }
