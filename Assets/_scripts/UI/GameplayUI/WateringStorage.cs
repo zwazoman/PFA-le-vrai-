@@ -34,6 +34,7 @@ public class WateringStorage : MonoBehaviour
 
     public void Drain(int usedWater = 1)
     {
+        if (WaterStorage <= 0) return;
         StopAllCoroutines();
         UpdateUI(WaterStorage, WaterStorage - usedWater);
         WaterStorage = Mathf.Max(0, WaterStorage - usedWater);
