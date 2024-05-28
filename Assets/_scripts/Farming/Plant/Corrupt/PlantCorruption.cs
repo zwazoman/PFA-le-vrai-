@@ -40,14 +40,15 @@ public class PlantCorruption : MonoBehaviour
         {
             _Main.CanWater = true;
             SetCorruptionValue(corruptionValue + CorruptionRateWhenNotWatered);
-            _Main.bulleTrigger.spawnBubbleWhenPlayerIsNear = true;
+            
         }
         else
         {
             _Main.CanWater = true;
             SetCorruptionValue(corruptionValue - NaturalGrowRateWhenWatered);
         }
-                                      
+        _Main.bulleTrigger.spawnBubbleWhenPlayerIsNear = true;
+
     }
 
     public void ReduceCorruption(float reduce) //reduit la corruption acec l'arrosoire 

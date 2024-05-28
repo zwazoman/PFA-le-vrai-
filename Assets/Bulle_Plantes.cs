@@ -9,15 +9,28 @@ public class Bulle_Plantes : MonoBehaviour
 
     [SerializeField] Bulle bubblePrefab;
     [SerializeField] int id;
+    [SerializeField] PlantMain plantMain;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(count<6 && spawnBubbleWhenPlayerIsNear)
+        StartCoroutine(t());
+        
+    }
+
+    private IEnumerator t()
+    {
+        if(count<=5)
+        yield return new WaitForSeconds(3);
+        else
+        yield return new WaitForSeconds(8);
+
+
+        if (/*count < 6*/plantMain.CanWater  && spawnBubbleWhenPlayerIsNear)
         {
-            spawnBubbleWhenPlayerIsNear=false;
+            spawnBubbleWhenPlayerIsNear = false;
             count++;
 
-            Instantiate(bubblePrefab).setUp(id,gameObject,Vector3.up*3);
+            Instantiate(bubblePrefab).setUp(id, gameObject, Vector3.up * 3);
 
         }
     }
