@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -7,8 +8,9 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
+    [SerializeField] TMP_Text Compteur;
     float AnimationDuration = 1.0f;
-    private void UpdateVisuals() { if(enabled) StartCoroutine(MoveNeedle()); }
+    private void UpdateVisuals() { if (enabled) { StartCoroutine(MoveNeedle()); Compteur.text = TimeManager.Instance.Hour.ToString() + "h"; } }
     private void Start()
     {
         TimeManager.Instance.OnHour += UpdateVisuals; 
@@ -18,7 +20,7 @@ public class Clock : MonoBehaviour
     {
         float endTime = Time.time + AnimationDuration;
 
-        Quaternion targetRotation = Quaternion.Euler(0,0,- (TimeManager.Instance.Hour%12)/12f * 360f+90f);
+        Quaternion targetRotation = Quaternion.Euler(0,0,- (TimeManager.Instance.Hour%24f)/24f * 360f+90f);
         Quaternion BaseRotation = transform.rotation;
         while (Time.time < endTime)
         {

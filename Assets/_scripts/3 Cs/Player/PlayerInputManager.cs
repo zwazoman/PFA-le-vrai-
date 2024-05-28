@@ -17,6 +17,8 @@ public class PlayerInputManager : MonoBehaviour
     public event Action OnSprintEnd;
     // event utilisation de la houe
     public event Action OnHoe;
+    //event utilisation d'items
+    public event Action OnItem;
     // event utilisation de l'arrosoir
     public event Action OnWateringCan;
     // event utilisation de la faux
@@ -68,6 +70,11 @@ public class PlayerInputManager : MonoBehaviour
         if (!enabled) return;
 
         if (context.performed) OnHoe?.Invoke();
+    }
+
+    public void UseItem(InputAction.CallbackContext context)
+    {
+        if (context.performed) OnItem?.Invoke();
     }
 
     /// <summary>
