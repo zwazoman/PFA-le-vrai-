@@ -66,7 +66,7 @@ public class DialoguePanel : MonoBehaviour
         foreach (char character in text)
         {
             //ecriture character par character
-            if (character != '-')
+            if (character != '#')
             {
                 _dialogueText.text += character;
 
