@@ -10,13 +10,9 @@ public class Mill : MonoBehaviour
     [SerializeField] UnityEvent OnCrush;
     [SerializeField] xpSource  vfxSource;
 
-    [Header("Sounds")]
+    [Header("SFXs")]
     [SerializeField] AudioClip[] _crushSound;
     [SerializeField] float _crushSoundVolume = 1f;
-
-    [SerializeField] AudioClip[] _rechargeSound;
-    [SerializeField] float _rechargeSoundVolume = 1f;
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,12 +45,10 @@ public class Mill : MonoBehaviour
                 if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
                 if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
             }
-            
 
             await Task.Delay(100);
         }
         _collList.Clear();
 
-        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
     }
 }
