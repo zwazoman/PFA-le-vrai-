@@ -30,7 +30,6 @@ public class SwitchScene : MonoBehaviour
 
     private IEnumerator Loading(List<AsyncOperation> ops)
     {
-        print("UwU");
         for (int i = 0; i < ops.Count; i++)
         {
             while (!ops[i].isDone)
