@@ -20,7 +20,7 @@ public class Orb : Breakable
     {
         _tutorialScript = GetComponent<OrbTuto>();
         Maxhp = 90;
-        Jump();
+        //Jump();
     }
 
     protected override void Break()

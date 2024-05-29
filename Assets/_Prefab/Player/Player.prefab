@@ -1629,17 +1629,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070005664228040457}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00006096329}
+  m_LocalRotation: {x: 1, y: 0.000000022351736, z: -0.000000029802315, w: 2.220445e-16}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000050747603}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2967640659277264003}
-  m_Father: {fileID: 2807419967239744350}
+  m_Father: {fileID: 7838184158709726156}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47.68}
+  m_AnchoredPosition: {x: 0.00004359654, y: -47.679977}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6055602102042885144
@@ -3223,6 +3223,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4025539742948286784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7838184158709726156}
+  m_Layer: 5
+  m_Name: LaFleche
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7838184158709726156
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025539742948286784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8166533626165934415}
+  m_Father: {fileID: 2807419967239744350}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4106070640982241247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,6 +5174,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f9214a17-cb2f-4c97-a51b-67e4507f3e35
     m_ActionName: WheelBarrow/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9158366651026814126}
+        m_TargetAssemblyTypeName: DialogueInputManager, Assembly-CSharp
+        m_MethodName: Submit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2b61a01d-8b1f-49eb-8048-01213a6cebfa
+    m_ActionName: UI/skipDialogue[/Keyboard/e,/Keyboard/space,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -7104,7 +7156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2807419967239744350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7117,7 +7169,7 @@ RectTransform:
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8166533626165934415}
+  - {fileID: 7838184158709726156}
   - {fileID: 5643340662979033375}
   m_Father: {fileID: 3562933147437763164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7178,6 +7230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 8345130943502578752}
+  target: {fileID: 0}
+  LaFleche: {fileID: 0}
+  Margin: 0
 --- !u!1 &6763716471172538994
 GameObject:
   m_ObjectHideFlags: 0

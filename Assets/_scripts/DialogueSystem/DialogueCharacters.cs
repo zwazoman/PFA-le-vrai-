@@ -60,7 +60,7 @@ public class DialogueCharacter
 
         await _Panel.Write(text);
 
-        while (!(Input.GetKeyUp(_Panel.skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) await Task.Yield();
+        while (!(Input.GetKeyUp(_Panel.skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) await Task.Yield();
         //while (!DialogueInputManager._keyUp) await Task.Yield();
 
     }
