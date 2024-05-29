@@ -39,7 +39,7 @@ public class DialogueInputManager : MonoBehaviour
             _keyUp = false;
         }*/
 
-
+        print("submitted pu1;");
         StartCoroutine(UpdateKeyInfo(ctx));
     }
 
