@@ -16,6 +16,9 @@ public class PlantMain : MonoBehaviour
     [field: SerializeField]
     public PlantVisuals Visuals { get; private set; }
 
+    [field : SerializeField]
+    public PlantTuto Tuto { get; private set; }
+
     [field: SerializeField]
     public Bulle_Plantes bulleTrigger { get; private set; }
 

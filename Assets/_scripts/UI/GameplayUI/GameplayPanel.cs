@@ -9,17 +9,14 @@ public class GameplayPanel : MonoBehaviour
     [SerializeField] private GameObject _UiWheelbarrow;
     [SerializeField] private GameObject _UiWalk;
 
+    [SerializeField] private MoneyCounter MoneyCounter;
     
     public void UpdateDisplay(float from, float to)
     {
         //print("putain de money qui marche pas la pute");
-        _textMoney.text = to.ToString();
+        MoneyCounter.SetMoney(to);
     }
 
-    private void UpdateText(float newValue)
-    {
-        _textMoney.text = Mathf.Round(newValue).ToString();
-    }
     public void Start()
     {
         _textMoney.text = PlayerMain.Instance.Stats.Money.ToString();

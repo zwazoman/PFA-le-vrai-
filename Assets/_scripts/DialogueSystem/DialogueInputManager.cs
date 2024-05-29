@@ -5,16 +5,17 @@ using UnityEngine.InputSystem;
 
 public class DialogueInputManager : MonoBehaviour
 {
-    public event Action OnSkip;
+    //public event Action OnSkip;
 
-    bool _keyDown;
-    bool _keyUp;
-    bool _keyHold;
+    public static bool _keyDown = false;
+    public static bool _keyUp = false;
+    public static bool _keyHold = false;
 
-    public void Submit(InputAction.CallbackContext context)
+
+    public void Submit(InputAction.CallbackContext ctx)
     {
-        
-        if (context.duration < 0.5f)
+
+        /*if (context.duration < 0.5f)
         {
             _keyDown = true;
         }
@@ -36,7 +37,35 @@ public class DialogueInputManager : MonoBehaviour
             _keyUp = true;
             yield return 0;
             _keyUp = false;
-        }
+        }*/
 
+        print("submitted pu1;");
+        StartCoroutine(UpdateKeyInfo(ctx));
+    }
+
+    IEnumerator UpdateKeyInfo(InputAction.CallbackContext ctx)
+    {
+        print("abcde");
+        if (ctx.performed)
+        {
+            print("le putain de perdormed a ete performé tu m'entends?");
+            // On Button Down
+            _keyHold = true;
+
+            _keyDown = true;
+            yield return 0;
+            _keyDown = false;
+        }
+        else if (ctx.canceled)
+        {
+            _keyHold = false;
+
+            // On Button Up
+            _keyUp = true;
+            yield return 0;
+            _keyUp = false;
+
+
+        }
     }
 }

@@ -27,7 +27,7 @@ public class PlantCorruption : MonoBehaviour
         _Main.bulleTrigger.spawnBubbleWhenPlayerIsNear = true;
 
         SetCorruptionValue(baseCorruption);
-        TimeManager.Instance.OnDay+= UpdateCorruption;
+        TimeManager.Instance.OnMorning+= UpdateCorruption;
     }
 
 

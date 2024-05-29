@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 /// <summary>
@@ -46,6 +47,11 @@ public class DialoguePanel : MonoBehaviour
         _input = PlayerMain.Instance.DialogueInput;
     }
 
+    private void Update()
+    {
+        if(Gamepad.current!=null) print("salope : " + Gamepad.current.buttonSouth.isPressed);
+    }
+
     public async Task Write(string text)
     {
         QuestionBox.SetActive(false);
@@ -54,15 +60,54 @@ public class DialoguePanel : MonoBehaviour
 
         _dialogueText.text = "";
 
+        bool wasAlreadyHolding = Input.GetKey(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.isPressed);
+
+        bool Tiret = false;
         foreach (char character in text)
         {
-            _dialogueText.text += character;
-            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
-        }
-        Arrow.SetActive(true) ;
+            //ecriture character par character
+            if (character != '#')
+            {
+                _dialogueText.text += character;
 
-        if (Input.GetKey(skipKey)) while (!Input.GetKeyUp(skipKey)) //t'inquiete
-        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
+                //skip avec la barre espace
+                wasAlreadyHolding &= Input.GetKey(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.isPressed);
+                if ((!(Input.GetKey(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.isPressed))) || wasAlreadyHolding) await Task.Delay(characterTimeDelay);
+                //if (!DialogueInputManager._keyHold) await Task.Delay(characterTimeDelay);
+            }
+            else
+            {
+                Tiret = !Tiret;
+                if(Tiret)
+                {
+                    _dialogueText.text += "<b><color=#ff0000ff>";
+                }
+                else
+                {
+                    _dialogueText.text += "</b></color>";
+
+                }
+            }
+
+
+            
+        }
+        Arrow.SetActive(true);
+
+        if (Input.GetKey(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.isPressed))
+        {
+            while (!(Input.GetKeyUp(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) 
+            { 
+                await Task.Yield();
+                print("while 1 ");
+            } 
+        } //t'inquiete
+
+        print("fini");
+
+        //if (DialogueInputManager._keyHold) { while (!DialogueInputManager._keyUp) { await Task.Yield(); } }//t'inquiete
+        //while (!(Input.GetKeyUp(skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) { await Task.Yield(); print("while 2"); }
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
         await Task.Yield();
     }
 
@@ -97,10 +142,33 @@ public class DialoguePanel : MonoBehaviour
         }
 
         //write text
+        bool Tiret = false;
         foreach (char character in text)
         {
-            _QuestionDialogueText.text += character;
-            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
+            //ecriture character par character
+            if (character != '#')
+            {
+                _QuestionDialogueText.text += character;
+
+                //skip avec la barre espace
+                //if (!DialogueInputManager._keyHold) await Task.Delay(characterTimeDelay);
+            }
+            else
+            {
+                Tiret = !Tiret;
+                if(Tiret)
+                {
+                    _dialogueText.text += "<b><color=#ff0000ff>";
+                }
+                else
+                {
+                    _dialogueText.text += "</b></color>";
+
+                }
+            }
+
+
+            
         }
 
         
@@ -121,7 +189,8 @@ public class DialoguePanel : MonoBehaviour
         //InitDialogue(characters.Narrator, characters.Narrator);*
         HideCharacterSprites();
         await Write(toWrite);
-        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
+        while (!(Input.GetKeyUp(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) await Task.Yield();
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
         gameObject.SetActive(false);
     }
 

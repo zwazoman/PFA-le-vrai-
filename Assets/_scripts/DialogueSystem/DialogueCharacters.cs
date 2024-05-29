@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
@@ -59,7 +60,8 @@ public class DialogueCharacter
 
         await _Panel.Write(text);
 
-        while (!Input.GetKeyUp(_Panel.skipKey)) await Task.Yield();
+        while (!(Input.GetKeyUp(_Panel.skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) await Task.Yield();
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
 
     }
 

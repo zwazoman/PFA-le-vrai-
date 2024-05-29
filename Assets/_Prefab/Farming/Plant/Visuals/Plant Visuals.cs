@@ -63,13 +63,14 @@ public class PlantVisuals : MonoBehaviour
 
     private void OnValidate()
     {
-        UpdateVisuals(AnimationValue);
+        if (isActiveAndEnabled) UpdateVisuals(AnimationValue);
     }
 
 
     public void UpdateVisuals(float newValue)
     {
-        if(isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
+
+            if (isActiveAndEnabled) /*if(Application.isPlaying)*/ StartCoroutine(Nathan.InterpolateOverTime(AnimationValue, newValue, .5f, (float interpolatedValue) => applyVisuals(interpolatedValue), (float alpha) => { return animationCurve.Evaluate(alpha); },()=>AnimationValue = newValue));//t'inquiete
 
         if (_main.Harvest.isHarvesteable) sparkleVFX.Play(); else sparkleVFX.Stop(); //vfx quand la plante peut etre récoltée.
         
@@ -136,6 +137,8 @@ public class PlantVisuals : MonoBehaviour
         //--- merci mon frère ---
 
         SFXManager.Instance.PlaySFXClip(_wateredSound, transform.position, _wateredVolume);
+
+        _main.Tuto.ActivateTutorial();
         
         StartCoroutine(Nathan.ExecuteWithDelay(() => { splashVFX.Play(); /*ou bien ici si tu veux que ça soit au milieu de l'animation*/    }, .25f));
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .5f, applyWaterAnimation, (float a) =>{return a;},OnWateringAnimationEnd));

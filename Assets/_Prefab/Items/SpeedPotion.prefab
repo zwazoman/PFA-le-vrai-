@@ -30,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4742238996338866902}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.097777694, y: 0.7003139, z: 0.7003139, w: 0.097777694}
-  m_LocalPosition: {x: 63.9, y: 38.131958, z: 176.34}
+  m_LocalRotation: {x: 0.20320892, y: -0.6772785, z: -0.6772785, w: -0.20320892}
+  m_LocalPosition: {x: 63.9, y: 39.332157, z: 176.34}
   m_LocalScale: {x: 1.15, y: 1.15, z: 1.15}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 10
+  JumpOnStart: 1
 --- !u!114 &6902115994997580199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa1e797aa6336041808e1fbf8ffd4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  <Name>k__BackingField: Potion de vitesse
   pickUpRotation: {x: -90, y: 0, z: 0}
   _speedFactor: 1.3
