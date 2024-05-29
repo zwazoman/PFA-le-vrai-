@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 /// <summary>
@@ -54,15 +55,31 @@ public class DialoguePanel : MonoBehaviour
 
         _dialogueText.text = "";
 
+        bool wasAlreadyHolding = Input.GetKey(skipKey) || Gamepad.current.buttonSouth.isPressed;
+
         foreach (char character in text)
         {
             _dialogueText.text += character;
-            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
+            wasAlreadyHolding &= Input.GetKey(skipKey) || Gamepad.current.buttonSouth.isPressed;
+            if ((!(Input.GetKey(skipKey) || Gamepad.current.buttonSouth.isPressed)) || wasAlreadyHolding) await Task.Delay(characterTimeDelay);
+            //if (!DialogueInputManager._keyHold) await Task.Delay(characterTimeDelay);
         }
-        Arrow.SetActive(true) ;
+        Arrow.SetActive(true);
 
-        if (Input.GetKey(skipKey)) while (!Input.GetKeyUp(skipKey)) //t'inquiete
-        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
+        if (Input.GetKey(skipKey) || Gamepad.current.buttonSouth.isPressed)
+        {
+            while (!(Input.GetKeyUp(skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) 
+            { 
+                await Task.Yield();
+                print("while 1 ");
+            } 
+        } //t'inquiete
+
+        print("fini");
+
+        //if (DialogueInputManager._keyHold) { while (!DialogueInputManager._keyUp) { await Task.Yield(); } }//t'inquiete
+        //while (!(Input.GetKeyUp(skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) { await Task.Yield(); print("while 2"); }
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
         await Task.Yield();
     }
 
@@ -100,7 +117,8 @@ public class DialoguePanel : MonoBehaviour
         foreach (char character in text)
         {
             _QuestionDialogueText.text += character;
-            if (!Input.GetKey(skipKey)) await Task.Delay(characterTimeDelay);
+            if (!(Input.GetKey(skipKey) || Gamepad.current.buttonSouth.isPressed)) await Task.Delay(characterTimeDelay);
+            //if (!DialogueInputManager._keyHold) await Task.Delay(characterTimeDelay);
         }
 
         
@@ -121,7 +139,8 @@ public class DialoguePanel : MonoBehaviour
         //InitDialogue(characters.Narrator, characters.Narrator);*
         HideCharacterSprites();
         await Write(toWrite);
-        while (!Input.GetKeyUp(skipKey)) await Task.Yield();
+        while (!(Input.GetKeyUp(skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) await Task.Yield();
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
         gameObject.SetActive(false);
     }
 
