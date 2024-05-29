@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -7605233672586355946}
   - component: {fileID: -4899262846464620559}
   - component: {fileID: 3616232998929044952}
+  - component: {fileID: 5000321061382093981}
   m_Layer: 6
   m_Name: Plant
   m_TagString: Plant
@@ -230,6 +231,7 @@ MonoBehaviour:
   <Harvest>k__BackingField: {fileID: -4899262846464620559}
   <Corruption>k__BackingField: {fileID: 195215160965412397}
   <Visuals>k__BackingField: {fileID: 3616232998929044952}
+  <Tuto>k__BackingField: {fileID: 5000321061382093981}
   <bulleTrigger>k__BackingField: {fileID: 4261821343282520629}
 --- !u!114 &-4899262846464620559
 MonoBehaviour:
@@ -361,6 +363,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5000321061382093981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2285719506262521259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eafdca1c49059d48991dc566ff43eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueScript: Df_TutoAttente
 --- !u!1 &4060369443345454032
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,11 @@ public class Well : Interactable
 
     protected override void Interaction()
     {
+        ReplenishWateringCan();
+    }
+
+    public void ReplenishWateringCan()
+    {
         SFXManager.Instance.PlaySFXClip(_wellSounds, transform.position, _wellSoundsVolume);
         PlayerMain.Instance.Watering.Replenish();
     }

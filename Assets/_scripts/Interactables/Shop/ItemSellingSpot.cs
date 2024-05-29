@@ -43,8 +43,9 @@ public class ItemSellingSpot : SellingSpot
     {
         Destock();
         GameObject gameObjectToPickup = Instantiate(_gameObjectToSell, transform.position, Quaternion.identity);
-        Item itemToPickup = gameObjectToPickup.GetComponent<Item>();
-        PlayerMain.Instance.Hands.Pickup(itemToPickup);
+        gameObjectToPickup.GetComponent<Item>().InteractWith();
+        //Item itemToPickup = gameObjectToPickup.GetComponent<Item>();
+        //PlayerMain.Instance.Hands.Pickup(itemToPickup);
     }
 
     void Destock()

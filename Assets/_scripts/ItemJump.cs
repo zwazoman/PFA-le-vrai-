@@ -20,7 +20,7 @@ public class ItemJump : MonoBehaviour
     public void Jump()
     {
         Vector3 direction = new Vector3(Random.Range(-0.2f, 0.2f), 0.5f, Random.Range(-0.2f, 0.2f));
-        RB.AddForce(direction * _jumpForce, ForceMode.Impulse); // fait sauter l'objet lorsqu'il est instancié
+        RB.AddForce(direction * _jumpForce, ForceMode.Impulse); // fait sauter l'objet 
     }
 
     private void Start()
