@@ -27,7 +27,6 @@ public class DialogueCharacter
     public string Name;
     public TMP_FontAsset Font;
 
-    [HideInInspector]
     public Sprite Sprite;
 
     //[Dictionary]
