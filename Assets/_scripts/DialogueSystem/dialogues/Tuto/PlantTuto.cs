@@ -9,7 +9,6 @@ public class PlantTuto : MonoBehaviour
 
     public void ActivateTutorial()
     {
-        print("OH LE TUTO");
         Count++;
         print(Count);
         if (Count == 3)
