@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 4690537691125822826}
-  groundEffect: {fileID: 6300524371687324112}
+  groundEffect: {fileID: 7239276282444973839}
   MaxRate: 32
 --- !u!1 &563743602285768553
 GameObject:
@@ -5063,8 +5063,6 @@ GameObject:
   - component: {fileID: 5128041245480934880}
   - component: {fileID: 9158366651026814126}
   - component: {fileID: 7239276282444973839}
-  - component: {fileID: 5230745133572014991}
-  - component: {fileID: 6300524371687324112}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5962,74 +5960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7239276282444973839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5411243086529900602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a964ea66ded53dc468ae53e54bfdd3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  t: {fileID: 0}
-  posX: 0
-  posZ: 0
-  textureValues:
-  - 0
-  - 0
-  OnTextureInfoUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: grassVFX, Assembly-CSharp
-        m_MethodName: UpdateVFXRate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5230745133572014991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5411243086529900602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a964ea66ded53dc468ae53e54bfdd3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  t: {fileID: 0}
-  posX: 0
-  posZ: 0
-  textureValues:
-  - 0
-  - 0
-  OnTextureInfoUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: grassVFX, Assembly-CSharp
-        m_MethodName: UpdateVFXRate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6300524371687324112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11067,8 +10997,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6300524371687324112}
-        m_TargetAssemblyTypeName: CheckTerrainTexture, Assembly-CSharp
+      - m_Target: {fileID: 7239276282444973839}
+        m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues
         m_Mode: 1
         m_Arguments:
@@ -11094,8 +11024,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6300524371687324112}
-        m_TargetAssemblyTypeName: CheckTerrainTexture, Assembly-CSharp
+      - m_Target: {fileID: 7239276282444973839}
+        m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues
         m_Mode: 1
         m_Arguments:
