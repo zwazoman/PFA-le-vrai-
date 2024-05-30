@@ -15,14 +15,18 @@ public class WateringCan : Tool
     public override void Use()
     {
         base.Use();
-        PlayerMain.Instance.Watering.Drain();
-
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.TryGetComponent<Well>(out Well well)) well.ReplenishWateringCan();// si c'est un puits
+            if (hitCollider.gameObject.TryGetComponent<Well>(out Well well))
+            {
+                well.ReplenishWateringCan();// si c'est un puits : remplir arrosoir
+                return;
+            }
         }
 
         if (PlayerMain.Instance.Watering.WaterStorage <= 0) return;// si l'arrosoir est vide
+
+        PlayerMain.Instance.Watering.Drain();
 
         foreach (var hitCollider in hitColliders)
         {
