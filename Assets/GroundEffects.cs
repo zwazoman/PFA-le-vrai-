@@ -35,7 +35,7 @@ public class GroundEffect : MonoBehaviour
 
     }
 
-    //à appeler à chaque pas
+    //ï¿½ appeler ï¿½ chaque pas
     public void computeTextureValues()
     {
         GetTerrainTexture();
