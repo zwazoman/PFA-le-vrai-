@@ -158,20 +158,16 @@ public class DialoguePanel : MonoBehaviour
                 Tiret = !Tiret;
                 if(Tiret)
                 {
-                    _dialogueText.text += "<b><color=#ff0000ff>";
+                    _QuestionDialogueText.text += "<b><color=#ff0000ff>";
                 }
                 else
                 {
-                    _dialogueText.text += "</b></color>";
+                    _QuestionDialogueText.text += "</b></color>";
 
                 }
             }
 
-
-            
         }
-
-        
 
         while(result == -1) await Task.Yield();
 

@@ -19,7 +19,7 @@ public class WateringCan : Tool
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.gameObject.TryGetComponent<Well>(out Well well)) well.ReplenishWateringCan(); // si c'est un puits
+            if (hitCollider.gameObject.TryGetComponent<Well>(out Well well)) well.ReplenishWateringCan();// si c'est un puits
         }
 
         if (PlayerMain.Instance.Watering.WaterStorage <= 0) return;// si l'arrosoir est vide
@@ -30,7 +30,8 @@ public class WateringCan : Tool
             {
                 //if (plantMain.PlantField == null) return;
                 plantMain.CanWater = false;
-                plantMain.Corruption.ReduceCorruption(_waterToGive); // r�duit la corruption de la plante cibl�
+                plantMain.Corruption.ReduceCorruption(_waterToGive);// r�duit la corruption de la plante cibl�
+                RumbleManager.instance.RumblePulse(0.6f, 0.6f, 0.1f);
             }
         }
     }

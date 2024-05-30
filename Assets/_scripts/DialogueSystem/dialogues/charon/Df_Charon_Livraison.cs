@@ -6,48 +6,52 @@ public class Df_Charon_Livraison : DialogueFlow
 {
     public Df_Charon_Livraison(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters, WorldObject) { }
 
+    List<string> dialogueBobbus = new List<string>()
+    {
+        "Déjà de retour ?",
+        "Je l'attendais avec impatience",
+        "Enfin !",
+        "Toujours plus de graines",
+        "Ah, pile à temps je commençais à en manquer...",
+        "Déjà ? Mais combien de gens meurent par jour exactement ?",
+        "Merci, Charon ",
+        "J'en avais besoin",
+        "Salut",
+        "Hey",
+        "Arg, ça n'en finit pas",
+        "Je n'en vois pas le bout...",
+        "Merci bien mon bon monsieur",
+        "Je te le revaudrais"
+    };
+
     List<string> dialogue1 = new List<string>()
     {
-        "Tiens, voilà tes graines comme d'habitude Bobbus.",
-        "Tiens, voilà une nouvelle livraison de graines rien que pour toi Bobbus.",
-        "Désolé pour le délai,voici tes nouvelles graines.",
-        "J'ai entendu dire que ça grondait là-haut. ça va encore être le bazar au centre de tri",
-        "Le patron n'était pas content aujourd'hui, j'espere que tu t'occuperas correctement de toutes ses graines.",
-        "Mon grand père disait souvent:\r\n \" Boom na da mmm dum na ema \r\n Da boom na da mmm dum na ema  \" \r\n ... Aucune idée de ce que ça signifie. ",
-        "voici tes graines Bobbus. Elles sont toutes fraiches, c'est jeudi. ",
-        "Un moustique, ma li... pardon,j'étais ailleurs.",
-        "...",
-        "UNE SOURIS A L'AIDE ! Voilà tes graines. AAAHH",
+        "A bientôt",
+        "A la prochaine",
+        "Nous nous reverrons, Bobbus",
+        "Au plaisir",
+        "Je reviendrais dans deux jours pour la prochaine livraison",
+        "Tu tiens toujours le rythme ? Impressionant, le dernier avait déjà craqué",
+        "J'espère que tu en as profité pour explorer les environs... Allez, à la prochaine !",
+        "Tu connais les graines ligma ? Non ? Bah, à bientôt.",
+        "Et hop, encore une livraison.",
+        "J'ai l'impression de passer ma mort à te livrer... Vous êtes très fort pour vous entretuer.",
         "Ma femme m'a quitté Bobbus.",
-        "ça sent le poisson? bizarre. Voici tes graines.",
-        "Tu sais Bobbus, je me demande parfois si je n'étais pas livreur de pizzas dans une autre vie. Enfin bon, en tous cas voici tes graines.",
+        "Même chose, même heure dans deux jours.",
+        "A la revoyure",
         "Ma vie n'est qu'un cycle monotone Bobbus. Je n'en peux plus. J'ai besoin d'un nouvel air. Termine vite ce jeu veux-tu ?"
     };
 
-    List<string> dialogue2 = new List<string>()
-    {
-
-        "Je repasserai demain à 7h. N'oublie pas d'etre présent si tu veux de nouvelles graines.",
-        "N'oublie pas de venir vers 7h si tu ne veux pas me louper. J'ai beaucoup de travail ces jours-ci.",
-        "ça fait beaucoup, n'oublies pas de venir avec ta brouette.",
-        "à demain Bobbus,pense bien à venir équippé de ta brouette.",
-        "Adieu",
-        "à la revoyure.",
-        "Au revoir.",
-        "Au revoir Bobbus.",
-        "Salutations.",
-        "La bise.",
-        "La bise.",
-        "C'est Ciao.",
-        "...",
-    };
+    
 
     public override async Task StartDialogue()
     { 
         _panel.InitDialogue(_characters.Bobbus, _characters.Charon);
 
+        
+        await _characters.Bobbus.Say(dialogueBobbus[Random.Range(0,dialogueBobbus.Count)]);
         await _characters.Charon.Say(dialogue1[Random.Range(0,dialogue1.Count)]);
-        await _characters.Charon.Say(dialogue2[Random.Range(0,dialogue2.Count)]);
+   
 
        
     }

@@ -9,7 +9,7 @@ public class Df_Bed : DialogueFlow
     {
         _panel.InitDialogue(_characters.Narrator, _characters.Bobbus);
 
-        await _characters.Narrator.Say("Ceci est un lit");
+        await _characters.Narrator.Say("Votre lit, moelleux et attrayant");
         int result = await _characters.Narrator.Ask("Souhaitez vous dormir ?", new string[] { "Oui", "Non"});
 
         if (result == 0) 
