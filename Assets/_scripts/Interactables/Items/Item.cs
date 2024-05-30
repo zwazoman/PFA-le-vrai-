@@ -13,15 +13,22 @@ public class Item : Interactable
 
     public Vector3 pickUpRotation;
 
+    [HideInInspector] public Vector3 BaseScale{get; private set;}
+
     ItemJump _itemJump;
     ItemTag _itemTag;
 
-    private void Awake()
+    public virtual void Awake()
     {
         _itemJump = GetComponent<ItemJump>();
         _itemTag = GetComponent<ItemTag>();
+        BaseScale = transform.localScale;
     }
 
+    private void OnEnable()
+    {
+        transform.localScale = BaseScale;
+    }
 
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
@@ -43,4 +50,6 @@ public class Item : Interactable
         base.OnDestroy();
         //TimeManager.Instance.OnDay-=DistanceCull;
     }
+
+
 }
