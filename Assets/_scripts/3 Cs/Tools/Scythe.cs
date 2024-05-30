@@ -15,6 +15,7 @@ public class Scythe : Tool
             {
                 if (plantMain.PlantField == null) return;
                 plantMain.Harvest.Harvest(); // récolte la plante
+                RumbleManager.instance.RumblePulse(0.5f, 5f, 0.2f);
             }
         }
     }
