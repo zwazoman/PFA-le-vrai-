@@ -12,6 +12,11 @@ public class VelocityTrigger : MonoBehaviour
 
     public UnityEvent OnMove;
     public UnityEvent OnStopMoving;
+
+    private void Start()
+    {
+        OnStopMoving.Invoke();
+    }
     // Update is called once per frame
     void Update()
     {
