@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 /// </summary>
 public class Field : MonoBehaviour
 {
+    [field : SerializeField]
     public bool Sowable { get; set; }
     public bool IsEmpty {get;set;}
     private GameObject _plant;
