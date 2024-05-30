@@ -31,7 +31,7 @@ public class WateringCan : Tool
                 //if (plantMain.PlantField == null) return;
                 plantMain.CanWater = false;
                 plantMain.Corruption.ReduceCorruption(_waterToGive);// r�duit la corruption de la plante cibl�
-                RumbleManager.instance.RumblePulse(5f, 5f, 0.1f);
+                RumbleManager.instance.RumblePulse(0.6f, 0.6f, 0.1f);
             }
         }
     }

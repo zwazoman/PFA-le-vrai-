@@ -36,6 +36,7 @@ public class Mill : MonoBehaviour
     public async Task Crush()
     {
         SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
+        RumbleManager.instance.RumblePulse(0.5f, 0.8f, 0.3f);
         OnCrush?.Invoke();
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
