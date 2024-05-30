@@ -26,11 +26,17 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] float _scytheEquipVolume = 1f;
 
     [Header("Footsteps")]
-    [SerializeField] AudioClip[] _walkFootsteps;
-    [SerializeField] float _walkFootstepsVolume = 1f;
+    [SerializeField] AudioClip[] _rockWalkFootsteps;
+    [SerializeField] float _rockWalkFootstepsVolume = 1f;
 
-    [SerializeField] AudioClip[] _runFootsteps;
-    [SerializeField] float _runFootstepsVolume = 1f;
+    [SerializeField] AudioClip[] _rockRunFootsteps;
+    [SerializeField] float _rockRunFootstepsVolume = 1f;
+
+    [SerializeField] AudioClip[] _grassWalkFootsteps;
+    [SerializeField] float _grassWalkFootstepsVolume = 1f;
+
+    [SerializeField] AudioClip[] _grassRunFootsteps;
+    [SerializeField] float _grassRunFootstepsVolume = 1f;
 
     [Header("Wooshes")]
     [SerializeField] AudioClip[] _toolWoosh;
@@ -52,12 +58,10 @@ public class PlayerSounds : MonoBehaviour
         SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume);
     }
 
-
     public void PlayHoeEquipSound()
     {
         SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume);
     }
-
 
     public void PlayWateringCanEquipSound()
     {
@@ -85,15 +89,21 @@ public class PlayerSounds : MonoBehaviour
     }
 
 
+
+
     public void PlayWalkFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_walkFootsteps, transform.position, _walkFootstepsVolume);
+        SFXManager.Instance.PlaySFXClip(_rockWalkFootsteps, transform.position, _rockWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
+        SFXManager.Instance.PlaySFXClip(_grassWalkFootsteps, transform.position, _grassWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
     }
 
     public void PlayRunFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_runFootsteps, transform.position, _runFootstepsVolume);
+        SFXManager.Instance.PlaySFXClip(_rockRunFootsteps, transform.position, _rockRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
+        SFXManager.Instance.PlaySFXClip(_grassRunFootsteps, transform.position, _grassRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
     }
+
+
 
 
     public void PlayPickupPopSound()
