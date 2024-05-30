@@ -18,6 +18,8 @@ public class charon_bateau : MonoBehaviour
     [SerializeField] public Charon charon;
 
     bool EstDejaParti = false;
+    bool _tutorial = true;
+
 
     private void Update()
     {
@@ -35,13 +37,14 @@ public class charon_bateau : MonoBehaviour
     private void Start()
     {
         if (!introManager.IsActive) { TimeManager.Instance.OnHour += OnHour; }
+        TimeManager.Instance.OnTutorialEnd += TutorialEnd;
     }
 
     public void OnHour()
     {
 
         //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à 11h il repart ;
-        if(TimeManager.Instance.Day % 2  != 1) // tous les deux jours
+        if(TimeManager.Instance.Day % 2  != 1 /*|| _tutorial*/) // tous les deux jours
         {
             return;
         }
@@ -89,7 +92,8 @@ public class charon_bateau : MonoBehaviour
         if (f != Vector3.zero) transform.forward = f;
     }
 
-
-
-
+    void TutorialEnd()
+    {
+        _tutorial = false;
+    }
 }

@@ -10,9 +10,12 @@ public class Lever : Interactable
 
     [SerializeField] Material mat_Impact;
 
-    [Header("Sound")]
+    [Header("SFXs")]
     [SerializeField] AudioClip[] _millChargeSound;
     [SerializeField] float _millChargeSoundVolume = 1f;
+
+    [SerializeField] AudioClip[] _rechargeSound;
+    [SerializeField] float _rechargeSoundVolume = 1f;
 
 
     /// <summary>
@@ -48,6 +51,8 @@ public class Lever : Interactable
         print("b");
         await Task.Delay(500);
         print("c");
+
+        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
 
         StartCoroutine(Nathan.InterpolateOverTime(1, 0, 1.5f, updateWheelRotation,Nathan.SmoothStep01,()=>canUse=true, true));
         print("d");

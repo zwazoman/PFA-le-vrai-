@@ -11,6 +11,6 @@ public class Df_TutoAttente : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Charon.Say("Bobbus ? Tu me reçois ? Tes plantations avancent bien ! Sache qu'une fois tes plantes arrosées tu dois -attendre- le jour suivant pour qu'elles -poussent-. Prends toi un peu de temps pour -explorer-, -dormir- dans ta maison ou faire du golf.");
+        await _characters.Charon.Say("Bobbus ? Tu me reçois ? Tes plantations avancent bien ! Sache qu'une fois tes plantes arrosées tu dois #attendre# le #jour suivant# pour qu'elles #poussent#. Prends toi un peu de temps pour #explorer#, #dormir# dans ta maison ou faire du golf (DLC).");
     }
 }

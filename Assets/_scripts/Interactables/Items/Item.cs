@@ -33,10 +33,10 @@ public class Item : Interactable
 
     public virtual void Drop() { }
 
-    public virtual void Jump()
+    /*public virtual void Jump()
     {
         _itemJump.Jump();
-    }
+    }*/
 
     protected override void OnDestroy()
     {

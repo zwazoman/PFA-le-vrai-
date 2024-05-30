@@ -9,11 +9,11 @@ public class Df_Shop_ShortcutWindmill : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
-        await _characters.Geoffrrus.Say("Ce que cette -clef- ouvre ? Du diable si je le sa… oups, pardon patron. Enfin, je n’en ai aucune idée.");
+        await _characters.Geoffrrus.Say("Ce que cette #clef# ouvre ? Du diable si je le sa… oups, pardon patron. Enfin, je n’en ai aucune idée.");
         await _characters.Geoffrrus.Say("Achète là et tu trouveras bien, depuis le temps qu’elle est ici à rouiller dans mes stocks…");
-        await _characters.Geoffrrus.Say($"Que dis tu de -{((SellingSpot)WorldObject).price} âmes- pour cela ? Enfin, comme si c’était négociable… âmes pour ça.");
+        await _characters.Geoffrrus.Say($"Que dis tu de #{((SellingSpot)WorldObject).price} âmes# pour cela ? Enfin, comme si c’était négociable… âmes pour ça.");
 
-        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter cette -clef- pour -{((SellingSpot)WorldObject).price} âmes.-?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter cette #clef# pour #{((SellingSpot)WorldObject).price} âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
