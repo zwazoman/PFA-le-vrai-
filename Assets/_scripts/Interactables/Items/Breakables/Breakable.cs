@@ -16,8 +16,9 @@ public class Breakable : Item
 
     private int _hp;
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         _hp = Maxhp;
     }
 
