@@ -43,7 +43,7 @@ public class Mill : MonoBehaviour
         {
             if (coll.enabled)
             {
-                if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
+                if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().Break();
                 if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
             }
 
