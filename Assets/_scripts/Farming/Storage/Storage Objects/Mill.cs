@@ -10,13 +10,9 @@ public class Mill : MonoBehaviour
     [SerializeField] UnityEvent OnCrush;
     [SerializeField] xpSource  vfxSource;
 
-    [Header("Sounds")]
+    [Header("SFXs")]
     [SerializeField] AudioClip[] _crushSound;
     [SerializeField] float _crushSoundVolume = 1f;
-
-    [SerializeField] AudioClip[] _rechargeSound;
-    [SerializeField] float _rechargeSoundVolume = 1f;
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -39,27 +35,20 @@ public class Mill : MonoBehaviour
     /// </summary>
     public async Task Crush()
     {
-        StartCoroutine(PlaySounds());
-        OnCrush.Invoke();
+        SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
+        OnCrush?.Invoke();
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
-            if(coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
-            if(coll.gameObject.transform.root.GetComponentInChildren<Orb>()) vfxSource.playFX();
-
-            
+            if (coll.enabled)
+            {
+                if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().SetBreak(coll.gameObject.GetComponent<Breakable>().Maxhp);
+                if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
+            }
 
             await Task.Delay(100);
         }
         _collList.Clear();
 
-        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform, _rechargeSoundVolume);
-    }
-
-    IEnumerator PlaySounds()
-    {
-        SFXManager.Instance.PlaySFXClip(_crushSound, transform, _crushSoundVolume);
-        yield return new WaitForSeconds(0.5f);
-       
     }
 }

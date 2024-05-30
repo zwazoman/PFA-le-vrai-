@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 9129985395313614250}
   - component: {fileID: 6832354867805928778}
   - component: {fileID: 3849142480008263101}
+  - component: {fileID: 682188036862365210}
+  - component: {fileID: 1465550795607967155}
   m_Layer: 0
   m_Name: Orb
   m_TagString: Untagged
@@ -126,12 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00bd8dfaa12e1841b49ac1735e6e266, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: "Orbe D'\xE2me"
   pickUpRotation: {x: 0, y: 0, z: 0}
   <HoeCantBreak>k__BackingField: 1
   _breakSound: []
   _breakSoundVolume: 1
-  _effectSound: []
-  _effectSoundVolume: 1
   <OrbValue>k__BackingField: 50
 --- !u!114 &6832354867805928778
 MonoBehaviour:
@@ -167,3 +168,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &682188036862365210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823781622217448801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db08675e42536c4c8c0a9a077f79bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: 6
+  bullePrefab: {fileID: 4062426668322919732, guid: 92d3ed180e66e4b4b92cef5096d4892c,
+    type: 3}
+--- !u!114 &1465550795607967155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823781622217448801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580ee1dbf39617e4aa324d1dd25585cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueScript: Df_TutoMoulin

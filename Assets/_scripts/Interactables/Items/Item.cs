@@ -8,7 +8,21 @@ using UnityEngine;
 /// </summary>
 public class Item : Interactable
 {
+    [field : SerializeField]
+    public string Name { get; private set; }
+
     public Vector3 pickUpRotation;
+
+    ItemJump _itemJump;
+    ItemTag _itemTag;
+
+    private void Awake()
+    {
+        _itemJump = GetComponent<ItemJump>();
+        _itemTag = GetComponent<ItemTag>();
+    }
+
+
     /// <summary>
     /// appelle la fonction "Pickup" de la classe "PlayerHands"
     /// </summary>
@@ -17,19 +31,11 @@ public class Item : Interactable
         PlayerMain.Instance.Hands.Pickup(this);
     }
 
-   /* private void Start()
-    {
-        TimeManager.Instance.OnDay += DistanceCull;
-    }*/
+    public virtual void Drop() { }
 
-    public virtual void Jump()
+    /*public virtual void Jump()
     {
-        GetComponent<ItemJump>().Jump();
-    }
-    
-    /*protected void DistanceCull()
-    {
-        if ((transform.position - PlayerMain.Instance.transform.position).sqrMagnitude > 35 * 35) Destroy(gameObject); 
+        _itemJump.Jump();
     }*/
 
     protected override void OnDestroy()

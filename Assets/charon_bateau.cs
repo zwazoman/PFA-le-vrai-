@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class charon_bateau : MonoBehaviour
@@ -17,6 +18,9 @@ public class charon_bateau : MonoBehaviour
     [SerializeField] public Charon charon;
 
     bool EstDejaParti = false;
+    bool _tutorial = true;
+
+
     private void Update()
     {
         //transform.position = curve.Sample(1-value);
@@ -33,28 +37,35 @@ public class charon_bateau : MonoBehaviour
     private void Start()
     {
         if (!introManager.IsActive) { TimeManager.Instance.OnHour += OnHour; }
+        TimeManager.Instance.OnTutorialEnd += TutorialEnd;
     }
 
     public void OnHour()
     {
 
-        //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à11h il repart ;
+        //à 2h il commence son voyage qui dure 5 heures; pour le faire arriver à 7h au port. à 11h il repart ;
+        if(TimeManager.Instance.Day % 2  != 1 /*|| _tutorial*/) // tous les deux jours
+        {
+            return;
+        }
+
+
         if (TimeManager.Instance.Hour == 1)
         {
-            StartCoroutine( Nathan.InterpolateOverTime(1, 0.329f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
+            StartCoroutine( Nathan.InterpolateOverTime(1, 0.323f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
         }
         else if (TimeManager.Instance.Hour == 11)
         {
             Partir();
         }
-
     }
-
-
 
     void Arriver()
     {
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
+        print("arriver là");
+        charon.GetComponent<Collider>().enabled = true;
+
         anim.SetTrigger("arriver");
         EstDejaParti = false;
     }
@@ -63,13 +74,13 @@ public class charon_bateau : MonoBehaviour
     {
         if (EstDejaParti) return;
         EstDejaParti = true;
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform, _CharonArrivalVolume);
+        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
         anim.SetTrigger("partir");
     }
 
     public void PartirPourDeVrai()
     {
-        StartCoroutine(Nathan.InterpolateOverTime(0.329f, 0 , 3 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
+        StartCoroutine(Nathan.InterpolateOverTime(0.323f, 0 , 3 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, null, true));
     }
 
     public void setPositionAlongCurve(float alpha)
@@ -81,7 +92,8 @@ public class charon_bateau : MonoBehaviour
         if (f != Vector3.zero) transform.forward = f;
     }
 
-
-
-
+    void TutorialEnd()
+    {
+        _tutorial = false;
+    }
 }

@@ -52,6 +52,13 @@ public class Nathan : MonoBehaviour
         yield return 0;
         action();
     }
+
+    public static IEnumerator ExecuteWithDelay(Action action,float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action();
+    }
+
     public static float SmoothStep01(float v)
     {
         return Mathf.SmoothStep(0,1,v);

@@ -45,6 +45,7 @@ public class PlayerHands : MonoBehaviour
         _interaction.enabled = false;
         _tools.canUse = false;
 
+        PlayerMain.Instance.Tag.Showtag(item.Name);
         PlayerMain.Instance.Sounds.PlayPickupPopSound();
         PlayerMain.Instance.Visuals.GrabItem();
 
@@ -61,11 +62,13 @@ public class PlayerHands : MonoBehaviour
         _itemInHandsRb.constraints = RigidbodyConstraints.None; // unfreeze l'objet
         ItemInHands.transform.parent = null;
         ItemInHands.GetComponent<Rigidbody>().AddForce(Vector3.down*10,ForceMode.Impulse);
+        ItemInHands.GetComponent<Item>().Drop();
         ItemInHands = null;
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;
         _tools.canUse = true;
 
+        PlayerMain.Instance.Tag.Hidetag();
         PlayerMain.Instance.Sounds.PlayDropPopSound();
         PlayerMain.Instance.Visuals.releaseItem();
 

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class UiManager : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] public GameplayPanel Gameplay_Panel;
     [SerializeField] PausePanel Pause_Panel;
     [SerializeField] GameObject Intro_Panel;
+    [SerializeField] GameObject _firstButtonSelect;
     //[SerializeField] DialoguePanel Dialogue_Panel;
-
+    
     public bool canPause = true;
 
     bool wasPaused = true;
@@ -24,7 +27,13 @@ public class UiManager : MonoBehaviour
 
     private void OnPause()
     {
-        if(Gameplay_Panel.gameObject.activeSelf)ActivatePausePanel();else ActivateGameplayPanel();
+        if (Gameplay_Panel.gameObject.activeSelf) 
+        { 
+            ActivatePausePanel() ;
+            EventSystem.current.SetSelectedGameObject(_firstButtonSelect);
+        }          
+        else ActivateGameplayPanel();
+        
     }
 
     private void Awake()
@@ -55,7 +64,9 @@ public class UiManager : MonoBehaviour
     public void ActivateGameplayPanel()
     {
         HideEverything();
-        
+
+        //Input.SwitchCurrentActionMap("Player");
+
         Gameplay_Panel.gameObject.SetActive(true );
         Cursor.visible = false;
     }
@@ -88,9 +99,12 @@ public class UiManager : MonoBehaviour
     {
         HideEverything() ;
 
+
+        //Input.SwitchCurrentActionMap("UI");
+
         Cursor.visible = true;
         Dialogue_Panel.gameObject.SetActive(true);
-        print("TAIN");
+
 
     }
 
@@ -134,12 +148,6 @@ public class UiManager : MonoBehaviour
         foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
     }
 
-    //Shop
-    public void ActivateShopPanel()
-    {
-        HideEverything();
-        //show shop panel
-    }
 
     
 }

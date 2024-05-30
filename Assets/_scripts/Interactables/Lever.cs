@@ -10,9 +10,12 @@ public class Lever : Interactable
 
     [SerializeField] Material mat_Impact;
 
-    [Header("Sound")]
+    [Header("SFXs")]
     [SerializeField] AudioClip[] _millChargeSound;
     [SerializeField] float _millChargeSoundVolume = 1f;
+
+    [SerializeField] AudioClip[] _rechargeSound;
+    [SerializeField] float _rechargeSoundVolume = 1f;
 
 
     /// <summary>
@@ -24,7 +27,7 @@ public class Lever : Interactable
     {
         if(!canUse) return;
         canUse = false;
-        SFXManager.Instance.PlaySFXClip(_millChargeSound, transform, _millChargeSoundVolume);
+        SFXManager.Instance.PlaySFXClip(_millChargeSound, transform.position, _millChargeSoundVolume);
         
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .8f, (float a) => { Levier.localRotation = Quaternion.LerpUnclamped(Quaternion.Euler(-90, 0, 0), Quaternion.Euler(-156, 0, 0),1f- ( a *2-1) * (a * 2 -1)); }));
         StartCoroutine(Nathan.InterpolateOverTime(0, 1, .75f, updateWheelRotation, (float a) => { return curve.Evaluate(a); },()=> { _ = mesCouilles(); print("mes couilles"); }, true));
@@ -48,6 +51,8 @@ public class Lever : Interactable
         print("b");
         await Task.Delay(500);
         print("c");
+
+        SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
 
         StartCoroutine(Nathan.InterpolateOverTime(1, 0, 1.5f, updateWheelRotation,Nathan.SmoothStep01,()=>canUse=true, true));
         print("d");

@@ -1,19 +1,28 @@
 using UnityEngine;
 
-public class SpeedPotion : Breakable
+public class SpeedPotion : Item
 {
     [SerializeField] float _speedFactor;
 
-    private void Awake()
+    protected override void Interaction()
     {
-        Maxhp = 1;    
+        base.Interaction();
+        print("rammasser potion");
+        PlayerMain.Instance.InputManager.OnItem += Drink;
     }
 
-    protected override void Break()
+    public override void Drop()
     {
-        //jouer _effectSound
+        print("lacher potion");
+        PlayerMain.Instance.InputManager.OnItem -= Drink;
+    }
+    private void Drink()
+    {
+        //jouer l'animation de con là et faut enlever la bouteille chépa
+        print("boire");
         AddSpeed();
-        base.Break();
+        PlayerMain.Instance.Hands.Drop();
+        Destroy(gameObject);
     }
 
     private void AddSpeed()

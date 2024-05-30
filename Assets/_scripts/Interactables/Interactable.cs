@@ -46,6 +46,6 @@ public abstract class Interactable : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        PlayerMain.Instance.GrabBox.ClearHands();
+        if(PlayerMain.Instance!=null) PlayerMain.Instance.GrabBox.ClearHands();
     }
 }

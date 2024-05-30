@@ -36,71 +36,79 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _toolWoosh;
     [SerializeField] float _toolWooshVolume = 1f;
 
-    [Header("Pops")]
+    [Header("Other")]
     [SerializeField] AudioClip[] _pickupPop;
     [SerializeField] float _pickupPopVolume = 1f;
 
     [SerializeField] AudioClip[] _dropPop;
     [SerializeField] float _dropPopSound = 1f;
 
+    [SerializeField] AudioClip[] _buySound;
+    [SerializeField] float _buySoundVolume = 1f;
+
 
     public void PlayToolWooshSound()
     {
-        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform, _toolWooshVolume);
+        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume);
     }
 
 
     public void PlayHoeEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform, _hoeEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume);
     }
 
 
     public void PlayWateringCanEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform, _wateringCanEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform.position, _wateringCanEquipVolume);
     }
 
     public void PlayWateringCanEmptyEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform, _wateringCanEmptyEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform.position, _wateringCanEmptyEquipVolume);
     }
 
     public void PlayWateringActionSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringAction, transform, _wateringActionVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringAction, transform.position, _wateringActionVolume);
     }
 
     public void PlayWateringEmpty()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform, _wateringEmptyVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform.position, _wateringEmptyVolume);
     }
 
     public void PlayScytheEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform, _scytheEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform.position, _scytheEquipVolume);
     }
 
 
     public void PlayWalkFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_walkFootsteps, transform, _walkFootstepsVolume);
+        SFXManager.Instance.PlaySFXClip(_walkFootsteps, transform.position, _walkFootstepsVolume);
     }
 
     public void PlayRunFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_runFootsteps, transform, _runFootstepsVolume);
+        SFXManager.Instance.PlaySFXClip(_runFootsteps, transform.position, _runFootstepsVolume);
     }
 
 
     public void PlayPickupPopSound()
     {
-        SFXManager.Instance.PlaySFXClip(_pickupPop, transform, _pickupPopVolume);
+        SFXManager.Instance.PlaySFXClip(_pickupPop, transform.position, _pickupPopVolume);
     }
 
     public void PlayDropPopSound()
     {
-        SFXManager.Instance.PlaySFXClip(_dropPop, transform, _dropPopSound);
+        SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound);
+    }
+
+    public void PlayBuySOund()
+    {
+        SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume);
     }
 
 }

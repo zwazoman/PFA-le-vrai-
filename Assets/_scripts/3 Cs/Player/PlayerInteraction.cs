@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     PlayerInputManager _inputManager;
 
-    [HideInInspector] public List<Interactable> Interactables = new List<Interactable>();
+    /*[HideInInspector]*/ public List<Interactable> Interactables = new List<Interactable>();
 
 
 
@@ -36,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
         closest.InteractWith();
+        Interactables.Clear();
     }
 
     private void OnDisable()

@@ -13,6 +13,7 @@ public class introManager : MonoBehaviour
     [SerializeField] Transform playerSocket, cameraSocket;
     [SerializeField] string premierDialogueCharon;
     [SerializeField] Volume blackVolume;
+    [SerializeField] Transform PlayerSpawn;
 
     [Header("AnimationParameters")]
     [SerializeField] float _animationDuration = 60;
@@ -45,7 +46,7 @@ public class introManager : MonoBehaviour
         StartCoroutine(Nathan.InterpolateOverTime(1, 0, 2.5f, (float a) => blackVolume.weight = a, Nathan.SmoothStep01));
 
         //movement bateau
-        StartCoroutine(Nathan.InterpolateOverTime(1, 0.329f, _animationDuration, bateau.setPositionAlongCurve, (v) => { return _boatMovementCurve.Evaluate(v); }, sequence, false));
+        StartCoroutine(Nathan.InterpolateOverTime(1, 0.538f, _animationDuration, bateau.setPositionAlongCurve, (v) => { return _boatMovementCurve.Evaluate(v); }, sequence, false));
     }
 
     private void Awake()
@@ -60,7 +61,7 @@ public class introManager : MonoBehaviour
         await UiManager.Instance.PopupDialogue(premierDialogueCharon, this);
 
         //placement joueur sur quai puis lancement de la fin de la sequence
-        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 1,(float a)=>PlayerMain.Instance.transform.position = Vector3.Lerp(PlayerMain.Instance.transform.position,bateau.charon.SpawnSocket.position,a), (v) => { return Mathf.SmoothStep(0, 1, v); }, finSequence, false));
+        StartCoroutine(Nathan.InterpolateOverTime(0, 1, 1,(float a)=>PlayerMain.Instance.transform.position = Vector3.Lerp(PlayerMain.Instance.transform.position,PlayerSpawn.position,a), (v) => { return Mathf.SmoothStep(0, 1, v); }, finSequence, false));
 
         //placement camera
         CameraBehaviour.Instance.enabled = true;
@@ -83,9 +84,11 @@ public class introManager : MonoBehaviour
         PlayerMain.Instance.transform.parent = null;
         UiManager.Instance.ActivateGameplayPanel();
 
-       
+
         //depart bateau
-        bateau.PartirPourDeVrai();
+        StartCoroutine(Nathan.InterpolateOverTime(0.538f,0 , TimeManager.Instance.IrlHourDuration*5, bateau.setPositionAlongCurve, (v) => { return _boatMovementCurve.Evaluate(v); }));
+
+        //bateau.PartirPourDeVrai();
         TimeManager.Instance.OnHour += bateau.OnHour;
 
         //relancer le temps

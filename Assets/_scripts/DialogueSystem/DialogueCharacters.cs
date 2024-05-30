@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
@@ -15,6 +16,7 @@ public class DialogueCharacters : ScriptableObject
         Narrator.Init(flow, panel);
         Bobbus.Init(flow, panel);
         Geoffrrus.Init(flow, panel);
+        Eve.Init(flow, panel);
     }
 }
 
@@ -25,7 +27,6 @@ public class DialogueCharacter
     public string Name;
     public TMP_FontAsset Font;
 
-    [HideInInspector]
     public Sprite Sprite;
 
     //[Dictionary]
@@ -58,7 +59,8 @@ public class DialogueCharacter
 
         await _Panel.Write(text);
 
-        while (!Input.GetKeyUp(_Panel.skipKey)) await Task.Yield();
+        while (!(Input.GetKeyUp(_Panel.skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) await Task.Yield();
+        //while (!DialogueInputManager._keyUp) await Task.Yield();
 
     }
 

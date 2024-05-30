@@ -5,13 +5,22 @@ using UnityEngine;
 /// </summary>
 public class Orb : Breakable
 {
+    OrbTuto _tutorialScript;
+
     [field : SerializeField]
     public int OrbValue { get; private set; }
 
+    protected override void Interaction()
+    {
+        base.Interaction();
+        _tutorialScript.ActivateTutorial();
+    }
+
     private void Awake()
     {
+        _tutorialScript = GetComponent<OrbTuto>();
         Maxhp = 90;
-        Jump();
+        //Jump();
     }
 
     protected override void Break()

@@ -29,9 +29,5 @@ public class FieldStorage : Storage
             Field.Sow(item);
             Destroy(item);
         }
-        else
-        {
-            Field.RePlant(item);
-        }
     }
 }
