@@ -20,32 +20,26 @@ public class Hoe : Tool
     public override void Use()
     {
         base.Use();
-        float min = -1;
+        float min = 50;
         bool fieldHit = false;
         Field closest = null;
         foreach (var hitCollider in hitColliders)
         {
             if (hitCollider.gameObject.TryGetComponent<Field>(out Field field)) // si c'est un champ
             {
-                RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f);
                 fieldHit = true;
                 Vector3 distance = field.gameObject.transform.position - transform.position; // distance entre l'objet et le joueur
-                if (distance.sqrMagnitude < min || closest == null)
+                if (distance.sqrMagnitude < min && !field.Sowable)
                 {
                     min = distance.sqrMagnitude;
                     closest = field;
                 }
             }
-
-            if (hitCollider.gameObject.TryGetComponent<Breakable>(out Breakable breakable)) // si c'est un objet cassable
-            {
-                if(!breakable.HoeCantBreak) breakable.SetBreak(breakPower); // casse l'objet si il est cassable par la hoe
-            }
         }
         if (!fieldHit)
         {
             SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume);
-            RumbleManager.instance.RumblePulse(0.2f, 0.2f, 0.2f);
+            RumbleManager.instance.RumblePulse(0.2f, 0.2f, 0.2f); // fait vibrer la mannette
             Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
         }
         else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume);
@@ -54,6 +48,7 @@ public class Hoe : Tool
         if(closest != null && !closest.Sowable)
         {
             closest.Plow(); // retourne le champ
+            RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f);// fait vibrer la mannette
         }
     }
 }

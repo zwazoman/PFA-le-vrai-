@@ -20,14 +20,12 @@ public class Orb : Breakable
     {
         base.Awake();
         _tutorialScript = GetComponent<OrbTuto>();
-        Maxhp = 90;
         //Jump();
     }
 
-    protected override void Break()
+    public override void Break()
     {
         PlayerMain.Instance.Stats.AddMoney(10);
-        //faire apparaître l'argent
         Destroy(gameObject);
     }
 }
