@@ -15,5 +15,6 @@ public class Well : Interactable
     {
         SFXManager.Instance.PlaySFXClip(_wellSounds, transform.position, _wellSoundsVolume);
         PlayerMain.Instance.Watering.Replenish();
+        RumbleManager.instance.RumblePulse(0.5f, 0.5f, 0.1f);
     }
 }

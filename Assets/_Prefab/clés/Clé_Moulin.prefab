@@ -28,14 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3217270534237232755}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9515657, z: -0, w: 0.30744544}
-  m_LocalPosition: {x: 27.77, y: 14.945889, z: 114.73}
+  m_LocalRotation: {x: -0, y: 0.7143333, z: -0, w: 0.69980574}
+  m_LocalPosition: {x: 27.77, y: 14.2516575, z: 114.73}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3879076183952547536}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 107.343, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &5043150656317003972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a68edbabffcd07e46b18a4be6e7b55d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
+  <Name>k__BackingField: "Cl\xE9 de Crystal"
   pickUpRotation: {x: -90, y: 90, z: 0}
   id: 0
 --- !u!1001 &3629767441897634107
@@ -186,6 +186,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a90b8ec226d2d55428175bdd1a50042b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d59417d644ea1ce4689b3f82cdbd67b7, type: 2}
+    - target: {fileID: -7511558181221131132, guid: a90b8ec226d2d55428175bdd1a50042b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: eb6074670b4c45c4683929e2eac113a2, type: 2}
     - target: {fileID: 919132149155446097, guid: a90b8ec226d2d55428175bdd1a50042b,
         type: 3}
       propertyPath: m_Name

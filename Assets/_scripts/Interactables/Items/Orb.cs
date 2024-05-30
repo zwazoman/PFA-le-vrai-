@@ -16,8 +16,9 @@ public class Orb : Breakable
         _tutorialScript.ActivateTutorial();
     }
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         _tutorialScript = GetComponent<OrbTuto>();
         Maxhp = 90;
         //Jump();

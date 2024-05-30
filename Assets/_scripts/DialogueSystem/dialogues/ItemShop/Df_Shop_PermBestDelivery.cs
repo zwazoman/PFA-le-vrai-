@@ -10,9 +10,9 @@ public class Df_Shop_PermBestDelivery : DialogueFlow
         _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
         await _characters.Geoffrrus.Say("Aaah, je me demandais quand tu allais venir la prendre, celle-ci. Il te suffit de l’activer, et tu auras #une livraison d’âmes plus importante# de la part de Charon.");
-        await _characters.Geoffrrus.Say($"Une vrai petite merveille, que je te vend pour #{((SellingSpot)WorldObject).price} âmes.#");
+        await _characters.Geoffrrus.Say($"Une vrai petite merveille que je te vend pour #{((SellingSpot)WorldObject).price} âmes#.");
 
-        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter #l'amelioration de livraison# pour  #{((SellingSpot)WorldObject).price} âmes.#?", new string[] {"J'achète !", "J'ai changé d'avis."});
+        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter #l'amelioration de livraison# pour #{((SellingSpot)WorldObject).price} âmes# ? (Vous en avez #{PlayerMain.Instance.Stats.Money}#)", new string[] {"J'achète !", "J'ai changé d'avis."});
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)

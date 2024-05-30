@@ -477,6 +477,139 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &454754561115807908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 225342643520662013}
+  - component: {fileID: 4690537691125822826}
+  - component: {fileID: 3610214740837174418}
+  - component: {fileID: 6231816657343523451}
+  m_Layer: 0
+  m_Name: vfx_grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &225342643520662013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454754561115807908}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6863210167928016197}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &4690537691125822826
+VisualEffect:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454754561115807908}
+  m_Enabled: 1
+  m_Asset: {fileID: 8926484042661614526, guid: 4ecbe00a9837d77479bc6151b5d80318, type: 3}
+  m_InitialEventName: OnPlay
+  m_InitialEventNameOverriden: 0
+  m_StartSeed: 0
+  m_ResetSeedOnPlay: 1
+  m_AllowInstancing: 1
+  m_ResourceVersion: 1
+  m_PropertySheet:
+    m_Float:
+      m_Array:
+      - m_Value: 12.01
+        m_Name: baseVelocityScale
+        m_Overridden: 1
+      - m_Value: 5
+        m_Name: size
+        m_Overridden: 1
+    m_Vector2f:
+      m_Array: []
+    m_Vector3f:
+      m_Array: []
+    m_Vector4f:
+      m_Array: []
+    m_Uint:
+      m_Array: []
+    m_Int:
+      m_Array: []
+    m_Matrix4x4f:
+      m_Array: []
+    m_AnimationCurve:
+      m_Array: []
+    m_Gradient:
+      m_Array: []
+    m_NamedObject:
+      m_Array: []
+    m_Bool:
+      m_Array: []
+--- !u!73398921 &3610214740837174418
+VFXRenderer:
+  serializedVersion: 1
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454754561115807908}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &6231816657343523451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454754561115807908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae908f4387a87e41a7cd3bde57b8a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfx: {fileID: 4690537691125822826}
+  groundEffect: {fileID: 7239276282444973839}
+  MaxRate: 32
 --- !u!1 &563743602285768553
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 133.6, y: 68.4}
+  m_AnchoredPosition: {x: 133.6001, y: 68.3999}
   m_SizeDelta: {x: 130.2, y: 56.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4569207085906273990
@@ -939,7 +1072,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -241.7, y: -92.4}
+  m_AnchoredPosition: {x: -241.7002, y: -92.3999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1253403015809024276
@@ -4615,139 +4748,6 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 550d398834be30043846be9f7865e313, type: 2}
---- !u!1 &5128011198170086038
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2158826452327546034}
-  - component: {fileID: 8922897654605801026}
-  - component: {fileID: 2107102663624361740}
-  - component: {fileID: 3825385514613558477}
-  m_Layer: 0
-  m_Name: vfx_grass
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2158826452327546034
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128011198170086038}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.58, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6863210167928016197}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &8922897654605801026
-VisualEffect:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128011198170086038}
-  m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 4ecbe00a9837d77479bc6151b5d80318, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
-  m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
-  m_AllowInstancing: 1
-  m_ResourceVersion: 1
-  m_PropertySheet:
-    m_Float:
-      m_Array:
-      - m_Value: 12.01
-        m_Name: baseVelocityScale
-        m_Overridden: 1
-      - m_Value: 5
-        m_Name: size
-        m_Overridden: 1
-    m_Vector2f:
-      m_Array: []
-    m_Vector3f:
-      m_Array: []
-    m_Vector4f:
-      m_Array: []
-    m_Uint:
-      m_Array: []
-    m_Int:
-      m_Array: []
-    m_Matrix4x4f:
-      m_Array: []
-    m_AnimationCurve:
-      m_Array: []
-    m_Gradient:
-      m_Array: []
-    m_NamedObject:
-      m_Array: []
-    m_Bool:
-      m_Array: []
---- !u!73398921 &2107102663624361740
-VFXRenderer:
-  serializedVersion: 1
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128011198170086038}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!114 &3825385514613558477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128011198170086038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae908f4387a87e41a7cd3bde57b8a12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfx: {fileID: 8922897654605801026}
-  groundEffect: {fileID: 5230745133572014991}
-  MaxRate: 32
 --- !u!1 &5269686742497295108
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,7 +5063,6 @@ GameObject:
   - component: {fileID: 5128041245480934880}
   - component: {fileID: 9158366651026814126}
   - component: {fileID: 7239276282444973839}
-  - component: {fileID: 5230745133572014991}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5091,8 +5090,7 @@ Transform:
   - {fileID: 4333330033702122519}
   - {fileID: 2835232839228757577}
   - {fileID: 4538579779292105778}
-  - {fileID: 5453577497636219603}
-  - {fileID: 2158826452327546034}
+  - {fileID: 225342643520662013}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4416392060899640613
@@ -5200,6 +5198,7 @@ MonoBehaviour:
   <DialogueInput>k__BackingField: {fileID: 9158366651026814126}
   <Ambience>k__BackingField: {fileID: 4882705463817092156}
   <Tag>k__BackingField: {fileID: 788019110852804272}
+  <GroundEffect>k__BackingField: {fileID: 7239276282444973839}
   WheelBarrowSocket: {fileID: 7629403595697943147}
   OnEnterInterior:
     m_PersistentCalls:
@@ -5528,16 +5527,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 922dd848caf52b440b34b36a5b805605, type: 3}
   - {fileID: 8300000, guid: 4f547ada661aa2949b142436d00fb058, type: 3}
   _scytheEquipVolume: 0.3
-  _walkFootsteps:
+  _rockWalkFootsteps:
   - {fileID: 8300000, guid: ed13adc603eed6744b2fea1f674a401d, type: 3}
   - {fileID: 8300000, guid: 30a9fd2c2ddaad14cbcb563d1698e51f, type: 3}
   - {fileID: 8300000, guid: 39aa8dffd86b8784b92cd9f7a5976538, type: 3}
-  _walkFootstepsVolume: 0.3
-  _runFootsteps:
+  _rockWalkFootstepsVolume: 0.1
+  _rockRunFootsteps:
   - {fileID: 8300000, guid: 78381a1eaebfb5f4f91c5fb137b26a21, type: 3}
   - {fileID: 8300000, guid: 6f5dd67db86cd8648852952d0e35752e, type: 3}
   - {fileID: 8300000, guid: 3a23fed6cd2565a4fad4f8543ee0fb4a, type: 3}
-  _runFootstepsVolume: 0.3
+  _rockRunFootstepsVolume: 0.1
+  _grassWalkFootsteps:
+  - {fileID: 8300000, guid: dce38807b60a8ea46a48542635f6e6c6, type: 3}
+  - {fileID: 8300000, guid: 24698054daef1ec4dbb899954b72bd72, type: 3}
+  - {fileID: 8300000, guid: 349bd1e002500464d8f3b2bdffc2c4c2, type: 3}
+  _grassWalkFootstepsVolume: 0.3
+  _grassRunFootsteps:
+  - {fileID: 8300000, guid: 894fa4704730ef04db9d1fbeb37092ac, type: 3}
+  - {fileID: 8300000, guid: f44ae86c5973a33479b43f299f69bbc0, type: 3}
+  - {fileID: 8300000, guid: 977d9fb3f56585e469765f09cee23c79, type: 3}
+  _grassRunFootstepsVolume: 0.3
   _toolWoosh:
   - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
   - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
@@ -5983,41 +5992,7 @@ MonoBehaviour:
   OnTextureInfoUpdated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6646689137345071801}
-        m_TargetAssemblyTypeName: grassVFX, Assembly-CSharp
-        m_MethodName: UpdateVFXRate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5230745133572014991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5411243086529900602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a964ea66ded53dc468ae53e54bfdd3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
-  t: {fileID: 0}
-  posX: 0
-  posZ: 0
-  textureValues:
-  - 0
-  - 0
-  OnTextureInfoUpdated:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3825385514613558477}
+      - m_Target: {fileID: 6231816657343523451}
         m_TargetAssemblyTypeName: grassVFX, Assembly-CSharp
         m_MethodName: UpdateVFXRate
         m_Mode: 1
@@ -8877,139 +8852,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8356874679618531882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5453577497636219603}
-  - component: {fileID: 4775082505049941373}
-  - component: {fileID: 1892424649575162520}
-  - component: {fileID: 6646689137345071801}
-  m_Layer: 0
-  m_Name: vfx_grass
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5453577497636219603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356874679618531882}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.58, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6863210167928016197}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &4775082505049941373
-VisualEffect:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356874679618531882}
-  m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 4ecbe00a9837d77479bc6151b5d80318, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
-  m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
-  m_AllowInstancing: 1
-  m_ResourceVersion: 1
-  m_PropertySheet:
-    m_Float:
-      m_Array:
-      - m_Value: 12.01
-        m_Name: baseVelocityScale
-        m_Overridden: 1
-      - m_Value: 5
-        m_Name: size
-        m_Overridden: 1
-    m_Vector2f:
-      m_Array: []
-    m_Vector3f:
-      m_Array: []
-    m_Vector4f:
-      m_Array: []
-    m_Uint:
-      m_Array: []
-    m_Int:
-      m_Array: []
-    m_Matrix4x4f:
-      m_Array: []
-    m_AnimationCurve:
-      m_Array: []
-    m_Gradient:
-      m_Array: []
-    m_NamedObject:
-      m_Array: []
-    m_Bool:
-      m_Array: []
---- !u!73398921 &1892424649575162520
-VFXRenderer:
-  serializedVersion: 1
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356874679618531882}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 0
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!114 &6646689137345071801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8356874679618531882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae908f4387a87e41a7cd3bde57b8a12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vfx: {fileID: 4775082505049941373}
-  groundEffect: {fileID: 7239276282444973839}
-  MaxRate: 50
 --- !u!1 &8420548689918649630
 GameObject:
   m_ObjectHideFlags: 0
@@ -11166,8 +11008,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5230745133572014991}
-        m_TargetAssemblyTypeName: CheckTerrainTexture, Assembly-CSharp
+      - m_Target: {fileID: 7239276282444973839}
+        m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues
         m_Mode: 1
         m_Arguments:
@@ -11193,8 +11035,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5230745133572014991}
-        m_TargetAssemblyTypeName: CheckTerrainTexture, Assembly-CSharp
+      - m_Target: {fileID: 7239276282444973839}
+        m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues
         m_Mode: 1
         m_Arguments:
