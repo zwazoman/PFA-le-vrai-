@@ -27,6 +27,7 @@ public class Hoe : Tool
         {
             if (hitCollider.gameObject.TryGetComponent<Field>(out Field field)) // si c'est un champ
             {
+                RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f);
                 fieldHit = true;
                 Vector3 distance = field.gameObject.transform.position - transform.position; // distance entre l'objet et le joueur
                 if (distance.sqrMagnitude < min || closest == null)
@@ -44,6 +45,7 @@ public class Hoe : Tool
         if (!fieldHit)
         {
             SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume);
+            RumbleManager.instance.RumblePulse(0.2f, 0.2f, 0.2f);
             Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
         }
         else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume);
