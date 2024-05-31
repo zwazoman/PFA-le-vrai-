@@ -11335,6 +11335,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11454,6 +11461,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _progressEndTreshold
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.data[0]
+      value: BreakOrb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11872,6 +11889,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11986,6 +12008,16 @@ PrefabInstance:
         type: 3}
       propertyPath: text
       value: "Trouver comment racheter son \xE2me"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.data[0]
+      value: BuySoul
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14422,6 +14454,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -15094,6 +15131,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -15228,6 +15270,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -15353,6 +15400,21 @@ PrefabInstance:
       propertyPath: _progressEndTreshold
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.data[0]
+      value: SeedDelivery
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _nextQuests.Array.data[1]
+      value: UnlockFields
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15372,6 +15434,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 251226947174812597, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x

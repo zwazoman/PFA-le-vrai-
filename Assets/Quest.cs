@@ -18,8 +18,9 @@ public class Quest : MonoBehaviour
 
     private void Awake()
     {
-        UpdateUI();
         _name = gameObject.name;
+        _textComponent = GetComponent<TMP_Text>();
+        UpdateUI();
     }
 
     public void AddProgress(int amount = 1)
