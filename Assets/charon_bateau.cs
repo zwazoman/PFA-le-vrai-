@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 
@@ -20,6 +21,8 @@ public class charon_bateau : MonoBehaviour
     bool EstDejaParti = false;
     bool _tutorial = true;
 
+    [SerializeField] UnityEvent OnArrivee;
+    [SerializeField] UnityEvent OnDepart;
 
     private void Update()
     {
@@ -54,6 +57,8 @@ public class charon_bateau : MonoBehaviour
         if (TimeManager.Instance.Hour == 1)
         {
             StartCoroutine( Nathan.InterpolateOverTime(1, 0.323f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
+            OnArrivee.Invoke();
+
         }
         else if (TimeManager.Instance.Hour == 11)
         {
@@ -74,6 +79,8 @@ public class charon_bateau : MonoBehaviour
     public void Partir()
     {
         if (EstDejaParti) return;
+        OnDepart.Invoke();
+
         EstDejaParti = true;
         SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
         anim.SetTrigger("partir");

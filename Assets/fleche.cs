@@ -25,6 +25,12 @@ public class fleche : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        Cancel();
+    }
+
     private void OnDestroy()
     {
         instance = null;
@@ -32,7 +38,7 @@ public class fleche : MonoBehaviour
 
     public void SetUp(flecheTriggerDeCon f)
     {
-        if(currentTarget.Priority<f.Priority)
+        if(currentTarget ==null || currentTarget.Priority<f.Priority)
         currentTarget = f;
         image.sprite = f.sprite;
         target = f.target;
@@ -41,21 +47,22 @@ public class fleche : MonoBehaviour
 
     private void Update()
     {
-        if (target == null) return;
+        if (currentTarget == null) return;
         
         //position
         Vector2 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
 
         Vector2 endPosition = targetPosition;
-        endPosition.x = Mathf.Clamp(endPosition.x, Margin,Screen.width-Margin);
-        endPosition.y = Mathf.Clamp(endPosition.y, Margin,Screen.height-Margin);
+        endPosition.x = Mathf.Clamp(endPosition.x, Margin * Screen.width, (Screen.width - Margin)*Screen.width);
+        endPosition.y = Mathf.Clamp(endPosition.y, Margin * Screen.height, (Screen.height - Margin)*Screen.height);
+        
+        Vector2 offset = targetPosition - endPosition;
         GetComponent<RectTransform>().anchoredPosition = endPosition;
 
-        if ((endPosition - new Vector2(Screen.width, Screen.height)).sqrMagnitude < 100 * 100)
+        /*if ((endPosition - new Vector2(Screen.width/2f, Screen.height/2f)).sqrMagnitude < 500 * 500)
         {
-            target = null;
-            gameObject.SetActive(false);
-        }
+            Cancel();
+        }*/
 
         //rotation
         Vector2 JENPEUPLU = targetPosition - new Vector2(Screen.width, Screen.height) / 2f;
@@ -64,5 +71,11 @@ public class fleche : MonoBehaviour
         //scale
         transform.localScale = Vector3.one * (1f + Mathf.Sin(Time.time * Frequency) * Amplitude);
         
+    }
+
+    public void Cancel()
+    {
+        currentTarget = null;
+        gameObject.SetActive(false);
     }
 }

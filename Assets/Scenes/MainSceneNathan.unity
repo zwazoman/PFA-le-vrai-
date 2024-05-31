@@ -2074,7 +2074,7 @@ MonoBehaviour:
   initialSampleRatePerSegment: 500
   test: 0
   SegmentTargetLength: 0.5
-  testValue: -0.28008184
+  testValue: -0.11045112
 --- !u!1 &205682113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7824480332730040532, guid: 3b7b04f36f4242e4c8984739ca4c9387,
@@ -2572,7 +2572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254207260}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.9374242, y: 0.010002173, z: 0.34802628, w: -0.003690002}
+  m_LocalRotation: {x: 0.3727404, y: 0.0039575095, z: -0.92787427, w: 0.009906678}
   m_LocalPosition: {x: -0.0009211418, y: 0.0030365197, z: 0.001677942}
   m_LocalScale: {x: 0.40898103, y: 0.3492008, z: 0.4249014}
   m_ConstrainProportionsScale: 0
@@ -10540,8 +10540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbed9723c13a6a4e92e99be79ed89de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _irlHourDuration: 11
+  _irlHourDuration: 2
   isPaused: 0
+  isSkippingTime: 0
 --- !u!4 &1120252583
 Transform:
   m_ObjectHideFlags: 0
@@ -18606,6 +18607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928565030}
   - component: {fileID: 1928565031}
+  - component: {fileID: 1928565032}
   m_Layer: 0
   m_Name: Bateau
   m_TagString: Untagged
@@ -18651,6 +18653,52 @@ MonoBehaviour:
   value: 0.323
   anim: {fileID: 847003066}
   charon: {fileID: 888997931}
+  OnArrivee:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1928565032}
+        m_TargetAssemblyTypeName: flecheTriggerDeCon, Assembly-CSharp
+        m_MethodName: TryToTriggerFleche
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDepart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1928565032}
+        m_TargetAssemblyTypeName: flecheTriggerDeCon, Assembly-CSharp
+        m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1928565032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928565029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8260b376a4c00e34798e3180be1ae230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 19638b02b9977704bb1a64f1d3f46505, type: 3}
+  target: {fileID: 543450652966731462}
+  Priority: 0
+  CancelFleche: 0
 --- !u!1 &1935727581
 GameObject:
   m_ObjectHideFlags: 0
@@ -20176,6 +20224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690836076127600347, guid: 93cfb37c2e176f442b10410aecc76f37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6863210167928016197, guid: 93cfb37c2e176f442b10410aecc76f37,
         type: 3}
@@ -21988,22 +22041,22 @@ PrefabInstance:
     - target: {fileID: 394070785307740253, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0028483325
+      value: 0.014325895
       objectReference: {fileID: 0}
     - target: {fileID: 394070785307740253, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.9817115
+      value: 0.21574761
       objectReference: {fileID: 0}
     - target: {fileID: 394070785307740253, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.014404772
+      value: 0.0032284486
       objectReference: {fileID: 0}
     - target: {fileID: 394070785307740253, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.18980767
+      value: -0.97633874
       objectReference: {fileID: 0}
     - target: {fileID: 413251662095528967, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
@@ -22168,22 +22221,22 @@ PrefabInstance:
     - target: {fileID: 2667644442879134134, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.003522634
+      value: -0.013181505
       objectReference: {fileID: 0}
     - target: {fileID: 2667644442879134134, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.96578544
+      value: 0.23331432
       objectReference: {fileID: 0}
     - target: {fileID: 2667644442879134134, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.013101464
+      value: 0.003171622
       objectReference: {fileID: 0}
     - target: {fileID: 2667644442879134134, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.25898722
+      value: 0.97230685
       objectReference: {fileID: 0}
     - target: {fileID: 3154164066644468617, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
@@ -22218,22 +22271,22 @@ PrefabInstance:
     - target: {fileID: 4415303857145204157, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.15711854
+      value: 0.7243549
       objectReference: {fileID: 0}
     - target: {fileID: 4415303857145204157, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11179876
+      value: -0.6538505
       objectReference: {fileID: 0}
     - target: {fileID: 4415303857145204157, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7287577
+      value: 0.17636956
       objectReference: {fileID: 0}
     - target: {fileID: 4415303857145204157, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.65705955
+      value: -0.12916444
       objectReference: {fileID: 0}
     - target: {fileID: 4498084801707873938, guid: 3651b1a4aee3c12479b8bc735f7087fa,
         type: 3}
