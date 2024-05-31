@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class UiJuice : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ScaleUp()
     {
-        
+        //EventTriggerType.PointerEnter.
+        gameObject.transform.localScale *= 1.2f;
+       
+    }
+    public void ScaleDown() 
+    {
+        gameObject.transform.localScale /= 1.2f;
     }
 
-    // Update is called once per frame
-    void Update()
+    /*public void ChangeScale() => StartCoroutine(_ChangeScale());
+    private IEnumerator _ChangeScale()
     {
-        
-    }
+        gameObject.transform.localScale *= 1.3f;
+        yield return new WaitForSeconds(0.3f);
+        gameObject.transform.localScale /= 1.3f;
+    }*/
 }
