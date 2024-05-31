@@ -19,6 +19,7 @@ public class GroundEffect : MonoBehaviour
         t = Terrain.activeTerrain;
         playerTransform = gameObject.transform;
         
+        computeTextureValues();
         /*for (int i = 0; i < t.terrainData.detailWidth; i++)
         {
             for (int j = 0; j < t.terrainData.detailHeight; j++)

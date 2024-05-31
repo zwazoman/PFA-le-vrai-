@@ -48,6 +48,7 @@ public class charon_bateau : MonoBehaviour
         {
             return;
         }
+        if (TimeManager.Instance.isSkippingTime /*|| _tutorial*/) return;
 
 
         if (TimeManager.Instance.Hour == 1)
