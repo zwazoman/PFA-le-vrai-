@@ -7,5 +7,7 @@ public class Eve : Interactable
     protected override void Interaction()
     {
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this);
+        QuestManager.Instance.TryProgressQuest("FindSoul", 1);
+        QuestManager.Instance.TryProgressQuest("BuySoul", PlayerMain.Instance.Stats.Money);
     }
 }

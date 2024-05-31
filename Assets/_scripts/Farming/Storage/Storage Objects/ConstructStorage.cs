@@ -18,6 +18,7 @@ public class ConstructStorage : Storage
     {
         Instantiate(_fieldPrefab, transform.position, transform.rotation);
         SFXManager.Instance.PlaySFXClip(_repairSound, transform.position, _repairSoundVolume);
+        QuestManager.Instance.TryProgressQuest("UnlockFields", 1);
         Destroy(item);
         Destroy(gameObject);
     }

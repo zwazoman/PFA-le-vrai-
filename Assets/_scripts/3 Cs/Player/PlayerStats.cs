@@ -16,6 +16,7 @@ public class PlayerStats : MonoBehaviour
     public void AddMoney(int toAdd)
     {
         UiManager.Instance.Gameplay_Panel.UpdateDisplay(Money, Money + toAdd);
+        QuestManager.Instance.TryProgressQuest("BuySoul", toAdd);
         Money += toAdd;
     }
 

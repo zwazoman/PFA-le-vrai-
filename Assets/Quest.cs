@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ public class Quest : MonoBehaviour
     [SerializeField] List<string> _nextQuests = new List<string>();
     TMP_Text _textComponent;
     [SerializeField] string text;
+
+    public event Action OnQuestCompleted;
 
     private void Awake()
     {
@@ -40,6 +43,7 @@ public class Quest : MonoBehaviour
             }
 
             //enlever cette quete
+            OnQuestCompleted?.Invoke();
             Destroy(gameObject);
         }
 

@@ -12,6 +12,7 @@ public class Charon : Interactable
     protected override void Interaction()
     {
         activateDialogue();
+        QuestManager.Instance.TryProgressQuest("SeedDelivery", 1);
     }
 
     async void activateDialogue()

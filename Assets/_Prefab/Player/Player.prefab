@@ -14572,7 +14572,7 @@ PrefabInstance:
     - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: text
-      value: "Racheter son \xE2me"
+      value: "Economiser pour racheter son \xE2me"
       objectReference: {fileID: 0}
     - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
@@ -15418,8 +15418,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4595631379058078940, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6460349593453425475}
   m_SourcePrefab: {fileID: 100100000, guid: 43bba29582fed2947a356202b7230d3d, type: 3}
+--- !u!1 &5672950367306089040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4595631379058078940, guid: 43bba29582fed2947a356202b7230d3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8177595941417039500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6460349593453425475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5672950367306089040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c429b8ff718dbfd4883810ff39304ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7788608063114463220 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,

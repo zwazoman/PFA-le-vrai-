@@ -29,6 +29,7 @@ public class PlantHarvest : MonoBehaviour
 
         SFXManager.Instance.PlaySFXClip(_cutSounds, transform.position, _cutVolume);
         SFXManager.Instance.PlaySFXClip(_juiceSounds, transform.position, _juiceVolume);
+        QuestManager.Instance.TryProgressQuest("SowSeed", 1);
         Instantiate(_main.orb, _main.Visuals.sparkleVFX.transform.position, Quaternion.identity).gameObject.transform.localScale = _main.orb.transform.localScale; //fait spawn un orbe
 
         _main.PlantField.IsEmpty = true; // annonce au champ qu'il est vide
