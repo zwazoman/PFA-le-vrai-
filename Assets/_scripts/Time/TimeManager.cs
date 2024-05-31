@@ -30,7 +30,9 @@ public class TimeManager : MonoBehaviour
     public bool isPaused=false;
     float LastRealTickTime; //ces deux valeurs sont utilisées pour pouvoir mettre en pause le jeu, et reprendre en tenant compte du temps qui s'etait deja ecoulé entre deux heures.
     float lastRealPauseTime;
-    
+
+    public bool isSkippingTime = false;
+
     private void Awake()
     {
         Day = 1;
@@ -86,6 +88,10 @@ public class TimeManager : MonoBehaviour
     public void SkipTime(float timeToSkip)
     {
         CancelInvoke(nameof(TimePass));
+        isSkippingTime = true;
+
+        float baseDuration = _irlHourDuration;
+        _irlHourDuration = 0;
 
         int i = 0;
         //for (int i = 0; i > timeToSkip; i++, CancelInvoke(nameof(TimePass)), Start()) ;
@@ -96,6 +102,8 @@ public class TimeManager : MonoBehaviour
             print(i);
         }
 
+        _irlHourDuration = baseDuration;
+        isSkippingTime = false;
         InvokeRepeating(nameof(TimePass), _irlHourDuration, _irlHourDuration); 
     }
 

@@ -17,8 +17,7 @@ public class fleche : MonoBehaviour
     [SerializeField] float Frequency;
     [SerializeField] float Amplitude;
 
-    [SerializeField] Sprite CharonSprite;
-    [SerializeField] Sprite MoulinSprite;
+    public flecheTriggerDeCon currentTarget;
 
     public static fleche instance { get; private set; }
 
@@ -31,11 +30,12 @@ public class fleche : MonoBehaviour
         instance = null;
     }
 
-
-    public void SetUp(Sprite sprite, Transform newTarget)
+    public void SetUp(flecheTriggerDeCon f)
     {
-        image.sprite = sprite;
-        target = newTarget;
+        if(currentTarget.Priority<f.Priority)
+        currentTarget = f;
+        image.sprite = f.sprite;
+        target = f.target;
         gameObject.SetActive(true);
     }
 

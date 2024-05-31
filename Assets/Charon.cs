@@ -23,6 +23,8 @@ public class Charon : Interactable
         //TimeManager.Instance.pauseTime();
         for (int i = 0; i <= PlayerMain.Instance.Stats.Seeds + Random.Range(-1,2); i++)
         {
+            int rand = Random.Range(0,2);
+            if(rand == 0) PlayerMain.Instance.Sounds.PlayDropPopSound(); else PlayerMain.Instance.Sounds.PlayPickupPopSound();
             Instantiate(_seedPrefabs[Random.Range(0, _seedPrefabs.Count)], SpawnSocket.position + Random.insideUnitSphere*0.5f , Quaternion.identity);
             await Task.Delay( Random.Range(200, 300));
         }

@@ -9,11 +9,9 @@ public class PlayerVisuals : MonoBehaviour
 
     PlayerMain p => PlayerMain.Instance;
 
-    [SerializeField]VisualEffect footstepVFX;
     private void Start()
     {
-        footstepVFX.Stop();
-
+        
         mv = p.Movement;
         PlayerInputManager i = p.InputManager;
         i.OnSprintStart+= ()=> animator.SetBool("running",true);
@@ -60,7 +58,7 @@ public class PlayerVisuals : MonoBehaviour
             animator.SetFloat("wheelbarrowInput", p.WBInputManager.MoveInput);
         }
 
-        if (p.InputManager.moveInput == Vector2.zero) { footstepVFX.Stop();/*print("ta ûte la mere");*/ } else footstepVFX.Play();
+        
     }
 
     IEnumerator BreakIdle()

@@ -19,6 +19,7 @@ public class GroundEffect : MonoBehaviour
         t = Terrain.activeTerrain;
         playerTransform = gameObject.transform;
         
+        computeTextureValues();
         /*for (int i = 0; i < t.terrainData.detailWidth; i++)
         {
             for (int j = 0; j < t.terrainData.detailHeight; j++)
@@ -35,7 +36,7 @@ public class GroundEffect : MonoBehaviour
 
     }
 
-    //à appeler à chaque pas
+    //ï¿½ appeler ï¿½ chaque pas
     public void computeTextureValues()
     {
         GetTerrainTexture();
@@ -63,7 +64,7 @@ public class GroundEffect : MonoBehaviour
     {
         float[,,] aMap = t.terrainData.GetAlphamaps(posX, posZ, 1, 1);
 
-        textureValues[0] = aMap[0, 0, 1];
-        textureValues[1] = aMap[0, 0, 1];
+        textureValues[0] = aMap[0, 0, 0];//pierre
+        textureValues[1] = aMap[0, 0, 1];//wood
     }
 }
