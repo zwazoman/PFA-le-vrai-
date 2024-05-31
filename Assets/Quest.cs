@@ -8,13 +8,20 @@ using UnityEngine.Assertions;
 
 public class Quest : MonoBehaviour
 {
-    [SerializeField] string _name;
+    string _name;
     int _progress = 0;
     [SerializeField] int _progressEndTreshold;
     bool _completed = false;
-    List<string> _nextQuests = new List<string>();
+    [SerializeField] List<string> _nextQuests = new List<string>();
     TMP_Text _textComponent;
     [SerializeField] string text;
+
+    private void Awake()
+    {
+        _name = gameObject.name;
+        _textComponent = GetComponent<TMP_Text>();
+        UpdateUI();
+    }
 
     public void AddProgress(int amount = 1)
     {
