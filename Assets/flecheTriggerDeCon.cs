@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class flecheTriggerDeCon : MonoBehaviour
 {
-    fleche f;
-    [SerializeField] public Sprite sprite { get; private set; }
-    [SerializeField] public Transform target { get; private set; }
-    [SerializeField] public int Priority {  get ;private set; }
-    private void Awake()
+    public fleche f;
+    [SerializeField] public Sprite sprite;// { get; private set; }
+    [SerializeField] public Transform target;// { get; private set; }
+    [SerializeField] public int Priority;// {  get ;private set; }
+
+    public bool CancelFleche = false;
+    private void Start()
     {
-        f = FindObjectOfType<fleche>();
+        f = fleche.instance;
     }
 
     public void TryToTriggerFleche()
     {
         f.SetUp(this);
+    }
+
+    public void Cancel()
+    {
+        if(f.currentTarget == this)
+        {
+            f.SetUp(null);
+        }
     }
 }
