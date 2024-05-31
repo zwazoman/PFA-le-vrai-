@@ -39,7 +39,7 @@ public class Hoe : Tool
         if (!fieldHit)
         {
             SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume);
-            RumbleManager.instance.RumblePulse(0.2f, 0.2f, 0.2f); // fait vibrer la mannette
+            RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f); // fait vibrer la mannette
             Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
         }
         else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume);
@@ -48,7 +48,7 @@ public class Hoe : Tool
         if(closest != null && !closest.Sowable)
         {
             closest.Plow(); // retourne le champ
-            RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f);// fait vibrer la mannette
+            RumbleManager.instance.RumblePulse(0.2f, 0.2f, 0.2f);// fait vibrer la mannette
         }
     }
 }
