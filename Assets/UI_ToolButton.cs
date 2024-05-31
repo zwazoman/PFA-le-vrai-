@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UI_ToolButton : MonoBehaviour
 {
@@ -8,7 +9,17 @@ public class UI_ToolButton : MonoBehaviour
 
     [SerializeField] int index = 0;
     [SerializeField] AnimationCurve curve;
+    bool gamepadActive;
+    [SerializeField] GameObject _toolButtons;
+    [SerializeField] private PlayerInput _input;
 
+    private void Awake()
+    {
+        if (Gamepad.all.Count > 0)
+        {
+            gamepadActive = true;
+        }
+    }
     public void activate()
     {
 
@@ -33,6 +44,21 @@ public class UI_ToolButton : MonoBehaviour
                 PlayerMain.Instance.InputManager.OnInteract += activate;
                 break;
         }
+
+        //print(currentControlScheme);
+        
+        
     }
 
+    private void Update()
+    {
+        if (_input.currentControlScheme == "Gamepad")
+        {
+            _toolButtons.SetActive(true); 
+        }
+        else
+        {
+            _toolButtons.SetActive(false);
+        }
+    }
 }
