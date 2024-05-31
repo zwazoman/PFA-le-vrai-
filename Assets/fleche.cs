@@ -38,11 +38,15 @@ public class fleche : MonoBehaviour
 
     public void SetUp(flecheTriggerDeCon f)
     {
-        if(currentTarget ==null || currentTarget.Priority<f.Priority)
-        currentTarget = f;
-        image.sprite = f.sprite;
-        target = f.target;
-        gameObject.SetActive(true);
+        if (currentTarget == null) return;
+        if (currentTarget.Priority < f.Priority)
+        {
+            currentTarget = f;
+            image.sprite = f.sprite;
+            target = f.target;
+            gameObject.SetActive(true);
+        }
+        
     }
 
     private void Update()
