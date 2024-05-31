@@ -14,11 +14,11 @@ public class AudioMixerManager : MonoBehaviour
 
     public void SetSFXVOlume(float level)
     {
-        _mixer.SetFloat("masterVolume", level);
+        _mixer.SetFloat("SFXVolume", level);
     }
 
     public void SetMusicVolume(float level)
     {
-        _mixer.SetFloat("masterVolume", level);
+        _mixer.SetFloat("MusicVolume", level);
     }
 }
