@@ -10,7 +10,7 @@ public class UI_ToolButton : MonoBehaviour
     [SerializeField] int index = 0;
     [SerializeField] AnimationCurve curve;
     bool gamepadActive;
-    [SerializeField] GameObject _toolButtons;
+    //[SerializeField] GameObject _toolButtons;
     [SerializeField] private PlayerInput _input;
 
     private void Awake()
@@ -52,13 +52,13 @@ public class UI_ToolButton : MonoBehaviour
 
     private void Update()
     {
-        if (_input.currentControlScheme == "Gamepad")
+        /*if (_input.currentControlScheme == "Gamepad")
         {
             _toolButtons.SetActive(true); 
         }
         else
         {
             _toolButtons.SetActive(false);
-        }
+        }*/
     }
 }
