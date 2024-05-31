@@ -33,7 +33,7 @@ public class fleche : MonoBehaviour
 
     private void OnDestroy()
     {
-        instance = null;
+        instance = null;   
     }
 
     public void SetUp(flecheTriggerDeCon f)
@@ -51,7 +51,7 @@ public class fleche : MonoBehaviour
         
         //position
         Vector2 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
-
+         
         Vector2 endPosition = targetPosition;
         endPosition.x = Mathf.Clamp(endPosition.x, Margin * Screen.width, (Screen.width - Margin)*Screen.width);
         endPosition.y = Mathf.Clamp(endPosition.y, Margin * Screen.height, (Screen.height - Margin)*Screen.height);
