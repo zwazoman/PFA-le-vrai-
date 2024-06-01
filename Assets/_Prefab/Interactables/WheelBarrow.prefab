@@ -558,7 +558,6 @@ GameObject:
   - component: {fileID: 4886247762390377661}
   - component: {fileID: 2810643127681902651}
   - component: {fileID: 5164436194617438623}
-  - component: {fileID: 7003897954770156217}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
@@ -631,27 +630,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7003897954770156217
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7546867444705133392}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.0037374278
-  m_Center: {x: 0, y: -0.000000001164153, z: -0.0000000037252903}
 --- !u!1 &7776070987846103348
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 96a7a0e736abb474f911b2ab8a4ba4eb, type: 2}
+  - {fileID: 2100000, guid: d59417d644ea1ce4689b3f82cdbd67b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -791,7 +769,61 @@ MonoBehaviour:
   _emptySocket: {fileID: 8963310645401076376}
   animationCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 311.51486
+      outSlope: 311.51486
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.08907619
+      value: 27.748558
+      inSlope: 0.8003002
+      outSlope: 0.8003002
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.25458717
+      value: -11.48288
+      inSlope: 23.408537
+      outSlope: 23.408537
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.97844946
+      outWeight: 0.2806778
+    - serializedVersion: 3
+      time: 0.52226806
+      value: 5.446183
+      inSlope: -8.750402
+      outSlope: -8.750402
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.71556884
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7579601
+      value: -3.213951
+      inSlope: 3.4245455
+      outSlope: 3.4245455
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 16.263834
+      outSlope: 16.263834
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -847,6 +879,7 @@ GameObject:
   - component: {fileID: 3952191310648312918}
   - component: {fileID: 4957069028029590552}
   - component: {fileID: 5056766720356638632}
+  - component: {fileID: 4079711041316955686}
   m_Layer: 0
   m_Name: WheelBarrow
   m_TagString: Untagged
@@ -864,7 +897,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.13, y: 4.27, z: 1.46}
-  m_LocalScale: {x: 1.15, y: 1.1, z: 1.1}
+  m_LocalScale: {x: 1.1500002, y: 1.1000003, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4886247762390377661}
@@ -895,20 +928,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245605553659854606}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98bd699adc111d0458db25bc64b0cedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Barrow: {fileID: 0}
-  Wheel: {fileID: 7546867444705133392}
-  wheelRadius: -1.52
-  maxAngle: 0
-  kekchos: 100
+  Barrow: {fileID: 8245605553659854606}
+  wheelRadius: 2.01
+  maxSlopeAngle: 35
+  kekchos: 4.29
   truk: 2.48
+  angleOffet: 180
+  localForward: {x: 0, y: 0, z: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  angle: 0
 --- !u!114 &3952191310648312918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +982,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 506454ed0bf73a24abd818f1f2e8c928, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1031,6 +1066,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4079711041316955686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8245605553659854606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67074216591ace144a69bdbd5e67d17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {x: 0, y: 0, z: 0}
+  killHeight: -32
 --- !u!1 &8963310645401076376
 GameObject:
   m_ObjectHideFlags: 0
