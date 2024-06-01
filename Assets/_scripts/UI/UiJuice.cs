@@ -6,15 +6,21 @@ using UnityEngine.EventSystems;
 
 public class UiJuice : MonoBehaviour
 {
+
+    Vector3 BaseScale;
+    private void Awake()
+    {
+        BaseScale = transform.localScale;
+    }
     public void ScaleUp()
     {
         //EventTriggerType.PointerEnter.
-        gameObject.transform.localScale *= 1.2f;
+        gameObject.transform.localScale = BaseScale * 1.2f;
        
     }
     public void ScaleDown() 
     {
-        gameObject.transform.localScale /= 1.2f;
+        gameObject.transform.localScale = BaseScale / 1.2f;
     }
 
     /*public void ChangeScale() => StartCoroutine(_ChangeScale());

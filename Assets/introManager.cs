@@ -30,8 +30,9 @@ public class introManager : MonoBehaviour
         TimeManager.Instance.pauseTime();
         UiManager.Instance.canPause = false;
 
-        PlayerMain.Instance.InputManager.enabled = false;
-        PlayerMain.Instance.Movement.enabled = false;
+        //PlayerMain.Instance.InputManager.enabled = false;
+        // PlayerMain.Instance.Movement.enabled = false;
+        PlayerMain.Instance.Lock();
         PlayerMain.Instance.transform.position = playerSocket.position;
         PlayerMain.Instance.transform.parent = playerSocket;
         //PlayerMain.Instance.WheelBarrow.Movement.enabled = false;
@@ -79,8 +80,10 @@ public class introManager : MonoBehaviour
     void finSequence()
     {
         //reactiver le joueur
-        PlayerMain.Instance.InputManager.enabled = true;
-        PlayerMain.Instance.Movement.enabled = true;
+        //PlayerMain.Instance.InputManager.enabled = true;
+        //PlayerMain.Instance.Movement.enabled = true;
+        PlayerMain.Instance.UnLock();
+
         PlayerMain.Instance.transform.parent = null;
         UiManager.Instance.ActivateGameplayPanel();
 

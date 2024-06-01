@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -62,6 +63,34 @@ public class PlayerMain : MonoBehaviour
     public UnityEvent OnEnterInterior;
     public UnityEvent OnExitInterior;
 
+
+    public bool isLocked = false;
+    List<MonoBehaviour> lockedBehaviours = new();
+
+    public void Lock()
+    {
+        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponentsInChildren<MonoBehaviour>()) 
+        {
+            if (mb.enabled)
+            {
+                lockedBehaviours.Add(mb);
+                mb.enabled = false;
+            }
+            
+        }
+        isLocked = true;
+    }
+
+    public void UnLock()
+    {
+        foreach (MonoBehaviour mb in lockedBehaviours)
+        {
+            mb.enabled = true;
+        }
+
+        isLocked = false;
+        lockedBehaviours.Clear();
+    }
 
     //singleton
     private static PlayerMain instance = null;

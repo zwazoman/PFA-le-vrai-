@@ -61,6 +61,11 @@ public class PlayerVisuals : MonoBehaviour
         
     }
 
+    private void OnDisable()
+    {
+         animator.SetBool("moving", false); 
+    }
+
     IEnumerator BreakIdle()
     {
         animator.SetBool("IdleBreaker",true); //idle breaker

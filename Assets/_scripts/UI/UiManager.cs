@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class UiManager : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject Intro_Panel;
     [SerializeField] GameObject _firstButtonSelect;
     //[SerializeField] DialoguePanel Dialogue_Panel;
-    
+
+
     public bool canPause = true;
 
     bool wasPaused = true;
+
+
 
     private void Start()
     {
@@ -27,13 +31,19 @@ public class UiManager : MonoBehaviour
 
     private void OnPause()
     {
-        if (Gameplay_Panel.gameObject.activeSelf) 
-        { 
-            ActivatePausePanel() ;
-            EventSystem.current.SetSelectedGameObject(_firstButtonSelect);
-        }          
-        else ActivateGameplayPanel();
-        
+        if (Gameplay_Panel.gameObject.activeSelf)
+        {
+           // PlayerMain.Instance.Lock();
+
+            ActivatePausePanel();
+            //EventSystem.current.SetSelectedGameObject(_firstButtonSelect);
+        }
+        else
+        {
+            ActivateGameplayPanel();
+            
+        }
+
     }
 
     private void Awake()
@@ -83,6 +93,7 @@ public class UiManager : MonoBehaviour
     {
         if (!canPause) return;
 
+
         HideEverything();
 
         wasPaused = TimeManager.Instance.isPaused;
@@ -90,6 +101,10 @@ public class UiManager : MonoBehaviour
 
         Cursor.visible = true;
         Pause_Panel.gameObject.SetActive(true);
+
+
+
+        //foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
     }
 
 
@@ -132,7 +147,7 @@ public class UiManager : MonoBehaviour
     public async Task PopupSimpleString(string String) //fait apparaitre une ligne de dialogues sans afficher les personnages
     {
         //deactivate player
-        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = false; }
+        PlayerMain.Instance.Lock();
 
         //pause the time 
         bool wasTimeAlreadyPaused = TimeManager.Instance.isPaused; //pour pas perturber si le temps était déjà en pause,comme dans les magasins par exemple.
@@ -145,9 +160,10 @@ public class UiManager : MonoBehaviour
         //resume Time
         if (!wasTimeAlreadyPaused) TimeManager.Instance.resume();
         //reactivate player
-        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponents<MonoBehaviour>()) { mb.enabled = true; }
+        PlayerMain.Instance.UnLock();
+
     }
 
 
-    
+
 }

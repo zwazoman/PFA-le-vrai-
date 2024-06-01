@@ -10,12 +10,13 @@ public class PausePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerMain.Instance.Movement.enabled = false;
+        PlayerMain.Instance.Lock();
+
     }
 
     private void OnDisable()
     {
         if(PlayerMain.Instance != null)
-        PlayerMain.Instance.Movement.enabled = true;
+        PlayerMain.Instance.UnLock();
     }
 }
