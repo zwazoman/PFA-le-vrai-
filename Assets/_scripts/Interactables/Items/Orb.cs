@@ -13,7 +13,7 @@ public class Orb : Breakable
     protected override void Interaction()
     {
         base.Interaction();
-        _tutorialScript.ActivateTutorial();
+        if(_tutorialScript!=null) _tutorialScript.ActivateTutorial();
     }
 
     public override void Awake()

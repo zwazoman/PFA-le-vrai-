@@ -19,8 +19,7 @@ public class introManager : MonoBehaviour
     [SerializeField] float _animationDuration = 60;
     [SerializeField] AnimationCurve _boatMovementCurve;
 
-    Task dialogueCharon;
-
+    
     public static bool IsActive = false;
 
     private void Start()

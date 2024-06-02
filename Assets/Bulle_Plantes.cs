@@ -20,12 +20,12 @@ public class Bulle_Plantes : MonoBehaviour
     private IEnumerator t()
     {
         if(count<=5)
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(7);
         else
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(12);
 
 
-        if (/*count < 6*/plantMain.CanWater  && spawnBubbleWhenPlayerIsNear)
+        if (/*count < 6*/plantMain.CanWater  && spawnBubbleWhenPlayerIsNear && ! plantMain.Harvest.isHarvesteable)
         {
             spawnBubbleWhenPlayerIsNear = false;
             count++;

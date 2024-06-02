@@ -7,6 +7,14 @@ public class OrbTuto : MonoBehaviour
     public static bool Activated = false;
     [SerializeField] string _dialogueScript;
 
+    private void Start()
+    {
+        if (Time.time <= 1)
+        {
+            Destroy(this);
+        }
+    }
+
     public void ActivateTutorial()
     {
         if (!Activated)
