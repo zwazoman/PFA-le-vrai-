@@ -10,7 +10,7 @@ public class Df_Shop_WestKey : DialogueFlow
     {
         _panel.InitDialogue(_characters.Geoffrrus, _characters.Geoffrrus);
 
-        await _characters.Geoffrrus.Say("La clef de la réussite, c’est aussi d’avoir un bon matériel. Cette brouette a justement servi fidèlement ton prédécesseur, avant son… accident dirons nous ?");
+        await _characters.Geoffrrus.Say("Blablabla le dialogue de la clef #(Louis est gay)#");
         await _characters.Geoffrrus.Say($"Enfin, elle te servira à transporter bien plus d’âmes d’un coup, pour seulement #{((SellingSpot)WorldObject).price} âmes.#");
 
         int resultat = await _characters.Narrator.Ask($"Voulez vous acheter cette #clef# pour #{((SellingSpot)WorldObject).price} âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
