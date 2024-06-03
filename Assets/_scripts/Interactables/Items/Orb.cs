@@ -27,6 +27,6 @@ public class Orb : Breakable
     {
         PlayerMain.Instance.Stats.AddMoney(10);
         QuestManager.Instance.TryProgressQuest("BreakOrb", 1);
-        Destroy(gameObject);
+        base.Break();
     }
 }
