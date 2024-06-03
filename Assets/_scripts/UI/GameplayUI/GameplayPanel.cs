@@ -13,6 +13,7 @@ public class GameplayPanel : MonoBehaviour
     
     public void UpdateDisplay(float from, float to)
     {
+        print("Nazi");
         //print("putain de money qui marche pas la pute");
         MoneyCounter.SetMoney(to);
     }

@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class PausePanel : MonoBehaviour
 {
+    [SerializeField] private GameObject _buttonSelect;
     public void resume()
     {
         UiManager.Instance.ActivateGameplayPanel();
@@ -11,7 +13,7 @@ public class PausePanel : MonoBehaviour
     private void OnEnable()
     {
         PlayerMain.Instance.Lock();
-
+        EventSystem.current.SetSelectedGameObject(_buttonSelect);
     }
 
     private void OnDisable()
