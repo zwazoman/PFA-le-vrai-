@@ -29,7 +29,6 @@ public class PlayerVisuals : MonoBehaviour
     public void startScytheAnimation()
     {
         animator.SetTrigger("Faux");
-        
     }
 
     public void startHoeAnimation()
