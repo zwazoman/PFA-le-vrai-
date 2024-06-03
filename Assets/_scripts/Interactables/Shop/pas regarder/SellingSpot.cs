@@ -21,6 +21,7 @@ public class SellingSpot : Interactable
 
     public virtual void SellItem()
     {
+        print("Putain Skyrim");
         PlayerMain.Instance.Stats.AddMoney(-price);
         PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
