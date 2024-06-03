@@ -19,6 +19,7 @@ public class SellingSpot : Interactable
     private void Start()
     {
         if (CanRestock) TimeManager.Instance.OnDay += Restock;
+        _effect.Play();
     }
 
     public virtual void SellItem()
