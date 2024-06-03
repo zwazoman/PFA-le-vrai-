@@ -20,9 +20,19 @@ public class MoneyCounter : MonoBehaviour
     }
     public void SetMoney(float to)
     {
-        StartCoroutine(Nathan.InterpolateOverTime(money, to, 0.5f, ApplyText, Nathan.SmoothStep01));
-        if(u!=null) StopCoroutine(u);
-        u = StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, applyScale, Nathan.SmoothStep01));
+        print("Vas y nath");
+        if(isActiveAndEnabled)
+        {
+            StartCoroutine(Nathan.InterpolateOverTime(money, to, 0.5f, ApplyText, Nathan.SmoothStep01));
+            if (u != null) StopCoroutine(u);
+            u = StartCoroutine(Nathan.InterpolateOverTime(0, 1, 0.5f, applyScale, Nathan.SmoothStep01));
+        }
+        else
+        {
+            print("Salope de 4 couleurs");
+            ApplyText(to);
+        }
+        
     }
 
     void applyScale(float a)
