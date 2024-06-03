@@ -23,7 +23,7 @@ public class SellingSpot : Interactable
     {
         print("Putain Skyrim");
         PlayerMain.Instance.Stats.AddMoney(-price);
-        PlayerMain.Instance.Sounds.PlayBuySOund();
+        PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
     }
 
