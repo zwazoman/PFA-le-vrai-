@@ -44,6 +44,7 @@ public class Quest : MonoBehaviour
 
             //enlever cette quete
             OnQuestCompleted?.Invoke();
+            PlayerMain.Instance.Visuals.PlayQuestVfx();
             PlayerMain.Instance.Sounds.PlayQuestValidateSound();
             Destroy(gameObject);
         }

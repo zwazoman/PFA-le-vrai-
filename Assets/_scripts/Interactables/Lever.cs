@@ -22,7 +22,7 @@ public class Lever : Interactable
     /// utiliser setAngle
     /// </summary>
     [SerializeField] AnimationCurve curve;
-    bool canUse = true;
+    public bool canUse = true;
     protected override void Interaction()
     {
         if(!canUse) return;
@@ -54,7 +54,7 @@ public class Lever : Interactable
 
         SFXManager.Instance.PlaySFXClip(_rechargeSound, transform.position, _rechargeSoundVolume);
 
-        StartCoroutine(Nathan.InterpolateOverTime(1, 0, 1.5f, updateWheelRotation,Nathan.SmoothStep01,()=>canUse=true, true));
+        StartCoroutine(Nathan.InterpolateOverTime(1, 0, 1.5f, updateWheelRotation,Nathan.SmoothStep01,()=>canUse=true, false));
         print("d");
 
     }

@@ -4,10 +4,16 @@ using UnityEngine.VFX;
 
 public class PlayerVisuals : MonoBehaviour
 {
+    [SerializeField] VisualEffect questVFX;
     [SerializeField] Animator animator;
     PlayerMovement mv;
 
     PlayerMain p => PlayerMain.Instance;
+
+    public void PlayQuestVfx()
+    {
+        questVFX.Play();
+    }
 
     private void Start()
     {
