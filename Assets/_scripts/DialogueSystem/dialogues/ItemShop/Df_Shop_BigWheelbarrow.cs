@@ -8,13 +8,13 @@ public class Df_Shop_BigWheelbarrow : DialogueFlow
 
     public override async Task StartDialogue()
     { 
-        _panel.InitDialogue(_characters.Geoffrrus, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
         await _characters.Geoffrrus.Say("La clef de la réussite, c’est aussi d’avoir un bon matériel. Cette #brouette# a justement servi fidèlement ton prédécesseur, avant son… accident dirons nous ?");
         await _characters.Geoffrrus.Say($"Enfin, elle te servira à transporter bien plus d’âmes d’un coup, pour seulement #{((SellingSpot)WorldObject).price} âmes#.");
 
         int resultat = await _characters.Narrator.Ask($"Voulez vous acheter la brouette pour  #{((SellingSpot)WorldObject).price} âmes# ? (Vous en avez #{PlayerMain.Instance.Stats.Money}#)", new string[] { "J'achète !", "J'ai changé d'avis." });
-        EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(null);
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)

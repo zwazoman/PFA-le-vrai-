@@ -7,7 +7,7 @@ public class Df_Shop_SpeedPotion : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
         await _characters.Geoffrrus.Say("Buvez ceci, et les vents eux même se porteront à vos pieds pour vous conférer #célérité et agilité#.");
         await _characters.Geoffrrus.Say($"Je vous en demande seulement quelques #âmes# : #{((SellingSpot)WorldObject).price}#.");

@@ -25,7 +25,7 @@ public class Mill : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_collList.Contains(other) && FindObjectOfType<Lever>().canUse) { _collList.Remove(other); }
+        if (_collList.Contains(other)) { _collList.Remove(other); }
         else if (PlayerMain.Instance.Hands.ItemInHands!=null && _collList.Contains(PlayerMain.Instance.Hands.ItemInHands.GetComponent<Collider>())){_collList.Remove(PlayerMain.Instance.Hands.ItemInHands.GetComponent<Collider>());}
     }
 
@@ -36,15 +36,13 @@ public class Mill : MonoBehaviour
     public async Task Crush()
     {
         SFXManager.Instance.PlaySFXClip(_crushSound, transform.position, _crushSoundVolume);
-        if (RumbleManager.instance != null) RumbleManager.instance.RumblePulse(0.5f, 0.8f, 0.3f);
+        RumbleManager.instance.RumblePulse(0.5f, 0.8f, 0.3f);
         OnCrush?.Invoke();
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
-            if (coll != null && coll.enabled)
+            if (coll.enabled)
             {
-                if(RumbleManager.instance!=null) RumbleManager.instance.RumblePulse(0.5f, 0.8f, 0.3f);
-
                 if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().Break();
                 if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
             }

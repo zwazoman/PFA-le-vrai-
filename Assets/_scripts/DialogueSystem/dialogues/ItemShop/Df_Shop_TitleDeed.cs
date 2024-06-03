@@ -7,7 +7,7 @@ public class Df_Shop_TitleDeed : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
         await _characters.Geoffrrus.Say("Avec ce parchemin, vous pourrez débloquer une #nouvelle parcelle de champ# pour y planter des âmes# et augmenter votre production.");
         await _characters.Geoffrrus.Say($"#{((SellingSpot)WorldObject).price} âmes# pour ton bon plaisir.");
