@@ -22,7 +22,7 @@ public class SellingSpot : Interactable
     public virtual void SellItem()
     {
         PlayerMain.Instance.Stats.AddMoney(-price);
-        PlayerMain.Instance.Sounds.PlayBuySOund();
+        PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
     }
 
