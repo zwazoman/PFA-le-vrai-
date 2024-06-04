@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using TMPro;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -55,9 +57,36 @@ public class Quest : MonoBehaviour
         QuestManager.Instance.Quests.Remove(_name);
     }
 
+    private void OnEnable()
+    {
+        _ = flicker();
+    }
+
     private void UpdateUI()
     {
         _textComponent.text =  text + (_progressEndTreshold >1 ?  $" ({_progress}/{_progressEndTreshold}) ":"");
+    }
+
+    async Task flicker()
+    {
+        Color c = _textComponent.color;
+        for (int i = 0; i < 12; i++)
+        {
+            float h, s, v;
+            Color.RGBToHSV(c,out h,out s,out v);
+            _textComponent.color = Color.HSVToRGB(h,s*3f,v);
+
+            transform.localScale = Vector3.one*1.02f;
+
+            await Task.Delay(100);
+
+            _textComponent.color = c;
+            transform.localScale = Vector3.one * 1f;
+
+
+            await Task.Delay(100);
+        }
+        _textComponent.color = c;
     }
 
 }
