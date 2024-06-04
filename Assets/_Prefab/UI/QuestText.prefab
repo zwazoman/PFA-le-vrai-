@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2019134884598283506}
   - component: {fileID: 251226947174812597}
   - component: {fileID: 7434791509296393351}
+  - component: {fileID: 1396923307699726965}
   m_Layer: 5
   m_Name: QuestText
   m_TagString: Untagged
@@ -154,6 +155,22 @@ MonoBehaviour:
   _progressEndTreshold: 0
   _nextQuests: []
   text: 
+--- !u!114 &1396923307699726965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595631379058078940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6805410c9717474b8c7e00c41bea290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hasReward: 0
+  _rewardObjectPrefab: {fileID: 0}
+  _rewardDialog: 
+  _height: 0
 --- !u!1 &7882597129700996009
 GameObject:
   m_ObjectHideFlags: 0

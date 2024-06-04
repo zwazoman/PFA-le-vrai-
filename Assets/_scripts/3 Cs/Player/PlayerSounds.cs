@@ -126,7 +126,7 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayQuestValidateSound()
     {
-        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume);
+        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume, false);
     }
 
 }

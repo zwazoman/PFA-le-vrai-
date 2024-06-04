@@ -12333,6 +12333,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4260954622901363820}
     m_Modifications:
+    - target: {fileID: 1396923307699726965, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _height
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396923307699726965, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _hasReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396923307699726965, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _rewardDialog
+      value: Df_SowSeedReward
+      objectReference: {fileID: 0}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
