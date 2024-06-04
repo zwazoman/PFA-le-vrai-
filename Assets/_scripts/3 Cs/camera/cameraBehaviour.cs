@@ -24,6 +24,7 @@ public class CameraBehaviour : MonoBehaviour
 
     public Camera cam { get; private set; }
 
+    public float zoom;
     public void zoomEffect(float intensity)
     {
         /*FOVOffset-=intensity;
@@ -68,7 +69,7 @@ public class CameraBehaviour : MonoBehaviour
         cam.fieldOfView = fovWithoutOffset + FOVOffset;
 
         //mouvement
-        transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.getFlatVelocity()*PlayerAnticipation, ref vel, smoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, target.transform.position+Offset + target.getFlatVelocity()*PlayerAnticipation - transform.forward * zoom, ref vel, smoothTime);
 
     }
 
