@@ -66,7 +66,7 @@ public class AmbienceManager : MonoBehaviour
     private void DayStartAmbience()
     {
         print("switch ambience");
-        SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume);
+        SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume, false);
         StopCoroutine(PlayNightAmbience());
         StartCoroutine(PlayDayAmbience());
     }
