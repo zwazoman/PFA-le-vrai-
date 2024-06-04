@@ -21,7 +21,7 @@ public class VelocityTrigger : MonoBehaviour
     void Update()
     {
         float sqrMagnitude = (transform.position - OldPosition).sqrMagnitude;
-        bool m = sqrMagnitude * sqrMagnitude > treshold * treshold;
+        bool m = (sqrMagnitude * sqrMagnitude)/Time.deltaTime > treshold * treshold;
 
         if(m!=isMoving)
         {
