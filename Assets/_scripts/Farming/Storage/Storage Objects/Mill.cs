@@ -14,6 +14,9 @@ public class Mill : MonoBehaviour
     [SerializeField] AudioClip[] _crushSound;
     [SerializeField] float _crushSoundVolume = 1f;
 
+    [SerializeField] AudioClip[] _breakSound;
+    [SerializeField] float _breakSoundVolume = 1f;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Breakable>(out Breakable breakable))
@@ -43,7 +46,11 @@ public class Mill : MonoBehaviour
         {
             if (coll.enabled)
             {
-                if (coll.gameObject.GetComponent<Breakable>()) coll.gameObject.GetComponent<Breakable>().Break();
+                if (coll.gameObject.GetComponent<Breakable>())
+                {
+                    SFXManager.Instance.PlaySFXClip(_breakSound, transform.position, _breakSoundVolume);
+                    coll.gameObject.GetComponent<Breakable>().Break();
+                }
                 if (coll.gameObject.transform.root.GetComponentInChildren<Orb>()) { vfxSource.playFX(); }
             }
 

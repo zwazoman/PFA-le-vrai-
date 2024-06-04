@@ -7,7 +7,7 @@ public class Df_Shop_ShortcutWindmill : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
         await _characters.Geoffrrus.Say("Ce que cette #clef# ouvre ? Du diable si je le sa… oups, pardon patron. Enfin, je n’en ai aucune idée.");
         await _characters.Geoffrrus.Say("Achète là et tu trouveras bien, depuis le temps qu’elle est ici à rouiller dans mes stocks…");
