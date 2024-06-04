@@ -60,7 +60,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    void HideEverything()
+    public void HideEverything()
     {
         if (!wasPaused && Pause_Panel.isActiveAndEnabled) TimeManager.Instance.resume();
 

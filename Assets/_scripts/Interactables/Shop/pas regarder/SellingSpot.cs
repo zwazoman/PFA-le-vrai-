@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class SellingSpot : Interactable
 {
@@ -9,6 +10,7 @@ public class SellingSpot : Interactable
     [SerializeField] protected string DialogueScript;
     [SerializeField] protected MeshRenderer _itemShopVisual;
     [SerializeField] protected int _maxStock;
+    [SerializeField] protected VisualEffect _effect;
 
     protected int _stock;
 
@@ -17,13 +19,16 @@ public class SellingSpot : Interactable
     private void Start()
     {
         if (CanRestock) TimeManager.Instance.OnDay += Restock;
+        _effect.Play();
     }
 
     public virtual void SellItem()
     {
+        print("Putain Skyrim");
         PlayerMain.Instance.Stats.AddMoney(-price);
-        PlayerMain.Instance.Sounds.PlayBuySOund();
+        PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
+        _effect.Stop();
     }
 
     protected override void Interaction()
@@ -51,5 +56,6 @@ public class SellingSpot : Interactable
     {
         _itemShopVisual.enabled = true;
         _stock = _maxStock;
+        _effect.Play();
     }
 }

@@ -52,6 +52,9 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _buySound;
     [SerializeField] float _buySoundVolume = 1f;
 
+    [SerializeField] AudioClip[] _validateQuestSounds;
+    [SerializeField] float _validateQuestSoundsVolume = 1f;
+
 
     public void PlayToolWooshSound()
     {
@@ -116,9 +119,14 @@ public class PlayerSounds : MonoBehaviour
         SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound);
     }
 
-    public void PlayBuySOund()
+    public void PlayBuySound()
     {
         SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume);
+    }
+
+    public void PlayQuestValidateSound()
+    {
+        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume);
     }
 
 }

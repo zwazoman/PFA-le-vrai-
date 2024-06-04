@@ -26,11 +26,13 @@ public class Df_Eve : DialogueFlow
 
         await _characters.Bobbus.Say("Bite");
 
-        int result = await _characters.Eve.Ask($"Alors, prêt à racheter ton âme ? Elle t'en coûtera [777] âmes", new string[] { "Oui", "Non" });
+        int result = await _characters.Eve.Ask($"Alors, prêt à racheter ton âme ? Elle t'en coûtera {((Eve)WorldObject).price} âmes", new string[] { "Oui", "Non" });
 
-        if (result == 0)
+        if (result == 0 && PlayerMain.Instance.Stats.Money>=((Eve)WorldObject).price)
         {
             await _characters.Eve.Say("Tes efforts pour te racheter t'ont amenés à cet instant, mortel. Soit récompensé pour ton dévouement");
+            WorldObject.SendMessage("OuvrirPorte");
+
         }
         else
          

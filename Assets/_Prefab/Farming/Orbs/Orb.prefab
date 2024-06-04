@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "Orbe D'\xE2me"
   pickUpRotation: {x: 0, y: 0, z: 0}
-  <HoeCantBreak>k__BackingField: 1
-  _breakSound: []
+  _breakSound:
+  - {fileID: 8300000, guid: 345687da664cd9b45ac8f84dffe6552d, type: 3}
   _breakSoundVolume: 1
   <OrbValue>k__BackingField: 50
 --- !u!114 &6832354867805928778
@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 10
+  JumpOnStart: 1
 --- !u!65 &3849142480008263101
 BoxCollider:
   m_ObjectHideFlags: 0
