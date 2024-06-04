@@ -15,6 +15,10 @@ public class door : MonoBehaviour
     [SerializeField] float openingDuration = 0.3f;
     [SerializeField] GameObject Cadenas;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip[] _openSounds;
+    [SerializeField] float _openSoundsVolume = 1f;
+
     Vector3 bs;
     private void Awake()
     {
@@ -25,6 +29,7 @@ public class door : MonoBehaviour
     public virtual void Open()
     {
         bs = Cadenas.transform.localScale;
+        SFXManager.Instance.PlaySFXClip(_openSounds, transform.position, _openSoundsVolume);
         StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep01,()=> Destroy(Cadenas)));
         Cadenas.GetComponentInChildren<Collider>().enabled = false;
     }
