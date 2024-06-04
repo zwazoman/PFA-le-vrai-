@@ -10,7 +10,6 @@ public class TimeManager : MonoBehaviour
     public int Day {  get; private set; }
     public float Hour{ get; private set; }
     public bool IsDay { get; private set; }
-    public bool IsNight { get; private set; }
     //float _minute;
     public event Action OnHour;
     public event Action OnDay;
@@ -38,8 +37,7 @@ public class TimeManager : MonoBehaviour
         Day = 1;
         //_minute = 0;
         Hour = 0;
-        IsDay = true;
-        IsNight = false;
+        IsDay = false;
 
         if (instance != null && instance != this)
         {
@@ -73,8 +71,8 @@ public class TimeManager : MonoBehaviour
         OnHour?.Invoke();
 
         //print($"heure : {Hour} , day : {Day}");
-        if (Hour == 6) { OnMorning?.Invoke(); IsDay = true; IsNight = false; }
-        if (Hour == 18) { OnEvening?.Invoke(); IsDay = false; IsNight = true; }
+        if (Hour == 6) { OnMorning?.Invoke(); IsDay = true; }
+        if (Hour == 18) { OnEvening?.Invoke(); IsDay = false; }
 
         if (Hour >= 24)
         {
