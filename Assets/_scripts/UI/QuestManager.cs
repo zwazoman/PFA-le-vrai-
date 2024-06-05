@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class QuestManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get;private set; }
 
     public Dictionary<string,Quest> Quests = new Dictionary<string, Quest>();
+
+    public UnityEvent OnAnyQuestCompleted;
 
     private void Awake()
     {
