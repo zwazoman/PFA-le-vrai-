@@ -28,7 +28,7 @@ public class SellingSpot : Interactable
         PlayerMain.Instance.Stats.AddMoney(-price);
         PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
-        _effect.Stop();
+        if (_stock == 0) _effect.Stop();
     }
 
     protected override void Interaction()
