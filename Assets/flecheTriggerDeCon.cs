@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class flecheTriggerDeCon : MonoBehaviour
 {
-    public fleche f;
+    //public fleche f;
     [SerializeField] public Sprite sprite;// { get; private set; }
     [SerializeField] public Transform target;// { get; private set; }
     [SerializeField] public int Priority;// {  get ;private set; }
@@ -12,19 +12,20 @@ public class flecheTriggerDeCon : MonoBehaviour
     public bool CancelFleche = false;
     private void Start()
     {
-        f = fleche.instance;
+        //f = fleche.instance;
     }
 
     public void TryToTriggerFleche()
     {
-        f.SetUp(this);
+        print("a");
+        fleche.instance.SetUp(this);
     }
 
     public void Cancel()
     {
-        if(f.currentTarget == this)
+        if(fleche.instance.currentTarget == this)
         {
-            f.SetUp(null);
+            fleche.instance.Cancel();
         }
     }
 }

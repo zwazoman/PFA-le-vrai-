@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
 {
+    bool _isInterior = false;
+
     [SerializeField] AudioSource _dayAmbienceAudioSource;
     [SerializeField] AudioSource _nightAmbienceAudioSource;
 
@@ -23,31 +25,33 @@ public class AmbienceManager : MonoBehaviour
 
     private void Start()
     {
-        TimeManager.Instance.OnMorning += DayAmbience;
-        TimeManager.Instance.OnEvening += NightAmbience;
-        NightAmbience();
+        TimeManager.Instance.OnMorning += DayStartAmbience;
+        TimeManager.Instance.OnEvening += NightStartAmbience;
+        NightStartAmbience();
     }
 
     IEnumerator PlayDayAmbience()
     {
+        print("Alo le jour");
         _nightAmbienceAudioSource.Stop();
         _dayAmbienceAudioSource.Play();
         while (TimeManager.Instance.IsDay)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
-            if (TimeManager.Instance.IsNight) break;
+            if (!TimeManager.Instance.IsDay || _isInterior) break;
             SFXManager.Instance.PlaySFXClip(_dayAmbientEventSounds, SelectRandomSoundSpot(), _dayAmbientEventVolume);
         }
     }
 
     IEnumerator PlayNightAmbience()
     {
+        print("ALO");
         _dayAmbienceAudioSource.Stop();
         _nightAmbienceAudioSource.Play();
-        while (TimeManager.Instance.IsNight)
+        while (!TimeManager.Instance.IsDay)
         {
             yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
-            if (TimeManager.Instance.IsDay) break;
+            if (TimeManager.Instance.IsDay || _isInterior) break;
             SFXManager.Instance.PlaySFXClip(_nightAmbientEventSounds, SelectRandomSoundSpot(), _nightAmbientEventVolume);
         }
     }
@@ -59,15 +63,15 @@ public class AmbienceManager : MonoBehaviour
         return transform.position + spot;
     }
 
-    private void DayAmbience()
+    private void DayStartAmbience()
     {
         print("switch ambience");
-        SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume);
+        SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume, false);
         StopCoroutine(PlayNightAmbience());
         StartCoroutine(PlayDayAmbience());
     }
 
-    private void NightAmbience()
+    private void NightStartAmbience()
     {
         print("switch ambience");
         StopCoroutine(PlayDayAmbience());
@@ -76,11 +80,18 @@ public class AmbienceManager : MonoBehaviour
 
     public void EnterInterior()
     {
-        StopAllCoroutines();
+        print("INTERIEUR");
+        _isInterior = true;
+        StopCoroutine(PlayDayAmbience());
+        StopCoroutine(PlayNightAmbience());
+        _nightAmbienceAudioSource.Stop();
+        _dayAmbienceAudioSource.Stop();
     }
 
     public void Exitinterior()
     {
+        print("EXTERIEUR");
+        _isInterior = false;
         if (TimeManager.Instance.IsDay) StartCoroutine(PlayDayAmbience()); else StartCoroutine(PlayNightAmbience());
     }
 
