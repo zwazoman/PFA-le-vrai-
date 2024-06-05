@@ -173,6 +173,13 @@ public class DynamicObject : MonoBehaviour
             //if (n > 0) print($"{n} collisions this frame");
         }
 
+        //ground snap
+        if (Physics.Raycast(transform.position, Vector3.down, out hit,col.radius * 0.7f /*- Mathf.Min(0, velocity.y * Time.deltaTime)*/, collisionLayer))
+        {
+            print("-----------TRIED TO CORRECT GROUND CLIPPING-------------");
+            transform.position = hit.point + Vector3.up * (hit.distance + 0.1f);
+        }
+
     }
 
     public void SnapToGround()
