@@ -39,11 +39,15 @@ public class Quest : MonoBehaviour
 
         if( _progress >= _progressEndTreshold)
         {
+            //vfx
+            QuestManager.Instance.OnAnyQuestCompleted.Invoke();
             //montrer les quetes suivantes
             foreach ( string q in _nextQuests)
             {
                 Assert.IsTrue(QuestManager.Instance.Quests.Keys.Contains(q),"Cette quete existe pas gros fils de pute de merde");
                 QuestManager.Instance.Quests[q].gameObject.SetActive(true);
+
+
                 //_ = QuestManager.Instance.Quests[q].flicker();
             }
 
