@@ -7266,7 +7266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7628c0ce70dca5a47a76fb8dc733524b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Seeds>k__BackingField: 6
+  <Seeds>k__BackingField: 5
   <Money>k__BackingField: 10
   <WalkSpeed>k__BackingField: 8
   <RunFactor>k__BackingField: 1.8
@@ -7308,7 +7308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5411243086529900602}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc173b0398a06444be24156338c5904, type: 3}
   m_Name: 
@@ -7326,10 +7326,10 @@ MonoBehaviour:
   Airfriction: 11
   speedMultiplier: 1
   UseCharacterController: 0
-  _playerMoveSpeed: 7.3
+  _playerMoveSpeed: 8
   _acceleration: 43.1
   _turnSpeed: 838.8
-  decelerationY: 6.12
+  decelerationY: 9.5
 --- !u!114 &7021991349392015451
 MonoBehaviour:
   m_ObjectHideFlags: 0
