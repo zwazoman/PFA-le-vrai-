@@ -44,7 +44,7 @@ public class Mill : MonoBehaviour
         CameraBehaviour.Instance.zoomEffect(8+2*_collList.Count);
         foreach (Collider coll in _collList)
         {
-            if (coll.enabled)
+            if (coll != null && coll.enabled)
             {
                 if (coll.gameObject.GetComponent<Breakable>())
                 {
