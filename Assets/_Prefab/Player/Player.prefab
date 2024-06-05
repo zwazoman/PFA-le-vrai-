@@ -5101,14 +5101,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ef54855062596e4da9d6531d015d1f0, type: 3}
   - {fileID: 8300000, guid: 3c3cc87f7669efd4b8f218b065dd1d6f, type: 3}
   - {fileID: 8300000, guid: 1a865acc36924a248955e8314b7ab652, type: 3}
-  _dayAmbientEventVolume: 1
+  _dayAmbientEventVolume: 0.7
   _nightAmbientEventSounds:
   - {fileID: 8300000, guid: 1b090a7c6f7627040970922b1503b7b1, type: 3}
   - {fileID: 8300000, guid: 61413c8387a85da4b9fbc25c423a14fe, type: 3}
-  _nightAmbientEventVolume: 1
+  _nightAmbientEventVolume: 0.7
   _dayStartSound:
   - {fileID: 8300000, guid: 19073004e0e61654ab2e9aa54da1ac04, type: 3}
-  _dayStartSoundVolume: 1
+  _dayStartSoundVolume: 0.7
 --- !u!82 &7691487166089648588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7554,6 +7554,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f44ae86c5973a33479b43f299f69bbc0, type: 3}
   - {fileID: 8300000, guid: 977d9fb3f56585e469765f09cee23c79, type: 3}
   _grassRunFootstepsVolume: 0.3
+  _woodWalkFootsteps:
+  - {fileID: 8300000, guid: bd2947277a41a64439b853e11e8d69e3, type: 3}
+  - {fileID: 8300000, guid: 0022bc38033a9284e83077cd9edc7b56, type: 3}
+  - {fileID: 8300000, guid: aa57277960f496444845c6f1b790e925, type: 3}
+  _woodWalkFootstepsVolume: 0.3
+  _woodRunFootsteps:
+  - {fileID: 8300000, guid: 19191fd4f68689d4eb5405d663cc1044, type: 3}
+  - {fileID: 8300000, guid: be326e986983ca3448f7582ce48d600c, type: 3}
+  - {fileID: 8300000, guid: ec6e774d3a54d744fb840368a62948a0, type: 3}
+  _woodRunFootstepsVolume: 0.3
   _toolWoosh:
   - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
   - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
