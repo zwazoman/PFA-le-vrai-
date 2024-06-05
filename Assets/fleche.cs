@@ -38,15 +38,33 @@ public class fleche : MonoBehaviour
 
     public void SetUp(flecheTriggerDeCon f)
     {
-        if (currentTarget == null) return;
-        if (currentTarget.Priority < f.Priority)
+
+        print("b");
+
+        if (currentTarget == null )
         {
+            print("c1");
+
             currentTarget = f;
             image.sprite = f.sprite;
             target = f.target;
             gameObject.SetActive(true);
         }
-        
+        else if(currentTarget.Priority < f.Priority)
+        {
+            print("c2");
+
+            currentTarget = f;
+            image.sprite = f.sprite;
+            target = f.target;
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            print("c3 pute");
+
+        }
+
     }
 
     private void Update()
@@ -57,10 +75,10 @@ public class fleche : MonoBehaviour
         Vector2 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
          
         Vector2 endPosition = targetPosition;
-        endPosition.x = Mathf.Clamp(endPosition.x, Margin * Screen.width, (Screen.width - Margin)*Screen.width);
-        endPosition.y = Mathf.Clamp(endPosition.y, Margin * Screen.height, (Screen.height - Margin)*Screen.height);
+        endPosition.x = Mathf.Clamp(endPosition.x, Margin ,Screen.width - Margin);
+        endPosition.y = Mathf.Clamp(endPosition.y, Margin, Screen.height - Margin);
         
-        Vector2 offset = targetPosition - endPosition;
+        //Vector2 offset = targetPosition - endPosition;
         GetComponent<RectTransform>().anchoredPosition = endPosition;
 
         /*if ((endPosition - new Vector2(Screen.width/2f, Screen.height/2f)).sqrMagnitude < 500 * 500)

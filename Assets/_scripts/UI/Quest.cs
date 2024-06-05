@@ -21,6 +21,8 @@ public class Quest : MonoBehaviour
 
     public event Action OnQuestCompleted;
 
+    bool flickerOnEnable = true;//pour faire clignotter les premieres quetes
+
     private void Awake()
     {
         _name = gameObject.name;
@@ -37,11 +39,16 @@ public class Quest : MonoBehaviour
 
         if( _progress >= _progressEndTreshold)
         {
+            //vfx
+            QuestManager.Instance.OnAnyQuestCompleted.Invoke();
             //montrer les quetes suivantes
             foreach ( string q in _nextQuests)
             {
                 Assert.IsTrue(QuestManager.Instance.Quests.Keys.Contains(q),"Cette quete existe pas gros fils de pute de merde");
                 QuestManager.Instance.Quests[q].gameObject.SetActive(true);
+
+
+                //_ = QuestManager.Instance.Quests[q].flicker();
             }
 
             //enlever cette quete
@@ -51,22 +58,28 @@ public class Quest : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        if (flickerOnEnable)
+        {
+            _ = flicker();
+        }
+        flickerOnEnable = false;
+    }
+
+
     void OnDestroy()
     {
         QuestManager.Instance.Quests.Remove(_name);
     }
 
-    private void OnEnable()
-    {
-        _ = flicker();
-    }
 
     private void UpdateUI()
     {
         _textComponent.text =  text + (_progressEndTreshold >1 ?  $" ({_progress}/{_progressEndTreshold}) ":"");
     }
 
-    async Task flicker()
+    public async Task flicker()
     {
         Color c = _textComponent.color;
         for (int i = 0; i < 12; i++)

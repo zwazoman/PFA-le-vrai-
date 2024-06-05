@@ -32,6 +32,8 @@ public class QuestReward : MonoBehaviour
 
     public void GiveObject()
     {
+        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
         if (_rewardObjectPrefab != null) return;
         Instantiate(_rewardObjectPrefab, transform.position + Vector3.up * _height, Quaternion.identity);
     }
