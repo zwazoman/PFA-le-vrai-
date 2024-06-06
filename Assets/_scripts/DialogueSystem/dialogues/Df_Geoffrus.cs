@@ -14,14 +14,14 @@ public class Df_Geoffrus : DialogueFlow
             int result = await _characters.Geoffrrus.Ask("Qui êtes vous, donc, brave personne ? ", new string[] { "Et vous ?", "Un fermier", "Au revoir." });
             if (result == 0)
             {
-                await _characters.Bobbus.Say("Vous êtes un genre de démon exactement ?")
+                await _characters.Bobbus.Say("Vous êtes un genre de démon exactement ?");
                 await _characters.Geoffrrus.Say("C'est exact. Un démon marchand pour être plus précis");
-                await _characters.Bobbus.Say("");
+                /*await _characters.Bobbus.Say("");
                 await _characters.Geoffrrus.Say("");
                 await _characters.Bobbus.Say("");
                 await _characters.Geoffrrus.Say("");
                 await _characters.Geoffrrus.Say("");
-                await _characters.Bobbus.Say("");
+                await _characters.Bobbus.Say("");*/
             }   
                
             if (result == 1)
