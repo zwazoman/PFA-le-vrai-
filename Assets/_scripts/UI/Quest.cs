@@ -53,7 +53,7 @@ public class Quest : MonoBehaviour
 
             //enlever cette quete
             OnQuestCompleted?.Invoke();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
     }

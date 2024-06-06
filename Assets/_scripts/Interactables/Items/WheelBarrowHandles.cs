@@ -9,11 +9,20 @@ public class WheelBarrowHandles : MonoBehaviour
     [SerializeField] float _hightToLink;
     [SerializeField] WheelBarrowStorage _storage;
 
+    [Header("stats mouvements")]
+    [SerializeField] float AngularFriction = 9.5f;
+    [SerializeField] float vitesse = 8;
+
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
     public void Equip()
     {
+        //stats mouvements
+        PlayerMain.Instance.WheelBarrow.Movement._playerMoveSpeed = vitesse;
+        PlayerMain.Instance.WheelBarrow.Movement.decelerationY = AngularFriction;
+
+
         PlayerMain.Instance.WheelBarrow.Equip();
         _storage.enabled = false;
         UiManager.Instance.Gameplay_Panel.SwitchUI();

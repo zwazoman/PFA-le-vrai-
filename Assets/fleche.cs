@@ -85,11 +85,12 @@ public class fleche : MonoBehaviour
         if (currentTarget == null) return;
         
         //position
-        Vector2 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
+        Vector3 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
          
-        Vector2 endPosition = targetPosition;
-        endPosition.x = Mathf.Clamp(endPosition.x, Margin ,Screen.width - Margin);
-        endPosition.y = Mathf.Clamp(endPosition.y, Margin, Screen.height - Margin);
+        Vector2 endPosition = (Vector2)targetPosition;
+        if(targetPosition.z < 0) { endPosition *= -1; print("SUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"); }
+        endPosition.x = Mathf.Clamp(targetPosition.x, Margin ,Screen.width - Margin);
+        endPosition.y = Mathf.Clamp(targetPosition.y, Margin, Screen.height - Margin);
 
 
         UpdateOpacity(Vector2.Distance(endPosition, targetPosition)/900);
@@ -102,7 +103,7 @@ public class fleche : MonoBehaviour
         }*/
 
         //rotation
-        Vector2 JENPEUPLU = targetPosition - new Vector2(Screen.width, Screen.height) / 2f;
+        Vector2 JENPEUPLU = (Vector2)targetPosition - new Vector2(Screen.width, Screen.height) / 2f;
         LaFleche.rotation = Quaternion.Euler(Vector3.forward * (Mathf.Atan2(JENPEUPLU.y,JENPEUPLU.x)*Mathf.Rad2Deg+90));
 
         //scale

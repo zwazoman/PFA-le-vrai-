@@ -7,8 +7,8 @@ public class WheelBarrowMovement : DynamicObject
 {
     WheelBarrowInputManager _input;
 
-    [SerializeField] float _playerMoveSpeed;
-    [SerializeField] float _acceleration;
+    [SerializeField] public float _playerMoveSpeed;
+    [SerializeField]  float _acceleration;
     [SerializeField] float _turnSpeed;
     float _rotY;
     public float decelerationY;
