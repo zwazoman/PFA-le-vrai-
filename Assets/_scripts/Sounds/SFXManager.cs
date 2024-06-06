@@ -23,7 +23,7 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXClip(AudioClip[] audioClips, Vector3 position, float volume, bool bypassesReverb = false, float pitch = 1f)
+    public void PlaySFXClip(AudioClip[] audioClips, Vector3 position, float volume, bool bypassesReverb = false, bool ignoresSpatiality = false, float pitch = 1f)
     {
         if (audioClips.Length == 0) return;
         int rand = Random.Range(0, audioClips.Length);
@@ -31,6 +31,7 @@ public class SFXManager : MonoBehaviour
         audioSource.clip = audioClips[rand];
         audioSource.volume = volume;
         if (bypassesReverb) audioSource.bypassReverbZones = true;
+        if (ignoresSpatiality) audioSource.spatialBlend = 0;
         audioSource.pitch = pitch;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
