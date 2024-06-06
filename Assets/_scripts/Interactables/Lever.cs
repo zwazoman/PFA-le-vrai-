@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -41,7 +42,18 @@ public class Lever : Interactable
 
     private async Task mesCouilles()
     {
-        await _mill.Crush();
+        try
+        {
+            await _mill.Crush();
+        }
+        catch (ArgumentException e)
+        {
+            print("oskour : " + e.Message);
+        }
+       
+        //_= _mill.Crush();
+        //await Task.Delay(_mill._collList.Count*100);
+
         //sound effect pshhh peshh et feedbacks
         //StartCoroutine(Nathan.InterpolateOverTime(0, 100, .5f, (float a) => mat_Impact.SetFloat("_animationValue",a)));
         await Task.Delay(500);

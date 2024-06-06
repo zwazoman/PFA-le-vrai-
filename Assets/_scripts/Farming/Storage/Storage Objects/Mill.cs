@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class Mill : MonoBehaviour
 {
-    List<Collider> _collList = new List<Collider>();
+    public List<Collider> _collList = new List<Collider>();
     [SerializeField] UnityEvent OnCrush;
     [SerializeField] xpSource  vfxSource;
 
