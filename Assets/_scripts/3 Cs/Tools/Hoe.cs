@@ -38,11 +38,11 @@ public class Hoe : Tool
         }
         if (!fieldHit)
         {
-            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume);
+            SFXManager.Instance.PlaySFXClip(_groundHitSounds, transform.position, _groundHitVolume, false, true);
             RumbleManager.instance.RumblePulse(0.8f, 0.8f, 0.2f); // fait vibrer la mannette
             Destroy(Instantiate(groundHitVFXPrefab,_head.transform.position,Quaternion.identity),2);
         }
-        else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume);
+        else SFXManager.Instance.PlaySFXClip(_plowSounds, transform.position, _plowVolume, false, true);
         
 
         if(closest != null && !closest.Sowable)
