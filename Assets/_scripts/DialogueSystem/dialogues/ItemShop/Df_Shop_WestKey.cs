@@ -10,26 +10,26 @@ public class Df_Shop_WestKey : DialogueFlow
     {
         _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
 
-        await _characters.Geoffrrus.Say("Blablabla le dialogue de la clef #(Louis est gay)#");
-        await _characters.Geoffrrus.Say($"Enfin, elle te servira à transporter bien plus d’âmes d’un coup, pour seulement #{((SellingSpot)WorldObject).price} âmes.#");
+        await _characters.Geoffrrus.Say("Voici la clef du portail de l'Ouest, qui mène vers le cimetière et au temple de l'Ange, Eve. ");
+        await _characters.Geoffrrus.Say($"Alors, curieux ? Elle est à toi pour #{((SellingSpot)WorldObject).price} poussières d'âmes.#");
 
-        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter cette #clef# pour #{((SellingSpot)WorldObject).price} âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        int resultat = await _characters.Narrator.Ask($"Veux-tu acheter cette #clef# pour #{((SellingSpot)WorldObject).price} poussières d'âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
         //EventSystem.current.SetSelectedGameObject(null);
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
             {
-                await _characters.Geoffrrus.Say("Aaah… Voilà qui devrait t’épargner quelques aller-retour.");
+                await _characters.Geoffrrus.Say("Passe le bonjour à Eve lorsque tu la verras !");
                 WorldObject.SendMessage("SellItem");
             }
             else
             {
-                await _characters.Geoffrrus.Say("Allons, je veux bien comprendre que tu manques de place, mais que tu manques également de sous ? Repasse plus tard.");
+                await _characters.Geoffrrus.Say("AH. Ca risque d'être compliqué vu l'état de tes finances.");
             }
         }
         else
         {
-            await _characters.Geoffrrus.Say("Ah ? Bon, comme tu veux, après tout ça n'est pas une question de taille…");
+            await _characters.Geoffrrus.Say("Je t'aurais cru plus aventureux");
         }
     }
 }

@@ -36,20 +36,20 @@ public class Df_Tuto : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Charon.Say("C’est bon, vous êtes remis de vos émotions ? Je vous ai trouvé mort sur la rive du fleuve il y'a déjà plusieurs heures.laissez-moi vous accueillir officiellement dans l’#au-delà!#");
+        await _characters.Charon.Say("Hé vous, enfin réveillé ? Vous venez de franchir la frontière entre la vie et la mort, pas vrai ? Et vous avez atteri tout droit en enfer, comme tous vos prédécesseurs.");
       
-        await _characters.Bobbus.Say("Mort ? Comment ça mort ? Je…");
+        await _characters.Bobbus.Say("");
 
       
         await _characters.Charon.Say("Votre nouvelle mission, mon jeune ami,sera de vous occuper ici d'#âmes# comme la votre, et de les #purifier# chaque jour. Vous devriez vous sentir honoré, ça n’est pas donné à tout le monde !");
        
 
      await _characters.Charon.Say(
-        " #Je reviendrais vous livrez des sacs ici même tous les jours#, jusqu’à ce que vous ayez ammassé assez d'argent pour me #racheter votre âme# à votre tour.");
+        " #Je reviendrais vous livrez des sacs ici même tous les deux jours#, jusqu’à ce que vous ayez ammassé assez d'argent pour #racheter votre âme# à la gardienne des portes du paradis, #l'Ange Eve#.");
         
-        await _characters.Bobbus.Say("Et où dois-je aller?");
+        await _characters.Bobbus.Say("Et où dois-je commencer ?");
 
-        await _characters.Charon.Say("Continuez à l'#est# sur la route qui longe le fleuve, vous finirez par trouvez une ferme, votre nouvelle demeure ! Vous y trouverez votre nouvelle #brouette#, bien pratique pour transporter plusieurs objets à la fois.");
+        await _characters.Charon.Say("Rejoingez la ferme. Vous y trouverez votre #brouette# et vos champs, dans lesquels vous pourrez commencez vos plantations.");
        
         int resultat=-1;
         while(resultat != 3)

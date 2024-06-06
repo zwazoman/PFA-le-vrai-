@@ -64,7 +64,8 @@ public class GroundEffect : MonoBehaviour
     {
         float[,,] aMap = t.terrainData.GetAlphamaps(posX, posZ, 1, 1);
 
-        textureValues[0] = aMap[0, 0, 0];//pierre
-        textureValues[1] = aMap[0, 0, 1];//wood
+        textureValues[0] = aMap[0, 0, 0];//stone
+        textureValues[1] = aMap[0, 0, 1];//grass
+        textureValues[2] = aMap[0, 0, 2];//wood
     }
 }

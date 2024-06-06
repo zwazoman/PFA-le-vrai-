@@ -8,8 +8,7 @@ public class charon_bateau : MonoBehaviour
 {
     [SerializeField] BezierCurve curve;
 
-    [SerializeField] AudioClip[] _charonArrivalSound;
-    [SerializeField] float _CharonArrivalVolume = 1f;
+    AudioSource _arrivalSource;
 
     [Range(0,1)]
     public float value = 1; // cascade : 0  ; quai : 0.329
@@ -23,6 +22,11 @@ public class charon_bateau : MonoBehaviour
 
     [SerializeField] UnityEvent OnArrivee;
     [SerializeField] UnityEvent OnDepart;
+
+    private void Awake()
+    {
+        _arrivalSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -68,7 +72,7 @@ public class charon_bateau : MonoBehaviour
 
     void Arriver()
     {
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
+        _arrivalSource.Play();
         print("arriver là");
         charon.GetComponent<Collider>().enabled = true;
 
@@ -82,7 +86,7 @@ public class charon_bateau : MonoBehaviour
         OnDepart.Invoke();
 
         EstDejaParti = true;
-        SFXManager.Instance.PlaySFXClip(_charonArrivalSound, transform.position, _CharonArrivalVolume);
+        _arrivalSource.Play();
         anim.SetTrigger("partir");
     }
 
