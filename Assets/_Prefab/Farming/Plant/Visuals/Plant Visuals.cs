@@ -33,6 +33,7 @@ public class PlantVisuals : MonoBehaviour
     [Header("VFX")]
     [SerializeField] public VisualEffect sparkleVFX;
     [SerializeField] public VisualEffect DyingVFX;
+    [SerializeField] public VisualEffect HarvestVFX;
     [SerializeField] VisualEffect splashVFX;
 
     [Header("SFX")]
