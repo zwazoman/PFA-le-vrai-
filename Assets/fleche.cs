@@ -88,12 +88,14 @@ public class fleche : MonoBehaviour
         Vector3 targetPosition = CameraBehaviour.Instance.cam.WorldToScreenPoint(target.position);
          
         Vector2 endPosition = (Vector2)targetPosition;
-        if(targetPosition.z < 0) { endPosition *= -1; print("SUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"); }
+
         endPosition.x = Mathf.Clamp(targetPosition.x, Margin ,Screen.width - Margin);
         endPosition.y = Mathf.Clamp(targetPosition.y, Margin, Screen.height - Margin);
 
 
         UpdateOpacity(Vector2.Distance(endPosition, targetPosition)/900);
+        if (targetPosition.z < 0) { UpdateOpacity(0); }
+
         //Vector2 offset = targetPosition - endPosition;
         GetComponent<RectTransform>().anchoredPosition = endPosition;
 
