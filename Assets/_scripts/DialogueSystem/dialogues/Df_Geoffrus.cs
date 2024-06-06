@@ -11,17 +11,17 @@ public class Df_Geoffrus : DialogueFlow
         if (_firstTalk)
         {
             await _characters.Geoffrrus.Say("Oh ? Et bien, si je m'y attendais... Cela faisais bien longtemps que je n'avais pas reçu de visite !");
-            int result = await _characters.Geoffrrus.Ask("Qui êtes vous, donc, brave âme ? ", new string[] { "Vous êtes... un genre de démon ?", "Je suis le fermier, j'habite au bout du chemin.", "Bobbus. Je suis venu avec Charon il y a peu...", "Au revoir." });
+            int result = await _characters.Geoffrrus.Ask("Qui êtes vous, donc, brave personne ? ", new string[] { "Et vous ?", "Un fermier", "Au revoir." });
             if (result == 0)
             {
-                await _characters.Geoffrrus.Say("...Parce que le pont suspendu au dessus de la lave, la grotte et le pentacle n'étaient pas assez clairs ? Charon en as encore récolté un beau...");
-                await _characters.Bobbus.Say("Heu... Qui êtes vous exactement du coup ?");
-                await _characters.Geoffrrus.Say("Je suis l'un des deux marchands de cet endroit perdu des enfers, mon bon ami.");
-                await _characters.Geoffrrus.Say("Je vends des améliorations permanentes pour votre ferme, vos outils et même certaines clefs. J'espère que pourront faire affaire, mon brave.");
-                await _characters.Bobbus.Say("Comment cela marche, exactement ?");
-                await _characters.Geoffrrus.Say("Ici, vous pouvez acquérir différentes améliorations permanentes pour votre ferme et vos cultures, ou des clefs qui débloqueront différentes parties des environs. Chez l'Ange,");
-                await _characters.Geoffrrus.Say("Chez l'Ange, vous pourrez acheter des potions ou des titres de propriétés pour vos parcelles, comme les terrains de la ferme lui appartiennent.");
-                await _characters.Bobbus.Say("Bon, plus qu'à m'y mettre alors... Merci encore.");
+                await _characters.Bobbus.Say("Vous êtes un genre de démon exactement ?");
+                await _characters.Geoffrrus.Say("C'est exact. Un démon marchand pour être plus précis");
+                /*await _characters.Bobbus.Say("");
+                await _characters.Geoffrrus.Say("");
+                await _characters.Bobbus.Say("");
+                await _characters.Geoffrrus.Say("");
+                await _characters.Geoffrrus.Say("");
+                await _characters.Bobbus.Say("");*/
             }   
                
             if (result == 1)
@@ -58,9 +58,7 @@ public class Df_Geoffrus : DialogueFlow
             {
                await _characters.Bobbus.Say("Au revoir.");
             }          
-            await _characters.Bobbus.Say("Ah, tenez tant que j'y pense, en cadeau de bienvenue !");
-            WorldObject.SendMessage("GiveKey");
-            _firstTalk = false;
+
         }
     }
 }

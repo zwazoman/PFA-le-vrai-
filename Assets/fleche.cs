@@ -21,8 +21,11 @@ public class fleche : MonoBehaviour
 
     public static fleche instance { get; private set; }
 
+    Image[] imageList;
+
     private void Awake()
     {
+        imageList = GetComponentsInChildren<Image>();
         instance = this;
     }
 
@@ -34,6 +37,16 @@ public class fleche : MonoBehaviour
     private void OnDestroy()
     {
         instance = null;   
+    }
+
+    private void UpdateOpacity(float a)
+    {
+        foreach(Image image in imageList)
+        {
+            Color color = image.color;
+            color.a = Mathf.Lerp(0, 1, a);
+            image.color = color;
+        }
     }
 
     public void SetUp(flecheTriggerDeCon f)
@@ -77,7 +90,9 @@ public class fleche : MonoBehaviour
         Vector2 endPosition = targetPosition;
         endPosition.x = Mathf.Clamp(endPosition.x, Margin ,Screen.width - Margin);
         endPosition.y = Mathf.Clamp(endPosition.y, Margin, Screen.height - Margin);
-        
+
+
+        UpdateOpacity(Vector2.Distance(endPosition, targetPosition)/900);
         //Vector2 offset = targetPosition - endPosition;
         GetComponent<RectTransform>().anchoredPosition = endPosition;
 
