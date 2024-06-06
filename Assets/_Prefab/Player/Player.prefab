@@ -10064,7 +10064,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6690836076127600347}
   m_LocalRotation: {x: -0, y: 0.000000029802315, z: -0.0000000074505797, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000088862886}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10074,7 +10074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.99994, y: 540.00006}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8252000597227078847
@@ -12543,6 +12543,12 @@ PrefabInstance:
       propertyPath: _rewardDialog
       value: Df_SowSeedReward
       objectReference: {fileID: 0}
+    - target: {fileID: 1396923307699726965, guid: 43bba29582fed2947a356202b7230d3d,
+        type: 3}
+      propertyPath: _rewardObjectPrefab
+      value: 
+      objectReference: {fileID: 6307057572224721078, guid: 545ece0761d003649a9f5dc37c3e616c,
+        type: 3}
     - target: {fileID: 2119535067787751800, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: m_Pivot.x
