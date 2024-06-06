@@ -14,7 +14,7 @@ public class Scythe : Tool
             if(hitCollider.gameObject.TryGetComponent<PlantMain>(out PlantMain plantMain)) // si c'ets une plante
             {
                 if (plantMain.PlantField == null) return;
-                plantMain.Harvest.Harvest(); // récolte la plante
+                plantMain.Harvest.Harvest(); // essaye de récolter la plante
                 RumbleManager.instance.RumblePulse(0.5f, 5f, 0.2f);
             }
         }
