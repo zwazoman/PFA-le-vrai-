@@ -100,18 +100,24 @@ public class PlayerSounds : MonoBehaviour
 
 
 
-    public void PlayWalkFootstepSound()
+
+    public void PlayFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_rockWalkFootsteps, transform.position, _rockWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
-        SFXManager.Instance.PlaySFXClip(_grassWalkFootsteps, transform.position, _grassWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
-        //SFXManager.Instance.PlaySFXClip(_woodWalkFootsteps, transform.position, _woodWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2]);
+        if (PlayerMain.Instance.Movement.IsRunning)
+        {
+            PlayRunSound();
+            return;
+        }
+        if (PlayerMain.Instance.GroundEffect.textureValues[0] > 0.2f) SFXManager.Instance.PlaySFXClip(_rockWalkFootsteps, transform.position, _rockWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0], false, true);
+        SFXManager.Instance.PlaySFXClip(_grassWalkFootsteps, transform.position, _grassWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1], false, true);
+        SFXManager.Instance.PlaySFXClip(_woodWalkFootsteps, transform.position, _woodWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2], false, true);
     }
 
-    public void PlayRunFootstepSound()
+    private void PlayRunSound()
     {
-        SFXManager.Instance.PlaySFXClip(_rockRunFootsteps, transform.position, _rockRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
-        SFXManager.Instance.PlaySFXClip(_grassRunFootsteps, transform.position, _grassRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
-        //SFXManager.Instance.PlaySFXClip(_woodRunFootsteps, transform.position, _woodRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2]);
+        if (PlayerMain.Instance.GroundEffect.textureValues[0] > 0.2f) SFXManager.Instance.PlaySFXClip(_rockRunFootsteps, transform.position, _rockRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0],false,true);
+        SFXManager.Instance.PlaySFXClip(_grassRunFootsteps, transform.position, _grassRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]  , false, true);
+        SFXManager.Instance.PlaySFXClip(_woodRunFootsteps, transform.position, _woodRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2], false, true);
     }
 
 
