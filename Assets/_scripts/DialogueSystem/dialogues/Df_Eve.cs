@@ -6,7 +6,7 @@ public class Df_Eve : DialogueFlow
 {
     public Df_Eve(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters, WorldObject) { }
 
-    List<string> dialogueEve = new List<string>()
+    List<string> dialogueEve = new List<string>() 
 
     {
         "Ne me fais pas perdre mon temps si vous n'êtes pas encore prêt, mortel" ,
@@ -24,9 +24,9 @@ public class Df_Eve : DialogueFlow
     {
         _panel.InitDialogue(_characters.Eve, _characters.Bobbus);
 
-        await _characters.Bobbus.Say("Bite");
+        await _characters.Bobbus.Say("Bonjour");
 
-        int result = await _characters.Eve.Ask($"Alors, prêt à racheter ton âme ? Elle t'en coûtera {((Eve)WorldObject).price} âmes", new string[] { "Oui", "Non" });
+        int result = await _characters.Eve.Ask($"Alors, prêt à racheter ton âme ? Elle t'en coûtera {((Eve)WorldObject).price} poussières d'âmes", new string[] { "Oui", "Non" });
 
         if (result == 0 && PlayerMain.Instance.Stats.Money>=((Eve)WorldObject).price)
         {
