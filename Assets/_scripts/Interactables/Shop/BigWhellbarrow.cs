@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BigWhellbarrow : SellingSpot
@@ -14,6 +15,6 @@ public class BigWhellbarrow : SellingSpot
     public override void SellItem()
     {
         base.SellItem();
-        Instantiate(_whellbarrow, _transform);
+        Instantiate(_whellbarrow, _transform.position, Quaternion.identity) ;
     }
 }
