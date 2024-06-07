@@ -67,29 +67,41 @@ public class PlayerMain : MonoBehaviour
     public bool isLocked = false;
     List<MonoBehaviour> lockedBehaviours = new();
 
+    private void Update()
+    {
+        print(PlayerMain.instance.WheelBarrow.InputManager.enabled);
+    }
+
     public void Lock()
     {
-        foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponentsInChildren<MonoBehaviour>()) 
-        {
-            if (mb.enabled)
-            {
-                lockedBehaviours.Add(mb);
-                mb.enabled = false;
-            }
-            
-        }
-        isLocked = true;
+        //if (isLocked) return;
+        //foreach (MonoBehaviour mb in PlayerMain.Instance.gameObject.GetComponentsInChildren<MonoBehaviour>()) 
+        //{
+        //    if (mb.enabled)
+        //    {
+        //        lockedBehaviours.Add(mb);
+        //        mb.enabled = false;
+        //    }
+
+        //}
+        //isLocked = true;
+        print("connard de merde");
+        PlayerMain.Instance.InputManager.enabled = false;
+        PlayerMain.instance.WheelBarrow.InputManager.enabled = false;
     }
 
     public void UnLock()
     {
-        foreach (MonoBehaviour mb in lockedBehaviours)
-        {
-            mb.enabled = true;
-        }
+        //foreach (MonoBehaviour mb in lockedBehaviours)
+        //{
+        //    mb.enabled = true;
+        //}
 
-        isLocked = false;
-        lockedBehaviours.Clear();
+        //isLocked = false;
+        //lockedBehaviours.Clear();
+        print("connard de merde mais le retour");
+        PlayerMain.instance.InputManager.enabled = true;
+        PlayerMain.instance.WheelBarrow.InputManager.enabled = true;
     }
 
     //singleton
