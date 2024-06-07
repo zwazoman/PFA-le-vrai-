@@ -12,6 +12,7 @@ public class WheelBarrowHandles : MonoBehaviour
     [Header("stats mouvements")]
     [SerializeField] float AngularFriction = 9.5f;
     [SerializeField] float vitesse = 8;
+    [SerializeField] float _groundFriction = 20.2f;
 
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
@@ -21,6 +22,7 @@ public class WheelBarrowHandles : MonoBehaviour
         //stats mouvements
         PlayerMain.Instance.WheelBarrow.Movement._playerMoveSpeed = vitesse;
         PlayerMain.Instance.WheelBarrow.Movement.decelerationY = AngularFriction;
+        PlayerMain.Instance.WheelBarrow.Movement.GroundFriction = _groundFriction;
 
 
         PlayerMain.Instance.WheelBarrow.Equip();

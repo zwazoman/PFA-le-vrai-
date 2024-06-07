@@ -91,6 +91,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1274368861900032450, guid: b2597dfbc54267c46bb92031e6dc79e7,
+        type: 3}
+      propertyPath: <MaxStorageWheelBarrow>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2810643127681902651, guid: b2597dfbc54267c46bb92031e6dc79e7,
         type: 3}
       propertyPath: m_Mesh
@@ -158,6 +163,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: eb6074670b4c45c4683929e2eac113a2, type: 2}
+    - target: {fileID: 5676117023504357340, guid: b2597dfbc54267c46bb92031e6dc79e7,
+        type: 3}
+      propertyPath: vitesse
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676117023504357340, guid: b2597dfbc54267c46bb92031e6dc79e7,
+        type: 3}
+      propertyPath: AngularFriction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676117023504357340, guid: b2597dfbc54267c46bb92031e6dc79e7,
+        type: 3}
+      propertyPath: _groundFriction
+      value: 30.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8084522767972116485, guid: b2597dfbc54267c46bb92031e6dc79e7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
