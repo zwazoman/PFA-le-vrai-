@@ -23,7 +23,12 @@ public class Clock : MonoBehaviour
             {
                 Compteur.text = TimeManager.Instance.Hour.ToString() + "h";
             }
-        } 
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -(TimeManager.Instance.Hour % 24f) / 24f * 360f + 90f);
+            Compteur.text =  TimeManager.Instance.Hour.ToString() + "h";
+        }
     }
     private void Start()
     {

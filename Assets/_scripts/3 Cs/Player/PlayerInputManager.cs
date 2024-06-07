@@ -106,7 +106,6 @@ public class PlayerInputManager : MonoBehaviour
     public void Pause(InputAction.CallbackContext context)
     {
         //if (!enabled) return;
-
         if (context.performed) OnPause?.Invoke();
     }
 }

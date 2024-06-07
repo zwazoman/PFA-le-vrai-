@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour
     private void Start()
     {
         TimeManager.Instance.OnMorning += () => StartCoroutine(PlayDayMusic());
-        //TimeManager.Instance.OnEvening += () => StartCoroutine(PlayNightMusic());
+        TimeManager.Instance.OnEvening += () => StartCoroutine(PlayNightMusic());
     }
 
     IEnumerator PlayDayMusic()
