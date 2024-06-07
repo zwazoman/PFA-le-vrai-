@@ -67,11 +67,6 @@ public class PlayerMain : MonoBehaviour
     public bool isLocked = false;
     List<MonoBehaviour> lockedBehaviours = new();
 
-    private void Update()
-    {
-        print(PlayerMain.instance.WheelBarrow.InputManager.enabled);
-    }
-
     public void Lock()
     {
         //if (isLocked) return;
