@@ -15,8 +15,6 @@ public class Df_Eve : DialogueFlow
         "Votre âme ne va pas se racheter toute seule si vous restez ici",
         "Vous n'avez rien de mieux à faire de vos journées ?",
         "Je suis sûre d'avoir entendu la cloche de Charon. Vous devriez aller voir."
-
-
     };
 
 

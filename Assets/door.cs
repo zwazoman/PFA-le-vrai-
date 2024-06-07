@@ -28,10 +28,10 @@ public class door : MonoBehaviour
 
     public virtual void Open()
     {
-        bs = Cadenas.transform.localScale;
+        if(Cadenas!=null) bs = Cadenas.transform.localScale;
         SFXManager.Instance.PlaySFXClip(_openSounds, transform.position, _openSoundsVolume);
         StartCoroutine(Nathan.InterpolateOverTime(0,1,openingDuration,jenpeuplu,Nathan.SmoothStep01,()=> Destroy(Cadenas)));
-        Cadenas.GetComponentInChildren<Collider>().enabled = false;
+        if (Cadenas != null)  Cadenas.GetComponentInChildren<Collider>().enabled = false;
     }
 
     
@@ -41,7 +41,7 @@ public class door : MonoBehaviour
         door2.localRotation = Quaternion.Slerp(BaseRot2,Quaternion.Euler(openRotation2),alpha);
         door1.localRotation = Quaternion.Slerp(BaseRot1,Quaternion.Euler(openRotation1),alpha);
 
-        
-        Cadenas.transform.localScale = Vector3.Lerp(bs,Vector3.zero,alpha);
+
+        if (Cadenas != null)  Cadenas.transform.localScale = Vector3.Lerp(bs,Vector3.zero,alpha);
     }
 }
