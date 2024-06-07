@@ -5169,14 +5169,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ef54855062596e4da9d6531d015d1f0, type: 3}
   - {fileID: 8300000, guid: 3c3cc87f7669efd4b8f218b065dd1d6f, type: 3}
   - {fileID: 8300000, guid: 1a865acc36924a248955e8314b7ab652, type: 3}
-  _dayAmbientEventVolume: 0.7
+  _dayAmbientEventVolume: 0.5
   _nightAmbientEventSounds:
   - {fileID: 8300000, guid: 1b090a7c6f7627040970922b1503b7b1, type: 3}
   - {fileID: 8300000, guid: 61413c8387a85da4b9fbc25c423a14fe, type: 3}
-  _nightAmbientEventVolume: 0.7
+  _nightAmbientEventVolume: 0.5
   _dayStartSound:
   - {fileID: 8300000, guid: 19073004e0e61654ab2e9aa54da1ac04, type: 3}
-  _dayStartSoundVolume: 0.7
+  _dayStartSoundVolume: 0.5
 --- !u!82 &7691487166089648588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7617,22 +7617,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dce38807b60a8ea46a48542635f6e6c6, type: 3}
   - {fileID: 8300000, guid: 24698054daef1ec4dbb899954b72bd72, type: 3}
   - {fileID: 8300000, guid: 349bd1e002500464d8f3b2bdffc2c4c2, type: 3}
-  _grassWalkFootstepsVolume: 0.3
+  _grassWalkFootstepsVolume: 0.2
   _grassRunFootsteps:
   - {fileID: 8300000, guid: 894fa4704730ef04db9d1fbeb37092ac, type: 3}
   - {fileID: 8300000, guid: f44ae86c5973a33479b43f299f69bbc0, type: 3}
   - {fileID: 8300000, guid: 977d9fb3f56585e469765f09cee23c79, type: 3}
-  _grassRunFootstepsVolume: 0.3
+  _grassRunFootstepsVolume: 0.2
   _woodWalkFootsteps:
   - {fileID: 8300000, guid: bd2947277a41a64439b853e11e8d69e3, type: 3}
   - {fileID: 8300000, guid: 0022bc38033a9284e83077cd9edc7b56, type: 3}
   - {fileID: 8300000, guid: aa57277960f496444845c6f1b790e925, type: 3}
-  _woodWalkFootstepsVolume: 0.3
+  _woodWalkFootstepsVolume: 0.2
   _woodRunFootsteps:
   - {fileID: 8300000, guid: 19191fd4f68689d4eb5405d663cc1044, type: 3}
   - {fileID: 8300000, guid: be326e986983ca3448f7582ce48d600c, type: 3}
   - {fileID: 8300000, guid: ec6e774d3a54d744fb840368a62948a0, type: 3}
-  _woodRunFootstepsVolume: 0.3
+  _woodRunFootstepsVolume: 0.2
   _toolWoosh:
   - {fileID: 8300000, guid: de4d463a55f0e674cb059602ab4519e4, type: 3}
   - {fileID: 8300000, guid: 49e803d955765594daebe721a4506880, type: 3}
@@ -8090,6 +8090,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6231816657343523451}
         m_TargetAssemblyTypeName: grassVFX, Assembly-CSharp
         m_MethodName: UpdateVFXRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayFootstepSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12090,7 +12102,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -27}
+  m_AnchoredPosition: {x: 0, y: -26.999878}
   m_SizeDelta: {x: 0, y: -733.96985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &339367386157428356
@@ -14153,18 +14165,6 @@ MonoBehaviour:
   OnWalkFootstep:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6790433302852059315}
-        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
-        m_MethodName: PlayWalkFootstepSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7239276282444973839}
         m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues
@@ -14180,18 +14180,6 @@ MonoBehaviour:
   OnRunFootstep:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6790433302852059315}
-        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
-        m_MethodName: PlayRunFootstepSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 7239276282444973839}
         m_TargetAssemblyTypeName: GroundEffect, Assembly-CSharp
         m_MethodName: computeTextureValues

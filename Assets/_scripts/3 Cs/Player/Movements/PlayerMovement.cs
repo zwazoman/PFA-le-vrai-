@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : DynamicObject
 {
     PlayerInputManager _inputManager;
+    public bool IsRunning { get; private set; }
 
     [HorizontalLine("Player Stats",1,FixedColor.DarkGray)]
     //vitesse actuelle du joueur
@@ -69,6 +70,7 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StartRunning()
     {
+        IsRunning = true;
         _playerMoveSpeed = PlayerWalkSpeed * _playerRunFactor; // multiplie la vitesse par le "runFactor"
     }
 
@@ -77,6 +79,7 @@ public class PlayerMovement : DynamicObject
     /// </summary>
     private void StopRunning()
     {
+        IsRunning = false;
         _playerMoveSpeed = PlayerWalkSpeed; // rétablie la vitesse
     }
 

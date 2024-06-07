@@ -64,54 +64,60 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayToolWooshSound()
     {
-        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume);
+        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume, false, true);
     }
 
     public void PlayHoeEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume, false, true);
     }
 
     public void PlayWateringCanEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform.position, _wateringCanEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform.position, _wateringCanEquipVolume, false, true);
     }
 
     public void PlayWateringCanEmptyEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform.position, _wateringCanEmptyEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform.position, _wateringCanEmptyEquipVolume, false, true);
     }
 
     public void PlayWateringActionSound()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringAction, transform.position, _wateringActionVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringAction, transform.position, _wateringActionVolume, false, true);
     }
 
     public void PlayWateringEmpty()
     {
-        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform.position, _wateringEmptyVolume);
+        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform.position, _wateringEmptyVolume, false, true);
     }
 
     public void PlayScytheEquipSound()
     {
-        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform.position, _scytheEquipVolume);
+        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform.position, _scytheEquipVolume, false, true);
     }
 
 
 
 
-    public void PlayWalkFootstepSound()
+
+    public void PlayFootstepSound()
     {
-        SFXManager.Instance.PlaySFXClip(_rockWalkFootsteps, transform.position, _rockWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
-        SFXManager.Instance.PlaySFXClip(_grassWalkFootsteps, transform.position, _grassWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
-        //SFXManager.Instance.PlaySFXClip(_woodWalkFootsteps, transform.position, _woodWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2]);
+        if (PlayerMain.Instance.Movement.IsRunning)
+        {
+            PlayRunSound();
+            return;
+        }
+        if (PlayerMain.Instance.GroundEffect.textureValues[0] > 0.2f) SFXManager.Instance.PlaySFXClip(_rockWalkFootsteps, transform.position, _rockWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0], false, true);
+        SFXManager.Instance.PlaySFXClip(_grassWalkFootsteps, transform.position, _grassWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1], false, true);
+        SFXManager.Instance.PlaySFXClip(_woodWalkFootsteps, transform.position, _woodWalkFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2], false, true);
     }
 
-    public void PlayRunFootstepSound()
+    private void PlayRunSound()
     {
-        SFXManager.Instance.PlaySFXClip(_rockRunFootsteps, transform.position, _rockRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0]);
-        SFXManager.Instance.PlaySFXClip(_grassRunFootsteps, transform.position, _grassRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]);
-        //SFXManager.Instance.PlaySFXClip(_woodRunFootsteps, transform.position, _woodRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2]);
+        if (PlayerMain.Instance.GroundEffect.textureValues[0] > 0.2f) SFXManager.Instance.PlaySFXClip(_rockRunFootsteps, transform.position, _rockRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[0],false,true);
+        SFXManager.Instance.PlaySFXClip(_grassRunFootsteps, transform.position, _grassRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[1]  , false, true);
+        SFXManager.Instance.PlaySFXClip(_woodRunFootsteps, transform.position, _woodRunFootstepsVolume * PlayerMain.Instance.GroundEffect.textureValues[2], false, true);
     }
 
 
@@ -120,22 +126,22 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayPickupPopSound()
     {
-        SFXManager.Instance.PlaySFXClip(_pickupPop, transform.position, _pickupPopVolume);
+        SFXManager.Instance.PlaySFXClip(_pickupPop, transform.position, _pickupPopVolume,false,true);
     }
 
     public void PlayDropPopSound()
     {
-        SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound);
+        SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound, false, true);
     }
 
     public void PlayBuySound()
     {
-        SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume);
+        SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume, true, true);
     }
 
     public void PlayQuestValidateSound()
     {
-        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume, false);
+        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume, false,true);
     }
 
 }
