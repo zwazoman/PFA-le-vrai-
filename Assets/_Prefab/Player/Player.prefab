@@ -7337,7 +7337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Seeds>k__BackingField: 5
-  <Money>k__BackingField: 10
+  <Money>k__BackingField: 4284
   <WalkSpeed>k__BackingField: 8
   <RunFactor>k__BackingField: 1.8
 --- !u!114 &8543143193072082659
@@ -8040,6 +8040,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0b89fd624c412cb42b1ab2a1001516a7, type: 2}
   - {fileID: 2100000, guid: 80240fc3e8b30d84380e1ffedaf38f16, type: 2}
   - {fileID: 2100000, guid: 500e520f35437b84587120dfe7954c6a, type: 2}
+  - {fileID: 2100000, guid: accfa9312fd676746b29f82608cd24b6, type: 2}
 --- !u!114 &5128041245480934880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9961,8 +9962,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cb52ad6ea4f59d444a881a22de4cba2e, type: 3}
   _nightMusicSource: {fileID: 2178859891727693054}
   _nightMusics: []
-  _dayVolume: 0.7
-  _nightVolume: 0.7
+  _dayVolume: 0.2
+  _nightVolume: 0.2
   _fadeDuration: 1
   _musicWait: 5
 --- !u!82 &2987521504541974960
