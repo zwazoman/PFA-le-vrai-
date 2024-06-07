@@ -29,7 +29,7 @@ public class Nathan : MonoBehaviour
         float endTime = Time.time + duration;
         while (Time.time < endTime)
         {
-            if (followGameTime && TimeManager.Instance.isPaused) endTime += Time.deltaTime;
+            if ( followGameTime && TimeManager.Instance.isPaused) endTime += Time.deltaTime;
 
             //calculer l'alpha
             float alpha = 1 - (endTime - Time.time) / duration;
