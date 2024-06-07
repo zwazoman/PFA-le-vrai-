@@ -59,10 +59,9 @@ public class charon_bateau : MonoBehaviour
 
 
         if (TimeManager.Instance.Hour == 1)
-        {
+        {  
             StartCoroutine( Nathan.InterpolateOverTime(1, 0.323f, 6 * TimeManager.Instance.IrlHourDuration, setPositionAlongCurve, (v) => { return Mathf.SmoothStep(0, 1, v); }, Arriver, true));
             OnArrivee.Invoke();
-
         }
         else if (TimeManager.Instance.Hour == 11)
         {

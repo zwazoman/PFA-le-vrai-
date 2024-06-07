@@ -27,7 +27,7 @@ public class Df_Bed : DialogueFlow
 
         await _characters.Narrator.Say(dialogueNarrator[Random.Range(0, dialogueNarrator.Count)]);
 
-        int result = await _characters.Narrator.Ask("Louis est-il ?", new string[] { "Oui", "Non"});
+        int result = await _characters.Narrator.Ask("Souhaitez-vous dormir jusqu'au #matin# ?", new string[] { "Dodo", "Non"});
 
         if (result == 0) 
         {

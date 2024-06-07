@@ -5,6 +5,8 @@ public class Bed : Interactable
 {
     [SerializeField] private string DialogueScript;
     [SerializeField] private Volume _fondu;
+
+    [SerializeField] Transform _HouseExit;
     protected override void Interaction()
     {
         print("OwO");
@@ -16,16 +18,11 @@ public class Bed : Interactable
     public void Sleep()
     {
         commencerFondu();
-        if (TimeManager.Instance.Hour < 6 || TimeManager.Instance.Hour > 18)
-        {
-            TimeManager.Instance.SkipTo(6);
-            Debug.Log($"Hour: {TimeManager.Instance.Hour}");
-        }
-        else if (TimeManager.Instance.Hour > 6 && TimeManager.Instance.Hour < 18)
-        {
-            TimeManager.Instance.SkipTo(18);
-            Debug.Log($"Hour: {TimeManager.Instance.Hour}");
-        }
+        TimeManager.Instance.SkipTo(6);
+        PlayerMain.Instance.transform.position = _HouseExit.position;
+        PlayerMain.Instance.transform.rotation = _HouseExit.rotation;
+        PlayerMain.Instance.Movement.SnapToGround();
+        CameraBehaviour.Instance.TeleportToTargetPosition();
     }
 
     private void commencerFondu()

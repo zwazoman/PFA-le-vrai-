@@ -97,7 +97,7 @@ public class TimeManager : MonoBehaviour
         {            
             TimePass();
             i++;
-            print(i);
+            //print(i);
         }
 
         _irlHourDuration = baseDuration;
@@ -107,7 +107,7 @@ public class TimeManager : MonoBehaviour
 
     public void SkipTo(int hourToGo)
     {
-        SkipTime(24 - Hour + hourToGo);
+        if (Hour < hourToGo) SkipTime(hourToGo - Hour); else SkipTime(24 - Hour + hourToGo);
     }
 
 
