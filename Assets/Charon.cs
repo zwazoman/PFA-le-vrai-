@@ -30,7 +30,7 @@ public class Charon : Interactable
             await Task.Delay( Random.Range(200, 300));
         }
         //TimeManager.Instance.resume();
-        bateau.Partir();
+        bateau.RemonterSurLeBateau();
 
     }
 

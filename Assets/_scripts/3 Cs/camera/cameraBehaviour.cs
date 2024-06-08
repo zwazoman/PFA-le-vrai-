@@ -36,7 +36,6 @@ public class CameraBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        print("jenpeuplus");
         Instance = this;//le singleton wish
 
         transform.parent = null;
