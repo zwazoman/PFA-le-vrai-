@@ -29,7 +29,7 @@ public class Df_Eve : DialogueFlow
         if (result == 0 && PlayerMain.Instance.Stats.Money>=((Eve)WorldObject).price)
         {
             await _characters.Eve.Say("Tes efforts pour te racheter t'ont amenés à cet instant, mortel. Soit récompensé pour ton dévouement");
-            WorldObject.SendMessage("OuvrirPorte");
+            WorldObject.SendMessage("CommencerAnimation");
 
         }
         else
