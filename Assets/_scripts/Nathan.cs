@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 /// <summary>
@@ -53,9 +54,22 @@ public class Nathan : MonoBehaviour
         action();
     }
 
-    public static IEnumerator ExecuteWithDelay(Action action,float delay)
+    public static IEnumerator ExecuteWithDelay(Action action, float delay, bool followGameTime = false)
     {
-        yield return new WaitForSeconds(delay);
+        if (!followGameTime)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+        else
+        {
+            float endTime = Time.time + delay;
+            while (Time.time < endTime)
+            {
+                if (followGameTime && TimeManager.Instance.isPaused) endTime += Time.deltaTime;
+                yield return null;
+            }
+        }
+
         action();
     }
 
@@ -64,6 +78,7 @@ public class Nathan : MonoBehaviour
         return Mathf.SmoothStep(0,1,v);
     }
 
+    public static float Linear(float v) => v;
     public static float Parabola(float v)
     {
         return 1f - (v * 2 - 1) * (v * 2 - 1);

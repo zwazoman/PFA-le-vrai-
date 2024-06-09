@@ -32,7 +32,7 @@ public class AmbienceManager : MonoBehaviour
 
     IEnumerator PlayDayAmbience()
     {
-        print("Alo le jour");
+        //print("Alo le jour");
         _nightAmbienceAudioSource.Stop();
         _dayAmbienceAudioSource.Play();
         while (TimeManager.Instance.IsDay)
@@ -45,7 +45,7 @@ public class AmbienceManager : MonoBehaviour
 
     IEnumerator PlayNightAmbience()
     {
-        print("ALO");
+        //print("ALO");
         _dayAmbienceAudioSource.Stop();
         _nightAmbienceAudioSource.Play();
         while (!TimeManager.Instance.IsDay)
@@ -65,7 +65,7 @@ public class AmbienceManager : MonoBehaviour
 
     private void DayStartAmbience()
     {
-        print("switch ambience");
+        //print("switch ambience");
         SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume, false);
         StopCoroutine(PlayNightAmbience());
         StartCoroutine(PlayDayAmbience());
@@ -73,14 +73,14 @@ public class AmbienceManager : MonoBehaviour
 
     private void NightStartAmbience()
     {
-        print("switch ambience");
+        //print("switch ambience");
         StopCoroutine(PlayDayAmbience());
         StartCoroutine(PlayNightAmbience());
     }
 
     public void EnterInterior()
     {
-        print("INTERIEUR");
+        //print("INTERIEUR");
         _isInterior = true;
         StopCoroutine(PlayDayAmbience());
         StopCoroutine(PlayNightAmbience());
@@ -90,7 +90,7 @@ public class AmbienceManager : MonoBehaviour
 
     public void Exitinterior()
     {
-        print("EXTERIEUR");
+        //print("EXTERIEUR");
         _isInterior = false;
         if (TimeManager.Instance.IsDay) StartCoroutine(PlayDayAmbience()); else StartCoroutine(PlayNightAmbience());
     }
