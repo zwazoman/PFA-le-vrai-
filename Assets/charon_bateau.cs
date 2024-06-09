@@ -112,13 +112,10 @@ public class charon_bateau : MonoBehaviour
 
     public void RemonterSurLeBateau()
     {
-        print("oh oui oh oui");
         if (EstDejaParti) return;
-        print("tuez moi putain");
         OnDepart.Invoke();
         EstDejaParti = true;
         _arrivalSource.Play();
-        print("TRIGGERED");
         anim.SetTrigger("partir");
     }
 
