@@ -54,6 +54,9 @@ public class charon_bateau : MonoBehaviour
 
     public void OnHour()
     {
+        if (TimeManager.Instance.Day % 2 == 0) return;
+
+        //StopAllCoroutines();
 
         //mouvement du bateau
         float actualAlpha = (TimeManager.Instance.Hour + _timeOffset) % 24f ;
