@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -12,6 +13,15 @@ public class PlayerStats : MonoBehaviour
 
     [field: SerializeField]
     public float RunFactor {  get; set; }
+
+    bool _drankPotion;
+
+    private int _hour = 0;
+
+    private void Start()
+    {
+        TimeManager.Instance.OnHour += ResetRunFactor;
+    }
 
     public void AddMoney(int toAdd)
     {
@@ -29,5 +39,20 @@ public class PlayerStats : MonoBehaviour
     public void MultiplyRunFactor(float factor)
     {
         PlayerMain.Instance.Movement._playerRunFactor *= factor;
+        _drankPotion = true;
+    }
+
+    private void ResetRunFactor()
+    {
+        if (_drankPotion)
+        {
+            _hour++;
+            if (_hour == 24)
+            {
+                PlayerMain.Instance.Movement._playerRunFactor = RunFactor;
+                _hour = 0;
+                _drankPotion = false;
+            }
+        }
     }
 }
