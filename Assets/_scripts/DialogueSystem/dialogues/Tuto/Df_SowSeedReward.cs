@@ -10,7 +10,7 @@ public class Df_SowSeedReward : DialogueFlow
     public override async Task StartDialogue()
     {
         _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
-        await _characters.Charon.Say("BOBBUS ! ATTRAPE ! J'ai vu que tu avais récolté tes premières #orbes#. Voici la #clef# qui t'ouvrira l'acces au #moulin# en récompense. Tu peux y apporter tes #orbes# pour en faire de la #poussière d'âme# et t'acheter des bricoles chez #Geoffrus#.");
+        await _characters.Charon.Say("Un petit cadeau pour toi, Bobbus ! Maintenant que tu as récoltés ta première orbe, voilà la clef qui te mènera au moulin, plus au nord. Tu n'as plus qu'à transformer l'âme en poussière, et le tour est joué !");
         Debug.Log(WorldObject);
         ((QuestReward)WorldObject).GiveObject();
     }

@@ -19,8 +19,13 @@ public class Bed : Interactable
     {
         commencerFondu();
         TimeManager.Instance.SkipTo(6);
+        
+    }
+
+    void teleportOutside()
+    {
         PlayerMain.Instance.transform.position = _HouseExit.position;
-        PlayerMain.Instance.transform.rotation = _HouseExit.rotation;
+        //PlayerMain.Instance.transform.rotation = _HouseExit.rotation;
         PlayerMain.Instance.Movement.SnapToGround();
         CameraBehaviour.Instance.TeleportToTargetPosition();
     }
@@ -37,6 +42,7 @@ public class Bed : Interactable
     {
         //---- l'écran est tout noir ici ----
 
+        teleportOutside();
         CameraBehaviour.Instance.enabled = true;
         PlayerMain.Instance.Movement.enabled = true;
 
