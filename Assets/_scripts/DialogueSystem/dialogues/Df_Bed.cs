@@ -27,11 +27,11 @@ public class Df_Bed : DialogueFlow
 
         await _characters.Narrator.Say(dialogueNarrator[Random.Range(0, dialogueNarrator.Count)]);
 
-        int result = await _characters.Narrator.Ask("Souhaitez-vous dormir jusqu'au #matin# ?", new string[] { "Dodo", "Non"});
+        int result = await _characters.Narrator.Ask("Souhaitez-vous dormir jusqu'au #matin# ?", new string[] { "Oui", "Non"});
 
         if (result == 0) 
         {
-            WorldObject.SendMessage("Sleep");
+            WorldObject.SendMessage("La ferme s'endort.");
         }
         else
         {
