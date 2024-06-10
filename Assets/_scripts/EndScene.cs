@@ -1,7 +1,9 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EndScene : MonoBehaviour
 {
+    [SerializeField] SwitchScene Scene;
+
     [SerializeField] float duration;
     void Start()
     {
@@ -10,7 +12,7 @@ public class EndScene : MonoBehaviour
 
     void OnEnd()
     {
-
+        Scene.LoadScene("MainMenu");
     }
 
     private void UpdatePosition(float value)
