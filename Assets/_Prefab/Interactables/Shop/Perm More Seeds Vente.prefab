@@ -70,8 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanRestock>k__BackingField: 0
   DialogueScript: Df_Shop_PermBestDelivery
-  _itemShopVisual: {fileID: 7036239174078983076}
+  _itemShopVisual: {fileID: 3667707934067665020}
   _maxStock: 1
+  _effect: {fileID: 0}
   price: 100
   _seedsToAdd: 3
 --- !u!1 &3956370753323715015
@@ -245,12 +246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c112187f5e991408aab56bdd4ceb7c, type: 3}
---- !u!23 &7036239174078983076 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: d5c112187f5e991408aab56bdd4ceb7c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8530991552272070432}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8209660676037513419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d5c112187f5e991408aab56bdd4ceb7c,
