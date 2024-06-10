@@ -10,20 +10,20 @@ public class Df_Charon_AttenteDuDepart : DialogueFlow
 
     List<string> dialogue1 = new List<string>()
     {
-        "A bientôt",
-        "A la prochaine",
-        "Nous nous reverrons, Bobbus",
-        "Au plaisir",
-        "Je reviendrais dans deux jours pour la prochaine livraison",
-        "Tu tiens toujours le rythme ? Impressionant, le dernier avait déjà craqué",
-        "J'espère que tu en as profité pour explorer les environs... Allez, à la prochaine !",
-        "Tu connais les graines ligma ? Non ? Bah, à bientôt.",
-        "Et hop, encore une livraison.",
-        "J'ai l'impression de passer ma mort à te livrer... Vous êtes très fort pour vous entretuer.",
-        "Ma femme m'a quitté Bobbus.",
-        "Même chose, même heure dans deux jours.",
-        "A la revoyure",
-        "Ma vie n'est qu'un cycle monotone Bobbus. Je n'en peux plus. J'ai besoin d'un nouvel air. Termine vite ce jeu veux-tu ?"
+        "Plus rien pour toi aujourd'hui.",
+        "Tu viens me faire causette ?",
+        "Hmmm, laisse moi voir... Non plus rien.",
+        "Pas de graines en plus.",
+        "Je reviendrais dans deux jours pour la prochaine livraison.",
+        "Encore ? Occupe toi déjà de ce que je viens de te donner.",
+        "Tu m'en demandes trop, repasses la prochaine fois.",
+        "Nop, plus rien pour aujourd'hui.",
+        "Pas plus de graines.",
+        "Laisse moi me reposer un moment veux-tu ?",
+        "Repasse plus tard.",
+        "On vient voir papy Charon ? Comme c'est gentil !",
+        "Une autre fois, Bobbus. Je n'ai plus rien pour aujourd'hui",
+        "Zzzz... Hein ? Oh pardon je me suis endormi..."
     };
 
     

@@ -10,7 +10,7 @@ public class Df_Shop_HoeUpgrade : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
 
-        await _characters.Geoffrrus.Say("Cet objet est très utile.Il te permet de rendre ta houe plus éfficace.");
+        await _characters.Geoffrrus.Say("Cet objet est très utile.Il te permet de rendre ta houe plus efficace.");
         await _characters.Geoffrrus.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
 
         int resultat = await _characters.Narrator.Ask("Voulez vous acheter cet Objet ?", new string[] { "J'achète !", "J'ai changé d'avis." });

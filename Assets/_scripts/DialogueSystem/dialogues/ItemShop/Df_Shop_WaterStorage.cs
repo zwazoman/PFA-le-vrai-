@@ -13,7 +13,7 @@ public class Df_Shop_WateringCan : DialogueFlow
         await _characters.Geoffrrus.Say("Avec ça, tu ne devrais plus avoir de problèmes de transports d’eau, vu sa contenance.");
         await _characters.Geoffrrus.Say($"Je te le fais à #{((SellingSpot)WorldObject).price} âmes.#");
 
-        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter #l'amelioration de l'arrosoir# pour #{((SellingSpot)WorldObject).price} âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
+        int resultat = await _characters.Narrator.Ask($"Voulez vous acheter #l'amélioration de l'arrosoir# pour #{((SellingSpot)WorldObject).price} âmes.#?", new string[] { "J'achète !", "J'ai changé d'avis." });
         if (resultat == 0)
         {
             if (((SellingSpot)WorldObject).price <= PlayerMain.Instance.Stats.Money)
