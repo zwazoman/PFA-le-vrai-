@@ -11,6 +11,6 @@ public class Df_TutoMoulin : DialogueFlow
     {
         _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
 
-        await _characters.Charon.Say("Al... Allo ? Oui Bobbus ? C'est Charon ! Tu as récolté ta première #orbe#, bravo ! Malheureusement aucun marchand n'achèterait une chose aussi encombrante... Il te faut donc l'écraser et en faire de la #poussière d'âme#. Le #moulin# se trouve au nord. Bonne route !");
+        await _characters.Charon.Say("Ta première âme purifiée... Ca doit faire quelque chose n'est-ce pas ? Il ne te reste plus qu'à #l'amener au moulin, au nord#, pour en faire de la #poussière d'âme# et tu auras terminé !");
     }
 }
