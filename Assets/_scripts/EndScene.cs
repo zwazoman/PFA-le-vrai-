@@ -7,7 +7,7 @@ public class EndScene : MonoBehaviour
     [SerializeField] float duration;
     void Start()
     {
-        StartCoroutine(Nathan.InterpolateOverTime(0,100,duration,UpdatePosition,(float v) => { return v; },OnEnd,false));
+        StartCoroutine(Nathan.InterpolateOverTime(-48.4f, 100,duration,UpdatePosition,(float v) => { return v; },OnEnd,false));
     }
 
     void OnEnd()

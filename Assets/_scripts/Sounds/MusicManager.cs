@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -19,66 +20,69 @@ public class MusicManager : MonoBehaviour
 
     [Header("Chien")]
     [SerializeField] float _fadeDuration = 1f;
-    [SerializeField] float _musicWait = 1f;
 
-    private void Awake()
-    {
-        StartCoroutine(ActivateDayMusics());
-        StartCoroutine(ActivateNightMusic());
-    }
+    [SerializeField] float _maxMusicWait;
+    [SerializeField] float _minMusicWait;
 
     private void Start()
     {
-        TimeManager.Instance.OnMorning += () => StartCoroutine(PlayDayMusic());
-        TimeManager.Instance.OnEvening += () => StartCoroutine(PlayNightMusic());
+        TimeManager.Instance.OnMorning += () => StartCoroutine(DayMusic());
+        TimeManager.Instance.OnEvening += () => StartCoroutine(NightMusic());
     }
 
-    IEnumerator PlayDayMusic()
+    IEnumerator DayMusic()
     {
         _nightMusicSource.DOFade(0, _fadeDuration);
-        yield return new WaitForSeconds(_fadeDuration);
-        _dayMusicSource.DOFade(_dayVolume, _fadeDuration);
+        _dayMusicSource.volume = _dayVolume;
+        while (TimeManager.Instance.IsDay)
+        {
+            yield return new WaitForSeconds(Random.Range(_minMusicWait,_maxMusicWait));
+            if (!TimeManager.Instance.IsDay) break;
+            _dayMusicSource.clip = (PickRandomClip(_dayMusics));
+            _dayMusicSource.Play();
+        }
     }
 
-    IEnumerator PlayNightMusic()
+    IEnumerator NightMusic()
     {
         _dayMusicSource.DOFade(0, _fadeDuration);
-        yield return new WaitForSeconds(_fadeDuration);
-        _nightMusicSource.DOFade(_nightVolume, _fadeDuration);
-    }
-
-    IEnumerator ActivateDayMusics()
-    {
-        while (true)
+        _nightMusicSource.volume = _nightVolume;
+        while (!TimeManager.Instance.IsDay)
         {
-            _dayMusicSource.clip = PickRandomClip(true);
-            _dayMusicSource.Play();
-            yield return new WaitForSeconds(_dayMusicSource.clip.length + _musicWait);
-        }
-    }
-
-    IEnumerator ActivateNightMusic()
-    {
-        while (true)
-        {
-            _nightMusicSource.clip = PickRandomClip(false);
+            yield return new WaitForSeconds(Random.Range(_minMusicWait, _maxMusicWait));
+            if (TimeManager.Instance.IsDay) break;
+            _nightMusicSource.clip = (PickRandomClip(_nightMusics));
             _nightMusicSource.Play();
-            yield return new WaitForSeconds(_nightMusicSource.clip.length + _musicWait);
         }
     }
 
-    AudioClip PickRandomClip(bool day)
+    void PauseMusic()
     {
-        if (day)
+        if (TimeManager.Instance.IsDay)
         {
-            int rand = Random.Range(0, _dayMusics.Length);
-            return _dayMusics[rand];
+            _dayMusicSource.Pause();
         }
         else
         {
-            int rand = Random.Range(0, _nightMusics.Length);
-            return _nightMusics[rand];
+            _nightMusicSource.Pause();
         }
     }
 
+    void ResumeMusic()
+    {
+        if (TimeManager.Instance.IsDay)
+        {
+            _dayMusicSource.UnPause();
+        }
+        else
+        {
+            _nightMusicSource.UnPause();
+        }
+    }
+
+    AudioClip PickRandomClip(AudioClip[] musicList)
+    {
+         int rand = Random.Range(0, musicList.Length);
+         return musicList[rand];
+    }
 }

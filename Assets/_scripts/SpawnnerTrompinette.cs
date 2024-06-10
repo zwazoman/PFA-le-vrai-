@@ -14,7 +14,7 @@ public class SpawnnerTrompinette : MonoBehaviour
         while (true) 
         {
             Instantiate(_trompinette, transform.position = new Vector3(xCo, Random.Range(3, 21), zCo) , transform.rotation);
-            yield return new WaitForSeconds(Random.Range(0.5f, 2)); 
+            yield return new WaitForSeconds(Random.Range(1, 4)); 
         }
     }
 }
