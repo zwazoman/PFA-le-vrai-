@@ -31,7 +31,7 @@ public class Df_Bed : DialogueFlow
 
         if (result == 0) 
         {
-            WorldObject.SendMessage("La ferme s'endort.");
+            WorldObject.SendMessage("Sleep");
         }
         else
         {
