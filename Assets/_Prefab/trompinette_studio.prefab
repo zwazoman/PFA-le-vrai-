@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6628075430020871550}
   - component: {fileID: 56748547235789110}
   - component: {fileID: 4703067517857919790}
-  - component: {fileID: 4888734727291088652}
+  - component: {fileID: -3545353005611301824}
   m_Layer: 0
   m_Name: trompinette_studio
   m_TagString: Untagged
@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitesse: 25
---- !u!82 &4888734727291088652
+  trompinetteSound: {fileID: -3545353005611301824}
+--- !u!82 &-3545353005611301824
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,15 +111,15 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b367d017ae2f97743be3e2339de04e77, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.022
+  m_PlayOnAwake: 0
+  m_Volume: 0.03
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 5
+  DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0

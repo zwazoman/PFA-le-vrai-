@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -21,8 +22,8 @@ public class MusicManager : MonoBehaviour
     [Header("Chien")]
     [SerializeField] float _fadeDuration = 1f;
 
-    [SerializeField] float _maxMusicWait;
-    [SerializeField] float _minMusicWait;
+    [SerializeField] float _maxMusicWait = 0f;
+    [SerializeField] float _minMusicWait = 5f;
 
     private void Start()
     {
@@ -34,12 +35,21 @@ public class MusicManager : MonoBehaviour
     {
         _nightMusicSource.DOFade(0, _fadeDuration);
         _dayMusicSource.volume = _dayVolume;
+        AudioClip toSkip = null;
         while (TimeManager.Instance.IsDay)
         {
             yield return new WaitForSeconds(Random.Range(_minMusicWait,_maxMusicWait));
             if (!TimeManager.Instance.IsDay) break;
-            _dayMusicSource.clip = (PickRandomClip(_dayMusics));
+            if (PickRandomClip(_dayMusics) == null) yield return 0;
+            AudioClip randClip = PickRandomClip(_dayMusics);
+            while(randClip == toSkip)
+            {
+                randClip = PickRandomClip(_dayMusics);
+            }
+            toSkip = randClip;
+            _dayMusicSource.clip = randClip;
             _dayMusicSource.Play();
+            yield return new WaitForSeconds(randClip.length);
         }
     }
 
@@ -47,12 +57,21 @@ public class MusicManager : MonoBehaviour
     {
         _dayMusicSource.DOFade(0, _fadeDuration);
         _nightMusicSource.volume = _nightVolume;
+        AudioClip toSkip = null;
         while (!TimeManager.Instance.IsDay)
         {
             yield return new WaitForSeconds(Random.Range(_minMusicWait, _maxMusicWait));
             if (TimeManager.Instance.IsDay) break;
-            _nightMusicSource.clip = (PickRandomClip(_nightMusics));
+            if (PickRandomClip(_nightMusics) == null) yield return 0;
+            AudioClip randClip = PickRandomClip(_nightMusics);
+            while (randClip == toSkip)
+            {
+                randClip = PickRandomClip(_dayMusics);
+            }
+            toSkip = randClip;
+            _nightMusicSource.clip = randClip;
             _nightMusicSource.Play();
+            yield return new WaitForSeconds(randClip.length);
         }
     }
 
@@ -82,7 +101,8 @@ public class MusicManager : MonoBehaviour
 
     AudioClip PickRandomClip(AudioClip[] musicList)
     {
-         int rand = Random.Range(0, musicList.Length);
-         return musicList[rand];
+        if (musicList.Length == 0) return null;
+        int rand = Random.Range(0, musicList.Length);
+        return musicList[rand];
     }
 }

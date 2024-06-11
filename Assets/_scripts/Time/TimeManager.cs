@@ -68,11 +68,12 @@ public class TimeManager : MonoBehaviour
         LastRealTickTime = Time.time;
 
         Hour++;
+        print(IsDay);
         OnHour?.Invoke();
 
         //print($"heure : {Hour} , day : {Day}");
-        if (Hour == 6) { OnMorning?.Invoke(); IsDay = true; }
-        if (Hour == 18) { OnEvening?.Invoke(); IsDay = false; }
+        if (Hour == 6) { IsDay = true; OnMorning?.Invoke();}
+        if (Hour == 18) { IsDay = false; OnEvening?.Invoke(); }
 
         if (Hour >= 24)
         {

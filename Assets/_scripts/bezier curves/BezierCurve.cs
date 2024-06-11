@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 [ExecuteAlways]
 public class BezierCurve : MonoBehaviour
@@ -19,9 +20,27 @@ public class BezierCurve : MonoBehaviour
     public float SegmentTargetLength = 5;
 
     List<Vector3> linearSampledPoints = new();
+    List<Vector3> pts => linearSampledPoints;
 
     [Range(0, 1)]
     public float testValue;
+
+#if UNITY_EDITOR
+    void Update()
+    {
+        Debug.DrawRay(Sample(testValue), Vector3.up * 20, Color.red);
+
+        if (points.Count >= 2) 
+        Draw();
+
+        testValue = (testValue - 0.1f * Time.deltaTime)%1;
+
+        if (Application.isPlaying)
+        {
+            GetClosestPoint(PlayerMain.Instance.transform.position);
+        }
+    }
+#endif
 
     /// <summary>
     /// utilisé pour calculer un point de la courbe entre deux control points. Les points retournés ne sont pas répartis équitablements par rapport à l'alpha rentrée.
@@ -137,17 +156,7 @@ public class BezierCurve : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.DrawRay(Sample(testValue), Vector3.up * 20, Color.red);
 
-        if (points.Count >= 2) 
-        Draw();
-
-        testValue = (testValue - 0.1f * Time.deltaTime)%1;
-
-    }
 
     private void OnValidate()
     {
@@ -163,4 +172,45 @@ public class BezierCurve : MonoBehaviour
     {
         OnValidate();
     }
+
+    /// <summary>
+    /// ça trouve le points le plus proche du joueur (ça dépend dla résolution jcrois)
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="resolution"></param>
+    /// <returns></returns>
+    public int[] FindTwoClosestIndices(Vector3 position, int resolution, int startIndex, int endIndex)
+    {
+        int iclosest1 = startIndex;
+        int iclosest2 = startIndex;
+        float distanceToClosest1 = (position - pts[0]).sqrMagnitude;
+        int step = (endIndex - startIndex) / resolution;
+        for (int i = startIndex; i < endIndex; i += step)
+        {
+            Debug.DrawRay(linearSampledPoints[i], Vector3.up * 10, Color.green);
+            float distance = (position - pts[i]).sqrMagnitude;
+            if(distance < distanceToClosest1)
+            {
+                distanceToClosest1 = distance;
+                iclosest1 = i;
+                //si c'est cassé tkt
+                float leftDistance = (position - pts[iclosest1 - step]).sqrMagnitude;
+                float rightDistance = (position - pts[iclosest1 + step]).sqrMagnitude;
+                iclosest2 = (leftDistance < rightDistance) ?  iclosest1 - step:  iclosest1 + step;
+            }
+        }
+        Debug.DrawRay(linearSampledPoints[iclosest1], Vector3.up * 10, Color.red);
+        Debug.DrawRay(linearSampledPoints[iclosest2], Vector3.up * 10, Color.magenta);
+
+        return new int[2] { iclosest1, iclosest2 };
+    }
+
+    public Vector3 GetClosestPoint(Vector3 bahLePoint)
+    {
+        int[] suu = FindTwoClosestIndices(bahLePoint, 10, 0, pts.Count);
+        suu = FindTwoClosestIndices(bahLePoint, 10, Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]));
+        suu = FindTwoClosestIndices(bahLePoint, Mathf.Abs(suu[1] - suu[0]), Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]) + 15);
+        return pts[suu[0]];
+    }
 }
+
