@@ -36,6 +36,11 @@ public class PlayerVisuals : MonoBehaviour
         animator.SetTrigger("Arrosoir");
     }
 
+    public void StartDrinkAnimation()
+    {
+        animator.SetTrigger("Potion");
+    }
+
     void TryIdleBreaker()
     {
         if (p.InputManager.moveInput == Vector2.zero && Random.value < 0.05f) StartCoroutine(BreakIdle());

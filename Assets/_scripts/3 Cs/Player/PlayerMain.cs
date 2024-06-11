@@ -58,6 +58,9 @@ public class PlayerMain : MonoBehaviour
     [field : SerializeField]
     public GroundEffect GroundEffect { get; private set; }
 
+    [field : SerializeField]
+    public playerAnimationEventReceiver AnimationEventReceiver { get; private set; }
+
     public Transform WheelBarrowSocket;
 
     public UnityEvent OnEnterInterior;

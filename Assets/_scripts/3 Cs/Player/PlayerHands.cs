@@ -62,7 +62,7 @@ public class PlayerHands : MonoBehaviour
         _itemInHandsRb.constraints = RigidbodyConstraints.None; // unfreeze l'objet
         ItemInHands.transform.parent = null;
         ItemInHands.GetComponent<Rigidbody>().AddForce(Vector3.down*10,ForceMode.Impulse);
-        ItemInHands.GetComponent<Item>().Drop();
+        ItemInHands.GetComponent<Item>().OnDrop();
         ItemInHands = null;
         _grabZone.SetActive(true); // réactive la grabzone
         _interaction.enabled = true;
