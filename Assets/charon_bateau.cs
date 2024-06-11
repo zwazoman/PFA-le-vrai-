@@ -74,6 +74,7 @@ public class charon_bateau : MonoBehaviour
         //descente du bateau
         if (TimeManager.Instance.Hour == 7)
         {
+            OnArrivee.Invoke();
             DescendreDuBateau();
         }
 

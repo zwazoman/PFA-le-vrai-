@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 /// <summary>
 /// orb lachée par les boutures d'âmes lors de la récolte. Héritage 
@@ -18,9 +19,15 @@ public class Orb : Breakable
 
     public override void Awake()
     {
+        
         base.Awake();
         _tutorialScript = GetComponent<OrbTuto>();
         //Jump();
+    }
+
+    private void Start()
+    {
+        GetComponentInChildren<VisualEffect>().Play();
     }
 
     public override void Break()

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3547742607675969693}
   - component: {fileID: 8810521317890262776}
   - component: {fileID: 1107345598871642682}
+  - component: {fileID: 2588455732403330836}
   m_Layer: 0
   m_Name: vfx_OrbHarvest
   m_TagString: Untagged
@@ -111,6 +112,18 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2588455732403330836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804400349491450164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1655ae1ef3b260d46948c2e95127835b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5823781622217448801
 GameObject:
   m_ObjectHideFlags: 0
