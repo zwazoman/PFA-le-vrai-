@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8859046730603162804}
   - component: {fileID: 2856825973410353829}
   - component: {fileID: 5043272757643199389}
+  - component: {fileID: 1857161158694949959}
   m_Layer: 0
   m_Name: champs en construction
   m_TagString: Untagged
@@ -54,8 +55,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1009448, y: 1, z: 2.1578574}
-  m_Center: {x: -0.076848686, y: 0, z: 0.02043066}
+  m_Size: {x: 2.1009448, y: 0.5735462, z: 2.1578574}
+  m_Center: {x: -0.07684871, y: 0.30533284, z: 0.02043067}
 --- !u!114 &5043272757643199389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,6 +74,27 @@ MonoBehaviour:
     type: 3}
   _repairSound: []
   _repairSoundVolume: 1
+--- !u!65 &1857161158694949959
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067237488876065126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.100945, y: 0.4885891, z: 2.157857}
+  m_Center: {x: -0.076848716, y: 0.25603873, z: 0.02043067}
 --- !u!1001 &1754176284381716139
 PrefabInstance:
   m_ObjectHideFlags: 0
