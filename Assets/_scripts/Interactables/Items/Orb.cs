@@ -6,22 +6,18 @@ using UnityEngine.VFX;
 /// </summary>
 public class Orb : Breakable
 {
-    OrbTuto _tutorialScript;
-
     [field : SerializeField]
     public int OrbValue { get; private set; }
 
     protected override void Interaction()
     {
         base.Interaction();
-        if(_tutorialScript!=null) _tutorialScript.ActivateTutorial();
     }
 
     public override void Awake()
     {
         
         base.Awake();
-        _tutorialScript = GetComponent<OrbTuto>();
         //Jump();
     }
 
