@@ -17,6 +17,8 @@ public class Df_Eve : DialogueFlow
         "Je suis sûre d'avoir entendu la cloche de Charon. Vous devriez aller voir."
     };
 
+    static bool FirstTime = true;
+
 
     public override async Task StartDialogue()
     {
@@ -24,21 +26,28 @@ public class Df_Eve : DialogueFlow
 
         await _characters.Bobbus.Say("Bonjour");
 
-        int result = await _characters.Eve.Ask($"Alors, prêt à racheter ton âme ? Elle t'en coûtera {((Eve)WorldObject).price} poussières d'âmes", new string[] { "Oui", "Non" });
-
-        if (result == 0 && PlayerMain.Instance.Stats.Money>=((Eve)WorldObject).price)
+        if (FirstTime)
         {
-            await _characters.Eve.Say("Tes efforts pour te racheter t'ont amenés à cet instant, mortel. Soit récompensé pour ton dévouement");
-            WorldObject.SendMessage("CommencerAnimation");
-
+            await _characters.Eve.Say("Salutations Bobbus. Je suis Eve l'ange angélique. Si tu veux accéder à la vie éternelle et #racheter ton âme# tu devras me payer en #poussières d'âme#");
+            WorldObject.SendMessage("ManageQuests");
         }
         else
-         
         {
+            int result = await _characters.Eve.Ask($"Alors, prêt à #racheter ton âme# ? Elle t'en coûtera {((Eve)WorldObject).price} #poussières d'âmes#", new string[] { "Oui", "Non" });
 
-            await _characters.Eve.Say(dialogueEve[Random.Range(0,dialogueEve.Count)]);
+            if (result == 0 && PlayerMain.Instance.Stats.Money >= ((Eve)WorldObject).price)
+            {
+                await _characters.Eve.Say("Tes efforts pour te racheter t'ont amenés à cet instant, mortel. Soit récompensé pour ton dévouement");
+                WorldObject.SendMessage("CommencerAnimation");
 
+            }
+            else
+
+            {
+
+                await _characters.Eve.Say(dialogueEve[Random.Range(0, dialogueEve.Count)]);
+
+            }
         }
-        
     }
 }

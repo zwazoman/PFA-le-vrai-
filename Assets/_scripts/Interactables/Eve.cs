@@ -12,6 +12,10 @@ public class Eve : Interactable
     protected override void Interaction()
     {
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this);
+    }
+
+    public void ManageQuests()
+    {
         QuestManager.Instance.TryProgressQuest("FindSoul", 1);
         QuestManager.Instance.TryProgressQuest("BuySoul", PlayerMain.Instance.Stats.Money);
     }
@@ -21,7 +25,6 @@ public class Eve : Interactable
 
         //_animator.SetLayerWeight(1, 0);
         
-        print("suuuuu");
         porte.Open();
     }
 
