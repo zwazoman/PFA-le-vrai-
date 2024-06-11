@@ -38,7 +38,7 @@ public class Item : Interactable
         PlayerMain.Instance.Hands.Pickup(this);
     }
 
-    public virtual void Drop() { }
+    public virtual void OnDrop() { }
 
     /*public virtual void Jump()
     {

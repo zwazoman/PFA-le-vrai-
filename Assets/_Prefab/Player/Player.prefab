@@ -7702,6 +7702,7 @@ MonoBehaviour:
   <Ambience>k__BackingField: {fileID: 4882705463817092156}
   <Tag>k__BackingField: {fileID: 788019110852804272}
   <GroundEffect>k__BackingField: {fileID: 7239276282444973839}
+  <AnimationEventReceiver>k__BackingField: {fileID: 1342490202541701072}
   WheelBarrowSocket: {fileID: 7629403595697943147}
   OnEnterInterior:
     m_PersistentCalls:
@@ -7764,7 +7765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Seeds>k__BackingField: 5
-  <Money>k__BackingField: 0
+  <Money>k__BackingField: 100
   <WalkSpeed>k__BackingField: 8
   <RunFactor>k__BackingField: 1.8
 --- !u!114 &8543143193072082659
@@ -15324,6 +15325,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnStopDrinkPotion:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2022281294586761523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 842484120991656016, guid: cccf4c50d2187434aaddb4a61f5f5861,

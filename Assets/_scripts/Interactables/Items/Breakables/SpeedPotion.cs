@@ -7,21 +7,27 @@ public class SpeedPotion : Item
     protected override void Interaction()
     {
         base.Interaction();
-        print("rammasser potion");
-        PlayerMain.Instance.InputManager.OnItem += Drink;
+        PlayerMain.Instance.InputManager.OnItem += StartDrink;
+        PlayerMain.Instance.AnimationEventReceiver.OnStopDrinkPotion.AddListener(StopDrink);
     }
 
-    public override void Drop()
+    public override void OnDrop()
     {
-        print("lacher potion");
-        PlayerMain.Instance.InputManager.OnItem -= Drink;
+        //delink l'event pour boire quand la potion est lachée
+        PlayerMain.Instance.InputManager.OnItem -= StartDrink;
+        PlayerMain.Instance.AnimationEventReceiver.OnStopDrinkPotion.RemoveListener(StopDrink);
     }
-    private void Drink()
+    private void StartDrink()
     {
-        //jouer l'animation de con là et faut enlever la bouteille chépa
-        print("boire");
+        PlayerMain.Instance.InputManager.enabled = false;
+        PlayerMain.Instance.Visuals.StartDrinkAnimation();
+    }
+
+    private void StopDrink()
+    {
         AddSpeed();
         PlayerMain.Instance.Hands.Drop();
+        PlayerMain.Instance.InputManager.enabled = true;
         Destroy(gameObject);
     }
 

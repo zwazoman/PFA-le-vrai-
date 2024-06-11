@@ -1,4 +1,5 @@
 using CustomInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,8 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnWoosh;
     public UnityEvent OnWalkFootstep;
     public UnityEvent OnRunFootstep;
+
+    public UnityEvent OnStopDrinkPotion;
 
     public void InvokeOnScytheEquip() => OnScytheEquip.Invoke();
     public void InvokeOnScythe() => OnScythe.Invoke();
@@ -60,13 +63,10 @@ public class playerAnimationEventReceiver : MonoBehaviour
         if (PlayerMain.Instance.Watering.CanWater) OnPlayWaterVFX.Invoke();
     }
 
-
-
-
-
-
-
-
+    public void InvokeOnStopDrinkPotion()
+    {
+        OnStopDrinkPotion.Invoke();
+    }
 
     private void Start()
     {
