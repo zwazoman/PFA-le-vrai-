@@ -80,7 +80,7 @@ public class AmbienceManager : MonoBehaviour
 
     public void EnterInterior()
     {
-        //print("INTERIEUR");
+        print("INTERIEUR");
         _isInterior = true;
         StopCoroutine(PlayDayAmbience());
         StopCoroutine(PlayNightAmbience());
@@ -90,7 +90,7 @@ public class AmbienceManager : MonoBehaviour
 
     public void Exitinterior()
     {
-        //print("EXTERIEUR");
+        print("EXTERIEUR");
         _isInterior = false;
         if (TimeManager.Instance.IsDay) StartCoroutine(PlayDayAmbience()); else StartCoroutine(PlayNightAmbience());
     }
