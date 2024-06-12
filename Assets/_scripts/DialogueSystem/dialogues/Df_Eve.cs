@@ -30,6 +30,7 @@ public class Df_Eve : DialogueFlow
         {
             await _characters.Eve.Say("Salutations Bobbus. Je suis Eve l'ange angélique. Si tu veux accéder à la vie éternelle et #racheter ton âme# tu devras me payer en #poussières d'âme#");
             WorldObject.SendMessage("ManageQuests");
+            FirstTime = false;
         }
         else
         {
