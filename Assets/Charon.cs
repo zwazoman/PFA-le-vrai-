@@ -11,7 +11,7 @@ public class Charon : Interactable
     [SerializeField] public Transform SpawnSocket;
     [SerializeField] charon_bateau bateau;
 
-    bool AlreadyUsed = false;
+    public bool AlreadyUsed = false;
     protected override void Interaction()
     {
         if (!AlreadyUsed)
