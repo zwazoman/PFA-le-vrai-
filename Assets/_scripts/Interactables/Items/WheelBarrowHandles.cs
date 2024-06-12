@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// interaction du joueur avec la brouette
@@ -14,6 +15,7 @@ public class WheelBarrowHandles : MonoBehaviour
     [SerializeField] float vitesse = 8;
     [SerializeField] float _groundFriction = 20.2f;
 
+    public UnityEvent onPickup;
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
@@ -24,6 +26,7 @@ public class WheelBarrowHandles : MonoBehaviour
         PlayerMain.Instance.WheelBarrow.Movement.decelerationY = AngularFriction;
         PlayerMain.Instance.WheelBarrow.Movement.GroundFriction = _groundFriction;
 
+        onPickup?.Invoke();
 
         PlayerMain.Instance.WheelBarrow.Equip();
         _storage.enabled = false;

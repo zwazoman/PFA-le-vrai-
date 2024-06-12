@@ -352,7 +352,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5e4370de1ccbe4094d1499f280d74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &6312437871973032790
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,6 +920,9 @@ MonoBehaviour:
   _distanceToLink: 0.53
   _hightToLink: 1.5
   _storage: {fileID: 1274368861900032450}
+  AngularFriction: 10.5
+  vitesse: 8
+  _groundFriction: 20.2
 --- !u!114 &3141824232809568764
 MonoBehaviour:
   m_ObjectHideFlags: 0
