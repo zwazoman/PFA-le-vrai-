@@ -48,12 +48,26 @@ public class SellingSpot : Interactable
         _stock -= 1;
         if (_stock == 0)
         {
+            foreach(Transform child in _itemShopVisual.gameObject.transform)
+            {
+                if (child.gameObject.TryGetComponent<Renderer>(out Renderer renderer))
+                {
+                    renderer.enabled = false;   
+                }
+            }
             _itemShopVisual.enabled = false;
         }
     }
 
     public void Restock()
     {
+        foreach (Transform child in _itemShopVisual.gameObject.transform)
+        {
+            if (child.gameObject.TryGetComponent<Renderer>(out Renderer renderer))
+                {
+                renderer.enabled = true;
+            }
+        }
         _itemShopVisual.enabled = true;
         _stock = _maxStock;
         _effect.Play();
