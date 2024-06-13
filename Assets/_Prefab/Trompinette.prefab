@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 225418431023711610}
   - component: {fileID: 3472834093135973313}
   - component: {fileID: 3521678090920789412}
-  - component: {fileID: 1870002195471447978}
   - component: {fileID: 164784843895274041}
   - component: {fileID: 6040740076441196673}
   m_Layer: 0
@@ -95,9 +94,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 164784843895274041}
-        m_TargetAssemblyTypeName: trompinette, Assembly-CSharp
-        m_MethodName: OnPickUp
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 164784843895274041}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -106,9 +120,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onDrop:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &277579372955885899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,20 +265,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1870002195471447978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953949666802912911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67074216591ace144a69bdbd5e67d17b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {x: 0, y: 0, z: 0}
-  killHeight: -32
 --- !u!114 &164784843895274041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953949666802912911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 787011bb11a4a0b4dbfa4f0c14f784f2, type: 3}
   m_Name: 
