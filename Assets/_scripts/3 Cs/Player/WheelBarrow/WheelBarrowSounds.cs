@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WheelBarrowSounds : MonoBehaviour
 {
-    [SerializeField] AudioSource _wheelBarrowAudioSource;
+    [SerializeField] public AudioSource _wheelBarrowAudioSource;
 
     private void Update()
     {
