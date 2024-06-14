@@ -19,6 +19,7 @@ public class TrompinetteSound : MonoBehaviour
 
     private void OnEnable()
     {
+        print("feur");
         _WBMove = PlayerMain.Instance.WheelBarrow.Movement;
         _playerWalkSpeed = PlayerMain.Instance.WheelBarrow.Movement._playerMoveSpeed;
         SFXManager.Instance.PlaySFXClip(_startEngine, transform.position, _startEngineVolume);
