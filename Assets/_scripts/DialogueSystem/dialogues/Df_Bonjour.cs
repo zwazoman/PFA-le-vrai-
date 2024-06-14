@@ -7,7 +7,7 @@ public class Df_Bonjour : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Charon);
 
         await _characters.Charon.Say("OH PUTAIN CA MARCHE");
         await _characters.Geoffrrus.Say("NATHAN LE GOAT");

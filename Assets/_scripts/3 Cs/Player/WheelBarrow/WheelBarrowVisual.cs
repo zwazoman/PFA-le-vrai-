@@ -29,7 +29,6 @@ public class WheelBarrowVisual : MonoBehaviour
             //Vector3 a = Barrow.transform.localEulerAngles;
             angle = - Mathf.Atan2(localForward.y, localForward.z)* Mathf.Rad2Deg;
             angle = angle > 0 ? angle : angle + 360f;
-            //print(angle);
 
             if (angle > 180f+maxSlopeAngle || angle < 180f-maxSlopeAngle) return;
             angle += angleOffet;

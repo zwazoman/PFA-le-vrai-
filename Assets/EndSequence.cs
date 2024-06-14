@@ -43,7 +43,6 @@ public class EndSequence : MonoBehaviour
 
             ApplyVisual(value);
             
-            print(value);
         }
     }
 

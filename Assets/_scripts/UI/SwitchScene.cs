@@ -43,6 +43,5 @@ public class SwitchScene : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-        print("Quit");
     }
 }

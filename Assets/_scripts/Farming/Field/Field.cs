@@ -77,10 +77,8 @@ public class Field : MonoBehaviour
     /// <param name="seed"></param>
     public void Sow(GameObject seed)
     {
-        print("try Sow");
         if (Sowable && IsEmpty)
         {
-            print("sow");
             _plant = seed.GetComponent<Seed>().Plant;
             Destroy(GetComponent<FieldStorage>());
             GameObject plant = Instantiate(_plant, transform.position + Vector3.up* 0.42f, Quaternion.identity);

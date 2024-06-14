@@ -24,7 +24,6 @@ public class SellingSpot : Interactable
 
     public virtual void SellItem()
     {
-        print("Putain Skyrim");
         PlayerMain.Instance.Stats.AddMoney(-price);
         PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
@@ -33,11 +32,9 @@ public class SellingSpot : Interactable
 
     protected override void Interaction()
     {
-        print(_stock);
         if(_stock == 0)
         {
             //dialogue hors stock
-            print("hors stock");
             return;
         }
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this);
@@ -48,12 +45,26 @@ public class SellingSpot : Interactable
         _stock -= 1;
         if (_stock == 0)
         {
+            foreach(Transform child in _itemShopVisual.gameObject.transform)
+            {
+                if (child.gameObject.TryGetComponent<Renderer>(out Renderer renderer))
+                {
+                    renderer.enabled = false;   
+                }
+            }
             _itemShopVisual.enabled = false;
         }
     }
 
     public void Restock()
     {
+        foreach (Transform child in _itemShopVisual.gameObject.transform)
+        {
+            if (child.gameObject.TryGetComponent<Renderer>(out Renderer renderer))
+                {
+                renderer.enabled = true;
+            }
+        }
         _itemShopVisual.enabled = true;
         _stock = _maxStock;
         _effect.Play();

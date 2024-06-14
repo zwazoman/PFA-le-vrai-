@@ -16,6 +16,7 @@ public class WheelBarrowHandles : MonoBehaviour
     [SerializeField] float _groundFriction = 20.2f;
 
     public UnityEvent onPickup;
+    public UnityEvent onDrop;
     /// <summary>
     /// appel� quand le joueur int�ragit avec la brouette. la snap au joueur recevant sa rotation au passage
     /// </summary>
@@ -29,9 +30,9 @@ public class WheelBarrowHandles : MonoBehaviour
         onPickup?.Invoke();
 
         PlayerMain.Instance.WheelBarrow.Equip();
-        _storage.enabled = false;
+        if(_storage != null) _storage.enabled = false;
         UiManager.Instance.Gameplay_Panel.SwitchUI();
-        _storage.DisableStorage();
+        if (_storage != null) _storage.DisableStorage();
         //visuels
 
         CameraBehaviour.Instance.target = FindObjectOfType<WheelBarrowMain>().Movement; //t'avais qu'à faire un singleton fdp
@@ -53,8 +54,10 @@ public class WheelBarrowHandles : MonoBehaviour
         PlayerMain.Instance.WheelBarrow.Movement.enabled = false;
         UiManager.Instance.Gameplay_Panel.SwitchUI();
 
+        onDrop.Invoke();
+
         transform.parent = null;
-        _storage.EnableStorage();
+        if (_storage != null) _storage.EnableStorage();
 
         CameraBehaviour.Instance.target = PlayerMain.Instance.Movement;
 

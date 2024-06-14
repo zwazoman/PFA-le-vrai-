@@ -32,7 +32,6 @@ public class QuestReward : MonoBehaviour
 
     public void GiveObject()
     {
-        print("suu");
         Instantiate(_rewardObjectPrefab, PlayerMain.Instance.transform.position + Vector3.up * _height, Quaternion.identity);
     }
 }

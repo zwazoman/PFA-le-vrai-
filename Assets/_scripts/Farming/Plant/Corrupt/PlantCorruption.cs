@@ -88,12 +88,10 @@ public class PlantCorruption : MonoBehaviour
     public void FreezeCorruption()
     {
         TimeManager.Instance.OnDay -= UpdateCorruption;
-        print("freeze corruption");
     }
 
     public void UnFreezeCorruption()
     {
         TimeManager.Instance.OnDay += UpdateCorruption;
-        print("unfreeze corruption");
     }
 }

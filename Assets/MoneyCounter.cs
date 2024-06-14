@@ -20,7 +20,6 @@ public class MoneyCounter : MonoBehaviour
     }
     public void SetMoney(float to)
     {
-        print("Vas y nath");
         if(isActiveAndEnabled)
         {
             StartCoroutine(Nathan.InterpolateOverTime(money, to, 0.5f, ApplyText, Nathan.SmoothStep01));
@@ -29,7 +28,6 @@ public class MoneyCounter : MonoBehaviour
         }
         else
         {
-            print("Salope de 4 couleurs");
             ApplyText(to);
         }
         
@@ -37,7 +35,6 @@ public class MoneyCounter : MonoBehaviour
 
     void applyScale(float a)
     {
-        print("mes boules ");
         scale = Mathf.Clamp( Mathf.Lerp(scale, 1,a) + scaleCurve.Evaluate(a) ,1,1.8f);
         transform.localScale = Vector3.one * scale;
     }

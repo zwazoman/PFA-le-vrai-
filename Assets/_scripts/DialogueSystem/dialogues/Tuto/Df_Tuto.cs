@@ -34,7 +34,7 @@ public class Df_Tuto : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Charon);
 
         await _characters.Charon.Say("Hé vous, enfin réveillé ? Vous venez de franchir la frontière entre la vie et la mort, pas vrai ? Et vous avez atterri tout droit en enfer, comme tous vos prédécesseurs.");
       

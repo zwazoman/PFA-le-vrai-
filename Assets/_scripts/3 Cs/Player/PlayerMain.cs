@@ -83,7 +83,6 @@ public class PlayerMain : MonoBehaviour
 
         //}
         //isLocked = true;
-        print("connard de merde");
         PlayerMain.Instance.InputManager.enabled = false;
         PlayerMain.instance.WheelBarrow.InputManager.enabled = false;
     }
@@ -97,7 +96,6 @@ public class PlayerMain : MonoBehaviour
 
         //isLocked = false;
         //lockedBehaviours.Clear();
-        print("connard de merde mais le retour");
         PlayerMain.instance.InputManager.enabled = true;
         PlayerMain.instance.WheelBarrow.InputManager.enabled = true;
     }

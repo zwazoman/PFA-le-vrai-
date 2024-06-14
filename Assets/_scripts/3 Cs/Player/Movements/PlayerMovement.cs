@@ -62,7 +62,6 @@ public class PlayerMovement : DynamicObject
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vector3.up *( Mathf.Atan2(-direction.z, direction.x) * Mathf.Rad2Deg+90f))   , Time.deltaTime* RotationInverseSpeed); // rotaton jolie
         }
-        //print(_playerMoveSpeed);
     }
 
     /// <summary>

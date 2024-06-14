@@ -67,7 +67,6 @@ public class WheelBarrowStorage : Storage
             Detach(storageContent[i]);
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.2f,0.35f));
         }
-        print(storageContent.Count);
         PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty += () => StartCoroutine(Empty());
     }
 

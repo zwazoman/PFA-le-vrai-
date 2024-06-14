@@ -13,6 +13,5 @@ public class Geoffrus : Interactable
     public void GiveKey()
     {
         //Instantiate(_key);
-        print("SUUUUUUUU(ce)");
     }
 }
