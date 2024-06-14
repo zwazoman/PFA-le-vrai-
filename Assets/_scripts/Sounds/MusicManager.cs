@@ -1,8 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour

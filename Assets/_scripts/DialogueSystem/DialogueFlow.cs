@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 /// <summary>
 /// Les enfants de cette classe sont utilisés pour écrire les dialogues entre deux personnages.

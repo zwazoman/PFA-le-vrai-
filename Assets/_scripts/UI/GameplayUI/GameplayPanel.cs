@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.InputSystem.XR.Haptics;
 
 public class GameplayPanel : MonoBehaviour
 {

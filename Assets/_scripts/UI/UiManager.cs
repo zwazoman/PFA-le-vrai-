@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Threading.Tasks;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class UiManager : MonoBehaviour
 {

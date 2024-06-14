@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 [ExecuteAlways]
 public class BezierCurve : MonoBehaviour
