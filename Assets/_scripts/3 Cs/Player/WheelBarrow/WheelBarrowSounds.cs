@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class WheelBarrowSounds : MonoBehaviour
 {
-    AudioSource _wheelBarrowAudioSource;
+    [SerializeField] AudioSource _wheelBarrowAudioSource;
 
-    private void Awake()
+    private void Update()
     {
-        _wheelBarrowAudioSource = GetComponent<AudioSource>();
+        _wheelBarrowAudioSource.volume = PlayerMain.Instance.WheelBarrow.Movement.Velocity.magnitude / PlayerMain.Instance.WheelBarrow.Movement._playerMoveSpeed;
     }
 
-    private void Start()
-    {
-        PlayerMain.Instance.WheelBarrow.InputManager.OnMove += StartWheelBarrowSound;
-        PlayerMain.Instance.WheelBarrow.InputManager.OnStop += PauseWheelBarrowSound;
-    }
-
-    void StartWheelBarrowSound()
+    private void OnEnable()
     {
         _wheelBarrowAudioSource.Play();
     }
 
-    void PauseWheelBarrowSound()
+    private void OnDisable()
     {
-        _wheelBarrowAudioSource.Pause();
+        _wheelBarrowAudioSource.Stop();
     }
+
+    //private void Start()
+    //{
+    //    PlayerMain.Instance.WheelBarrow.InputManager.OnMove += StartWheelBarrowSound;
+    //    PlayerMain.Instance.WheelBarrow.InputManager.OnStop += PauseWheelBarrowSound;
+    //}
+
+    //void StartWheelBarrowSound()
+    //{
+    //    _wheelBarrowAudioSource.Play();
+    //}
+
+    //void PauseWheelBarrowSound()
+    //{
+    //    _wheelBarrowAudioSource.Pause();
+    //}
 }
