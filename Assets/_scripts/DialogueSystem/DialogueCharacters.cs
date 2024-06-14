@@ -9,12 +9,13 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]
 public class DialogueCharacters : ScriptableObject
 {
-    public DialogueCharacter  Narrator, Geoffrrus, Bobbus,Charon,Eve; //penser à init les persos juste en dessous
+    public DialogueCharacter  Narrator, Geoffrrus, Bobbus, BobbusGauche, Charon,Eve; //penser à init les persos juste en dessous
     public void initAllCharacters(DialogueFlow flow, DialoguePanel panel)
     {
         Charon.Init(flow, panel);
         Narrator.Init(flow, panel);
         Bobbus.Init(flow, panel);
+        BobbusGauche.Init(flow, panel);
         Geoffrrus.Init(flow, panel);
         Eve.Init(flow, panel);
     }

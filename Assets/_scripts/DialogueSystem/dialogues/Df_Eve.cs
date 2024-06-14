@@ -22,9 +22,9 @@ public class Df_Eve : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Bobbus, _characters.Eve);
+        _panel.InitDialogue(_characters.Eve, _characters.BobbusGauche);
 
-        await _characters.Bobbus.Say("Bonjour");
+        await _characters.BobbusGauche.Say("Bonjour");
 
         if (FirstTime)
         {
