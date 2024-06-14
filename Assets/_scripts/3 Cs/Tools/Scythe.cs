@@ -1,6 +1,3 @@
-using UnityEngine;
-using UnityEngine.Experimental.Audio;
-
 public class Scythe : Tool
 {
     /// <summary>

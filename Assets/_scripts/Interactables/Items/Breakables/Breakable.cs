@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 /// <summary>
 /// gère les objets cassables
 /// </summary>

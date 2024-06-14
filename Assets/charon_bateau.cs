@@ -1,7 +1,5 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UIElements;
 
 
 public class charon_bateau : MonoBehaviour
@@ -81,7 +79,7 @@ public class charon_bateau : MonoBehaviour
 
         //montée sur le bateau + depart
         int hours = Mathf.FloorToInt( (3.1f/(float)TimeManager.Instance.IrlHourDuration)) + 1;//combien d'heures dure son animation pour retourner sur le bateau
-        if(TimeManager.Instance.Hour == 11 - hours)
+        if(TimeManager.Instance.Hour == 12 - hours)
         {
             StartCoroutine( Nathan.ExecuteWithDelay(RemonterSurLeBateau, TimeManager.Instance.IrlHourDuration*(hours) - 3.1f,true));
         }
