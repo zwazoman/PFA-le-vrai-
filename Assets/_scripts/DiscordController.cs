@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Discord;
-using UnityEngine.InputSystem.Controls;
 
 public class DiscordController : MonoBehaviour
 {

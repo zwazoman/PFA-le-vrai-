@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmbienceManager : MonoBehaviour
@@ -32,7 +31,6 @@ public class AmbienceManager : MonoBehaviour
 
     IEnumerator PlayDayAmbience()
     {
-        //print("Alo le jour");
         _nightAmbienceAudioSource.Stop();
         _dayAmbienceAudioSource.Play();
         while (TimeManager.Instance.IsDay)
@@ -45,7 +43,6 @@ public class AmbienceManager : MonoBehaviour
 
     IEnumerator PlayNightAmbience()
     {
-        //print("ALO");
         _dayAmbienceAudioSource.Stop();
         _nightAmbienceAudioSource.Play();
         while (!TimeManager.Instance.IsDay)
@@ -65,7 +62,6 @@ public class AmbienceManager : MonoBehaviour
 
     private void DayStartAmbience()
     {
-        //print("switch ambience");
         SFXManager.Instance.PlaySFXClip(_dayStartSound, SelectRandomSoundSpot(), _dayStartSoundVolume, false);
         StopCoroutine(PlayNightAmbience());
         StartCoroutine(PlayDayAmbience());
@@ -73,7 +69,6 @@ public class AmbienceManager : MonoBehaviour
 
     private void NightStartAmbience()
     {
-        //print("switch ambience");
         StopCoroutine(PlayDayAmbience());
         StartCoroutine(PlayNightAmbience());
     }

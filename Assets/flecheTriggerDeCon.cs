@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class flecheTriggerDeCon : MonoBehaviour
@@ -17,7 +15,6 @@ public class flecheTriggerDeCon : MonoBehaviour
 
     public void TryToTriggerFleche()
     {
-        print("a");
         fleche.instance.SetUp(this);
     }
 

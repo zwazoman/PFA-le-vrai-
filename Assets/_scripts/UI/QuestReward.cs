@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class QuestReward : MonoBehaviour
@@ -32,7 +30,6 @@ public class QuestReward : MonoBehaviour
 
     public void GiveObject()
     {
-        print("suu");
         Instantiate(_rewardObjectPrefab, PlayerMain.Instance.transform.position + Vector3.up * _height, Quaternion.identity);
     }
 }

@@ -1,4 +1,3 @@
-using System.Numerics;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -25,7 +24,6 @@ public class PlayerStats : MonoBehaviour
 
     public void AddMoney(int toAdd)
     {
-        print("Houla");
         UiManager.Instance.Gameplay_Panel.UpdateDisplay(Money, Money + toAdd);
         QuestManager.Instance.TryProgressQuest("BuySoul", toAdd);
         Money += toAdd;

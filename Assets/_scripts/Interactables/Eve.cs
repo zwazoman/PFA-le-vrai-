@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Eve : Interactable
 {
@@ -38,7 +37,6 @@ public class Eve : Interactable
 
     public void CommencerAnimation()
     {
-        print("L'animation devrait commencer là ptn");
         //_animator.SetLayerWeight(1, 1);
         //_animator.SetTrigger("bougeSaMere");
         Vector3 basePose = eve.transform.localPosition;

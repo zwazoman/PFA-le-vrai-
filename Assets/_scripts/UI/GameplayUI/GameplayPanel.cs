@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-using UnityEngine.InputSystem.XR.Haptics;
 
 public class GameplayPanel : MonoBehaviour
 {
@@ -13,8 +12,6 @@ public class GameplayPanel : MonoBehaviour
     
     public void UpdateDisplay(float from, float to)
     {
-        print("Nazi");
-        //print("putain de money qui marche pas la pute");
         MoneyCounter.SetMoney(to);
     }
 

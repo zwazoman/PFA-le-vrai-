@@ -1,6 +1,3 @@
-using Cinemachine.Utility;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,11 +49,9 @@ public class fleche : MonoBehaviour
     public void SetUp(flecheTriggerDeCon f)
     {
 
-        print("b");
 
         if (currentTarget == null )
         {
-            print("c1");
 
             currentTarget = f;
             image.sprite = f.sprite;
@@ -65,7 +60,6 @@ public class fleche : MonoBehaviour
         }
         else if(currentTarget.Priority < f.Priority)
         {
-            print("c2");
 
             currentTarget = f;
             image.sprite = f.sprite;
@@ -74,7 +68,6 @@ public class fleche : MonoBehaviour
         }
         else
         {
-            print("c3 pute");
 
         }
 

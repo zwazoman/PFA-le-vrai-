@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
@@ -45,11 +44,6 @@ public class DialoguePanel : MonoBehaviour
     public void Start()
     {
         _input = PlayerMain.Instance.DialogueInput;
-    }
-
-    private void Update()
-    {
-        if(Gamepad.current!=null) print("salope : " + Gamepad.current.buttonSouth.isPressed);
     }
 
     public async Task Write(string text)
@@ -99,11 +93,9 @@ public class DialoguePanel : MonoBehaviour
             while (!(Input.GetKeyUp(skipKey) || (Gamepad.current != null && Gamepad.current.buttonSouth.wasReleasedThisFrame))) 
             { 
                 await Task.Yield();
-                print("while 1 ");
             } 
         } //t'inquiete
 
-        print("fini");
 
         //if (DialogueInputManager._keyHold) { while (!DialogueInputManager._keyUp) { await Task.Yield(); } }//t'inquiete
         //while (!(Input.GetKeyUp(skipKey) || Gamepad.current.buttonSouth.wasReleasedThisFrame)) { await Task.Yield(); print("while 2"); }
@@ -134,7 +126,6 @@ public class DialoguePanel : MonoBehaviour
             OptionButton spawnedButton = Instantiate(ButtonPrefab.gameObject, OptionPanel.transform).GetComponent<OptionButton>();
             if (i == options.Length - 1)
             {
-                print("UwU");
                 EventSystem.current.SetSelectedGameObject(spawnedButton.gameObject);
             }
             int j = i;//t'inquiete
@@ -250,12 +241,9 @@ public class DialoguePanel : MonoBehaviour
     /// <param name="DialogueName"></param>
     public async Task StartDialogue(string DialogueName,MonoBehaviour worldObject)
     {
-        print("about to create instance");
         DialogueFlow Flo = (DialogueFlow)Activator.CreateInstance(Type.GetType(DialogueName), this, characters,worldObject);
-        print("instance created,premierDialogueCharon starting");
 
         await Flo.StartDialogue();
-        print("premierDialogueCharon over");
 
         gameObject.SetActive(false);
     }

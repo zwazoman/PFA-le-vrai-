@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Threading.Tasks;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class UiManager : MonoBehaviour
 {
@@ -133,7 +130,6 @@ public class UiManager : MonoBehaviour
 
 
         if(!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
-        print("PU");
         ActivateDialoguePanel();
         await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();

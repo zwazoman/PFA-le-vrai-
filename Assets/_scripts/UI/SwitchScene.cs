@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Permet de gerer les scenes
@@ -43,6 +41,5 @@ public class SwitchScene : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-        print("Quit");
     }
 }

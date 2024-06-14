@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlantTuto : MonoBehaviour
@@ -10,7 +8,6 @@ public class PlantTuto : MonoBehaviour
     public void ActivateTutorial()
     {
         Count++;
-        print(Count);
         if (Count == 3)
         {
             _ = UiManager.Instance.PopupDialogue(_dialogueScript, this);

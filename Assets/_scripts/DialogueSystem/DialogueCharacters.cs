@@ -1,9 +1,7 @@
-using CustomInspector;
 using System;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(fileName = "new Character", menuName = "Dialogue/Characters", order = 1)]

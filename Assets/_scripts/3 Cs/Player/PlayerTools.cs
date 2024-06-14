@@ -69,9 +69,6 @@ public class PlayerTools : MonoBehaviour
     public void OnToolUseEnd()
     {
         Debug.ClearDeveloperConsole();
-        print("=============================");
-        print("fini!");
-        print("=============================");
         canUse = true;
         PlayerMain.Instance.InputManager.enabled = true;
         

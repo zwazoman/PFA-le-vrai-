@@ -1,6 +1,3 @@
-using DG.Tweening;
-using System.Collections;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,7 +41,6 @@ public class WateringStorage : MonoBehaviour
     private void UpdateUI(int oldAmount,int newWaterAmount) // comment on reset le temps ? c'est chiantos
     {
         //_wateringBar.DOFade(255, _animTime);
-        print("suuu");
         _startTime = Time.time;
         _wateringBar.enabled = true;
 
