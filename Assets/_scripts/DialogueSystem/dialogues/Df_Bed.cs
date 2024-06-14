@@ -10,13 +10,13 @@ public class Df_Bed : DialogueFlow
 
     { "Ton lit, moelleux et attrayant" ,
         "Ton lit ne t'as jamais paru si attirant",
-        "Je suis ton lit. Viens dans mes bras, Bobbus" , 
+        "Je suis ton lit. Viens dans mes bras, Bobbus" ,
         "Un beau lit moelleux et musclé" ,
         "Dormir ne t'as jamais fait autant envie" ,
         "Un brin de repos ne te ferait sans doute pas de mal" ,
         "L'endroit parfait pour te reposer.",
         "Tu n'as plus qu'à poser la tête sur votre oreiller et t'endormir"
-       ""
+       
 
 
     };

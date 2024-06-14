@@ -224,14 +224,14 @@ public class DialoguePanel : MonoBehaviour
     {
         if (character.Name != String.Empty) { _titleText.gameObject.transform.parent.gameObject.SetActive(true); _titleText.text = character.Name; } else { _titleText.gameObject.transform.parent.gameObject.SetActive(false); return; }
 
-        characterDisplays[character].transform.localScale = Vector3.one * 1.1f;
+        characterDisplays[character].transform.localScale = Vector3.one * 1.35f;
         characterDisplays[character].color = Color.white;
     }
 
     public void SendCharacterToBackground(DialogueCharacter character)
     {
         if (!characterDisplays.ContainsKey(character) ) return;
-        characterDisplays[character].transform.localScale = Vector3.one * 0.8f;
+        characterDisplays[character].transform.localScale = Vector3.one * 1.1f;
         characterDisplays[character].color = Color.white * 0.8f;
     }
 
