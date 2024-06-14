@@ -68,16 +68,13 @@ public class TimeManager : MonoBehaviour
         LastRealTickTime = Time.time;
 
         Hour++;
-        print(IsDay);
         OnHour?.Invoke();
 
-        //print($"heure : {Hour} , day : {Day}");
         if (Hour == 6) { IsDay = true; OnMorning?.Invoke();}
         if (Hour == 18) { IsDay = false; OnEvening?.Invoke(); }
 
         if (Hour >= 24)
         {
-            //print("a whole day has passed!");
             Day++;
             Hour = 0;
             OnDay?.Invoke();
@@ -98,7 +95,6 @@ public class TimeManager : MonoBehaviour
         {            
             TimePass();
             i++;
-            //print(i);
         }
 
         _irlHourDuration = baseDuration;
@@ -131,7 +127,6 @@ public class TimeManager : MonoBehaviour
         float remainingTime = _irlHourDuration - elapsedTime;
 
         LastRealTickTime = Time.time;
-        print($"elapsedTime : {elapsedTime} ; remainingTime : {remainingTime}");
         InvokeRepeating(nameof(TimePass), remainingTime, _irlHourDuration);
     }
 

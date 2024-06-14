@@ -24,7 +24,6 @@ public class SellingSpot : Interactable
 
     public virtual void SellItem()
     {
-        print("Putain Skyrim");
         PlayerMain.Instance.Stats.AddMoney(-price);
         PlayerMain.Instance.Sounds.PlayBuySound();
         Destock();
@@ -33,11 +32,9 @@ public class SellingSpot : Interactable
 
     protected override void Interaction()
     {
-        print(_stock);
         if(_stock == 0)
         {
             //dialogue hors stock
-            print("hors stock");
             return;
         }
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this);

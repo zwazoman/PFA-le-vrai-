@@ -133,7 +133,6 @@ public class UiManager : MonoBehaviour
 
 
         if(!wasTimeAlreadyPaused) TimeManager.Instance.pauseTime();
-        print("PU");
         ActivateDialoguePanel();
         await Dialogue_Panel.StartDialogue(DialogueScript,worldObject);
         ActivateGameplayPanel();

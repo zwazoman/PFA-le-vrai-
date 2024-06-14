@@ -9,10 +9,8 @@ public class Bed : Interactable
     [SerializeField] Transform _HouseExit;
     protected override void Interaction()
     {
-        print("OwO");
        
         _ = UiManager.Instance.PopupDialogue(DialogueScript, this); 
-        print("XwX");
     }
 
     public void Sleep()

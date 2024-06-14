@@ -83,7 +83,6 @@ public class charon_bateau : MonoBehaviour
         int hours = Mathf.FloorToInt( (3.1f/(float)TimeManager.Instance.IrlHourDuration)) + 1;//combien d'heures dure son animation pour retourner sur le bateau
         if(TimeManager.Instance.Hour == 11 - hours)
         {
-            print("fais dodo fdp");
             StartCoroutine( Nathan.ExecuteWithDelay(RemonterSurLeBateau, TimeManager.Instance.IrlHourDuration*(hours) - 3.1f,true));
         }
 

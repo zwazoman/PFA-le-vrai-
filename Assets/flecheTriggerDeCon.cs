@@ -17,7 +17,6 @@ public class flecheTriggerDeCon : MonoBehaviour
 
     public void TryToTriggerFleche()
     {
-        print("a");
         fleche.instance.SetUp(this);
     }
 

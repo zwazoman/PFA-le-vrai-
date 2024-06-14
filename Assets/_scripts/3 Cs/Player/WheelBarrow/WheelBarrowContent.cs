@@ -40,7 +40,6 @@ public class WheelBarrowContent : MonoBehaviour
     void UpdateUI(int oldAmount, int newAmount) // comment on reset le temps ? c'est chiantos
     {
         //_wateringBar.DOFade(255, _animTime);
-        print("suuu");
         _startTime = Time.time;
         _storageBar.enabled = true;
 

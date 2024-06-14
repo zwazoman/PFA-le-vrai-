@@ -51,7 +51,6 @@ public class WheelBarrowInputManager : MonoBehaviour
         if (!enabled) return;
         if (context.performed)
         {
-            print("empty");
             OnEmpty?.Invoke();
         }
     }
@@ -74,7 +73,6 @@ public class WheelBarrowInputManager : MonoBehaviour
         //if (!enabled) return;
         if (context.performed) 
         {
-            //print("con");
             OnPause?.Invoke();
         }
         

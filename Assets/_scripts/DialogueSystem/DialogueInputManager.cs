@@ -39,16 +39,13 @@ public class DialogueInputManager : MonoBehaviour
             _keyUp = false;
         }*/
 
-        print("submitted pu1;");
         StartCoroutine(UpdateKeyInfo(ctx));
     }
 
     IEnumerator UpdateKeyInfo(InputAction.CallbackContext ctx)
     {
-        print("abcde");
         if (ctx.performed)
         {
-            print("le putain de perdormed a ete performé tu m'entends?");
             // On Button Down
             _keyHold = true;
 

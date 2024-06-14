@@ -45,7 +45,6 @@ public class UI_ToolButton : MonoBehaviour
                 break;
         }
 
-        //print(currentControlScheme);
         
         
     }
