@@ -7,7 +7,7 @@ public class Df_Geoffrus : DialogueFlow
     bool _firstTalk = true;
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Geoffrrus);
         if (_firstTalk)
         {
             await _characters.Geoffrrus.Say("Oh ? Et bien, si je m'y attendais... Cela faisais bien longtemps que je n'avais pas reçu de visite !");

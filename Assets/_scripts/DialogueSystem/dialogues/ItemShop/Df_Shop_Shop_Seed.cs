@@ -7,7 +7,7 @@ public class Df_Shop_Shop_Seed : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Geoffrrus);
 
         await _characters.Geoffrrus.Say("#Une graine# en plus pour votre labeur, que vous pouvez emportez de suite.");
         await _characters.Geoffrrus.Say($"Je vous en demande seulement quelques #poussières d'âmes {((SellingSpot)WorldObject).price}.#");
