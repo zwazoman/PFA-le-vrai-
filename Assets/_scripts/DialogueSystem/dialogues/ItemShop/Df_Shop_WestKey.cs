@@ -8,7 +8,7 @@ public class Df_Shop_WestKey : DialogueFlow
     public Df_Shop_WestKey(DialoguePanel panel, DialogueCharacters characters, MonoBehaviour WorldObject) : base(panel, characters, WorldObject) { }
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Geoffrrus, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Geoffrrus);
 
         await _characters.Geoffrrus.Say("Voici la clef du portail de l'Ouest, qui mène vers le cimetière et au temple de l'Ange, Eve. ");
         await _characters.Geoffrrus.Say($"Alors, curieux ? Elle est à toi pour #{((SellingSpot)WorldObject).price} poussières d'âmes.#");

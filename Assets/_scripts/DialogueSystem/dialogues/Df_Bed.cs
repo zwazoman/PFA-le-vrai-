@@ -8,14 +8,14 @@ public class Df_Bed : DialogueFlow
 
     List<string> dialogueNarrator = new List<string>()
 
-    { "Votre lit, moelleux et attrayant" ,
-        "Votre lit ne vous a jamais paru si attirant",
-        "Je suis ton lit. Viens dans mes bras, Bobbus" , 
-        "Un beau lit moelleux" ,
-        "Dormir ne vous a jamais fait autant envie" ,
-        "Un brin de repos ne vous ferait sans doute pas de mal" ,
-        "L'endroit parfait pour vous reposer.",
-        "Vous n'avez plus qu'à poser la tête sur votre oreiller et vous endormir"
+    { "Ton lit, moelleux et attrayant" ,
+        "Ton lit ne t'as jamais paru si attirant",
+        "Je suis ton lit. Viens dans mes bras, Bobbus" ,
+        "Un beau lit moelleux et musclé" ,
+        "Dormir ne t'as jamais fait autant envie" ,
+        "Un brin de repos ne te ferait sans doute pas de mal" ,
+        "L'endroit parfait pour te reposer.",
+        "Tu n'as plus qu'à poser la tête sur votre oreiller et t'endormir"
        
 
 
@@ -23,11 +23,11 @@ public class Df_Bed : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Narrator, _characters.Bobbus);
+        _panel.InitDialogue(_characters.Bobbus, _characters.Narrator);
 
         await _characters.Narrator.Say(dialogueNarrator[Random.Range(0, dialogueNarrator.Count)]);
 
-        int result = await _characters.Narrator.Ask("Souhaitez-vous dormir jusqu'au #matin# ?", new string[] { "Oui", "Non"});
+        int result = await _characters.Narrator.Ask("Veux-tu dormir avec moi jusqu'au matin, Bobbus ?", new string[] { "Oui", "Non"});
 
         if (result == 0) 
         {

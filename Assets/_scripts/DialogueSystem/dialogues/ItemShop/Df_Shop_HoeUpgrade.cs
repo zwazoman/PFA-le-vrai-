@@ -8,7 +8,7 @@ public class Df_Shop_HoeUpgrade : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Charon, _characters.Geoffrrus);
+        _panel.InitDialogue(_characters.Geoffrrus, _characters.Charon);
 
         await _characters.Geoffrrus.Say("Cet objet est très utile.Il te permet de rendre ta houe plus efficace.");
         await _characters.Geoffrrus.Say($"Je te le vend pour seulement {((SellingSpot)WorldObject).price} bitcoins! Quelle affaire!");
