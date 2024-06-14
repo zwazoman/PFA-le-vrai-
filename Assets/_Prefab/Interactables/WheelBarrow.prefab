@@ -923,6 +923,36 @@ MonoBehaviour:
   AngularFriction: 10.5
   vitesse: 8
   _groundFriction: 20.2
+  onPickup:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3952191310648312918}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onDrop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3952191310648312918}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3141824232809568764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,11 +983,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8245605553659854606}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05a2ce3c85678d1448c2d014efb2b72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wheelBarrowAudioSource: {fileID: 5056766720356638632}
 --- !u!114 &4957069028029590552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -981,7 +1012,8 @@ AudioSource:
   m_GameObject: {fileID: 8245605553659854606}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1413625443172146346, guid: 3711e1a416c70614e9e2d7892f85c446,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 506454ed0bf73a24abd818f1f2e8c928, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
