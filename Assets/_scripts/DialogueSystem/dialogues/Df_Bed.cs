@@ -23,11 +23,11 @@ public class Df_Bed : DialogueFlow
 
     public override async Task StartDialogue()
     {
-        _panel.InitDialogue(_characters.Bobbus, _characters.Narrator);
+        _panel.InitDialogue(_characters.Bobbus, _characters.LeBigLit);
 
-        await _characters.Narrator.Say(dialogueNarrator[Random.Range(0, dialogueNarrator.Count)]);
+        await _characters.LeBigLit.Say(dialogueNarrator[Random.Range(0, dialogueNarrator.Count)]);
 
-        int result = await _characters.Narrator.Ask("Veux-tu dormir avec moi jusqu'au matin, Bobbus ?", new string[] { "Oui", "Non"});
+        int result = await _characters.LeBigLit.Ask("Veux-tu dormir avec moi jusqu'au matin, Bobbus ?", new string[] { "Oui", "Non"});
 
         if (result == 0) 
         {
