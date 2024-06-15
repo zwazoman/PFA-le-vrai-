@@ -59,41 +59,23 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] AudioClip[] _validateQuestSounds;
     [SerializeField] float _validateQuestSoundsVolume = 1f;
 
+    [SerializeField] AudioClip[] _drinkPotion;
+    [SerializeField] float _drinkPotionVolume = 1f;
 
-    public void PlayToolWooshSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume, false, true);
-    }
 
-    public void PlayHoeEquipSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume, false, true);
-    }
+    public void PlayToolWooshSound() => SFXManager.Instance.PlaySFXClip(_toolWoosh, transform.position, _toolWooshVolume, false, true);
 
-    public void PlayWateringCanEquipSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform.position, _wateringCanEquipVolume, false, true);
-    }
+    public void PlayHoeEquipSound() => SFXManager.Instance.PlaySFXClip(_hoeEquip, transform.position, _hoeEquipVolume, false, true);
+    public void PlayWateringCanEquipSound() => SFXManager.Instance.PlaySFXClip(_wateringCanEquip, transform.position, _wateringCanEquipVolume, false, true);
 
-    public void PlayWateringCanEmptyEquipSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform.position, _wateringCanEmptyEquipVolume, false, true);
-    }
+    public void PlayWateringCanEmptyEquipSound() => SFXManager.Instance.PlaySFXClip(_wateringCanEmptyEquip, transform.position, _wateringCanEmptyEquipVolume, false, true);
 
-    public void PlayWateringActionSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_wateringAction, transform.position, _wateringActionVolume, false, true);
-    }
+    public void PlayWateringActionSound() => SFXManager.Instance.PlaySFXClip(_wateringAction, transform.position, _wateringActionVolume, false, true);
 
-    public void PlayWateringEmpty()
-    {
-        SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform.position, _wateringEmptyVolume, false, true);
-    }
+    public void PlayWateringEmpty() => SFXManager.Instance.PlaySFXClip(_wateringEmpty, transform.position, _wateringEmptyVolume, false, true);
 
-    public void PlayScytheEquipSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_scytheEquip, transform.position, _scytheEquipVolume, false, true);
-    }
+
+    public void PlayScytheEquipSound() => SFXManager.Instance.PlaySFXClip(_scytheEquip, transform.position, _scytheEquipVolume, false, true);
 
 
 
@@ -122,24 +104,16 @@ public class PlayerSounds : MonoBehaviour
 
 
 
-    public void PlayPickupPopSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_pickupPop, transform.position, _pickupPopVolume,false,true);
-    }
+    public void PlayPickupPopSound() => SFXManager.Instance.PlaySFXClip(_pickupPop, transform.position, _pickupPopVolume,false,true);
+        
 
-    public void PlayDropPopSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound, false, true);
-    }
+    public void PlayDropPopSound() => SFXManager.Instance.PlaySFXClip(_dropPop, transform.position, _dropPopSound, false, true);
 
-    public void PlayBuySound()
-    {
-        SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume, true, true);
-    }
+    public void PlayBuySound() => SFXManager.Instance.PlaySFXClip(_buySound, transform.position, _buySoundVolume, true, true);
 
-    public void PlayQuestValidateSound()
-    {
-        SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume, false,true);
-    }
+    public void PlayQuestValidateSound() => SFXManager.Instance.PlaySFXClip(_validateQuestSounds, transform.position, _validateQuestSoundsVolume, true,true);
+        
+
+    public void PlayDrinkPotionSound() => SFXManager.Instance.PlaySFXClip(_drinkPotion, transform.position, _drinkPotionVolume);
 
 }

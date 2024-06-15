@@ -2138,7 +2138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -548.65, y: 0}
+  m_AnchoredPosition: {x: -543.88, y: 0}
   m_SizeDelta: {x: 666.6, y: 644.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5248648235082140491
@@ -7846,7 +7846,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6b5647433f80716429723196e49bcfc8, type: 3}
   - {fileID: 8300000, guid: d313bac4f5541c344bdf6f4f5f325ac3, type: 3}
   - {fileID: 8300000, guid: f5b6737151e405c47aeca80fe20ee193, type: 3}
-  _groundHitVolume: 0.2
+  _groundHitVolume: 1
   _head: {fileID: 4889205188841666341}
   groundHitVFXPrefab: {fileID: 2135632046347732700, guid: feb6cdddddd09864e96a9a35a1fd4d42,
     type: 3}
@@ -8023,6 +8023,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c8314e4d0ae0f694e9fe421089d0f45c, type: 3}
   - {fileID: 8300000, guid: c34a22d425d28c84fa359a63fc89fa90, type: 3}
   _validateQuestSoundsVolume: 1
+  _drinkPotion:
+  - {fileID: 8300000, guid: 0726ca82ed9972041a22fe5a945fe10f, type: 3}
+  _drinkPotionVolume: 0.5
 --- !u!114 &121151280416837700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11939,6 +11942,8 @@ GameObject:
   - component: {fileID: 8324297905326965619}
   - component: {fileID: 8686755475077535555}
   - component: {fileID: 3499041265648352551}
+  - component: {fileID: 8555664008598230306}
+  - component: {fileID: 624712453112580148}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -12023,6 +12028,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3499041265648352551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686707762197856812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79fd074930c5d8458a5f84d3d490d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8555664008598230306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7686707762197856812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79fd074930c5d8458a5f84d3d490d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &624712453112580148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15258,6 +15287,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDrinkPotion:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6790433302852059315}
+        m_TargetAssemblyTypeName: PlayerSounds, Assembly-CSharp
+        m_MethodName: PlayDrinkPotionSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStopDrinkPotion:
     m_PersistentCalls:
       m_Calls: []
@@ -16296,7 +16340,7 @@ PrefabInstance:
     - target: {fileID: 7434791509296393351, guid: 43bba29582fed2947a356202b7230d3d,
         type: 3}
       propertyPath: _progressEndTreshold
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

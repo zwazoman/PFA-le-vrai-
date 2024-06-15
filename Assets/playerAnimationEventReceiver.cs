@@ -26,6 +26,7 @@ public class playerAnimationEventReceiver : MonoBehaviour
     public UnityEvent OnWalkFootstep;
     public UnityEvent OnRunFootstep;
 
+    public UnityEvent OnDrinkPotion;
     public UnityEvent OnStopDrinkPotion;
 
     public void InvokeOnScytheEquip() => OnScytheEquip.Invoke();
@@ -58,6 +59,8 @@ public class playerAnimationEventReceiver : MonoBehaviour
     {
         if (PlayerMain.Instance.Watering.CanWater) OnPlayWaterVFX.Invoke();
     }
+
+    public void InvokeOnDrinkPotion() => OnDrinkPotion.Invoke();
 
     public void InvokeOnStopDrinkPotion()
     {

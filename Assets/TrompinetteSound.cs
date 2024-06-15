@@ -6,12 +6,15 @@ public class TrompinetteSound : MonoBehaviour
 {
     [SerializeField] AudioSource _driveAudioSource;
     [SerializeField] AudioSource _stopAudioSource;
+    [SerializeField] AudioSource _klaxonSource;
 
     [SerializeField] AudioClip[] _startEngine;
     [SerializeField] float _startEngineVolume = 1f;
 
     [SerializeField] AudioClip[] _leaveEngine;
     [SerializeField] float _leaveEngineVolume = 1f;
+
+
 
     WheelBarrowMovement _WBMove;
     float _playerWalkSpeed;
@@ -23,6 +26,7 @@ public class TrompinetteSound : MonoBehaviour
         SFXManager.Instance.PlaySFXClip(_startEngine, transform.position, _startEngineVolume);
         _driveAudioSource.Play();
         _stopAudioSource.Play();
+        PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty += Klaxon;
     }
 
     private void Update()
@@ -42,9 +46,15 @@ public class TrompinetteSound : MonoBehaviour
         this.enabled = false;
     }
 
+    private void Klaxon()
+    {
+        _klaxonSource.Play();
+    }
+
     private void OnDisable()
     {
         StartCoroutine(OnDrop());
+        PlayerMain.Instance.WheelBarrow.InputManager.OnEmpty -= Klaxon;
     }
 
 

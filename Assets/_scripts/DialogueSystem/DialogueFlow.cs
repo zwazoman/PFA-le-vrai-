@@ -19,7 +19,6 @@ public abstract class DialogueFlow
         this.WorldObject = _WorldObject;
         _panel = panel;
 
-        Debug.Log("scriptable is null: " + (characters == null).ToString()) ;
 
         _characters = characters;
 
