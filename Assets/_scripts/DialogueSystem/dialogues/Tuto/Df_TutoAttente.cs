@@ -9,6 +9,6 @@ public class Df_TutoAttente : DialogueFlow
     {
         _panel.InitDialogue(_characters.Bobbus, _characters.Charon);
 
-        await _characters.Charon.Say("Bien, je vois que tes plantations progressent ! Laisse-leur le temps de pousser, et repasse demain matin. Profites-en pour #explorer# un peu autour de la ferme !.");
+        await _characters.Charon.Say("Bien, je vois que tes plantations progressent ! Laisse-leur le temps de pousser, et repasse demain matin. Profites-en pour #explorer# un peu autour de la ferme ! Tu peux aussi aller #dormir dans ta maison# si tu n'as plus rien à faire.");
     }
 }

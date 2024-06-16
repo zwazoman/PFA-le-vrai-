@@ -43,8 +43,8 @@ public class Df_Tuto : DialogueFlow
 
         await _characters.Bobbus.Say("... J'imagine que je n'ai pas le choix ?");
 
-        await _characters.Charon.Say("Aucunement ! Enfin, si vous voulez #racheter votre âme# tout du moins. Vous verrez, tout ce que vous avez à faire, c'est #planter les graines# que je vous #livre tous les deux jours#, et vous en occupez.");
-        await _characters.Charon.Say("Je vous donnerais des informations sur la suite en tant voulu.");
+        await _characters.Charon.Say("Aucunement ! Enfin, si vous voulez #racheter votre âme# tout du moins. Vous verrez, tout ce que vous avez à faire, c'est #planter les graines# que je vous #livre tous les deux jours#, et vous en occuper.");
+        await _characters.Charon.Say("Je vous donnerais des informations sur la suite en temps voulu.");
        
 
      await _characters.Charon.Say("Je reviendrais vous #livrez des sacs ici même tous les deux jours#");
@@ -56,7 +56,7 @@ public class Df_Tuto : DialogueFlow
         int resultat=-1;
         while(resultat != 3)
         {
-            resultat = await _characters.Bobbus.Ask("Besoin que je répète quoi que ça soit ?", new string[] { "Le cycle de plantation", "Les outils", "Le salut de mon âme", "Non merci" });
+            resultat = await _characters.Bobbus.Ask("Besoin que je répète quoi que ce soit ?", new string[] { "Le cycle de plantation", "Les outils", "Le salut de mon âme", "Non merci" });
 
             if (resultat == 0)
             {

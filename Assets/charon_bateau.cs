@@ -52,8 +52,8 @@ public class charon_bateau : MonoBehaviour
 
     public void OnHour()
     {
-        if (TimeManager.Instance.Day % 2 == 0) return;
-
+        if (TimeManager.Instance.Day % 2 == 1) return;
+        print("Day : " + TimeManager.Instance.Day.ToString());
         //StopAllCoroutines();
 
         //mouvement du bateau
