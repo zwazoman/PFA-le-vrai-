@@ -47,7 +47,7 @@ public class Df_Tuto : DialogueFlow
         await _characters.Charon.Say("Je vous donnerais des informations sur la suite en temps voulu.");
        
 
-     await _characters.Charon.Say("Je reviendrais vous #livrez des sacs ici même tous les deux jours#");
+     await _characters.Charon.Say("Je reviendrais vous #livrer des sacs ici même tous les deux jours#");
         
         await _characters.Bobbus.Say("Et où dois-je commencer ?");
 
