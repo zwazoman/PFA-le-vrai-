@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -99,7 +100,7 @@ public class fleche : MonoBehaviour
 
         //rotation
         Vector2 JENPEUPLU = (Vector2)targetPosition - new Vector2(Screen.width, Screen.height) / 2f;
-        LaFleche.rotation = Quaternion.Euler(Vector3.forward * (Mathf.Atan2(JENPEUPLU.y,JENPEUPLU.x)*Mathf.Rad2Deg+90));
+        LaFleche.rotation = Quaternion.Euler(Vector3.forward * (math.atan2(JENPEUPLU.y,JENPEUPLU.x)*Mathf.Rad2Deg+90));
 
         //scale
         transform.localScale = Vector3.one * (1f + Mathf.Sin(Time.time * Frequency) * Amplitude);

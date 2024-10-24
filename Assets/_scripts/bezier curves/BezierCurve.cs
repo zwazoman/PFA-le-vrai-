@@ -1,7 +1,11 @@
 
 using System.Collections.Generic;
-
+using Unity.Collections;
+using Unity.Jobs;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.Assertions;
+using UnityEngine.UIElements;
 
 [ExecuteAlways]
 public class BezierCurve : MonoBehaviour
@@ -27,16 +31,16 @@ public class BezierCurve : MonoBehaviour
 #if UNITY_EDITOR
     void Update()
     {
-        Debug.DrawRay(Sample(testValue), Vector3.up * 20, Color.red);
+        //Debug.DrawRay(Sample(testValue), Vector3.up * 20, Color.red);
 
-        if (points.Count >= 2) 
-        Draw();
+        //if (points.Count >= 2) 
+        //Draw();
 
-        testValue = (testValue - 0.1f * Time.deltaTime)%1;
+        //testValue = (testValue - 0.1f * Time.deltaTime)%1;
 
         if (Application.isPlaying)
         {
-            GetClosestPoint(PlayerMain.Instance.transform.position);
+            //GetClosestPoint(PlayerMain.Instance.transform.position);
         }
     }
 #endif
@@ -134,20 +138,16 @@ public class BezierCurve : MonoBehaviour
     /// <returns></returns>
     public Vector3 Sample(float alpha) 
     {
-        alpha *= linearSampledPoints.Count;
+        Assert.IsTrue(linearSampledPoints.Count >= 2, "curve is empty,you chould call recalculate()");
+        alpha *= linearSampledPoints.Count-1;
         int c = Mathf.FloorToInt(alpha);
         alpha = alpha % 1f;
 
         return Vector3.Lerp(linearSampledPoints[Mathf.Clamp(c , 0, linearSampledPoints.Count - 1)], linearSampledPoints[Mathf.Clamp( c + 1,0, linearSampledPoints.Count-1)], alpha);
-        
     }
 
     void Draw()
     {
-        /*for (int j = 0; j < points.Count - 1; j++)
-        {
-            drawSegment(j, j + 1);
-        }*/
         for (int j = 0; j < linearSampledPoints.Count - 1; j++)
         {
             Debug.DrawRay(linearSampledPoints[j], Vector3.up, Color.green);
@@ -169,7 +169,12 @@ public class BezierCurve : MonoBehaviour
 
     private void Awake()
     {
-        OnValidate();
+        foreach (BezierCurveControlPoint point in points)
+        {
+            if (point != null) point.curve = this;
+        }
+
+        this.Recalculate();
     }
 
     /// <summary>
@@ -193,9 +198,10 @@ public class BezierCurve : MonoBehaviour
                 distanceToClosest1 = distance;
                 iclosest1 = i;
                 //si c'est cassé tkt
-                float leftDistance = (position - pts[iclosest1 - step]).sqrMagnitude;
-                float rightDistance = (position - pts[iclosest1 + step]).sqrMagnitude;
-                iclosest2 = (leftDistance < rightDistance) ?  iclosest1 - step:  iclosest1 + step;
+                int a = Mathf.Clamp( iclosest1 - step,0, pts.Count - 1); int b = Mathf.Clamp(iclosest1 + step, 0, pts.Count-1);
+                float leftDistance = (position - pts[a]).sqrMagnitude;
+                float rightDistance = (position - pts[b]).sqrMagnitude;
+                iclosest2 = (leftDistance < rightDistance) ?  a:  b;
             }
         }
         Debug.DrawRay(linearSampledPoints[iclosest1], Vector3.up * 10, Color.red);
@@ -203,11 +209,13 @@ public class BezierCurve : MonoBehaviour
 
         return new int[2] { iclosest1, iclosest2 };
     }
+    
 
     public Vector3 GetClosestPoint(Vector3 bahLePoint)
     {
-        int[] suu = FindTwoClosestIndices(bahLePoint, 10, 0, pts.Count);
-        suu = FindTwoClosestIndices(bahLePoint, 10, Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]));
+        int[] suu = FindTwoClosestIndices(bahLePoint, 5, 0, pts.Count);
+        suu = FindTwoClosestIndices(bahLePoint, 5, Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]));
+        suu = FindTwoClosestIndices(bahLePoint, 5, Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]));
         suu = FindTwoClosestIndices(bahLePoint, Mathf.Abs(suu[1] - suu[0]), Mathf.Min(suu[0], suu[1]), Mathf.Max(suu[0], suu[1]) + 15);
         return pts[suu[0]];
     }

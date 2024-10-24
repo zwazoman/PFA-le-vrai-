@@ -1,8 +1,9 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    [SerializeField] AudioSource _SFXObject;
+    [SerializeField] Pool _audioSourcePool;
 
     //singleton
     private static SFXManager instance = null;
@@ -20,11 +21,13 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySFXClip(AudioClip[] audioClips, Vector3 position, float volume, bool bypassesReverb = false, bool ignoresSpatiality = false, float pitch = 1f)
+    public async void PlaySFXClip(AudioClip[] audioClips, Vector3 position, float volume, bool bypassesReverb = false, bool ignoresSpatiality = false, float pitch = 1f)
     {
         if (audioClips.Length == 0) return;
         int rand = Random.Range(0, audioClips.Length);
-        AudioSource audioSource = Instantiate(_SFXObject, position, Quaternion.identity);
+
+        PooledObject o = _audioSourcePool.PullObjectFromPool(transform);
+        AudioSource audioSource = (AudioSource)o.fetchMainComponent<AudioSource>();//Instantiate(_SFXObject, position, Quaternion.identity);
         audioSource.clip = audioClips[rand];
         audioSource.volume = volume;
         if (bypassesReverb) audioSource.bypassReverbZones = true;
@@ -32,7 +35,11 @@ public class SFXManager : MonoBehaviour
         audioSource.pitch = pitch;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
-        Destroy(audioSource.gameObject, clipLength);
+
+        await Task.Delay(Mathf.CeilToInt(clipLength * 1000));
+
+        _audioSourcePool.PutObjectBackInPool(o);
+        //Destroy(audioSource.gameObject, clipLength);
     }
 
 }

@@ -123,11 +123,14 @@ public class charon_bateau : MonoBehaviour
 
     public void setPositionAlongCurve(float alpha)
     {
-        if (curve == null) return;
-        transform.position = curve.Sample(alpha);
+        try
+        {
+            if (curve == null) return;
+            transform.position = curve.Sample(alpha);
 
-        Vector3 f = (curve.Sample(1f-alpha) - curve.Sample(1f-(alpha + 1 / 200f))); // la tangente du pauvre
-        if (f != Vector3.zero) transform.forward = f;
+            Vector3 f = (curve.Sample(1f - alpha) - curve.Sample(1f - (alpha + 1 / 200f))); // la tangente du pauvre
+            if (f != Vector3.zero) transform.forward = f;
+        } catch { }
     }
 
     void TutorialEnd()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6874941663850055352}
   - component: {fileID: 927602826800415264}
+  - component: {fileID: 2041443103572922735}
   m_Layer: 0
   m_Name: SFXManager
   m_TagString: Untagged
@@ -44,5 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4c9317506857a4cb6fef422a05b6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _SFXObject: {fileID: 5477517414722178483, guid: f45dac70d8e618c43a8b577a78fd8bd1,
-    type: 3}
+  _audioSourcePool: {fileID: 2041443103572922735}
+--- !u!114 &2041443103572922735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561555771577063375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cc4e3a033bab34dbb211ce99d56861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 8724537771632263840, guid: f45dac70d8e618c43a8b577a78fd8bd1, type: 3}
+  _poolSize: 30
