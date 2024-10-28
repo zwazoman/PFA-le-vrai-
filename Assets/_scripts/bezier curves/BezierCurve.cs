@@ -33,8 +33,8 @@ public class BezierCurve : MonoBehaviour
     {
         //Debug.DrawRay(Sample(testValue), Vector3.up * 20, Color.red);
 
-        //if (points.Count >= 2) 
-        //Draw();
+        if (points.Count >= 2) 
+        Draw();
 
         //testValue = (testValue - 0.1f * Time.deltaTime)%1;
 
